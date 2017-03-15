@@ -1,0 +1,61 @@
+<% content_for :meta_properties do %>
+  <meta property="og:title" content="#BestRecognition2014 Charity Contest from Recognize" />
+<% end%>
+
+<% path = current_user.present? ? stream_path(network: current_user.network) : "/login" %>
+
+
+<div class="banner-blue">
+  <div class="inner">
+    <h1>#BestRecognition2014</h1>
+    <h2>Charity Contest</h2>
+
+    <div class="rules">
+      <ul>
+        <li>
+          <%= image_tag "pages/home-contest/hashtag.png", alt: "Hashtag" %>
+          <p>1. Tag a <%= link_to current_user.present? && current_user.company.present? ? current_user.company.name : "Recognizeapp.com", path %> recognition for your company with #BestRecognition2014 in a comment or the recognition message.</p>
+        </li>
+        <li>
+          <%= image_tag "pages/home-contest/share.png", alt: "Share" %>
+          <p>2. Share the #BestRecognition2014 recognition and ask staff to +1 the recognition.</p>
+        </li>
+        <li>
+          <%= image_tag "pages/home-contest/tree-small.png", alt: "Small tree" %>
+          <p>3. Peers involved in the top recognitions (sender, recipient, and tagger) will choose charities of their choice for donation.</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="details">
+  <div class="row-fluid">
+    <div class="span4">
+      <%= image_tag "pages/home-contest/date.jpg", alt: "Due date January 15th", class: "date" %>
+    </div>
+    <div class="span8">
+      <h2>Winners</h2>
+      <ul class="winners-details">
+        <li><p><em>First place</em> receives $500 to donate to their charity of choice.<sup>*</sup></p></li>
+        <li><p><em>Second place</em> receives $100 to donate to their charity of choice.<sup>*</sup></p></li>
+        <li><p><em>Third place</em> and all winners will be highlighted for their company’s awesome recognition culture on Recognize.</p></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="class-bg">
+  <div class="inner">
+    <%= image_tag "pages/home-contest/recognition.png", alt: "A recognition tagged with #BestRecognition2014" %>
+    <div>
+      <h3>Make a difference through recognition</h3>
+      <%= link_to "Start now! Tag your recognitions with #BestRecognition2014", path %>
+    </div>
+
+  </div>
+</div>
+
+<p class="small-print">Winning companies are determined by the recognition that has the greatest number of "+1's" or approvals. The charity that the winning company chooses must be a 501(3)c nonprofit organization located in the United States. Winners can opt out of their company from being highlighted on Recognize website. Donation is paid for by Recognize on behalf of the winning company. Purchase is not necessary.</p>
+
+<%= render :partial => 'footer' %>

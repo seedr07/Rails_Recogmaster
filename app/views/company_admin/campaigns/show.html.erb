@@ -1,0 +1,32 @@
+<h2><%= image_tag @campaign.badge.image_url, width: 100 %><br><%= @campaign.badge.short_name %></h2>
+<h3><%= reset_interval_label_with_time(@campaign.badge.interval, @campaign.start_date) %></h3>
+
+<h3>Nominations</h3>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th><%= t("dict.nominee") %></th>
+      <th><%= t("dict.votes") %></th>
+      <th><%= t("dict.view") %></th>
+      <th><%= t("dict.award") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @nominations.each do |nomination| %>
+      <% award_text = nomination.is_awarded? ? t("nominations.awarded") : t("nominations.award") %>
+      <% awarded_css_classes = "nomination-status button form-loading-ignore"
+         awarded_css_classes << " button-success" if nomination.is_awarded?
+      %>
+
+      <tr id="nomination-<%= nomination.id%>">
+        <td>
+          <%= recipient_avatar(nomination.recipient) %><br />
+          <%= nomination.recipient.full_name %>
+        </td>
+        <td><%= nomination.votes.size %></td>
+        <td><%= link_to t("dict.view"), votes_company_admin_nomination_path(nomination) %></td>
+        <td><%= link_to award_text, award_company_admin_nomination_path(nomination), remote: true, method: :post, class: awarded_css_classes %></td>
+      </tr>
+    <% end%>
+  </tbody>
+</table>

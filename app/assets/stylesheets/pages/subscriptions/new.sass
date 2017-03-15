@@ -1,0 +1,103 @@
+.subscriptions
+  background: white
+
+  h1 + p
+    font-size: 19px
+    line-height: 22px
+
+  .intro
+    margin: 50px 0
+
+  .instructions
+    max-width: 1039px
+    border: 1px solid #dfdbd5
+    border-radius: 4px
+    padding: 50px
+    margin: 74px auto 30px
+
+    img
+      max-width: 100%
+
+    .span6
+      height: 220px
+
+    .flex-centered
+      height: 100%
+
+  .quote
+    max-width: 505px
+    margin: auto
+
+    q
+      font-size: 22px
+
+    .content
+      padding-left: 125px
+
+      q, span
+        color: #A2A2A2
+
+    img
+      position: absolute
+      left: 0
+      top: 15px
+      width: 109px
+  
+  #pricing-confirmation
+    max-width: 800px
+    margin: auto
+
+  .cost
+    color: $headerBg
+
+  #payment-users-wrapper
+
+    label
+      display: block
+      margin: 5px
+
+      input
+        width: 20px
+        padding: 3px
+
+  #subscription-fields
+    clear: both
+
+  .callout
+    float: right
+
+  #pricing-confirmation form,
+  .payment-callout
+    background: white
+    box-sizing: border-box
+    padding: 30px
+    border-radius: 8px
+    margin-bottom: 30px
+
+  #subscription_plan_id
+    width: 100px
+    height: 41px
+    margin-left: 10px
+    cursor: pointer
+
+@media(max-width: 768px)
+  #subscriptions-new
+    .callout,
+    h1
+      float: none
+
+    .quote
+      .span4
+        text-align: center
+
+    .instructions
+      .span6
+        height: auto
+
+      .button
+        margin-top: 20px
+        width: 100%
+
+        &:after, &:before
+          border-color: transparent
+

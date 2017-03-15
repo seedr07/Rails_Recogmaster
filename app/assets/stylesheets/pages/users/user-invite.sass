@@ -1,0 +1,129 @@
+
+$inviteElementBg: #F5F5F5
+
+#invite
+  .hr
+    margin: 30px 0 30px 0
+    
+  .button-dark
+    @include tallDarkButton()
+  
+  #invite-row > div
+    margin-bottom: 20px
+    
+  .invite-email-group
+    margin-bottom: 10px
+    min-height: 40px
+  
+    input
+      color: #495664
+      position: relative
+      box-shadow: inset 0 2px 3px 0px rgba(72, 78, 84, 0.19)
+      border: 1px solid #dee0e8
+      z-index: 2
+      border-radius: 5px 5px
+      width: auto
+      padding: 11px 10px
+      height: 40px !important
+    
+    .domain
+      background: $inviteElementBg
+      font-size: 18px
+      padding: 10px 19px
+      z-index: 1
+      left: -10px
+      border-radius: 0 5px 5px 0
+      width: 50%
+      
+      .inner
+        width: 100%
+        overflow: hidden
+        white-space: nowrap
+        text-overflow: ellipsis
+        
+  @media (max-width: 969px)
+    .invite-email-group .domain
+      width: 45%
+
+  @media (max-width: 969px)
+    .invite-email-group .domain
+      width: 37%
+      
+  @media (max-width: 768px)
+    .invite-email-group .domain
+      width: auto   
+  
+  #invite-yammer-users 
+    background: $inviteElementBg
+    box-shadow: 0 0 5px rgba(107, 107, 107, 0.67)
+    margin: 10px 0
+    max-height: 209px
+    overflow-y: auto
+    overflow-x: none
+    
+    .person
+      padding: 10px
+      border-bottom: 1px solid #CFD1D8
+      border-top: 1px solid white
+      cursor: pointer
+      position: relative
+      
+      img
+        z-index: 3
+        position: relative
+      
+      img, h4
+        @include transition(.2s all ease-in-out)
+      
+      i
+        top: 27px
+        left: 12px
+        display: none
+    
+    .person .checkbox
+      position: absolute
+      left: -9999px
+      
+    .person:first-child
+      border-top: 0  
+      
+    .person:last-child
+      margin-bottom: 0
+      border-bottom: 0
+    
+    .person:hover h4
+      color: $btnBlueTopColor
+      
+    .person.selected
+      background: $btnBlueTopColor
+      
+      i
+        display: block
+      
+      img
+        margin-left: 30px
+        
+      h4
+        color: white
+      
+    .person.selected:hover h4
+      color: white
+    
+    img
+      margin-right: 10px
+    
+    h4
+      display: inline
+      position: relative
+      top: 3px
+      
+#invite
+  .span6
+    margin-bottom: 30px
+    
+@media (max-width: 480px)
+  #invite .invite-email-group .domain
+    font-size: 14px
+    
+  #invite .invite-email-group input
+    padding: 20px 21px 17px 21px

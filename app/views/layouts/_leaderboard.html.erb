@@ -1,0 +1,13 @@
+<div class="clearfix leaderboard-wrapper <%= leaderboard_class %>">
+  <div class="page-main marginBottom10">
+    <% yield %>
+    <%= render partial: "layouts/time_selector" %>
+  </div>
+  <aside class="page-aside">
+    <div class="filter-wrapper marginBottom10">
+      <%= render partial: "layouts/leaderboard/badge_filter" %>
+      <%= render partial: "layouts/leaderboard/team_filter" %>
+    </div>
+  </aside>
+  <%= render partial: "layouts/leaderboard/metric_selector" %>
+</div>

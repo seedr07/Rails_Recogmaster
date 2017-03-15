@@ -1,0 +1,4 @@
+<div style="<%= mail_styles(:h2, :text) %>  padding-top:20px; margin-top: 0; margin-bottom: 10px;"><%= @comment.content%></div>
+<p style="<%= mail_styles(:textSubtle, :text) %>">- <%= @comment.commenter.full_name %> commented</p>
+<br>
+<a style="<%= mail_styles(:button) %>" href="<%= recognition_url(@comment.commentable) %>">View the conversation</a>

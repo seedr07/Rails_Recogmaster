@@ -1,0 +1,24 @@
+<% unless jobs.present? %>
+  <div>There are no jobs present</div>
+<% else %>
+  <table class="table table-striped table-bordered table-hover table-responsive">
+    <tr>
+      <th>Id</th>
+      <th class="span3">Created</th>
+      <th>Queue</th>
+      <th>Object</th>
+      <th>Method</th>
+      <th>Arguments</th>
+    </tr>
+      <% jobs.each do |j|%>
+        <tr>
+          <td><%= j.id%></td>
+          <td><%= localize_datetime(j.created_at, :friendly_with_time_seconds)%></td>
+          <td><%= dj_queue(j) %></td>
+          <td><%= dj_object_label(j) %></td>
+          <td><%= dj_method_name(j) %></td>
+          <td><%= dj_args(j) %></td>
+        </tr>
+      <% end %>
+  </table>
+<% end %>

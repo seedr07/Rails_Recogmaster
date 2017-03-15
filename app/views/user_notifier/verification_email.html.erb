@@ -1,0 +1,17 @@
+<h2 style="<%= mail_styles(:h2, :text, :title) %> padding: 0;">Welcome to Recognize.</h2>
+
+<% if @user.from_inbound_email_id.present? %>
+  <p style="<%= mail_styles(:p) %>">We've received your recognition via email. Please take a moment to confirm your account and create a password so we may send out the recognition to your recipients. </p> 
+
+  <a href="<%= @verification_url %>" style="<%= mail_styles(:button) %>">Click here to verify</a>
+
+<% else %>
+  <p style="<%= mail_styles(:p) %>">Thanks for signing up with Recognize. Once verified, you can create your recognition profile, send and receive recognitions with your colleagues, and share your recognitions.</p> 
+  
+  <a href="<%= @verification_url %>" style="<%= mail_styles(:button) %>">Verify email</a>
+<% end %>
+
+
+<h3 style="<%= mail_styles(:text, :h3)%>">Or copy and paste this url:</h3>
+
+<a href="<%= @verification_url %>" style="<%= mail_styles(:text, :a) %>"><%= @verification_url %></a>

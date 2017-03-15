@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+
+DELAYED_JOB_PID_PATH="#{File.expand_path('tmp/pids/delayed_job.pid')}"
+DELAYED_JOB_SCRIPT="#{File.expand_path('script/delayed_job')}"
+
+def daemon_is_running?
+  if File.exists?(DELAYED_JOB_PID_PATH) and Process.kill(0, File.read(DELAYED_JOB_PID_PATH).strip.to_i)
+    return true
+  else 
+    return false
+  end
+rescue Errno::ENOENT, Errno::ESRCH   # file or process not found
+  false
+end
+
+if !daemon_is_running?
+  cmd = "#{DELAYED_JOB_SCRIPT} start RAILS_ENV=production "
+  puts "delayed job not running...starting with #{cmd}"
+  `#{cmd}`
+else
+  puts "delayed job running, nothing to do."
+end
+  

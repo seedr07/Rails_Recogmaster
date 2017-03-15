@@ -1,0 +1,94 @@
+<div id="recognition-new-wrapper" class='<% if params[:layout] === 'false' %> fadeTop overlay <% end %>'>
+
+  <% if current_user and !current_user.verified? and params[:controller] != "password_resets"%>
+    <%= render partial: "/recognitions/verify_warning"%>
+  <% end %>
+
+  <%= form_for(@nomination_vote, url: nominations_url(network: current_user.network),remote: true, html: {data: {errorwrapper: "#recognition-send-error-wrapper", event: "send-recognition-form"}}) do |f| %>
+
+    <div id="top" class="clearfix" <% if !current_user.verified? %> style="opacity: 0.2"<% end %>>
+      <%= render "recognitions/nomination_toggle" %>
+      <div id="recognition-form-inputs">
+        <div class="row-fluid">
+          <%
+              if @send_recognition.badge
+                name = @send_recognition.badge.name 
+                long_name = @send_recognition.badge.short_name 
+          else
+            name = "choose"
+            long_name = t("recognition_new.choose_a_badge")
+          end
+        %>
+
+      <div class="span4 <%= @send_recognition.badge ? 'chosen' : ''%>">
+
+        <div class="image-wrapper marginBottom10 centered">
+          <%= f.fields_for :nomination do |nomination| %>
+            <%#
+              Need to hack the form a bit in order to conform both with how error messages work
+              And the convention for Post.js to set the value of the badge of either recognition or nomination
+            %>
+            <%= hidden_field_tag "nomination_vote_nomination_badge_id" %><%# hack for error messages %>
+            <%= nomination.hidden_field :badge_id, id: "nomination_vote_badge_id" %><%# used to set the value of badge %>
+          <% end %>
+          <h4 id="badge-name" class="subtle-text"><%= long_name%></h4>
+
+          <a href="#" id="badge-trigger" class="badge-<%= name %> analyticsEvent", data-event="badge-trigger", data-eventtype="opened"></a><br>
+          <a id="badge-edit"><%= t("recognition_new.edit_badge_html")%></a>
+        </div>
+
+
+      </div>
+
+      <div id="main-text" class="span8">
+        <div class="controls">
+
+
+          <%= hidden_field_tag :nomination_vote_nomination_sender_name, @current_user.full_name %>
+
+          <h4><%= t("nomination_new.recipient_search_title_html")%></h4>
+          <% if @send_recognition.recipients.present? %>
+            <% raise "not implemented yet" %>
+          <% else %>
+            <%= f.hidden_field :recipients, multiple: true, class: "hidden-field recognition_recipients", id: "recognition_recipients_1", 
+              value: nil, data: {index: 1} %>
+          <% end %>
+
+          <%= text_field_tag "", "", id: "nomination_vote_recipient_name", name: "email", class: "input-xlarge analyticsEvent", placeholder: t("nomination_new.recipient_input_placeholder", company: add_preceding_article(@current_user.company.domain)), data: {event: "recognition-recipient-name", eventtype: "focused"} %>
+
+          <div id="recognition-new-autocomplete-wrapper"></div>
+
+          <div id="chosen-recepient-wrapper" class="clearfix no-recipients">
+
+            <label class="subtle-text"><%= t("forms.recipient") %></label>
+
+            <%# error messages for individual recipient attach to this hidden field %>
+            <%= hidden_field_tag :recipient, "", class: "hidden-field", id: "nomination_recipient"%>
+
+            <div class="inner"><span class="message"><%= t("recognition_new.no_recipients_have_been_added") %></span></div>
+          </div>
+        </div>
+
+        <div id="recognition-form-extras" class="">
+          <%= f.label :message, message_label(:nomination_message_is_required), class:"control-label subtle-text"%>
+          <div class="controls marginBottom10">
+            <%= f.text_area :message, class:"input-xlarge analyticsEvent", placeholder: t("nomination_new.reason_for_the_nomination"), cols: 1, rows: 5, data: {event: "recognition-message", eventtype: "focused"} %>
+          </div>
+        </div>
+
+      </div>
+        </div>
+
+      </div>
+
+    </div>
+    <div class='button-wrapper'>
+      <div id="recognition-submit-wrapper">
+        <!-- TODO Localization, to change button text -->
+        <% if current_user.verified? %>
+          <%= f.submit t("nomination_new.send_nomination"), class:"button-primary button button-big", data: {"lf-page-change"=> true} %>
+        <% end %>
+      </div>
+    </div> 
+  <% end%>
+</div>

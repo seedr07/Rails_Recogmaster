@@ -1,0 +1,97 @@
+.recognition-card {
+  display: block;
+  margin-bottom: 20px;
+  border-bottom: solid 1px #E8E8E8;
+  padding-bottom: 30px;
+}
+
+.recognition-card dl dt {
+  position: absolute;
+  left: -9999px;
+}
+
+.recognition-card h4 {
+  border: none;
+}
+
+.recognition-card h4 {
+  border: none !important;
+}
+
+.recognition-card .image-wrapper {
+  position: relative;
+  z-index: 2;
+  width: 50px;
+  height: 50px;
+  background-size: 50px;
+  margin: -4px 0 0 15px;
+  border-radius: 102px;
+  box-shadow: 0 2px 5px 1px rgba(105, 104, 104, 0.73);
+  float: left;
+}
+
+.recognition-card .to-wrapper {
+  float: left;
+  padding: 0 0 0 13px;
+  max-width: 400px;
+}
+
+.recognition-card .to-wrapper h3 {
+  margin-bottom: 10px;
+  line-height: 20px;
+  font-size: 16px;
+} 
+
+.recognition-card .to-wrapper h4 {
+  font-size: 12px;
+  line-height: 15px;
+}  
+
+.recognition-card ol,
+.recognition-card ul {
+  margin: 0;
+}
+
+.recognition-card .recognition-card-inner .recognition-card-link {
+  display: block;
+  padding: 20px 0;
+  border-radius: 3px;
+  background: #FBFBFB;
+  border: 1px solid #D7D7D7;
+  margin: 10px 0;
+}
+
+.recognition-card .recognition-card-inner a:hover {
+  background: #F2F6FA;
+}  
+
+.recognition-card .recognition-recepient-list {
+  margin-bottom: -10px;
+}
+
+.recognition-card .to {
+  float: left;
+  margin-right: 10px;
+  padding: 5px;
+  border-radius: 3px;
+  background: #FFF;
+  border: 1px solid #DBDBDB;
+  margin-bottom: 10px;
+}
+
+.recognize-subtle {
+  color: #BBB;
+}
+
+.recognition-card .to .recognition-recipient-content,
+.recognition-card .to img {
+  float: left;
+}
+
+.recognition-card .to img {
+  margin-right: 5px;
+}
+
+.recognition-card .to i {
+  display: block;
+}

@@ -1,0 +1,84 @@
+<div class="exp-wrapper">
+
+  <section class="exp-main clearfix">
+    <div class="content">
+      <h2>Social Employee Recognition</h2>
+      <p class="tagline balance-text">Retain and engage staff with a flexible recognition &amp; rewards program.</p>
+    </div>
+
+    <a id="demo-video-trigger" href="#demo-video" class="play-video-trigger clearfix">
+      Watch demo
+      <%= image_tag "pages/home-index/exp/play.png", class: "play-circle", alt: "Play demo" %>
+      <span>(1:12 min)</span>
+    </a>
+  </section>
+
+  <section class="exp-buckets">
+    <div class="bucket-row clearfix">
+      <div class="bucket">
+        <div class="exp-feature-card">
+          <div class="exp-feature-title">
+            <span class="rewards-icon"></span>
+            <h3>Rewards</h3>
+          </div>
+          <p class="subtext">Build your own rewards catalog your staff can redeem with points at no additional cost.</p>
+          <p class="subtext"><%= link_to "Learn more", rewards_path %></p>
+        </div>
+      </div>
+      <div class="bucket">
+        <div class="exp-feature-card">
+          <div class="exp-feature-title">
+            <span class="settings-icon"></span>
+            <h3>Customize to Your Company</h3>
+          </div>
+          <p class="subtext">Create a personalized gamification strategy with <strong>badges, leaderboards, points</strong>, and more.</p>
+          <p class="subtext"><%= link_to "Learn more", customizations_path %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bucket-row clearfix">
+      <div class="bucket">
+        <div class="exp-feature-card">
+          <div class="exp-feature-title">
+            <span class="o365-icon"></span>
+            <h3>Yammer + Sharepoint</h3>
+          </div>
+          <p class="subtext">Recognize is the R&amp;R program for Office365. Use Recognize within your workflow.</p>
+          <p class="subtext"><%= link_to "Learn more", extension_path %></p>
+        </div>
+      </div>
+      <div class="bucket">
+        <div class="exp-feature-card" data-no-turbolink='true'>
+          <div class="exp-feature-title">
+            <span class="pilot-icon"></span>
+            <h3>Pilot Recognize</h3>
+          </div>
+          <p class="subtext">Recognize has settings for large companies seeking small-group pilots. Get started for free.</p>
+          <p class="subtext"><%= link_to "Sign up", sign_up_path %> or <%= link_to "contact us", new_support_email_path %></p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="movement">
+    <div class="centered">
+      <h2>Join the Recognition Movement</h2>
+    </div>
+
+    <div class="clearfix">
+      <%= image_tag "pages/home-index/exp/movement.png", alt: "people and badges" %>
+
+      <div class="content">
+        <p class="subtext">Join the 20,000 people who stand for positivity and company culture. People drive your company. Do what you believe is the right thing for them.</p>
+        <%= link_to "Join Now", sign_up_path, class: "button button-highlight" %>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<% (1..6).each do |i| %>
+  <%= image_tag "pages/home-index/exp/badges/0#{i}.png", alt: "Badge graphics that float up the screen", class: "badge-#{i}" %>
+<% end %>

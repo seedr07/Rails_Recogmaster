@@ -1,0 +1,57 @@
+<div id="rewards-header-area" class="clearfix">
+	<div class="page-main marginBottom10">
+		<h2><%=t("rewards.rewards")%></h2>
+		<p><%= t("rewards.set_up_rewards")%></p>
+	</div>
+</div>
+
+
+<nav class="tab-nav">
+  <ul class="clearfix">
+    <li class="active"><a href="#rewards-main-area" data-toggle="tab"><%= t("dict.create") %></a></li>
+    <li><a href="#rewards-list-area" data-toggle="tab"><%= t("reward.redeemed") %></a></li>
+  </ul>
+</nav>
+
+<div id="rewards-main-area" class="tab tab-pane active clearfix">
+  <nav class="marginBottom30">
+    <%= link_to_add_reward_card %>
+  </nav>
+
+  <div id="reward-tags-area" class="clearfix">
+    <% @rewards.each do |reward|%>
+      <%= render "reward_card_form", reward: reward %>
+    <%end%>
+  </div>
+</div>
+
+<div id="rewards-list-area" class="tab tab-pane clearfix">
+  <table class="table table-striped table-bordered table-condensed table-hover">
+    <th><%= t("dict.user") %></th>
+    <th><%= t("dict.date") %></th>
+    <th><%= t("reward.reward") %></th>
+    <th><%= t("reward.reward_description") %></th>
+    <% current_user.company.redemptions.each do |redemption| %>
+      <tr>
+        <td>
+          <%= link_to redemption.user.full_name, user_path(redemption.user) %>
+        </td>
+        <td>
+          <p><%= localize_datetime(redemption.created_at, :friendly_with_time) %></p>
+        </td>
+        <td>
+          <p><%= redemption.reward.title %></p>
+        </td>
+        <td>
+          <p><%= redemption.reward.description %></p>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+</div>
+
+
+
+
+

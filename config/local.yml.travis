@@ -1,0 +1,39 @@
+#will be stashed in Rails.configuration.local_config
+#which is accomplished by the local_config.rb initializer
+# ca_cert_file: '/usr/local/Cellar/curl-ca-bundle/1.87/share/ca-bundle.crt'
+# using_ssl: true
+# debug: true
+
+#override is a way to override configuration options in environment specific files
+#useful if you want to temporarily modify things(like sending emails in production mode)
+#without mucking about in the production.rb file and accidentally committing it and 
+#ruining life for everyone else.
+#Uncomment the below to use:
+override:
+  "host": "l.recognizeapp.com:50000"
+  "force_ssl": false
+  # "log_level": "debug"
+  # by specifying the asset host, you might preclude access
+  # from a different device while running locally.
+  # "action_controller.asset_host": "//l.recognizeapp.com:50000"
+  # "action_mailer.asset_host": "localhost:3000"
+  # "action_mailer.delivery_method": :smtp
+  # "action_mailer.smtp_settings": 
+  #   "address": "localhost"
+  #   "port": 1025
+#   "action_mailer.raise_delivery_errors": false
+#   "action_mailer.delivery_method": :test
+#   "action_mailer.perform_deliveries": false
+#   "serve_static_assets": true
+#   "consider_all_requests_local": true
+#   "log_level": :debug
+  # "send_push_notifications": true
+
+# If you want to test your assets locally
+  # "action_controller.asset_host": "//recognize-assets.s3.amazonaws.com"
+#   "assets.compile": false
+#   "assets.digest": true
+
+global: 
+  "Delayed::Worker.delay_jobs": false
+  # "AssetSync.config.run_on_precompile": true

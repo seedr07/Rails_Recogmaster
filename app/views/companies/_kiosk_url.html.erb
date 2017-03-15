@@ -1,0 +1,6 @@
+<% if @company.kiosk_mode_key && @company.kiosk_mode_key != "" %>
+  <% url = kiosk_mode_url %> 
+  <%= link_to url, url, target: "_blank"%>
+<% else %>
+  <span class="subtle-text">No url set</span>
+<% end %>

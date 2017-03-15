@@ -1,0 +1,534 @@
+<%= content_for :title, "Features"%>
+
+<section id="intro" class='animate-1 animate-hidden animate'  data-no-turbolink="true">
+  <div class="inner">
+    <h1>Recognize Features</h1>
+
+    <p class="tagline balance-text">See the majority of features from Recognize and how we compare to the competition.</p>
+
+    <% if current_user.present? && !current_user.subscribed_account? %>
+      <a href="/upgrade" class="button button-primary" data-no-turbolink>Upgrade</a>
+    <% else %>
+      <a href="/contact" class="button button-primary">Contact us for a free trial</a>
+    <% end %>
+  </div>
+  <%= render partial: "home/patterns/red.svg" %>
+</section>
+
+<div id="pricing-wrapper">
+
+  <section id="pricing-table" class="animate-2 animate-hidden animate table-functionality">
+    <div class="row pricing-table-header">
+      <div class="functionality">
+        <h4 class="small-text subtle-text">Vendor</h4>
+      </div>
+      <div class="package">
+          <h3 class="startup">Recognize</h3>
+      </div>
+      <div class="package">
+          <h3>The competition</h3>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="functionality">
+        <h4>Price user/month</h4>
+      </div>
+      <div class="package">
+        <h3 class="margin0">$2</h3>
+      </div>
+      <div class="package">
+        <h3 class="margin0">$4</h3>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="functionality">
+        <h4><a href="#manage-badges">Create badges</a></h4>
+      </div>
+      <div class="package">
+        <h4><div class="check">Yes</div></h4>
+      </div>
+      <div class="package">
+        <h4><div class="check">Yes</div></h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="functionality">
+        <h4><a href="#teams">Teams</a></h4>
+      </div>
+      <div class="package">
+        <h4><div class="check">Yes</div></h4>
+      </div>
+      <div class="package">
+        <h4><div class="check">Yes</div></h4>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="functionality">
+        <h4><a href="#yammer-integration">Yammer integration</a></h4>
+      </div>
+      <div class="package">
+        <h4>Complete</h4>
+      </div>
+      <div class="package">
+        <h4>Partial</h4>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="functionality">
+        <h4><a href="#leaderboards-points">Leaderboards &amp; points</a></h4>
+      </div>
+      <div class="package">
+        <h4><div class="check">Yes</div></h4>
+      </div>
+      <div class="package">
+        <h4><div class="check">Yes</div></h4>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="functionality">
+        <h4><a href="#manage-users">Manage users</a></h4>
+      </div>
+      <div class="package">
+        <h4><div class="check">Yes</div></h4>
+      </div>
+      <div class="package">
+        <h4><div class="check">Yes</div></h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="functionality">
+        <h4><a href="#privacy">Company-wide privacy</a></h4>
+      </div>
+      <div class="package">
+        <div class="check">Yes</div>
+      </div>
+      <div class="package">
+        <h4><div class="check">Yes</div></h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="functionality">
+        <h4><a href="#departments">Departments</a></h4>
+      </div>
+      <div class="package">
+        <div class="check">Yes</div>
+      </div>
+      <div class="package">
+        <h4><div class="check">Yes</div></h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="functionality">
+        <h4><a href="#api">API</a></h4>
+      </div>
+      <div class="package">
+        <h4><div class="check">Yes</div></h4>
+      </div>
+      <div class="package">
+        <h4><div class="check">Yes</div></h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="functionality">
+        <h4><a href="#support">Support</a></h4>
+      </div>
+      <div class="package">
+        <h4><div class="check">Yes</div></h4>
+      </div>
+      <div class="package">
+        <h4><div class="check">Yes</div></h4>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="functionality">
+        <h4><a href="#white-label">White label theme</a></h4>
+      </div>
+      <div class="package">
+        <h4><div class="check">Yes</div></h4>
+      </div>
+      <div class="package">
+        <h4><div class="check">Yes</div></h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="functionality">
+        <h4>Reporting export</h4>
+      </div>
+      <div class="package">
+        <h4><div class="check">Yes</div></h4>
+      </div>
+      <div class="package">
+        <h4><div class="check">Yes</div></h4>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="functionality">
+        <h4>Customize or remove points</h4>
+      </div>
+      <div class="package">
+        <h4><div class="check">Yes</div></h4>
+      </div>
+      <div class="package">
+        <h4><div class="check">Yes</div></h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="functionality">
+        <h4>Manager to staff recognition</h4>
+      </div>
+      <div class="package">
+        <h4><div class="check">Yes</div></h4>
+      </div>
+      <div class="package">
+        <h4><div class="check">Yes</div></h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="functionality">
+        <h4><%= link_to "Rewards", rewards_path %></h4>
+      </div>
+      <div class="package">
+        <h4><div class="check">Yes</div></h4>
+      </div>
+      <div class="package">
+        <h4><div class="check">Yes</div></h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="functionality">
+        <h4><%= link_to "Kiosk mode", engagement_path(anchor:"kiosk-mode") %></h4>
+      </div>
+      <div class="package">
+        <h4><div class="check">Yes</div></h4>
+      </div>
+      <div class="package">
+        <div class="check">Yes</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="functionality">
+        <h4><%= link_to "Analytics", analytics_path %></h4>
+      </div>
+      <div class="package">
+        <h4><div class="check">Yes</div></h4>
+      </div>
+      <div class="package">
+        <div class="check">Yes</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="functionality">
+        <h4><a href="#included-badges">Designer recognition badges</a></h4>
+      </div>
+      <div class="package">
+        <h4>30 badges</h4>
+      </div>
+      <div class="package">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="functionality">
+        <h4><a href="#import">LDAP Single Sign On</a></h4>
+      </div>
+      <div class="package">
+        <h4><div class="check">Yes</div></h4>
+      </div>
+      <div class="package">
+      </div>
+    </div>
+    <div class="row">
+      <div class="functionality">
+        <h4><a href="#achievements">Achievements</a></h4>
+      </div>
+      <div class="package">
+        <h4><div class="check">Yes</div></h4>
+      </div>
+      <div class="package">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="functionality">
+        <h4><a href="#ie-extension">Browser Extensions</a></h4>
+      </div>
+      <div class="package">
+        <h4><div class="check">Yes</div></h4>
+      </div>
+      <div class="package">
+      </div>
+    </div>
+    <div class="row">
+      <div class="functionality">
+        <h4><a href="#responsive-web">Responsive web application</a></h4>
+      </div>
+      <div class="package">
+        <h4><div class="check">Yes</div></h4>
+      </div>
+      <div class="package">
+      </div>
+    </div>
+    <div class="row">
+      <div class="functionality">
+        <h4><a href="#recognize-anyone">Recognize anyone</a></h4>
+      </div>
+      <div class="package">
+        <h4><div class="check">Yes</div></h4>
+      </div>
+      <div class="package">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="functionality">
+        <h4><%= link_to "Click Print Awards", awards_path %></h4>
+      </div>
+      <div class="package">
+        <h4><div class="check">Yes</div></h4>
+      </div>
+      <div class="package">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="functionality">
+        <h4>SSO with Office 365</h4>
+      </div>
+      <div class="package">
+        <h4><div class="check">Yes</div></h4>
+      </div>
+      <div class="package">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="functionality">
+        <h4>Send recognition from email</h4>
+      </div>
+      <div class="package">
+        <h4><div class="check">Yes</div></h4>
+      </div>
+      <div class="package">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="functionality">
+        <h4>Text message notification</h4>
+      </div>
+      <div class="package">
+        <h4><div class="check">Yes</div></h4>
+      </div>
+      <div class="package">
+      </div>
+    </div>
+
+  </section>
+</div>
+
+
+<section id="points" class="hidden">
+  <section id="included-badges">
+    <div  class="inner clearfix">
+      <div class="content">
+        <h3>Included badges</h3>
+        <p>Utilize well designed badges to recognize staff accomplishments and incentive company values. In Recognize, a badge surrounds a recognition with extra meaning.</p>
+      </div>
+      <div class="marketing-tour-bg-badges image"></div>
+    </div>
+  </section>
+
+
+  <section id="recognize-anyone">
+    <div  class="inner clearfix">
+      <div class="image">
+        <%= image_tag("pages/home-index/network.jpg", alt: "A social graph of people") %>
+      </div>
+      <div class="content">
+        <h3>Recognize anyone</h3>
+        <p>Recognize is the only recognition platform that allows recognition of anyone regardless of whether they are user or not. All you need is the person's email address and you can send them a recognition. Customers use this feature to have clients recognize their staff and visa versa.</p>
+      </div>
+    </div>
+  </section>
+  <section id="yammer-integration">
+    <div  class="inner clearfix">
+      <div class="content">
+        <h3>Yammer integration</h3>
+        <p>Recognize is the most integrated Yammer third-party partner. In Recognize, users have access to their entire Yammer social graph. What's more, our Chrome Extension puts Recognize inside Yammer. See <%= link_to "our Yammer integration page", extension_path %> for more details on our browser extension.</p>
+      </div>
+      <div class="image">
+        <%= image_tag("pages/home-extension/recognitions-profile.png", alt: "Recognize in Yammer profile") %>
+      </div>
+    </div>
+  </section>
+
+  <section id="responsive-web">
+    <div  class="inner clearfix">
+      <div class="image">
+        <%= image_tag("pages/home-pricing/responsive.png", alt: "Graphics of mobile, tablet, laptop, and desktop") %>
+      </div>
+      <div class="content">
+        <h3>Responsive web application</h3>
+        <p>The world is changing to include an array of screen sizes. Your team requires access to all business tools from a mobile or desktop device. Recognize is a fully responsive web application that works with any screen width.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="leaderboards-points">
+    <div  class="inner clearfix">
+      <div class="content">
+        <h3>Leaderboards &amp; points</h3>
+        <p>To reward the best we provide a leaderboard for teams and users, including the most points overall, for most received recognition, and most sent recognition.</p>
+      </div>
+      <div class="image">
+        <%= image_tag('pages/tour/point3.png', alt: "Point leaderboard") %>
+      </div>
+    </div>
+  </section>
+
+  <section id="teams">
+    <div  class="inner clearfix">
+      <div class="image">
+      <%= image_tag "pages/tour/point2.png", alt: "Create teams for best team-focus employee recognition" %>
+      </div>
+      <div class="content">
+        <h3>Teams</h3>
+        <p class="subtle-text margin3"></p>
+        <p>Recognize provides the best functionality for teams. In the Recognize platform, send recognition to entire teams. View your team's top values. Sync Yammer Groups with Recognize teams. No other platform provides team Yammer integration like Recognize.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="manage-users">
+    <div  class="inner clearfix">
+      <div class="content">
+        <h3>Manage users</h3>
+        <p>Business and Enterprise users have access to the Company Dashboard where they can see usage graphs and edit users.</p>
+      </div>
+      <div class="image">
+        <%= image_tag('pages/home-pricing/manage-users.png', alt: "Manage users") %>
+      </div>
+    </div>
+  </section>
+
+  <section id="manage-badges">
+    <div  class="inner clearfix">
+      <div class="image">
+        <%= image_tag('pages/home-pricing/custom-badge.png', alt: "Custom badge") %>
+      </div>
+      <div class="content">
+        <h3>Manage badges</h3>
+        <p>Represent your company values or employee accomplishments as badges in the Recognize program. You can change the badge graphics, the labels, the point value, and descriptions for each badge. </p>
+      </div>
+    </div>
+  </section>
+  <section id="api">
+    <div  class="inner clearfix">
+      <div class="image">
+        <%= image_tag('pages/home-pricing/api.png', alt: "API") %>
+      </div>
+      <div class="content">
+        <h3>API</h3>
+        <p>API allows companies to integrate Recognize into their own applications. Send, receive, and list recognitions inside your web applications or mobile applications.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="departments">
+    <div  class="inner clearfix">
+      <div class="content">
+        <h3>Subcompany departments</h3>
+        <p>Subcompany departments helps organizations in larger companies have their own isolated Recognize account.</p>
+      </div>
+      <div class="image">
+        <%= image_tag('pages/home-pricing/department.png', alt: "Departments") %>
+      </div>
+    </div>
+  </section>
+  <section id="privacy">
+    <div  class="inner clearfix">
+      <div class="image">
+        <%= image_tag('pages/home-pricing/privacy.png', alt: "Company-wide privacy") %>
+      </div>
+      <div class="content">
+        <h3>Company-wide privacy</h3>
+        <p>Recognitions are normally visible to the general public. If someone has a link to a recognition, they can view it. When privacy is turned on, all recognitions are now private and scoped to the company. With privacy on, only people inside the company can view the recognitions.</p>
+      </div>
+    </div>
+  </section>
+  <section id="ie-extension">
+    <div  class="inner clearfix">
+      <div class="content">
+        <h3>Yammer Extensions</h3>
+        <p>The extension inserts Recognize inside Yammer seemlessly. <%=link_to "Learn more", extension_path %></p>
+      </div>
+      <div class="image">
+        <%= image_tag('pages/home-extension/ie.png', alt: "Internet Explorer Recognize Yammer Extension") %>
+        <%= image_tag('3p/yammer-logo-large.png', alt: "Yammer", width: 122) %>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div id="support" class="inner clearfix">
+      <h3>Support</h3>
+      <p>Enterprise package users have access to our roadmap and help shape the future of Recognize. Request custom reports for performance reviews and other analytics. Export recognition data to correlate with KPIs or P&amp;L spreadsheets.</p>
+    </div>
+  </section>
+  <section id="achievements">
+    <div  class="inner clearfix">
+      <div class="content">
+        <h3>Achievements</h3>
+        <p>Create finite number of badges that only managers can send. Create tangible achievements staff can accomplish. Create more autonomy over staff careers. Increase retention in your company with Achievements.</p>
+      </div>
+      <div class="image">
+      <%= image_tag "pages/home-about/levels.png", alt: "Level up in Recognize through a program tailored for your organization." %>
+      </div>
+    </div>
+  </section>
+
+  <section id="import">
+    <div  class="inner clearfix">
+      <div class="image">
+        <%= image_tag('pages/home-pricing/import.png', alt: "Import users") %>
+      </div>
+      <div class="content">
+        <h3>LDAP Single sign on</h3>
+        <p>To help onboard large groups of people into Recognize, we work closely with our customers to importing users as easy as possible. We integrate with LDAP for Single Sign On for your company.</p>
+      </div>
+
+    </div>
+  </section>
+  <section id="white-label">
+    <div  class="inner clearfix">
+      <div class="content">
+        <h3>White label Recognize</h3>
+        <p>Recognize Team will match the colors to your corporate brand. Recognize will show your logo centered in the top toolbar.</p>
+      </div>
+      <div class="image">
+        <%= image_tag "pages/home-customizations/theme.jpg", alt: "White label your brand" %>
+      </div>
+    </div>
+  </section>
+
+
+</section>
+
+<section id="action">
+  <div class="inner">  
+    <div class="content">
+      <%= render partial: "/home/bottom" %>     
+    </div>
+  </div>
+</section>
+
+
+<%= render :partial => 'footer' %>

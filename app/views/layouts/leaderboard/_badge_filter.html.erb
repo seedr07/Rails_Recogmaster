@@ -1,0 +1,30 @@
+<%
+  badges = defined?(badge_set) ? badge_set : current_user.company.company_badges
+%>
+<div class="dropdown-wrapper badge-dropdown-wrapper">
+  <div class="dropdown">
+    <button class="button button-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+      <%= t("dict.filter_by_badge") %>
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+      <li role="presentation">
+        <% all_path_args = leaderboard_path_args.slice(*(leaderboard_path_args.keys - [:badge_id])) %>
+        <%= link_to "All", send(leaderboard_report_path_method, all_path_args), class: "#{'active' if @badge.blank?}" %>
+      </li>
+      <% badges.each do |badge| %>
+        <li role="presentation">
+        <% btn_pressed_class = (@badge.try(:id) == badge.id) ? "active" : ""%>
+        <%= link_to badge.short_name, send(leaderboard_report_path_method, leaderboard_path_args.merge(badge_id: badge.id)), class: "#{btn_pressed_class}"%>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <% if @badge.present? %>
+    <div class="selected-wrapper selected-badge-wrapper">
+
+      <%= image_tag @badge.permalink(100), style: "height: 36px; width: 36px;", class: "left" %>
+      <h4 class="left"><%= @badge.short_name %></h4>
+    </div>
+  <% end %>
+</div>

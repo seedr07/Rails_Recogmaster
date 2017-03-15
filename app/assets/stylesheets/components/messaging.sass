@@ -1,0 +1,106 @@
+.errors
+  background: $errorBg
+  display: inline-block
+  padding: 10px
+  color: $errorTextColor
+
+.form-errors:not(:empty),
+.payment-errors:not(:empty)
+  padding: 18px 15px 18px 68px
+  background: $errorBg image_url('icons/flash.png') 15px center no-repeat
+  @include background-size(36px 70px)
+  @include messageBox()
+ 
+.payment-errors,
+.form-errors
+  color: $formTextColor
+  
+  h4,
+  .header,
+  li,
+  p
+    color: $formTextColor
+
+.form-errors h4,
+.form-erros .header
+  margin: 0 0 3px 0
+  line-height: 20px
+
+.form-errors ul,
+.form-errors ol
+  margin: 0
+  padding: 0
+  
+.form-errors li
+  list-style: none
+  margin: 0
+  padding: 5px 0
+  font-size: 14px
+  color: white
+  list-style: disc
+  list-style-position: inside
+
+form .error ol
+  margin: 0
+  padding: 0
+  list-style: none
+
+form label.error
+  color: orange
+  font-weight: 600
+
+form .error
+  margin: 5px 0
+
+  h5
+    background: orange
+    color: white
+    border-radius: 10px
+    padding: 3px 8px
+    display: inline-block
+    margin: 0
+
+.list-empty-warning,
+.subtle-text
+  color: $lighterGrayTextColor !important
+
+.list-empty-warning
+  margin: 15px 0 30px
+  font-size: 17px
+  font-weight: 300
+
+@media (max-width: 480px)
+  .form-errors
+    background-color: $errorMobileBg
+
+.message-info
+  background: $messageBgColor image_url('icons/announcement.png') 15px center no-repeat
+  padding: 20px 20px 20px 110px
+  background-size: 78px
+  @include messageBox()
+  color: white
+  
+.message-info:empty
+  visibility: hidden
+
+.message-info h4,
+.message-info p,
+.message-info li
+  color: #fff
+  
+.message-info p:last-child
+  margin-bottom: 0
+  
+  
+.message-important
+  @include linear-gradient(left, #78D19A, #4FCE7B)
+  border-radius: 8px
+  padding: 5px
+  color: #fff
+  
+  h1, h2, h3, h4, h5, p, li
+    color: #fff
+    
+  p:last-child
+    margin-bottom: 0
+    padding-bottom: 0

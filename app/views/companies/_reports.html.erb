@@ -1,0 +1,34 @@
+<% 
+  locals = {
+    report_path_method: :company_path, 
+    report_path_args: {anchor: "rank", sort: params[:sort]}
+  }
+%>
+
+<%= render layout: "layouts/leaderboard", locals: locals do %>
+  <% if @team.present? %>
+    <h2>Top <em><%= @team.name %></em> employees</h2>
+  <% else %>
+    <h2>Top employees</h2>
+  <% end %>
+  <% if !@team_members.empty? %>
+    <h4>
+      <%= t("reports.stats")%> for <%= reset_interval_label_with_time(current_user.reset_interval, @start_date)%>
+    </h4>
+  <%end%>
+<% end %>
+
+
+
+<% if !@team_members.empty? %>
+  <table class="table table-striped table-bordered table-condensed table-hover table-ranking table-responsive">
+    <th class="rank">Rank</th>
+    <th class='rank-user'>User</th>
+    <th class="rank-attribute">Number of <%= @attribute.to_s.humanize.downcase %></th>
+    <% @team_members.values.each_with_index do |user, i| %>
+        <%= render "leaderboard_row", user: user, attribute: @attribute %>
+    <%end%>
+  </table>
+<%else%>
+  <h4>There are no employees in this report.</h4>
+<%end%>

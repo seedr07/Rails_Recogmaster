@@ -1,0 +1,30 @@
+<%= render partial: "admin/index/admin_header"%>
+
+<h1>Users</h1>
+<%= will_paginate @users %>
+<table class="table table-striped table-bordered table-condensed table-hover table-responsive">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th class="span2">Joined</th>
+      <th>Network</th>
+      <th>Email</th>
+      <th>Name</th>
+      <th>Yammer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= user.id %></td>
+      <td><%= localize_datetime(user.created_at, :friendly) %></td>
+      <td><%= user.network %></td>
+      <td><%= user.email %></td>
+      <td><%= user.full_name %></td>
+      <td><%= user.auth_with_yammer? ? 'Yes' : 'No' %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @recognitions %>

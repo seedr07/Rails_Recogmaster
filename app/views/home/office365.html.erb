@@ -1,0 +1,87 @@
+<% content_for :title, "Office 365 employee recognition. #1 leader for Sharepoint and Yammer." %>
+
+<section class="masterhead clearfix">
+  <div class="video-wrapper centered">
+    <div class="inner">
+      <h1><%= t(".title_html") %></h1>
+      <div id="youtube-video" data-id="2eYHSBUSkcA"></div>
+      <%= render partial: "layouts/youtube_load" %>    </div>
+  </div>
+  <div class="sign-up centered">
+    <div class="inner">
+      <h2>
+        <%= t(".sign_up_title_html") %>
+      </h2>
+
+      <div class="sign-up-buttons">
+        <%= link_to_o365 t("dict.login_office365"), class: "button button-o365-plain" %>
+        <%= link_to_yammer t("dict.login_yammer"), class: "button button-yammer-plain" %>
+      </div>
+
+      <div class="centered">
+        <%= link_to t(".already_recognizer"), new_user_session_path %>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="offerings clearfix">
+  <div class="yammer">
+
+    <section>
+      <%= link_to extension_path, class: "button button-download" do %>
+        <%= t(".yammer_download_html") %>
+      <% end %>
+
+      <h3 class="balance-text"><%= t(".yammer_point_1") %></h3>
+      <%= image_tag "pages/home-office365/yammer-dashboard.jpg", alt: "The Recognize company dashboard can be viewed in Yammer." %>
+    </section>
+
+    <section>
+      <h3 class="balance-text"><%= t(".yammer_point_2") %></h3>
+      <%= image_tag "pages/home-office365/yammer-toolbar.jpg", alt: "Staff get an enhanced employee recognition menu in Yammer." %>
+    </section>
+
+    <section>
+      <h3 class="balance-text"><%= t(".yammer_point_3") %></h3>
+      <%= image_tag "pages/home-office365/leaderboard.jpg", alt: "In Yammer, staff can view the leaderboards." %>
+    </section>
+
+    <section>
+      <h3 class="balance-text"><%= t(".yammer_point_4") %></h3>
+      <%= image_tag "pages/home-office365/yammer-profile.jpg", alt: "In the Yammer user profile, you can view their recognitions by clicking the Recognitions tab." %>
+    </section>
+
+  </div>
+
+  <div class="sharepoint">
+
+    <section class="sharepoint-icon-bg">
+      <%= link_to "https://store.office.com/recognize-social-employee-recognition-rewards-WA104379864.aspx", class: "button button-download" do %>
+        <%= t(".sharepoint_download_html") %>
+      <% end %>
+
+      <h3 class="balance-text"><%= t(".sharepoint_point_1") %></h3>
+      <%= image_tag "pages/home-office365/sharepoint-dashboard.jpg", alt: "Get all of Reognize inside Sharepoint." %>
+    </section>
+
+    <section>
+      <h3 class="balance-text"><%= t(".sharepoint_point_2") %></h3>
+      <%= image_tag "pages/home-office365/send-recognition.jpg", alt: "Super simple to send recognition in Sharepoint." %>
+    </section>
+
+    <section>
+      <h3><%= t(".sharepoint_point_3") %></h3>
+      <%= image_tag "pages/home-office365/rewards.jpg", alt: "In Sharepoint, staff can view the rewards to redeem." %>
+    </section>
+
+    <section>
+      <h3 class="balance-text"><%= t(".sharepoint_point_4") %></h3>
+      <%= image_tag "pages/home-office365/custom-badges.jpg", alt: "Create custom badges easily from Sharepoint" %>
+    </section>
+
+  </div>
+</div>
+
+<%= render partial: "home/footer" %>

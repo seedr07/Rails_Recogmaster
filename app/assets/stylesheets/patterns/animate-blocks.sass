@@ -1,0 +1,26 @@
+.animate
+  @include animatePoints()
+
+  &.animate-1
+    @include transition-delay(0.3s)
+
+
+  &.animate-2
+    @include transition-delay(1s)
+
+  &.animate-3
+    @include transition-delay(1.3s)
+
+
+  &.animate-hidden 
+    opacity: 0
+
+    &.animate-1 
+      @include transform(translate(0, -20px))
+
+
+    &.animate-2,
+    &.animate-3 
+      @include transform(translate(0, 20px))
+
+

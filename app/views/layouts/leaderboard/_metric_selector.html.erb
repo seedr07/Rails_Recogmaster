@@ -1,0 +1,6 @@
+<% if show_leaderboard_metric_selector? && !@team_members.empty? %>
+  <div class="button-group clearfix right marginBottom10 marginTop10">
+    <%= link_to "Recognitions", company_path(anchor: "rank", badge_id: @badge.try(:id), team_id: @team.try(:id), start_date: params[:start_date]), class: "button #{'button-pressed' if params[:sort].blank?}" %>
+    <%= link_to "Points", company_path(sort: "points", anchor: "rank", badge_id: @badge.try(:id), team_id: @team.try(:id), start_date: params[:start_date]), class: "button #{'button-pressed' if params[:sort] == 'points'}" %>
+  </div>
+<% end %>

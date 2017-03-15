@@ -1,0 +1,5 @@
+var complete = function(){};
+<% if @comment.commentable.comments.blank? %>
+  complete = function(){$(".no-comments").fadeIn();}
+<% end %>
+$("#comment-<%= @comment.id%>").fadeOut(500, complete);

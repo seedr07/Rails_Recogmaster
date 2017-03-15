@@ -1,0 +1,15 @@
+(function(R, $, undefined) {
+  $("#header #total_points .point-interval").html('<%= @approval.giver.interval_points %>');
+  <% if @approval.persisted? %>
+    var $el = $("#recognition-approval-<%= @approval.recognition_id%>");
+    $el.replaceWith('<%= escape_javascript(render partial: "recognitions/recognition_approval_section", locals: {recognition: @approval.recognition}) %>');
+  
+    R.analytics.track("recognitions-approve");
+
+  <% else %>
+    <% card_id = "#recognition-card-#{@approval.recognition_id}"%>  
+    $("<%= card_id %> dd.notice").html('<div class=\'error\'><%= @approval.errors.full_messages.join(", ")%></div>')
+    R.analytics.track("recognitions-unapprove");
+    
+  <% end %>
+})(window.R, jQuery);

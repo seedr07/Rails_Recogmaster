@@ -1,0 +1,7 @@
+<% content_for :content do %>
+  <%= render partial: "layouts/company_admin_sidebar" %>
+  <div class="content-wrapper">
+    <%= yield %>
+  </div>
+<% end %>
+<%= render template: "layouts/application" %>

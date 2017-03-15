@@ -1,0 +1,37 @@
+<%
+   if defined?(hide_placeholders)
+     placeholders = {
+       cvc: "•••",
+       exp_month: "••",
+       exp_year: "••••"
+     }
+   else
+     placeholders = {
+       cvc: "123",
+       exp_month: "12",
+       exp_year: "2020"
+     }
+   end
+%>
+<div class="payment-errors"></div>
+<div class="control-group">
+  <label>
+    <span class="label">Credit Card Number *</span>
+    <input class="card-number" type="text" size="20" data-stripe="number" placeholder="•••• •••• •••• ••••" required />
+  </label>
+</div>
+<div class="clearfix cc-mini-digits">
+  <div id="payment-cvc-wrapper" class="control-group left" style="max-width: 200px;">
+    <label>
+      <span class="label">CVC *</span>
+      <input class="card-cvc" type="text" size="4" data-stripe="cvc" placeholder="<%= placeholders[:cvc]%>" required/>
+    </label>
+  </div>
+
+  <div class="control-group left" style="max-width: 200px;">
+    <label><span class="label">Expiration (MM/YYYY) *</span></label>
+    <input class="card-expiry-month" type="text" size="2" data-stripe="exp-month" placeholder="<%= placeholders[:exp_month]%>" required/>
+    <span> / </span>
+    <input class="card-expiry-year" type="text" size="4" data-stripe="exp-year" placeholder="<%= placeholders[:exp_year]%>" required/>
+  </div>
+</div><!-- end of clearfix -->

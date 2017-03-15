@@ -1,0 +1,12 @@
+      <% @people.each do |person| %>
+        <%= link_to recognize_instantly_recognitions_path(recognition: {email: person.email, yammer_id: person.yammer_id}), remote: true, method: :post, class: "person-name form-loading-ignore", id: "person_#{person.id}" do %>
+          <div class="person" data-yammerid=<%= person.yammer_id%>>
+            <div class="avatar-wrapper">
+              <%= image_tag(person.avatar_small_thumb_url, class: "profile-pic", alt: "profile picture") %>
+            </div>
+            <p class="person-name"><%= person.full_name %></p>
+            <div class="recognized-status reset">Recognized</div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>

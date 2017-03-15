@@ -1,0 +1,8 @@
+(function(){
+  <% if @badge.destroyed? %>
+    $("#badge-<%= @badge.id%>").remove();
+  <% else %>
+    alert('Sorry you cannot delete this badge because there are recognitions associated with it.')
+  <% end %>
+
+})();

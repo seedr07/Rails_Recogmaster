@@ -1,0 +1,62 @@
+.swagger-section pre code {
+  overflow-x: auto !important;
+}
+
+#header {
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+#header #logo {
+  margin-left: -22px;
+}
+
+.recognize-main { 
+  display: flex;
+}
+.recognize-nav {
+  max-width: 10%;
+  border-right: 1px solid black;
+  padding-top: 67px;
+  padding-left: 15px;
+  padding-right: 15px;
+  overflow-x: auto;
+  position: fixed;
+  height: 100%;
+  background-color: white;
+}
+
+.recognize-nav h3 {
+  font-weight: bold;
+}
+
+.recognize-nav li {
+  margin: 5px 0;
+}
+
+.recognize-nav a {
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+.recognize-nav a:hover {
+  text-decoration: underline;
+}
+
+.recognize-content {
+  margin-left: 12%;
+}
+
+.recognize-content .anchor:before {
+  content: '';
+  display: block;
+  height: 67px;
+  margin: -67px 0 0;
+}
+
+#resources_container {
+  margin-top: 20px;
+}
+
+

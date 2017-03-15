@@ -1,0 +1,23 @@
+<h2>Invoice</h2>
+<div class="table-responsive">
+  <table class="table table-hover table-bordered">
+    <tbody>
+      <tr>
+        <td>Recurring cost</td>
+        <td><%= @subscription.recurring_label %></td>
+      </tr>
+
+      <% @subscription.line_items.unbilled.each do |line_item| %>
+        <tr>
+          <td><%= line_item.description %></td>
+          <td><%= number_to_currency(line_item.amount, precision: 2, locale: :en) %></td>
+        </tr>
+      <% end %>
+
+      <tr class="total-row">
+        <td>Total (billed now)</td>
+        <td><%= number_to_currency(@subscription.total_with_unbilled_line_items, precision: 2, locale: :en) %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

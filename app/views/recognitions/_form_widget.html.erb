@@ -1,0 +1,54 @@
+<%= form_for(@recognition, remote: true, html: {id: "new_recognition_widget", data: {errorwrapper: "#recognition-send-error-wrapper"}}) do |f| %>
+    <div id="recognize-inputs-aside" class="form-vertical">
+      
+      <div id="widget">
+        <h1>Send Recognition</h1>
+        <div class="hr hr-space"></div>
+        <div id="recognition-send-error-wrapper"></div>
+
+        <span id="recognition_badge_id"></span><%# for badge error messages%>
+
+
+        <div class="recognition-card">
+              <div class="recognition-inner">
+      
+                <div id="badge-trigger" class="image-wrapper badge-choose badge-image">
+                  <h3 class="offscreen">Choose a badge</h3>
+                </div>
+    
+  
+                <div class="content widget-box">
+                  <div class="inner">
+                    <div class="subtle-text"><span></span></div>
+                    
+                    <div class="to-wrapper clearfix">
+                       <%= f.label :recipient_email, "Coworker's email", class:"control-label" %>
+                      <div class="controls">
+          
+                        <%= f.hidden_field :recipient_id %><%#hack used for error msgs%>
+                        <%= f.hidden_field :recipient_type, :value => "User"%>
+                        <%= f.hidden_field :recipient_email %>
+                        <%= hidden_field_tag :recognition_sender_name, @current_user.full_name %>
+                        <div id="chosen-recepient-wrapper" class="row-fluid"></div>
+                        <%= f.text_field :recipient_email, id: "recognition_recipient_name", class: "input-xlarge", placeholder: "name@#{current_user.company.domain}"%>
+                      </div>
+                    </div>
+      
+                    <div class="from-wrapper message-wrapper" id="message_wrapper_93">
+                      <%= f.label :message, class:"control-label" %>
+                     <div class="controls">
+                       <%= f.text_area :message, class:"input-xlarge", cols: 1, rows: 5 %>
+                     </div>
+                    </div>
+                  </div><!-- end of inner -->
+                </div> <!-- end of content -->
+              </div>
+            </div>
+
+
+        <div id="recognition-submit-wrapper" class="actions">
+          <%= f.submit class:"button-highlight button" %>
+        </div>
+      </div>
+    </div>
+<% end %>

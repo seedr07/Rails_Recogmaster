@@ -1,0 +1,158 @@
+$chatChatYouColor: #1568A6
+
+
+.chat-chat.new
+  .chat-chat-thread-item
+    p
+      @include transform(scale(1.05))
+
+.chat-chat-none
+  opacity: 0
+
+#chat-chat:not(.open)
+
+  .chat-chat-thread-item:hover
+    p
+      border-color: darken(#04DA04, 15%) !important
+
+  .chat-chat-thread
+    cursor: pointer
+
+    .chat-chat-thread-item
+      display: none
+
+      p
+        @include transitionTransform(.15s, cubic-bezier(0, 1.8, 1, 1.8))
+
+      &:last-child
+        display: block
+
+#chat-chat
+  position: fixed
+  bottom: 0
+  right: 0
+  font-family: helvetica, arial, sans-serif
+  width: 400px
+  @include transition(opacity 1s linear)
+  border-radius: 5px 0 0 0
+  padding: 40px 0 4px 0
+  z-index: 10000
+
+  .chat-chat-close
+    position: absolute
+    right: 8px
+    top: 1px
+    display: none
+    font-size: 24px
+    cursor: pointer
+    color: white
+    right: -4px
+    top: -12px
+    padding: 10px
+
+  .chat-chat-thread
+    position: relative
+    padding-left: 30px
+    padding-right: 30px
+
+    .chat-chat-thread-item
+      position: relative
+
+    .chat-chat-thread-item.chat-chat-thread-you
+      .chat-chat-avatar
+        right: -20px
+        left: auto
+
+      p
+        border-color: $chatChatYouColor
+
+  .chat-chat-avatar
+    border-radius: 50%
+    width: 50px
+    left: -20px
+    position: absolute
+    margin-top: -25px
+    z-index: 1
+    top: 50%
+
+  div.chat-chat-avatar
+    font-variant: small-caps
+    color: white
+    width: 50px
+    height: 50px
+    background: $chatChatYouColor
+    line-height: 53px
+    text-align: center
+
+  p
+    padding: 10px 40px
+    background: white
+    border: 3px solid #04DA04
+    font-size: 16px
+    line-height: 20px
+    box-shadow: 0 0 1px 0px rgba(0, 0, 0, 0.3)
+    border-radius: 3px
+    position: relative
+    border-radius: 8px
+
+    &:after
+      right: 100%
+      top: 50%
+      border: solid transparent
+      content: " "
+      height: 0
+      width: 0
+      position: absolute
+      pointer-events: none
+      border-color: rgba(136, 183, 213, 0)
+      border-right-color: #88b7d5
+      border-width: 30px
+      margin-top: -30px
+
+  .chat-chat-form
+    display: none
+    margin: 0
+    padding: 0 30px
+
+
+    textarea
+      height: 92px
+      margin-bottom: 4px
+      padding: 10px 11px
+      font-size: 16px
+      width: 100%
+
+    textarea,
+    .chat-chat-submit
+      border-radius: 6px
+
+    .chat-chat-submit
+      background: #193A53
+      border: none
+      border-radius: 6px
+      display: inline-block
+      padding: 13px 25px
+      color: white
+      font-size: 16px
+      float: right
+
+  &.open
+    background: rgba(13, 42, 66, 0.81)
+    border: 1px solid #406E94
+    border-radius: 6px 0 0 0
+
+    .chat-chat-close
+      display: block
+
+    .chat-chat-form
+      display: block
+
+    .chat-chat-thread
+      overflow: scroll
+
+      .chat-chat-thread-item
+        display: block
+
+@media (max-width: 500px)
+  #chat-chat
+    width: 100%

@@ -1,0 +1,818 @@
+en:
+  time:
+    formats:
+      friendly: "%B %-d, %Y"
+      friendly_with_time: "%B %-d, %Y %l:%M%p"
+      friendly_with_time_seconds:  "%B %-d, %Y %l:%M:%S%p"
+      month_year: "%B %Y"
+      slash_date: "%-m/%-d/%Y"
+      slash_date_with_time: "%-m/%-d/%Y %I:%M:%S%p"
+  date:
+    formats:
+      friendly: "%B %d, %Y"
+      month_year: "%B %Y"
+      slash_date: "%m/%d/%Y"
+  dict:
+    create: "Create"
+    rewards: "Rewards"
+    loading: "Loading"
+    you: "You"
+    achievement: "Achievement"
+    executive: "Executive"
+    roles: "Roles"
+    peer: "Peer"
+    res: "RES"
+    status: "Status"
+    cancel: "Cancel"
+    sales: "Sales"
+    join: "Join"
+    created_at: "Created At"
+    support: "Support"
+    admin: "Admin"
+    executive: "Executive"
+    department: "Department"
+    roles: "Roles"
+    your: "Your"
+    joined: "Joined"
+    other: "Other"
+    name: "Name"
+    first_name: "First name"
+    last_name: "Last name"
+    email: "Email"
+    language: "Language"
+    cancel_account: "Cancel account"
+    revoke: "Revoke"
+    kiosk: "Kiosk"
+    add_new: "Add new"
+    res_definition: "The Recognition Engagement Score (RES) shows the diversity of recognition recipients in the last month. Find the RES on the company admin and on the team pages."
+    free: 'free'
+    back: 'back'
+    join: 'Join'
+    login: 'Login'
+    signin: "Sign in"
+    next: 'Next'
+    password: 'Password'
+    pricing: 'Pricing'
+    tour: 'Tour'
+    why: 'Why'
+    users: 'Users'
+    No: "No"
+    Yes: "Yes"
+    stream: "Stream"
+    recognize: "Recognize"
+    recognizes: "recognizes"
+    reports: "Reports"
+    points: "Points"
+    menu: "Menu"
+    team_directory: "Team Directory"
+    logout: "Logout"
+    team_administration: "Team Administration"
+    help: "Help"
+    recognitions: "Recognitions"
+    from: "from"
+    message: "Message"
+    time: "time"
+    edit: "Edit"
+    invite_a_colleague: "Invite a colleague"
+    recognize_a_colleague: "Recognize a colleague"
+    join_a_team: "Join a Team"
+    name_tag: "Name Tag"
+    received: "Received"
+    sent: "Sent"
+    teams: "Teams"
+    save: "Save"
+    members: "Members"
+    score: "Score"
+    contact: "Contact"
+    invite: "Invite"
+    billing: "Billing"
+    starter_kit: "Employee Recognition Starter Kit"
+    download_starter_kit: "Get the Employee Recognition Starter Kit"
+    stats: "Stats"
+    case_study: "Case Study"
+    go: "Go"
+    badges: "Badges"
+    hall_of_fame: "Hall of Fame"
+    fame: "Fame"
+    total_points: "Total points"
+    private: "Private"
+    public: "Public"
+    comments: "Comments"
+    ago_in_words: "%{time} ago"
+    ago: 'ago'
+    week: "Week"
+    day: "Day"
+    yesterday: "yesterday"
+    last_week: "last week"
+    filter_by_team: "Filter by team"
+    filter_by_badge: "Filter by badge"
+    group_by_badge: "Group by badge"
+    group_by_team: "Group by team"    
+    all_badges: "All badges"
+    all_company: "All company"
+    daily: "Daily"
+    weekly: "Weekly"
+    monthly: "Monthly"
+    quarterly: "Quarterly"
+    yearly: "Yearly"
+    join: "Join"
+    view_details: "View details"
+    send: "Send"
+    delete: "Delete"
+    optional: "optional"
+    login_office365: "Log in with Office 365"
+    login_yammer: "Log in with Yammer"
+    timestamp: "Timestamp"
+    link: "Link"
+    id: "Id"
+    url: "Url"
+    knowledg_base: "Knowledge Base"
+    company_admin: "Company Admin"
+    actions: "Actions"
+    sign_in_or_sign_up_html: "<a href='/sign-up'>Sign up</a> or <a href='/user_sessions/new'>Sign in</a> to comment"
+    count: "Count"
+    current: "Current"
+    archived: "Archived"
+    view: "View"
+    vote: "Vote"
+    votes: "Votes"
+    nominations: "Nominations"
+    nominees: "Nominees"
+    nominee: "Nominee"
+    frequency:
+        people:
+            one: "one person"
+            other: "%{count} people"
+        times:
+            one: "one time"
+            other: "%{count} times"
+        badges:
+            one: "one badge"
+            other: "%{count} badges"
+        vote:
+            one: "1 vote"
+            other: "%{count} votes"
+
+  campaigns:
+    archive: "Archive"
+    unarchive: "Unarchive"
+
+  nominations:
+    your_nominations: "Your nominations"
+    nominate: "Nominate"
+    no_nominations_admin_title: "No nominations here"
+    no_one_has_sent_any: "No nominations have been sent yet."
+    has_been_sent: "Your nomination has been sent"
+    awarded: "Awarded"
+    award: "Award"
+    nominated: "Nominated"
+    update_status: "Update status"
+    user_index: 
+        your_votes: "Your votes"
+
+  home:
+    index:
+        title: 'Home'
+    read_and_learn_at_our_blog_html: 'Read and learn at %{href}.'
+    questions_or_comments: "Questions or comments?"
+    normal_tagline: "Social Employee Recognition"
+    grow_tagline: "Grow your reputation"
+    tagline: "Motivate the workplace"
+
+  dashboard:
+    current_admins: "Current Admins"  
+    today: "Today"
+    this_week: "This week"
+    total: "Total"
+    top_badges: "Top badges"
+
+  forms:
+    first_name: "First Name"
+    last_name: "Last Name"
+    email: "Email"
+    original_password: "Original Password"
+    password: "Password"
+    recipient: "Recipient"
+    recipients: "Recipients"
+    recipient_name: "Recipient Name"
+    recipient_email: "Recipient Email"
+    team: "Team"
+    teams: "Teams"
+    looks_like_we_have_a_small_problem: "Looks like we have a small problem"
+    ddmmyyyy: "dd/mm/yyyy"
+    mmddyyyy: "dd/mm/yyyy"
+    csv: "CSV"
+    excel: "Excel"
+    json: "Json"
+    date: "Date"
+    sender: "Sender"
+    sender_name: "Sender Name"
+    sender_email: "Sender Email"
+    badge: "Badge"
+    points: "Points"
+    message: "Message"
+    skills: "Skills"
+    recognized_team: "Recognized team"
+
+  stats:
+    total_members: "Total Members"
+    total_received: "Total Received"
+    total_score: "Total Score"
+    total_sent: "Total Sent"
+
+  headers: 
+    increase_company_performance_by_showcasing_emp: "Increase company performance by showcasing employee greatness"
+
+  links:
+    why_page: 'Why Page'
+    company_blog: 'our blog Smooth Sailing'
+    contact_us: 'Contact us'
+    terms_of_service: 'Terms of Service'
+    privacy: 'Privacy'
+    stream_page: "Stream page"
+    user_profile: "User Profile"
+    recognize_other: "Recognize %{name}"
+
+  login:
+    title: 'Log In'
+    welcome_user: "Welcome %{name}"
+
+  rewards:
+    title_of_reward: "Title of reward"
+    description_of_reward: "Description of reward"
+    how_many_points: "How many points is this reward worth?"
+    rewards: "Rewards"
+    set_up_rewards: "Set up rewards staff can redeem with points."
+    redeem_for_points: "REDEEM FOR %{num_points} POINTS"
+    redeem_rewards: "Redeem rewards for your hard work."
+    redeemable_for: "Redeemable for %{num_points} points"
+    points_available: "Points available to redeem"
+    redeemed: "Redeemed!"
+    you_need_html: "You need <span class='points-needed'>%{num_points}</span> points"
+    you_will_be_contacted: "You will be contacted"
+    youve_redeemed: "You've redeemed points for a reward!"
+    reward_email_body: "Congratulations, %{first_name}, you have redeemed the %{reward_title} reward. %{full_name} has been notified and will be helping you get that reward. If you don't hear from them in a few days, send them an email at %{email}."
+    admin_email_header: "%{name}, %{email}, has redeemed the %{reward_title} reward."
+    please_see_them: "Please see them to fulfill the reward. Thank you for being part of the recognition process!"
+    user_has_redeemed: "%{name} has redeemed a reward!"
+    no_rewards: "Currently no rewards exist for %{company}."
+    no_redemptions: "No reward redemptions yet."
+    frequency_and_interval: "How often can this be redeemed?"
+    no_redemptions_left_for_interval: "This reward has already been redeemed this %{interval}"
+    redeemed: "Redeemed"
+    manager: "Rewards Manager"
+    configure_the_rewards: "Configure the rewards."
+
+  email_form:
+    normal_start: "Recognize colleagues and coworkers for free."
+    grow_start: "Add an integrated recognition program to your workflow."
+    placeholder: "What's your email?"
+    sign_up: 'Sign up'
+    sign_in: 'Sign in'
+    company_name: 'Your company name please'
+    email_looks_good: 'This is the second to last question.'
+    last_step: 'Last step before logging in'
+    set_password: 'Please set a password'
+    show_password: 'Show Password'
+    yammer_start: "Integrate recognition into your workflow"
+
+  home_casestudy: 
+    title: "Goodway Group Case Study"
+    intro: "A print-marketing-services firm gone digital, Goodway Group uses technology to adapt to the changing workplace."
+
+  home_why:
+    title: "Why Recognize"
+    tag: "Increase revenue through the power of positivity"
+    innovate_more: "Focus your company"
+    the_most_innovative_companies_in_the_world_are: "Make sense of your staff through human capital management analytics. Use new insight to keep the company on-track."
+    increase_productivity: "Increase productivity"
+    its_no_secret_happy_employees_stick_around_lo: "Our customers tell us they love Recognize, because it is a light, fun tool employees enjoy using."
+    recognized_employees_are_more_profitable: "Recognized employees are more profitable"
+    research_shows_that_people_who_receive_positiv: "Provide instant feedback to reenforce ideal behavior. Fuel higher quality work through a recognition feedback loop."
+    start_recognizing_your_coworkers_for_free: "Start recognizing your colleagues for free."
+    transparency_positive_reenforcement_and_toge: "Transparency, positive reenforcement, and togetherness are critical to meet today's company culture needs. Employee recognition combines these elements making the office a better place."
+    badges_like_brilliant_and_innovative_inspire_employees: "Badges like Brilliant and innovative inspire employees."
+    warmth: "All-for-one mentality"
+    values: "Customize your program"
+    promote_values: "Customers come to us because our platform caters to their unique needs."
+
+  welcome: 
+    what_is_recognize: "1. What is Recognize?"
+    staff_give_kudos: "Staff give kudos to peers. Admins manage recognitions and gather reporting."
+    incentivize: "Incentivize corporate values."
+    discover: "Discover top staff."
+    gamification: "With a unique gamification strategy."
+    view_admin: "View the Company Admin"
+    resources: "Resources"
+    complete_profile: "2. Complete profile"
+    invite_coworkers: "Invite coworkers and add an avatar"
+    invite_colleagues: "Invite colleagues"
+    upload_avatar: "Upload avatar & more"
+    recognize: "3. Recognize"
+    see_how_easy: "See how easy it is to send official thanks."
+    send_recognition_to_colleagues: "Send recognition to colleagues"
+    pro_tip: "Pro tip:"
+    try_cc: "Try CCing send@recognizeapp.com to send recognition via email."
+    office365_value_prop: "Engages Yammer & Sharepoint users"
+    standalone_value_prop: "Stand-alone engagement program"
+    office365_integration_value_prop: "Through our integration with Office 365 and Active Directory sync you can get started now."
+    standalone_integration_value_prop: "Create a movement in your company to motivate your most important asset: your staff. Get started today."
+
+  home_extension:
+    extension: "Yammer Integration"
+    title: "Robust peer-to-peer employee recognition for Yammer."
+    title_exp: "Employee recognition without leaving Yammer"
+    subtitle: "Join the thousands of Yammer companies using Recognize"
+    point1_description: "Send recognition with one click to provide positive feedback for Yammer posts with the Recognize Yammer browser extension."
+    point2_description: "Let your workers view their top moments in Yammer."
+    point3_description: "The Recognize Yammer integration results in a 8x increase in recognitions sent."
+    point4_description: "Add easy access to send recognition to your Yammer users."
+    point1: "Employee engagement made easy"
+    point2: "Recognition top of mind"
+    point3: "Within your workflow"
+    point4: "Save time"
+    reason: "Incentive company values in Yammer with Recognize"
+    
+  home_tour:
+    title: "A straightforward tool to make employee recognition a self-propelled motivator in your workplace."
+    point2_title: "Track company culture"
+    point2: "Through daily recognition, HR can utilize recognition data to discover staff members who go above beyond."
+    how_recognize_works: "How Recognize works"
+    last_step_before_logging_in: "Last step before logging in"
+    point3_title: "Engage teams"
+    point1_title: "Focus decisions on core values"
+    point1: "Make company values living and breathing in the organization through a value-driven recognition program."
+    send_badges_like_punctual_and_innovative: 'Send badges like "Punctual" and "Innovative"'
+    point3: "Points reset after a period of time to give rise to a winning team and winning individual. Celebrate staff through friendly competition."
+    point4_title: "Highlight the best moments"
+    point4: "Validate recognitions to give extra meaning to staff member's accomplishments."
+    point5_title: "Increase retention and employee engagement"
+    point5: "Recognize is the only employee recognition platform that allows employees to complete tangible tasks setup by managers for promotion in the organization."
+
+  home_pricing:
+    get_enterprise: "Contact us to learn more"
+    contact_us_demo: "Contact Us to Learn More"
+    learn_more: "Get Started"
+    Package: "Package"
+    admin_dashboard: "Admin dashboard"
+    business_package_html: "Business %{package}"
+    startup_package_html: "Startup %{package}"
+    customize_badges: "Customize badges"
+    export_your_data_embedding: "Export your data / Embedding"
+    extended_validation_ssl: "Extended Validation SSL"
+    features: "Features"
+    introduce_social_hr_in_your_company: "Introduce peer-to-peer employee recognition in your company."
+    just_2_user_month_for_our_business_packag: "As low as $0.70 per user for our business package"
+    title: "An integrated employee recognition program."
+    last_step_before_logging_in: "Last step before logging in"
+    package: "Package"
+    reporting: "Reporting"
+    request_access: "Request Access"
+    send_receive_recognitions: "Send & receive recognitions"
+    sign_in: "Sign in!"
+    price: "Price"
+    supports_mobile_tablet_desktop_tv: "Supports mobile, tablet, desktop, tv"
+    users_teams: "Users & Teams"
+    manage_users: "Manage users"
+    customize_badges: "Customize badges"
+    export_your_data__embedding: "Export your data / Embedding"
+    extended_validation_ssl: "Extended Validation SSL"
+    privacy: "Toggle full privacy"
+    reporting: "Reporting"
+    send_receive_recognitions: "Send & receive recognitions"
+    your_company_name_please: "Your company name please"
+    unlimited: "Unlimited"
+    2_user_month: "As low as $0.7/user/month"
+    
+  support_emails:
+    feedback: "Feedback"
+    learn_more: "Learn more about Recognize"
+    please_contact_us: "Please contact us"
+    we_take_feedback: "We take feedback very seriously. Please let us know how we can better meet your needs."
+    if_you_have_a_sales_support_or_general_inqui_html: "<a href='http://support.recognizeapp.com'>View our help desk knowledge center</a>, or contact us and we'll reply in 24 hours."
+    email: "Email"
+    email_placeholder: "name@company.com"
+    avoid_spam_filters_html: "Help avoid your company's spam filters.  Email us directly at %{href}"
+    company_name: "Company name"
+    whats_on_your_mind: "What's on your mind?"
+    how_can_we_help: "How can we help?"
+    name: "Full name"
+    phone: "Telephone"
+    schedule_a_demo: "Schedule a demo or ask any questions you have about Recognize. Our team will get back to you in less than 24 hours."
+    sales_inquiry: "Sales inquiry"
+    sales_contact: "Sales contact"
+    sales_description_html: 'Contact us directly at <a href="tel:8884018837">(888) 401-8837</a> or <a href="mailto:sales@recognizeapp.com">Sales@recognizeapp.com</a>'
+    optional_phone: "Optional Phone"
+
+  saml:
+    sign_in: 'Sign in with SAML'
+    
+  yammer: 
+    sign_in: 'Sign in with Yammer'
+    login: "Login with Yammer"
+    invite: "Invite with Yammer"
+    
+  recognitions_index:
+    welcome: "Welcome %{name}"
+    hello: "Welcome %{name}!"    
+    you_earned_a_recognition: "You earned a recognition for signing up!"
+    latest: "Latest"
+    popular: "Popular"
+    start_recognizing_html: "Recognize anyone in your company<sub>*</sub>"
+
+  welcome_steps:
+    get_started: "Get started with Recognize"
+    when_you_recognize: "Show appreciation for any of your collegues at any company."
+    edit_your_profile: "Edit your profile"
+    invite_coworkers: "Invite colleagues"
+    welcome_invite: "Invite others to Recognize and help build their recognition profile."
+    send_a_recognition: "Recognize teammates"
+    set_your_name_and_add_teams: "Set your name or edit notification settings."
+    upgrade: "Paid packages include custom badges, privacy, and user management."
+    upgrade_button: "Upgrade Recognize"
+    
+  culture_of_recognition:
+    actively: "Actively use Recognize at least once a week."
+    reward_or_perk: "reward or perk"
+    highlight: "highlight staff"
+    daily_stand_up: "daily stand up meetings"
+    actively_use_recognize_at_least_once_a_week_html: "%{actively} Employees who are recognized at least once every seven days are more profitable engaged, profitable, and customer-focused."
+    at_daily_stand_up_meetings_remind_everyone_to_html: "At %{standup} remind everyone to think of reasons to recognize others."
+    culture_of_employee_recognition: "Create a culture of recognition"
+    during_company_meetings_highlight_staff_html: "During company meetings, %{highlight} who is recognized and recognizing the most."
+    provide_any_kind_of_reward_or_perk_to_recognize_html: "Provide any kind of %{perk} to recognized employees or teams."
+    recognize_only_works_at_companies_that_embrace: "How to spur recognition in your company."
+    when_you_do_favors_for_others: "When you do favors for others ask them to recognize you."
+ 
+  help:
+    have_more_questions_read_our_help_page: "Have more questions? Read our Help Page"
+    if_you_share_a_recognition_and_then_make_it: "If you share a recognition and then make it private, the link to the recognition will require the viewer to login."
+    points: "Points"
+    public_recognitions: "Public recognitions will show up on your public recognition profile."
+    public_private_recognitions: "Public & private recognitions"
+    read_our_help_page: "Read our Help Page"
+    receive_a_1_on_a_recognition_5_points: "Receive a +1 on a recognition = 5 points"
+    receive_a_recognition_10_points: "Receive a recognition = 10 points"
+    recognitions_are_sent_to_any_yammer_user: "Recognitions are sent to any Yammer user or anyone using their email address. Search for users with our autocomplete widget or enter an email address. People you have recognized will show up in the autocomplete."
+    send_a_1_on_a_recognition_1_points: "Send a +1 on a recognition = 1 points"
+    send_a_recognition_2_points: "Send a recognition = 2 points"
+    sending_a_recognition: "Sending a recognition"
+    users_get_points_for_four_different_events: "Users get points for four different events."
+    when_a_recognition_is_set_to_private: 'When a recognition is set to "private" it is only viewable by people inside the sender and the recipient companies. Public recognitions are viewable by anyone with the unique URL link to the recognition.'
+    anyone_on_a_team_can_delete_it_or_edit_the_name: "All company accounts have teams. Anyone on a team can delete it or edit the name."
+    ask_us_anything: "Ask us anything"
+    editing_deleting_recognitions: "Editing & deleting recognitions"
+    employee_recognition_becomes_part_of_your_company: "Employee recognition becomes part of your company DNA when it is publically celebrated."
+    feedback_questions: "Feedback & questions"
+    feedback_is_extremely_important_to_us: "Feedback is extremely important to us. We really want to hear from you."
+    help: "Help"
+    host_monthly_parties: "Host monthly parties"
+    how_things_work: "How things work"
+    they_do_not_need_to_sign_up: "They do not need to sign up to be recognized, all you need is their email."
+    if_you_delete_a_team_you_can_simply_recreate_: "If you delete a team, you can simply recreate it and add all the members back. Nothing is truly lost when you delete a team."
+    if_you_have_your_coworkers_email_address: "If you have your colleagues's email address, then you can recognize them."
+    in_the_reports_tab_at_the_top_left_recognize_: "Company accounts have reports. In the reports tab at the top left, Recognize provides stats on number of employees, number of recognitions sent, and other scoreboard-like information."
+    privacy: "Privacy"
+    privacy_policy: "Privacy Policy"
+    promote_appreciation_through_recognize: "Promote appreciation through Recognize"
+    recognize_with_company_email_address: "Recognize with an email address"
+    add_teams: "That's where you can add your teams"
+    the_edit_button_is_at_the_top_right_of_your_us_html: "The edit button is at the top right of your user profile. %{add_teams} or add an avatar."
+    the_scoreboards_show_top_recognized_employees: "The scoreboards show top recognized employees and teams, most sent recognition employees and teams, and finally most received employees and teams."
+    throw_a_5pm_friday_monthly_party_in_your_offic: "Throw a 5pm Friday monthly party in your office to raise recognitions awareness. Read off sincere or funny recognitions from the past month. Reward employees who send the most or receive the most recognition."
+    to_find_a_listing_of_all_the_teams_visit_the: "Team directory is visible for companies. To find a listing of all the teams, visit the Teams Directory in the menu at the top right of the toolbar"
+    user_profile: "User Profile"
+    user_profiles: "User profiles"
+    you_can_delete_or_edit_html: "You can delete or edit recognitions from the %{href}."
+    you_can_also_edit_or_delete_html: "You can also edit and delete from your %{href}."
+    we_keep_your_information_stored_safe_in_cloud: "We keep your information stored safe in cloud-based servers. Plus, we provide Extended Validation SSL to encrypt your data and to ensure the authenticity of recognizeapp.com."
+    you_can_also_edit_and_delete_from_your_user_pr: "You can also edit and delete from your User Profile."
+    you_can_delete_or_edit_recognitions_from_the_s: "You can delete or edit recognitions from the Stream page."
+    you_can_edit_and_see_your_profile_in_the_toolbar: "You can edit and see your profile in the toolbar at the top right. Simply click your name."
+    you_dont_have_to_immediately_invite_your: "You don't have to immediately invite your entire company, but start sending recognitions every day. You will find it is contagious when your company's best work is highlighted."
+    they_do_not_need_to_sign_up: "They do not need to sign up to be recognized, all you need is their email"
+    see_our_privacy_policy_html: "See our %{href}."
+    review_the_starter_kit: "Review the Starter Kit for more information"
+
+  recognition_card:
+    first_to_validate: "Be the first to validate this recognition"
+
+  forgot_password:
+    title: "Forgot Password"
+    reset_my_password: "Reset my password"
+    resend_verification_email: "Resend Verification Email"
+    send_email: "Send email"
+    email_address: "Email address"
+    nameatcompanycom: "name@email.com"
+
+  user_show:
+    user_profile: "User Profile"
+    you_are_not_on_any_teams_join_a_team: "You are not on any teams. %{join_team}."
+    you_have_not_received_any_recognitions_yet: "You have not received any recognitions yet."
+    you_have_not_sent_any_recognitions_yet: "You have not sent any recognitions yet."
+    has_not_sent_any_recognitions: "%{name} has not sent any recognitions yet."
+    has_not_received_any_recognitions: "%{name} has not received any recognitions yet."
+    is_not_on_any_teams: "%{name} is not on any teams yet."
+    num_achievements: "%{num} total achievements"
+    you_are_not_on_any_teams: "You are not on any teams."
+    tag: "Tag"
+    achievements: "Achievements"
+    
+  user_edit:
+    email_settings: "Notifications"
+    title: "Edit Profile"
+    upload_an_avatar: "Upload an avatar"
+    authorized_applications: "Authorizations"
+    cancel_instructions: "By clicking the button below, we will be notified that you wish to close your account."
+    password_instructions: "If you have set a password before, enter that here."
+    success_profile_updated: "Successfully updated profile."
+    activity_reminders: "Activity reminders"
+    interval_winner_notifications: "%{interval} winner updates"
+    edit_profile: "Edit Profile"
+    first_name_cant_be_blank: "First name can't be blank"
+    human_resources: "Human Resources"
+    job_title: "Job Title"
+    phone: "Phone"
+    start_date: "Start Date"
+    start_date_input_label: "Date work started at %{company} for years of service recognition."
+    monthly_updates: "Monthly updates"
+    new_recognition_notification: "New recognition notification"
+    new_comment_notification: "New comment notification"
+    successfully_updated_profile: "Successfully updated profile."
+    allow_sms_notifications: "Allow SMS notifications to your phone."
+    unsubscribe_from_all: "Unsubscribe from all"
+    weekly_updates: "Weekly updates"
+    daily_updates: "Daily updates"
+
+  teams:
+    add_a_team: "Add a team"
+    add_team: "Add Team"
+    create_a_new_team: "Create a new team"
+    join_a_team: "Join a team"
+    teams: "Teams"
+    disabled: "Teams is currently disabled for this %{disabled_for} account"
+    team: "Team"
+    teams_directory: "Teams Directory"
+    team_profile_company_html: "Team Profile %{name}"
+    destroy_team: "Destroy Team"
+    sure_delete: "Are you sure you want to delete the team?"
+    managers: "Managers"
+    manage: "Manage"
+    whose_teams: "%{whose} teams"
+    need_recognition_notice: "Team must first receive a recognition."
+    need_badges_notice: "See badges after receiving recognition."
+    picker: "Pick people to add"
+    
+  recognition_new:
+    all_badges: "All badges"
+    choose_a_badge: "Choose a badge"
+    close: "close"
+    recipient_input_placeholder: "Enter an email or a name, and select the recipient"
+    recipient_search_title_html: "Who do you want to <strong>recognize</strong>?"
+    send_recognition: "Recognize"
+    edit_recognition: "Update Recognition"
+    choose: "choose"
+    edit_badge_html: "&#43; Edit Badge"
+    post_to_the_yammer_wall: "Post to the Yammer Wall"
+    reason_for_the_recognition: "Reason for the recognition"
+    no_recipients_have_been_added: "No recipients have been added."
+    skill_examples: "e.g. Photoshop, Research, Time Management"
+    optional_skills: "Optional Skills"
+    yammer_sync: "Yammer Sync"
+
+  recognition_show:
+    view_certificate: "View Certificate"
+
+  recognition_certificate:
+    presented_to: "THIS CERTIFICATE IS PROUDLY PRESENTED TO"
+
+  recognitions:  
+    recipients: "Recipients"
+    update_recognition: "Update Recognition"
+    add_new: 'Add new'
+    privacy_explanation: "Set private to restrict access to users exclusively in your company."
+    there_are_no_comments: "There are no comments"
+    leave_a_comment: "Leave a comment"
+    edit_this_comment: "Edit this comment"
+    add_this_comment: "Add this comment"
+    edit_recognition: "Edit recognition"
+    sent_from: "Sent from"
+    no_recognitions_yet: "No recognitions have been sent with this badge"
+
+  nomination_new:
+    all_badges: "All badges"
+    recipient_input_placeholder: "Enter an email or a name, and select the recipient"
+    recipient_search_title_html: "Who do you want to <strong>nominate</strong>?"
+    send_nomination: "Nominate"
+    reason_for_the_nomination: "Reason for the nomination"
+
+  reports:
+    badge_count: "Badge count"
+    badge_name:: "Badge name:"
+    recognitions_sent: "Recognitions sent"
+    employees: "Employees"
+    profile_page: "profile page"
+    most_popular: "Most Popular"
+    most_received: "Most Received"
+    most_sent: "Most Sent"
+    overview: "Overview"
+    popular_badges: "Popular badges"
+    profile_page: "profile page"
+    stats: "Stats"
+    top_score: "Top Score"
+    you_are_not_on_any_teams: "You are not on any teams."
+    no_users: "There are no users for this leaderboard"
+    top_users: "Top users"
+    
+  invite:
+    batch_invite: "Batch invite"
+    email_label: "Enter an email"
+    here_is_a_list_of_a_few_people_in_yammer: "Here is a list of a few people in Yammer who aren't in Recognize yet."
+    insert_an_email: "You may invite anyone using their email address."
+    invite_by_email: "Invite by email"
+    invite_coworkers: "Invite colleagues"
+    invite_colleagues: 'Invite Colleagues'
+    invite_with_yammer: "Invite with Yammer"
+    sorry_there_are_no_users_from_yammer_to_invite: "Sorry, there are no users from Yammer to invite at this time."
+    upload_csv_file: "Upload CSV File"
+    
+  verify: 
+    resend_verification_email: "Resend verification email"  
+  
+  company_admin:
+    accounts:
+      edit_profile: "Edit"
+
+  badges:
+    boss: "boss"
+    brilliant: "brilliant"
+    caring: "caring"
+    coffee_maker: "coffee maker"
+    comedian: "comedian"
+    cooperative: "cooperative"
+    creative: "creative"
+    detailed: "detailed"
+    determined: "determined"
+    efficient: "efficient"
+    friend: "friend"
+    fun: "fun"
+    hacker: "hacker"
+    honorable: "honorable"
+    innovative: "innovative"
+    leader: "leader"
+    listener: "listener"
+    new_user: "new user"
+    on_track: "on track"
+    organized: "organized"
+    passionate: "passionate"
+    peace_maker: "peace maker"
+    popular: "popular"
+    powerful: "powerful"
+    problem_solver: "problem solver"
+    provider: "provider"
+    punctual: "punctual"
+    responsive: "responsive"
+    speaker: "speaker"
+    speedy: "speedy"
+    thumbs_up: "thumbs up"
+    on_fire: "on fire"
+    ambassador: "ambassador"
+    welcome: "%{name} badges"
+  
+  interval:
+    by: "By "  
+    custom: "%{prefix}custom"
+    day: "%{prefix}day"
+    week: "%{prefix}week"
+    weekly: "weekly"
+    month: "%{prefix}month"
+    monthly: "monthly"
+    quarter: "%{prefix}quarter"
+    quarterly: "quarterly"
+    year: "%{prefix}year"
+    yearly: "yearly"
+    q: "Q%{quarter}"
+    q_with_year: "Q%{quarter} %{year}"
+
+  activerecord:
+    attributes:
+      company:
+        name: 'Company name'
+      comment:
+        content: 'Comment'
+      user:
+        slug: "Url"
+      recognition:
+        sender_name: ""
+        reward_id: ""
+        recipients: ""
+      nomination:
+        sender_name: ""
+        recipients: ""
+      badge:
+        short_name: "Name"
+      reward:
+        sku: "Reward"
+      saml_configuration:
+        entity_id: "Metadata url"
+        
+    errors:
+      models:
+        redemption:
+          reward_matches_company: "Reward does not appear to offered by your company"
+          reward_is_enabled: "Reward is not currently active and may not be redeemed"
+          not_enough_points: "Reward may not be redeemed because user does not have enough points"
+          is_within_interval: 'Reward has already been redeemed recently. Check back soon to see if you can redeem it.'
+        user:
+          attributes:
+            email:
+              email_uniqueness: "address for this user already exists. If this is you, you may reset your password <a href='https://recognizeapp.com/password_resets'>here.</a>"
+          prefix: "prefix must contain at least one letter"
+          one_letter: " must contain at least one letter"
+          slug_format: " is not properly formatted.  It may only contain letters, numbers, hyphens and underscores"
+          email_domain: "field isn't using your company's domain. You must use your company email"
+        campaign:
+          non_nomination_badge: "The badge chosen is not a valid nomination badge"
+        nomination:
+          recipient_or_email: "Please add a recipient."
+          recipient_unknown: "The recipient or recipients specified are not part of this organization and cannot be nominated"
+          too_many_recipients: "You may only specify one person at a time to nominate"
+        recognition:
+          attributes: 
+            badge_id:
+              blank: "must be selected"
+              invalid_name: "name is not valid. Choices are: %{badge_names}."
+          recipient_or_email: "No recipients have been added."
+          check_teams_have_users: "All teams must have members to recognize them"
+          can_send_achievement_badge_single_user: "You may only send achievement badges to a single user"
+          can_send_achievement_badge_max_amt: "This user has already received the maximum amount of %{badge} badges per %{interval}."
+          is_within_default_badge_sending_limits: "You may only send %{frequency} per %{interval}."
+          is_within_badge_sending_limits: "This badge may only be sent %{frequency} per %{interval}"
+          is_within_company_sending_limits: "You may only send %{frequency} per %{interval}"
+          is_within_default_badge_sending_limits_for_users: "You may only send this badge to %{frequency} per %{interval}."
+          is_within_badge_sending_limits_for_users: "You may only send this badge to %{frequency} per %{interval}"
+          is_within_company_sending_limits_for_users: "You've reached your limit of sending badges to %{frequency} per %{interval}"
+          no_recipients_have_been_added: "No recipients have been added."          
+        post:
+          is_within_badge_sending_limits: "This badge may only be sent %{frequency} per %{interval}"
+          is_within_company_sending_limits: "You've reached your limit for sending badges this %{interval}"
+        company:
+          kiosk_key_format: " is not properly formatted. It may only contain letters and numbers."
+        badge:
+          blank: "must be selected"
+          
+  doorkeeper:
+    errors:
+      messages:
+        missing_email_auth_headers: "X-Auth-Email or X-Auth-Network header is missing."
+        email_auth_headers_invalid: "Authenticated user could not be found."
+        invalid_grant: "Access token could not be granted. Please check your credentials."
+    scopes:
+        public: "Access your public Recognize profile data"
+        profile: "Access to Recognize profile data"
+        read: 'Read access to your Recognize account'
+        write: 'Write access to your Recognize account'
+        recognitions: "Access your recognition data"
+        trusted: "Only trusted applications may use this endpoint"
+
+  instant:
+    who_is_doing_great_work: "Who is doing great work?"
+    instructions: "Click their avatar to recognize them. They will receive an instant recognition from you."
+
+  users:
+    user_directory: "User Directory"
+    search_users: "Search users"
+    update_profile_link: "Update your profile link:"
+    profile_link: "Profile link"
+    edit_profile: "Edit profile"
+
+  home:
+    pricing:
+      description: "Recognize prices are lower than other vendors while packed with all the tools for a strong employee recognition strategy."
+      title: "Recognize Pricing"
+      users_month: "user/month"
+      user_description_html: "Over a 1000+ employees, call for special pricing."
+      setup: "setup"
+      remove_setup_cost: "If you purchase by %{time}, we remove the $3,000 setup cost."
+
+    office365:
+      title_html: "#1 Employee Recognition<span class='h1-office'>For Office 365 Integration</span>"
+      sign_up_title_html: "<span class='balance-text'>Signing in to Recognize for the first time?</span><span class='welcome-text'>Welcome aboard</span>"
+      already_recognizer: "Already a Recognizer? Log in here"
+      yammer_download_html: "Recognize for <strong>Yammer</strong><span>Download the extension</span>"
+      yammer_point_1: "Never leave Yammer to adminster"
+      yammer_point_2: "Send recognition the same way as Praise"
+      yammer_point_3: "View leaderboards from Yammer"
+      yammer_point_4: "View user’s recognitions on their Yammer profile"
+      yammer_cta_html: "Most integrated <strong>Yammer</strong> Partner<span>Learn more</span>"
+
+      sharepoint_download_html: "Recognize for <strong>Sharepoint</strong><span>Download for free from Office 365 app store</span>"
+      sharepoint_point_1: "View your company's recognitions in Sharepoint"
+      sharepoint_point_2: "Stay in Sharepoint to send recognition"
+      sharepoint_point_3: "Redeem rewards in Sharepoint"
+      sharepoint_point_4: "Administer Recognize from Sharepoint"
+      sharepoint_cta_html: "Complete recognition &amp; rewards for Sharepoint<span>Learn more</span>"
+
+  sign_up:
+    username_is_html: "Your username to sign in is <strong>%{username}</strong>"
+    wants_you_to_join: "%{who} wants you to join Recognize"

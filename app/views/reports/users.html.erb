@@ -1,0 +1,14 @@
+<table class="leaderboard">
+  <% @report.leaderboard_relative_to(current_user, :points, 10).each_with_index do |user, i| %>
+    <tr class="leaderboard-item<% if user[:user] == current_user %> selected<% end %>">
+      <td class="rank"><%= user[:rank]%>.</td>
+      <td class="">
+        <%= link_to user_path(user[:user]) do %>
+          <%= image_tag user[:user].avatar.small_thumb.url, style: "height: 15px;vertical-align:middle;" %>
+          <%= user[:user].full_name %>
+        <% end %>
+      </td>
+      <td class="points"><%= user[:points] %></td>
+    </tr>
+  <% end %>
+</table>

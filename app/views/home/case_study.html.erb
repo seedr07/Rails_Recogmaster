@@ -1,0 +1,95 @@
+<% content_for :meta_properties do %>
+  <meta property="og:title" content="Recognize employee recognition case study with Goodway Group" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Recognizeapp.com" />
+  <meta property="og:description" content="Learn how Goodway Group utilized Recognize to increase employee engagement." />
+  <meta property="og:image" content="<%= image_path "pages/home-casestudy/logo-gg.png" %>" />
+<% end%>
+
+<%= content_for :title, t('dict.case_study')%>
+
+<section id="intro" data-no-turbolink="true">
+  <div class="inner">
+    <h1 class="balance-text"><%= t('home_casestudy.title') %></h1>
+  </div>
+</section>
+
+<div id="case-study-inner">
+
+  <section id="description">
+    <p><%= t('home_casestudy.intro') %></p>
+  </section>
+
+  <section style="margin-top: -20px">
+    <div class="row-fluid">
+      <dl class="stat span4">
+        <dd><span>2x</span></dd>
+        <dt>Increase in Recognitions<br>sent using Recognize</dt>  
+      </dl>
+      <dl class="stat span4">
+        <dd><span>224</span></dd>
+        <dt>Recognitions sent a month</dt>  
+      </dl>
+      <dl class="stat span4">
+        <dd><span>40%</span></dd>
+        <dt>Increase in sales this year</dt>  
+      </dl>
+    </div>
+  </section>
+
+  <section>
+    <div class="row-fluid">
+      <div class="span6">
+        <h2>Objective</h2>
+        <p>To foster a healthy company culture by promoting daily successes. Previously the company used a private Twitter feed for recognition. They were looking for the next step beyond their homegrown employee-recognition program.</p>
+      </div>
+      <div class="span6">
+        <h2>Solution</h2>
+        <p>Goodway chose Recognize above all other Yammer-integrated recognition programs because of its ease of use, flexibility, and easy-to-achieve ROI. It showcases recognition activity and allows sending recognition in the Yammer Stream and Yammer user profiles. To personalize the experience and incentivize corporate behavior, Goodway Group provided specially designed badges representing values in their company. The values can be tracked and promoted through Recognize.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="inner">
+      <%= render partial: "home/jay_quote" %>
+    </div>
+  </section>
+
+  <section>
+    <h2>Strategy</h2>
+    <ul class="bullet-list">
+      <li>Deliver monthly reports on top-recognized employees.</li>
+      <li>Showcase recognitions and send recognitions from within Yammer.</li>
+      <li>Customize the recognition values with well-designed graphics that match company culture. </li>
+    </ul>
+  </section>
+
+
+  <section>
+    <p>Goodway Group’s top badges among their custom badge set:</p>
+    <%= image_tag "pages/home-casestudy/top-badges.png", alt: "Top badges: Hero Maker, Ducks in a Row, Machine, Family Time, and Knowledge Whisperer." %>
+  </section>
+
+  <section>
+    <h2>Successes</h2>
+    <p>Due to having Recognize inside Yammer, employee recognition can stay top of mind. Plus, the easy-to-use, well-designed recognizeapp.com SaaS product helps staff send and track recognition. Corporate well-being and staff attitude continue to be high. Within the first month of using Recognize, Goodway Group reported their best month ever in revenue. Even with a remote staff, company culture is strong. <a href="http://www.goodwaygroup.com" target="_blank">Learn more about Goodway Group</a>.</p>
+  </section>
+
+  <section>
+    <a href="/goodway-group-case-study.pdf" target="_blank">&darr; Download the Goodway Group Case Study PDF</a>
+  </section>
+</div>
+
+
+
+<section id="action">
+  <div class="inner clearfix">  
+    <div class="content">
+      <%= render partial: "/home/bottom" %>
+    </div>
+  </div>
+</section>
+
+
+<%= render :partial => 'footer' %>

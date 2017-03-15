@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<!--
+
+ _____                            _         
+|  __ \                          (_)        
+| |__) |___  ___ ___   __ _ _ __  _ _______ 
+|  _  // _ \/ __/ _ \ / _` | '_ \| |_  / _ \
+| | \ \  __/ (_| (_) | (_| | | | | |/ /  __/
+|_|  \_\___|\___\___/ \__, |_| |_|_/___\___|
+                       __/ |                
+                      |___/              
+ -->
+
+<html lang="en" <% if params[:fullscreen] %>class="fullscreen"<% end %>>
+  <head>
+    <% if current_user.blank? %>
+      <script src="//cdn.optimizely.com/js/<%= Recognize::Application.config.credentials["optimizely"]["key"]%>.js"></script>
+    <% end %>
+
+    <%= yield :beforejs %>
+
+    <%= csrf_meta_tag %>
+
+  <script type="text/javascript" charset="utf-8">
+    window.console = window.console || {};
+    window.console.log = window.console.log || function() {};
+    window.console.error = window.console.error || function() {};
+    window.console.info = window.console.info || function() {};
+  </script>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="viewport" content="initial-scale=1, user-scalable=no, maximum-scale=1" />
+  <meta name="google-site-verification" content="TzPP4jokTxHeiNRHQh5gOuIEf2W2EqwQcvjShrF1iXg" />
+  <meta name="msvalidate.01" content="90EB8436D10C63FBD810C712E3D6BE78" />
+
+  <%= render partial: "layouts/iphone_splash" %>
+
+  <title><%= page_title %></title>
+
+  <link rel="apple-touch-icon-precomposed" href="/assets/chrome/logo-mark-ios.png" />
+  <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/khonmmgfpdbncbianbikkhchhgleeako">
+
+  <meta name="description" content="<%= page_description %>" />
+  <meta name="keywords" content="recognize" />
+  <meta name="wot-verification" content="1bbeba9f7df088ba71b4"/>
+  <% if metaprop = content_for(:meta_properties) and metaprop.present?%>
+    <%= metaprop%>
+  <% else%>
+  <meta property="og:title" content="Recognize - social employee recognition & rewards." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Recognize" />
+  <meta property="og:description" content="The best designed recognition platform focused in positive psychology and workflow integration." />
+  <meta property="og:image" content="/assets/chrome/logo-mark-bleed.png" />
+  <% end%>
+
+  <% if params[:fullscreen] %>
+    <meta http-equiv="refresh" content="60" >
+  <% end %>
+
+  <link rel="shortcut icon" href="/assets/chrome/logo-mark.png" />
+  <link rel="image_src" href="/assets/chrome/logo-mark.png" />
+
+  <% if is_home? %>
+    <%= stylesheet_link_tag "pages/marketing-pages", media: "all" %>
+  <% else %>
+
+    <% if has_theme? %>
+      <%= stylesheet_link_tag "themes/#{current_user.company.slug.gsub(".", "_")}", media: "all" %>
+    <% else %>
+      <%= stylesheet_link_tag "application", media: "all" %>
+    <% end %>
+  <% end %>
+
+  <script type="text/javascript" charset="utf-8">
+    window.R = window.R || {};
+
+    window.R.teams = <%= current_user && current_user.allow_teams? ? company_teams_json : [] %>;
+
+    <% if !current_user %> window.R.logout = true;<% end %>
+     if (/*@cc_on!@*/false) {  
+    document.documentElement.className+=' ie10';  
+    }
+
+    <% if current_user and (yammer_token = current_user.yammer_token)%>
+      window.yammerSettings = {
+        accessToken: "<%= yammer_token%>",
+        apiKey: "<%= Recognize::Application.config.credentials["yammer"]["client_id"]%>"
+      };
+    <% end %>
+
+    window.muteJqMigrate = <%= Rails.env.test? ? "true" : "false"%>;
+  </script>
+
+  <%= render partial: "/layouts/ruby_to_js"%>
+
+  <!--[if lt IE 9]>
+
+  <![endif]-->
+  <!-- segment -->
+  <% segment_key = Rails.configuration.credentials['segment']['write_key'] rescue nil %>
+  <% if segment_key.present? %>
+    <script type="text/javascript">
+      window.analytics=window.analytics||[],window.analytics.methods=["identify","group","track","page","pageview","alias","ready","on","once","off","trackLink","trackForm","trackClick","trackSubmit"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var key=window.analytics.methods[i];window.analytics[key]=window.analytics.factory(key)}window.analytics.load=function(t){if(!document.getElementById("analytics-js")){var a=document.createElement("script");a.type="text/javascript",a.id="analytics-js",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.io/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)}},window.analytics.SNIPPET_VERSION="2.0.9",
+      window.analytics.load("<%= segment_key %>");
+    </script>
+  <% end %>
+  
+  <% unless is_home? %>
+    <%= yield :pagetemplates %>
+    <%= render "js_templates/autocomplete" %>
+    <%= javascript_include_tag "application" %>
+  <% else %>
+    <%= javascript_include_tag "marketing" %>
+  <% end %>
+
+  <!--[if lt IE 10]>
+    <%= stylesheet_link_tag "browsers/ie", :media => "all"%>
+  <![endif]-->
+
+  <!--[if lt IE 9]>
+    <%= stylesheet_link_tag "browsers/ie8", :media => "all"%>
+
+    <%= javascript_include_tag "3p/shims/html5.js" %>
+    <%= javascript_include_tag "3p/shims/backgroundSize", :media => "all"%>
+    <%= javascript_include_tag "lib/browsers/ie", :media => "all" %>
+    <%= javascript_include_tag "3p/shims/selectivizr-min.js"%>
+
+    <script type="text/javascript" charset="utf-8">
+      document.documentElement.className+=' ie8';
+    </script>
+  <![endif]-->
+
+  <!--[if IE 9]>
+    <%= stylesheet_link_tag "browsers/ie9", :media => "all"%>
+    <script type="text/javascript" charset="utf-8">
+      document.documentElement.className+=' ie9';  
+    </script>
+
+  <![endif]-->
+
+  <!--[if lte IE 7]>
+    <script type="text/javascript" charset="utf-8">
+      document.documentElement.className+=' ie7';  
+    </script>
+    <%= stylesheet_link_tag "browsers/unsupported", :media => "all"%>
+  <![endif]-->
+
+  <%= javascript_tag do %>
+  <% if flash[:trackEvents] %> var trackEvents = [<%= flash[:trackEvents].collect{|e| e.to_json}.join(',').html_safe %>];<% end %>
+  <% if flash[:trackProperty] %> var trackProperty = <%= flash[:trackProperty].to_json.html_safe %>;<% end %>
+  <% end %>
+
+  <% if Rails.env.production? || !Rails.configuration.local_config.has_key?("skip_analytics") %>
+    <!-- Hotjar Tracking Code for https://www.recognizeapp.com -->
+    <script>
+      (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:124244,hjsv:5};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+  <% end %>
+
+  <%= yield :pagejs%>
+  <%= yield :afterjs %>
+
+</head>

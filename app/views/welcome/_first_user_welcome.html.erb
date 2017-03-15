@@ -1,0 +1,23 @@
+<%= content_for :page_class, "first-user"%>
+<div id="first-user-welcome" class="actually-first-user">
+  <div class="widget-box top">
+    
+    <% first_recognition = current_user.recognitions.first %>
+
+    <% if first_recognition %>
+      <% if first_recognition.badge.ambassador? or first_recognition.badge.new_user? %>
+        <%= render partial: "recognitions/first_user_from_signup"%>
+      <% else %>
+        <%= render partial: "recognitions/first_user_from_recognition"%>
+      <% end %>
+    <% end %>
+
+  </div>
+
+  <div class="centered" style="margin-top: 50px;">
+    <h2>Customize badges and more.</h2>
+    <p><a id="welcome-pricing-page" href="/pricing">Visit the pricing page</a> to see all the features. <a id="welcome-contact-page" href="/contact">Contact us</a> for current deals.</p>
+    <div id="recognition-card-marketingbg"></div>
+  </div>
+
+</div>

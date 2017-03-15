@@ -1,0 +1,11 @@
+<h3>Line Items<i class="subtle-text" style="font-size:14px"> new items will be billed on next invoice</i></h3>
+
+<% if @subscription.line_items.present? %>
+  <ul>
+    <% @subscription.line_items.each do |line_item| %>
+      <li>[<%= line_item.status%>] <%= number_with_precision(line_item.amount,precision: 2)%> - <%= line_item.description%></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= link_to_add_fields "Add line item", form, :line_items %>

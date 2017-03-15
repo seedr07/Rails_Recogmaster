@@ -1,0 +1,23 @@
+<h2><%= image_tag @campaign.badge.image_url, width: 100 %><br><%= @campaign.badge.short_name %></h2>
+<h3><%= link_to reset_interval_label_with_time(@campaign.badge.interval, @campaign.start_date), company_admin_campaign_path(@campaign) %></h3>
+<h3><%= recipient_avatar(@nomination.recipient)%> <%= @nomination.recipient.full_name %></h3>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th><%= t("dict.sender") %></th>
+      <th><%= t("dict.message") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @votes.each do |vote| %>
+      <tr>
+        <td>
+          <%= recipient_avatar(vote.sender) %><br />
+          <%= vote.sender.full_name %>
+        </td>
+        <td><%= vote.message %></td>
+      </tr>
+    <% end%>
+  </tbody>
+</table>

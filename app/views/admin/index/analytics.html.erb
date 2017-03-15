@@ -1,0 +1,144 @@
+<% content_for :pagejs do %>
+    <%= javascript_tag do %>
+        var datasets = {
+        "companies": {label: "New Companies", data: <%= @report.series(:new_companies_this_week)%>, yaxis: 1},
+        "users": {label: "New Users", data: <%= @report.series(:new_users_this_week)%>, yaxis: 1},
+        "recognitions": {label: "Sent Recognitions", data: <%= @report.series(:new_recognitions_this_week)%>, yaxis: 1},
+        "approvals": {label: "Given Approvals", data: <%= @report.series(:new_approvals_this_week)%>, yaxis: 1},
+        "activated_companies": {label: "Activated Companies", data: <%= @report.series(:num_activated_companies_this_week)%>, yaxis: 1},
+        "engaged_companies_this_week_by_1": {label: "Engaged Companies this week by 1 recognition", data: <%= @report.series(:num_engaged_companies_this_week_1)%>, yaxis: 1},
+        "engaged_companies_this_week_by_5": {label: "Engaged Companies this week by 5 recognitions", data: <%= @report.series(:num_engaged_companies_this_week_5)%>, yaxis: 2},
+        "engaged_companies_this_week_by_10": {label: "Engaged Companies this week by 10 recognitions", data: <%= @report.series(:num_engaged_companies_this_week_10)%>, yaxis: 2}
+        };
+    <% end%>
+
+<% end%>
+<% content_for :pagetemplates do %>
+    <%= javascript_include_tag("lib/flipflip")%>
+<% end %>
+
+<%= render partial: "admin_header"%>
+<%= link_to "Update stats", admin_refresh_analytics_path, remote: true, method: :post, data: {disable_with: "Please wait..."} %><span style="color:red">(warning, this may take a minute or so to complete)</span><span><em>Last Updated: <%= Company.analytics_updated_at%></em></span>
+
+<div id="series" class="clearfix marginTop15">
+  <% defaults = [:activated_companies, :engaged_companies_this_week_by_1, :engaged_companies_this_week_by_5, :engaged_companies_this_week_by_10] %>
+  <% [:companies, :users, :recognitions, :activated_companies, :engaged_companies_this_week_by_1, :engaged_companies_this_week_by_5, :engaged_companies_this_week_by_10].each do |series|%>
+      <label class="checkbox left" style="margin-right: 10px;margin-bottom: 30px">
+        <%= check_box_tag "#{series}_checkbox", series, defaults.include?(series) %> <%= series.to_s.humanize%>
+      </label>
+  <% end%>
+  <%= link_to "reset", "", id: "reset"%>
+</div>
+<div id="placeholder" style="width: 100%; height: 200px;"></div><div id="legend"></div>
+
+<div id="admin-flipboard" class="row-fluid">
+  <div class="flipboard-wrapper span6">
+    <h3>Activated companies by users</h3>
+    <div class="subtle-text flipboard-subheading">By numbers of users activated(sent 1 or more recognitions)</div>
+    
+    <% [1,2,5,10].each do |i|%>
+      <% 
+        activated_companies = @data.activated_companies(i)       
+        num_activated_companies = activated_companies.size
+        percent = percent(num_activated_companies, @company_count)
+      %>
+        <%= render layout: "layouts/flipboard", locals: {label: "#{i} or more<a class='show'>Show</a>".html_safe, numbers: [num_activated_companies, percent]} do %>
+          <%= render partial: "admin/index/company_list", locals: {companies: activated_companies}%>
+      <% end%>
+    <% end %>
+  </div>
+  <div class="flipboard-wrapper span6">
+    <h3>Churned companies by activated users</h3>
+    <div class="subtle-text flipboard-subheading">Was once activated but its been more than a month since last recognition</div>
+    
+    <% [1,2,5,10].each do |i|%>
+      <% 
+        churned_companies = @data.churned_companies_by_activated_users(i)
+        num_churned_companies = churned_companies.size
+        percent = percent(num_churned_companies, @data.activated_companies(i).size)
+      %>
+      <%= render layout: "layouts/flipboard", locals: {label: "#{i} or more activated users<a class='show'>Show</a>".html_safe, numbers: [num_churned_companies, percent]} do%>
+        <%= render partial: "admin/index/company_list", locals: {companies: churned_companies}%>
+      <% end %>
+    <% end %>
+
+  </div>
+</div>
+
+<div class="hr hr-space"></div>
+
+<div class="row-fluid">
+  <div class="flipboard-wrapper span6">
+    <h3>Activated companies by recognitions</h3>
+    <div class="subtle-text flipboard-subheading">By numbers of recognitions sent</div>
+    
+    <% [1,2,5,10].each do |i|%>
+      <% 
+        activated_companies = @data.activated_companies_by_recognition_count(i) 
+        num_activated_companies = activated_companies.size
+        percent = percent(num_activated_companies, @company_count)
+      %>
+        <%= render layout: "layouts/flipboard", locals: {label: "#{i} or more<a class='show'>Show</a>".html_safe, numbers: [num_activated_companies, percent]} do %>
+          <%= render partial: "admin/index/company_list", locals: {companies: activated_companies}%>
+      <% end%>
+    <% end %>
+  </div>
+
+  <div class="flipboard-wrapper span6">
+    <h3>Churned companies by recognition</h3>
+    <div class="subtle-text flipboard-subheading">Was once activated but its been more than a month since last recognition</div>
+    
+    <% [1,2,5,10].each do |i|%>
+      <% 
+        churned_companies = @data.churned_companies_by_sent_recognitions(i)
+        num_churned_companies = churned_companies.size
+        percent = percent(num_churned_companies, @data.activated_companies(i).size)
+      %>
+      <%= render layout: "layouts/flipboard", locals: {label: "#{i} or more recognitions<a class='show'>Show</a>".html_safe, numbers: [num_churned_companies, percent]} do%>
+        <%= render partial: "admin/index/company_list", locals: {companies: churned_companies}%>
+      <% end %>
+    <% end %>
+  </div>  
+</div>
+
+<div class="hr hr-space"></div>
+
+<div class="row-fluid">
+  
+  <div class="flipboard-wrapper span6">
+    <h3>Companies engaged this month</h3>
+    <div class="subtle-text flipboard-subheading">By numbers of users who've sent one recognition</div>
+    <div class="subtle-text flipboard-subheading">count / % of total companies / % of activated companies</div>
+
+    <% [1,2,5,10].each do |i|%>
+      <%
+        engaged_companies_this_month =  @data.engaged_companies_this_month(i)
+        num_engaged_companies_this_month = engaged_companies_this_month.size
+        percent = percent(num_engaged_companies_this_month, @company_count)
+        activated_percent = percent(num_engaged_companies_this_month, @activated_companies.size)
+      %>
+      <%= render layout: "layouts/flipboard", locals: {label: "#{i} or more<a class='show'>Show</a>".html_safe, numbers: [num_engaged_companies_this_month,percent, activated_percent]} do%>
+        <%= render partial: "admin/index/company_list", locals: {companies: engaged_companies_this_month}%>
+      <% end %>
+
+    <% end %>
+  </div>  
+
+  <div class="flipboard-wrapper span6">
+    <h3>Companies engaged this week</h3>
+    <div class="subtle-text flipboard-subheading">By numbers of users who've sent one recognition</div>
+    <% [1,2,5,10].each do |i|%>
+      <%
+        engaged_companies_this_week =  @data.engaged_companies_this_week(i)
+        num_engaged_companies_this_week = engaged_companies_this_week.size
+        percent = percent(num_engaged_companies_this_week, @company_count)
+      %>
+      <%= render layout: "layouts/flipboard", locals: {label: "#{i} or more<a class='show'>Show</a>".html_safe, numbers: [num_engaged_companies_this_week,percent]} do%>
+        <%= render partial: "admin/index/company_list", locals: {companies: engaged_companies_this_week}%>
+      <% end %>
+
+    <% end %>
+  </div>
+  
+</div>
+

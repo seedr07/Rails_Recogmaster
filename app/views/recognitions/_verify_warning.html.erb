@@ -1,0 +1,11 @@
+<div id="new_user_recognition_warning">
+	<div class="inner">
+	  <%= image_tag("icons/letter.png") %>
+	  <div class="text">
+	    <h5><em>We sent you an email</em> to verify your account.</h5>
+          <p>Once account is verified, you can send recognition.</p>
+	    
+	    <%= link_to t("verify.resend_verification_email"), resend_verification_email_path(email: current_user.email)%>
+	  </div>
+	</div>
+</div>

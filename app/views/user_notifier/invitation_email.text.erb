@@ -1,0 +1,40 @@
+<%= @inviter.full_name%> wants you to join Recognize.
+
+Recognize is a social employee recognition and rewards program for <%= @inviter_company.name%>.
+
+Verify your account now:
+<%= @verification_url %>
+
+
+
+Things you want to do:
+
+Edit your personal information
+<%= edit_user_url(@user) %>
+
+Send a recognition to a colleague
+<%= new_recognition_url(network: @user.network) %>
+
+See your company's recognitions
+<%= stream_url(network: @user.network) %>
+
+Use inside Yammer
+<%= extension_url %>
+
+
+
+Gain more from your actions at work.
+
++ Official recognition from your colleagues
++ Redeem rewards
++ Celebrate more often
++ Receive awards
+
+Verify your account now:
+<%= @verification_url %>
+
+
+
+
+
+

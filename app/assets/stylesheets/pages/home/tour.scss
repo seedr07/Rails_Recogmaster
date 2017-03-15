@@ -1,0 +1,225 @@
+#home-tour {
+  background: white;
+
+  #points > section {
+    padding: 0;
+  }
+
+  #points section .content {
+    margin-top: 81px;
+  }
+    
+  #points section .inner {
+    width: 960px;
+  }
+  
+  #point1-wrapper {
+    height: 311px;
+  }
+  
+  #point1-wrapper .content {
+    width: 460px;
+  }
+  
+  #point2-wrapper {
+    height: 358px;
+  }
+  
+  #point4-wrapper .content,
+  #point2-wrapper .content {
+    margin-left: 20px;
+  }
+  
+  #point2-wrapper .content {
+    width: 340px;
+  }
+  
+  #point3-wrapper {
+    height: 349px;
+  }
+  
+  #point3-wrapper .content {
+    width: 388px;
+  }
+  
+  #point4-wrapper {
+    height: 368px;
+  }
+  
+  #point4-wrapper .content {
+    width: 305px;
+  }
+  
+  #point5-wrapper {
+    height: 432px;
+  }
+  
+  #point5-wrapper .content {
+    width: 400px;
+  }
+  
+  #point1-wrapper .image,
+  .marketing-tour-bg {
+    background: transparent image-url('pages/tour/point1.png') no-repeat 0 0;
+
+    width: 492px;
+    height: 262px;
+    top: 74px;
+  }
+  
+  #point2-wrapper .image {
+    background: transparent image-url('pages/tour/point2.png') no-repeat 0 0;
+    width: 487px;
+    height: 326px;
+    top: 68px;
+  }
+  
+  #point3-wrapper .image {
+    background: transparent image-url('pages/tour/point3.png') no-repeat 0 0;
+    width: 489px;
+    height: 288px;
+    top: 96px;
+  }
+  
+  #point4-wrapper .image {
+    background: transparent image-url('pages/tour/point4.png') no-repeat 0 0;
+    width: 487px;
+    height: 318px;
+    top: 83px;
+  }
+ 
+  #point3-wrapper .image,
+  #point3-wrapper .content {
+    float: left;
+  }
+  
+  #banner h2 {
+    width: 490px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+}
+
+@media (max-width: 979px) {
+
+  #home-tour {
+    
+    #points > section {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    
+    #points section .image {
+      @include background-size(84%);
+    }
+
+    #point1-wrapper .content {
+      width: 347px;
+    }
+
+    #point2-wrapper .content {
+      width: 310px;
+    }
+    
+    #points #point2-wrapper .image {
+      @include background-size(98%);
+      width: 415px;
+    }
+
+    #point3-wrapper .content {
+      width: 318px;
+    }
+
+    #point4-wrapper .content {
+      width: 316px;
+    }
+    
+    #points #point4-wrapper .image {
+      @include background-size(98%);
+      width: 390px;
+    }
+
+    #point5-wrapper .content {
+      width: 350px;
+    }
+    
+    #points #point5-wrapper .image {
+      width: 455px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  
+  #home-tour {
+    
+    #points > section {
+      padding-left: 5px;
+      padding-right: 5px;
+      height: auto;
+    }
+    
+    #action h2 {
+      width: auto;
+    }
+  }
+
+  #home-tour #point4-wrapper .content,
+  #home-tour #point2-wrapper .content {
+    margin-left: 0;
+  }
+  
+  #home-tour #points section .content, 
+  #home-tour #points section .image {
+    float: none;
+    text-align: left;
+  }
+  
+  #home-tour #points #point1-wrapper .image {
+    width: 324px;
+    height: 183px;
+    top: 20px;
+  }
+  
+  #home-tour #points #point2-wrapper .image {
+    width: 295px;
+    height: 228px;
+    top: 34px;
+  }
+  
+  #home-tour #points #point3-wrapper .image {
+    width: 342px;
+    height: 201px;
+    top: 33px;
+  }
+
+  #home-tour #points #point4-wrapper .image {
+    width: 276px;
+    height: 239px;
+    top: 40px;
+  }
+
+  #home-tour #points #point5-wrapper .inner {
+    padding: 0;
+
+    .content {
+      padding: 0 10px;
+    }
+  }
+
+  #home-tour #points #point5-wrapper {
+    padding-left: 0;
+    padding-right: 0;
+
+    .content {
+      padding: 0 20px;
+    }
+
+    .image {
+      height: 303px;
+      top: 28px;
+      width: auto;
+    }
+  }
+}

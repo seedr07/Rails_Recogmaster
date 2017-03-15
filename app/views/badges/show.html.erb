@@ -1,0 +1,20 @@
+<div class="top-dark">
+  <%= render partial: "badges/badge_detail", locals: {badge: @badge, page: "show"} %>
+</div>
+
+<div class="content-wrapper">
+
+<h2 class="marginBottom30"><%= t("dict.recognitions") %></h2>
+
+  <% if @recognitions.size == 0 %>
+    <p><%= t("recognitions.no_recognitions_yet") %></p>
+  <% end %>
+  <div id="stream" class="opacity0">
+
+
+    <%= render @recognitions %>
+
+    <%= will_paginate @recognitions %>
+  </div>
+
+</div>

@@ -1,0 +1,551 @@
+.home img {
+  max-width: 100%;
+}
+
+.home #intro {
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+
+    path {
+      @include transition(opacity 2s linear);
+    }
+  }
+}
+
+@media (max-width: 1499px) {
+  .home {
+    #intro {
+      background: none;
+      position: relative;
+
+      svg {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+}
+
+
+@media (min-width: 1500px) {
+  .home {
+    #intro {
+      background-image: url(asset_path("pages/home-analytics/background.jpg"));
+
+      svg {
+        display: none
+      }
+    }
+  }
+}
+
+
+.home #banner {
+  .sign-in-with-google,
+  #home-yammer-login {
+    margin-bottom: 10px;
+  }
+}
+.pull-left {
+  float: left;
+}
+
+.home {
+  #search-popup {
+    display: none;
+  }
+}
+
+#home-tour #point5-wrapper .image,
+.marketing-tour-bg-badges,
+html .home #points section .marketing-tour-bg-badges {
+  background: transparent image-url('pages/tour/point5.png') no-repeat 0 0;
+  width: 479px;
+  height: 356px;
+  top: 111px;
+}
+
+#home-why,
+#home-tour,
+#home-about {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+
+  section .image {
+    position: relative;
+  }
+
+  .wrapper-outer {
+    padding: 0;
+  }
+}
+
+.home form {
+  position: relative;
+}
+
+.no-csstransforms .home .form-errors {
+  top: -30px;
+}
+
+.home .form-errors {
+  width: 100%;
+}
+
+.csstransforms .home .form-errors {
+  @include transform(translate(0, 35px));
+}
+
+.flexbox .home,
+.flexboxlegacy .home {
+
+  .form-error-wrapper {
+    width: 100%;
+    position:absolute;
+    top: -62px;
+  }
+}
+
+.home .form-errors {
+  opacity: 0;
+  display: inline-block;
+  width: 295px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  @include background-size(18px);
+}
+
+.home {
+  background: white;
+
+  .button-yammer-signup + .sign-in-with-google {
+    margin-left: 10px;
+  }
+
+  .new_user {
+    margin-bottom: 10px;
+  }
+
+  #home-yammer-login {
+    margin-right: 30px;
+  }
+
+  .sign-in-with-google {
+    position: relative;
+    top: 4px;
+  }
+
+  section .content {
+    max-width: 100%;
+  }
+
+  form {
+    padding-bottom: 0;
+    margin-bottom: 10px;
+  }
+
+  .form-errors li {
+    list-style: none;
+    padding: 0;
+  }
+
+  #signup-wrapper {
+    padding-top: 55px;
+
+    input, button {
+      font-size: 18px;
+    }
+
+    .button-yammer-signup {
+      padding-top: 13px;
+      padding-bottom: 13px;
+      width: 163px;
+      margin: 0 auto;
+      display: block;
+      position: relative;
+      top: 16px;
+    }
+  }
+
+  .text-field-wrapper .button {
+    border-radius: 2px;
+    padding: 19px 14px;
+    line-height: 12px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+
+  #user_email {
+    display: block;
+  }
+
+  .text-field-wrapper h4 {
+    margin-bottom: 10px;
+  }
+
+  .form-errors-show,
+  .hasErrors .form-errors {
+    opacity: 1 !important;
+  }
+
+  .text-field-wrapper,
+  .form-errors,
+  .hasErrors .checkbox-wrapper {
+    @include transitionTransformWithStuff(.3s, ease-in-out, .3s opacity linear);
+  }
+
+  .hasErrors #user_email {
+    border: 1px solid #F07B7B;
+    padding-left: 5px;
+  }
+
+  #view-main-wrapper {
+    padding-top: 60px;
+  }
+
+  .wrapper-outer {
+    padding: 0 !important
+  }
+
+  #intro {
+    text-align: center;
+    padding: 40px;
+    min-height: 250px;
+    background-size: cover;
+
+    @include flex-display();
+    @include align-items(center);
+    @include justify-content(center);
+
+    .tagline {
+      @include homeText();
+      max-width: 675px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .tagline, h1 {
+      color: white;
+    }
+  }
+
+  #action {
+    height: 575px;
+    max-width: 800px;
+    margin: auto;
+
+    .inner {
+      margin: auto;
+    }
+  }
+
+  #action .content-inner {
+    width: 100%;
+    margin: auto;
+    position: relative;
+  }
+
+
+  #action .inner > .content {
+    margin: 135px auto 0;
+    text-align: center;
+    position: relative;
+  }
+
+  #action h2 {
+    font-size: 40px;
+    line-height: 40px;
+  }
+
+  #action .content p {
+    @include latoFontFamily;
+    font-weight: 400;
+  }
+}
+
+@mixin homeSignupPlaceholderColor() {
+  color: #333;
+}
+
+/*  Due to a browser issue these must be separate  */
+
+.home .text-field-wrapper ::-webkit-input-placeholder {
+  @include homeSignupPlaceholderColor();
+}
+.home .text-field-wrapper input:-moz-placeholder {
+  @include homeSignupPlaceholderColor();
+}
+.home .text-field-wrapper input:-ms-input-placeholder {
+  @include homeSignupPlaceholderColor();
+}
+
+@mixin homeSignupPlaceholderFocusedColor() {
+  color: #999;
+}
+
+/*  Due to a browser issue these must be separate  */
+.home .text-field-wrapper :focus::-webkit-input-placeholder {
+  @include homeSignupPlaceholderFocusedColor();
+}
+.home .text-field-wrapper input:focus:-moz-placeholder {
+  @include homeSignupPlaceholderFocusedColor();
+}
+.home .text-field-wrapper input:focus:-ms-input-placeholder {
+  @include homeSignupPlaceholderFocusedColor();
+}
+
+.csstransforms .down,
+.csstransforms .hasErrors .text-field-wrapper,
+.csstransforms .hasErrors .checkbox-wrapper {
+  @include transform(translate(0, 50px));
+}
+
+.no-csstransforms .hasErrors .text-field-wrapper,
+.no-csstransforms .hasErrors .checkbox-wrapper {
+  position: relative;
+  top: 50px;
+}
+
+.home .home-form .content {
+  position: relative;
+}
+
+.home .text-field-wrapper input:focus {
+  outline: none;
+}
+
+@mixin homeSignupPlaceholderColor() {
+  color: #333;
+}
+
+.home .text-field-wrapper {
+  position: relative;
+
+  input, textarea, select, input:focus:required:invalid:focus,
+  textarea:focus:required:invalid:focus,
+  select:focus:required:invalid:focus {
+    border-color: 0;
+    box-shadow: none;
+  }
+}
+
+.home:not(#home-index) #banner .content,
+.home:not(#home-index) #banner-wrapper .content {
+  text-align: center;
+}
+
+.home .form-errors {
+  text-align: left;
+}
+
+.home #action .content,
+#home-index #banner-wrapper .content {
+  @include transform(translate3d(0,0,0));
+}
+
+.no-csstransforms {
+  #full_name-wrapper,
+  #password-wrapper {
+    position: static;
+  }
+}
+
+.home .name-field-wrapper {
+  display: inline-block;
+  width: 41%;
+
+  input {
+  display: block;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+  height: 53px;
+  }
+}
+
+.home #password-wrapper .checkbox-wrapper {
+  text-align: left;
+  display: block;
+  margin: 10px 0 0 0;
+
+  .checkbox-title {
+    font-size: 15px;
+    margin: 10px 0 5px 0;
+    color: $blueDark;
+  }
+}
+
+
+.home:not(#home-index) .checkbox-wrapper .checkbox-title {
+  color: #333;
+}
+
+.home:not(#home-index) #headline-inner {
+  padding-left: 0;
+}
+
+.home .home-form .back:hover {
+  opacity: .8;
+}
+
+.home .home-form .back:active {
+  opacity: 1;
+}
+
+.home .home-form .back .text {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  #home-index .exp-buckets .bucket,
+  #home-index .testimonials li {
+    margin: 1em 0;
+    width: 100% !important;
+    float: none;
+  }
+
+  body.home {
+    padding-top: 50px !important;
+
+    #view-main-wrapper {
+      padding-top: 0;
+    }
+  }
+}
+
+@media (max-width: 560px) {
+  .home:not(#home-index) #action .content-inner {
+    width: auto;
+  }
+
+  .home {
+    #action .inner > .content {
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+
+    .button-yammer-signup,
+    .sign-in-with-google {
+      font-weight: 400;
+      margin-left: 0 !important;
+    }
+
+    form#new_user {
+      margin-bottom: 30px;
+    }
+
+    .text-field-wrapper {
+      border-radius: 0;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .home #banner-wrapper h2 {
+    font-size: 48px;
+    line-height: 48px;
+  }
+
+  .home .form-errors h4 {
+    display: none;
+  }
+
+  .home .text-field-wrapper input,
+  .home .text-field-wrapper p {
+    width: 64%;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .home .text-field-wrapper h4 {
+    font-size: 14px;
+  }
+
+  .home #user_email {
+    height: 51px;
+    padding-left: 5px;
+  }
+
+  .csstransforms .home .form-errors {
+    @include transform(translate(0, 53px));
+  }
+
+  .home .form-errors {
+    left: 2px !important;
+  }
+
+  .home .checkbox-wrapper {
+    margin-left: 0;
+    display: inline-block;
+  }
+
+  .home .text-field-wrapper {
+    margin: 25px auto 15px;
+    width: auto;
+  }
+
+  .home:not(#home-index) #show-password-wrapper {
+    padding-left: 5px;
+    width: auto;
+  }
+
+  .home {
+    .wrapper {
+      margin: 0;
+    }
+  }
+
+  .home .form-errors {
+    width: 232px;
+  }
+
+  .home  #intro p {
+    padding-bottom: 5px;
+  }
+
+  .wrapper {
+    margin: 0;
+  }
+
+  .home {
+    #action .content {
+      width: 100%;
+    }
+
+    #intro {
+      padding-top: 0;
+    }
+
+    #intro p {
+      width: auto;
+    }
+
+    #intro {
+      height: auto;
+      padding: 50px 10px;
+    }
+
+    #intro h1 {
+      padding-top: 0
+    }
+
+    #signup-wrapper {
+      padding-top: 10px;
+    }
+  }
+
+  html body#home-tour, html body#home-pricing {
+    padding-top: 46px;
+  }
+}
+
+html body#home-tour, html body#home-pricing {
+  padding-left: 0;
+  padding-right: 0;
+}

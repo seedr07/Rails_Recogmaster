@@ -1,0 +1,38 @@
+<tr>
+  <td class="name">
+    <%= link_to team_path(team) do %>
+      <h3><%= team.name %></h3>
+    <% end %>
+
+    <div class="thumbnail bootstrap-check">
+      <% if user_on_team %>
+        <%= link_to team_assignment_path(team_id: team), remote: true, method: team_method, class: "team-toggle #{team_class} button button-primary" do %>
+            <i class="icon-ok icon-white"></i>
+            <span><%= button_text %></span>
+        <% end %>
+      <% else %>
+        <%= link_to team_assignment_path(team_id: team), remote: true, method: team_method, class: "team-toggle #{team_class} button button-inactive" do %>
+          <span><%= button_text %></span>
+        <% end %>
+      <% end %>
+    </div>
+  </td>
+
+  <td class="members">
+    <% team.users[0..9].each do |user|%>
+      <%= image_tag(user.avatar.thumb, class: "teams-index-user-avatar avatar", title: user.full_name) if user.avatar %>
+    <% end %>
+  </td>
+
+  <td class="score">
+    <h3><%= team.total_interval_points %></h3>
+  </td>
+
+  <td class="res">
+    <% if team.users.size > 0 %>
+      <div class="res-score" id="team-res-<%= team.id%>"data-res="<%= team.res_score %>">
+      </div>
+    <% end %>
+  </td>
+
+</tr>

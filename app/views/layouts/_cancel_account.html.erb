@@ -1,0 +1,19 @@
+  <hr class="hr hr-space">
+  <% if account.kind_of?(SupportEmail) %>
+    <% method = :post%>
+    <p><%= t("user_edit.cancel_instructions") %></p>
+  <% else %>
+    <% method = :delete %>
+  <% end %>
+  <%= form_for account, remote: true, html: {method: method, id: "cancel-account", data: {errorWrapper: "#cancel-account-error-wrapper"}} do |f| %>
+    <div id="cancel-account-error-wrapper"></div>
+    <%= f.hidden_field :name, value: @current_user.full_name %>
+    <%= f.hidden_field :email, value: @current_user.email %>
+    <% unless account.kind_of?(SupportEmail) %>
+      <%= f.hidden_field :account_type, value: account.class.to_s %>
+      <%= f.hidden_field :account_id, value: account.id %>
+    <% else %>
+     <%= f.hidden_field :message, value: "Cancel account #{type}" %>
+    <% end %>
+    <%= f.submit t("dict.cancel_account"), class:'button button-no-chrome danger' %>
+  <% end %>

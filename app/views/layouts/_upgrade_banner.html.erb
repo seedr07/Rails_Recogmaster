@@ -1,0 +1,29 @@
+<div class="upgrade-banner">
+  <div class="row-fluid">
+    <div class="span5">
+      <div class="flex-centered">
+        <div class="content" data-no-turbolink="true">
+          <h2 class="balance-text">Increases staff engagement by 800%</h2>
+          <p class="balance-text">Use with Office 365, Yammer, Sharepoint, Google, and now Slack.</p>
+          <%= link_to "Purchase", welcome_path(upgrade: true), class: "button button-highlight" %>
+          <%= link_to "Learn more", welcome_path, class: "button" %>
+        </div>
+      </div>
+    </div>
+    <div class="span7 tour-content">
+      <div class="content">
+        <% if content_for?(:tour_content) %>
+          <%= yield :tour_content %>
+          <%= render partial: "layouts/youtube_load" %>
+      <% else %>
+          <style>
+            .tour-content .value-props li:nth-child(<%= rand(1..4) %>) {
+              display: block;
+            }
+          </style>
+          <%= render partial: "welcome/value_props" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

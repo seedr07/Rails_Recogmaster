@@ -1,0 +1,20 @@
+<% content_for :title do %>
+  Sign in to continue
+<% end %>
+
+<% @user_session ||= UserSession.new %>
+<h1>Login or sign up to send recognition</h1>
+<div class="hr hr-thick hr-space"></div>
+<div class="row-fluid">
+  <div class="span4">
+    <h2>Login</h2>
+    <%= render partial: "user_sessions/login" %>
+  </div>
+
+  <div class="span4 offset2" data-no-turbolink>
+    <h2>Sign up</h2>
+    <p>Return to the homepage to sign up in the email form at the top.</p>
+    <%= link_to "Sign up for free", sign_up_path, class: "button button-large button-border" %>
+  </div>
+
+</div>

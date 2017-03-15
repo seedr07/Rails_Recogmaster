@@ -1,0 +1,7 @@
+(function(R, $, undefined) {
+  var $commentWrapper = $('<%= escape_javascript(render partial: "comments/form", locals: {comment: @comment})%>');
+  var $comment = $("#comment-<%= @comment.id%>");
+  var $cancelBtn = $("<%= escape_javascript(link_to 'Cancel', recognition_comment_path(@recognition, @comment), style: "margin-top: -10px;", remote: true)%>");
+  $commentWrapper.find("form").after("<hr>").after($cancelBtn);
+  $comment.html($commentWrapper);
+})(window.R, jQuery);

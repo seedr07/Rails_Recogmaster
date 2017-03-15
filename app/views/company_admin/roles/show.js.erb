@@ -1,0 +1,3 @@
+(function(){
+  $("#company-role-<%= @company_role.id%>").replaceWith('<%= j render(partial: "company_admin/roles/company_role", locals: {role: @company_role})%>');
+})();

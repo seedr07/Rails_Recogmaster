@@ -1,0 +1,139 @@
+#home-office365
+
+  h1
+    color: #FFFFFF
+    text-shadow: 0px 2px 4px rgba(0,0,0,0.50)
+    margin-bottom: 2em
+
+  .masterhead
+    background: image-url("pages/home-pricing/bg.jpg") center 0 no-repeat
+    background-size: auto 100%
+    background-attachment: fixed
+    padding-bottom: 0
+
+    h1, h2
+      span
+        display: block
+
+    h1
+
+      .h1-office
+        font-size: 1.5em
+        line-height: 1em
+
+    h2
+      font-size: 20px
+      color: #245A88
+      margin-bottom: 3em
+
+      .welcome-text
+        font-weight: 100
+        color: #8EA0B0
+        font-size: 1.9em
+
+    video
+      margin-bottom: -7px
+
+    .inner
+      padding: 4em 2em 0
+
+    .sign-up
+      background: #fff
+      height: 556px
+      width: 35%
+
+    .video-wrapper
+      width: 65%
+
+    .sign-up
+      float: right
+
+    .video-wrapper
+      float: left
+
+  .offerings
+    text-align: center
+
+    section
+      padding: 4em 2em
+      height: 372px
+
+      &:first-child
+        padding-bottom: 0
+        height: 555px
+        overflow: hidden
+
+        img
+          max-width: 100%
+
+      img
+        box-shadow: 0 0 15px rgba(0,0,0,.6)
+        max-width: 400px
+
+    .yammer,
+    .sharepoint
+      width: 50%
+      float: left
+      padding: 3em 0 0 0
+
+      h3
+        color: white
+        margin-bottom: 1.5em
+
+      section:nth-child(even)
+        background: white
+        color: #085D7A
+
+        h3
+          color: inherit
+
+    .yammer
+      background: #336595 url(asset_path("pages/home-office365/yammer-icon-big.png")) 25px 20px no-repeat
+
+
+    .sharepoint
+      background: #216DCB url(asset_path("pages/home-office365/sharepoint-icon-big.png")) 25px 20px no-repeat
+
+@media (max-width: 1133px)
+  #home-office365
+    .masterhead
+
+      video
+        max-width: 100%
+
+@media (max-width: 1000px)
+  #home-office365
+    .masterhead
+      .video-wrapper .inner
+        padding-bottom: 0 !important
+
+      h1
+        margin-bottom: 20px
+
+      .video-wrapper,
+      .sign-up
+        float: none
+        width: 100%
+        height: auto
+
+        .inner
+          padding: 2em
+
+      img
+        display: none
+
+@media (max-width: 930px)
+  #home-office365
+    .masterhead
+      background-size: auto
+
+    .offerings
+      & > div
+        float: none !important
+        width: 100% !important
+
+        section
+          height: auto
+
+      img
+        max-width: 100% !important

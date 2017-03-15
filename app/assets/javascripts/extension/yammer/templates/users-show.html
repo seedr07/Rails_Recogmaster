@@ -1,0 +1,38 @@
+<script id="recognitions-template" type="text/x-handlebars-template">
+  {{#each this}}
+    <div class="recognition-card">
+      <div class="recognition-card-inner">
+
+        <a href="{{permalink}}" target="_blank" class="yj-clearfix recognition-card-link">
+          <img class="image-wrapper" src={{badge_permalink}} />
+          <div class="to-wrapper yj-clearfix">
+              <h3 itemprop="award">{{badge_name}}</h3>
+                        <dl itemscope itemtype="http://schema.org/Person">
+            {{#if message}}
+              <dt>Message</dt>
+              <dd class="message"><h4>{{message}}</h4></dd>
+            {{/if}}
+            </dl>
+
+              <ul class="recognition-recepient-list yj-clearfix">
+                {{#each recipients}}
+                  <li class="to yj-clearfix" itemscope itemtype="http://schema.org/Person">
+                    <img src="{{avatar_thumb_url}}" alt="{{full_name}}" width="25" />
+                    <div class="recognition-recipient-content">
+                      <strong itemprop="name">{{full_name}}</strong> 
+                      <i itemprop="worksFor"> {{company_name}}</i> 
+                    </div>
+                  </li>
+                {{/each}}
+              </ul>
+            </div>
+          </a>
+        </div>
+        <div class="from-wrapper message-wrapper">
+          <span class="recognize-subtle">Sent from:</span> {{sender.full_name}}, <span class="recognize-subtle" itemprop="worksFor">
+              {{sender.company_name}}, {{friendly_created_at}}.
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</script>

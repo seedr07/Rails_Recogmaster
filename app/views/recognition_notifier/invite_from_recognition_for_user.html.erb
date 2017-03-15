@@ -1,0 +1,7 @@
+
+<p style="<%= mail_styles(:p) %>">Recognize promotes your professional reputation by showcasing your best work. Send and receive recognitions with your colleages today.</p>
+
+<p style="<%= mail_styles(:p) %>">By receiving a recognition, you are automatically invited into Recognize.</p>
+
+<a href="<%= recognition_url(@recognition, invite: @recipient.perishable_token) %>" style="<%= mail_styles(:button) %>">View your recognition</a>
+  

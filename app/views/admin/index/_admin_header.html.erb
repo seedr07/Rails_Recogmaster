@@ -1,0 +1,22 @@
+<% if @queue_pid.blank? && Rails.env.production?%>
+    <% if @queue_error.present? %>
+        <h1 style="color: white;font-weight:bold;padding:5px;background-color:red">Error checking bg task status: <%= @queue_error %></h1>
+    <% else %>
+        <h1 style="color: white;font-weight:bold;padding:5px;background-color:red">Background Task is not running!!!</h1>
+    <% end %>
+
+<% end %>
+
+<h2 style="margin-bottom: 0">Site Administration <span style="font-size: 0.8em"><%= defined?(page) ? " | #{page}" : ""%></span></h2>
+<%= link_to_unless_current "Dashboard", admin_path%> |
+<%= link_to_unless_current "Paid Engagement", admin_paid_engagement_path%> |
+<%= link_to_unless_current "Users", admin_users_path%> |
+<%= link_to_unless_current "Recognitions", admin_recognitions_path%> |
+<%= link_to_unless_current "Analytics", admin_analytics_path%> |
+<%= link_to_unless_current "Subscriptions", admin_subscriptions_path%> | 
+<%= link_to_unless_current "Coupons", admin_coupons_path%> | 
+<%= link_to_unless_current "Background tasks", admin_queue_path%> | 
+<%= link_to_unless_current "Recent Emails Sent Out", admin_emails_path%> |
+<%= link_to_unless_current "Login As User", admin_login_path %>
+
+<hr>

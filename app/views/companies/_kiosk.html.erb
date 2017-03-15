@@ -1,0 +1,16 @@
+<hr class="hr hr-space" />
+<h5>Kiosk Mode While Logged Out</h5>
+<p><label>Generate a custom Url that displays kiosk mode even when no user is logged in.</label></p>
+<%= form_for @company, html: {id: "kiosk-mode"}, url: update_kiosk_mode_key_company_path(network: @company.domain), remote: true do |f|%>
+    <div class="control-group">
+      <%= f.label "Url Code" %>
+      <%= f.text_field :kiosk_mode_key, class: "block" %>
+      <%= f.submit "Update Kiosk Mode Url", class: "button button-border" %>
+    </div>
+    <div class="control-group">
+      <%= f.label "Current Kiosk Mode Url: " %>
+      <span id="kiosk-url">
+        <%= render partial: "companies/kiosk_url"%>
+      </span>
+    </div>
+<% end %>

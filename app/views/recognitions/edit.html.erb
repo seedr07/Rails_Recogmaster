@@ -1,0 +1,26 @@
+
+  <% if current_user and !current_user.verified? and params[:controller] != "password_resets"%>
+    <%= render partial: "/recognitions/verify_warning"%>
+  <% end %>
+
+  <%= render_flash%>
+  <% content_for :pagejs do %>
+    <% if @recipient %>
+      <%= javascript_tag do%>
+        window.R = window.R || {};
+        R.recognitionRecipient = {
+          id: <%= @recipient.id%>,
+          avatar_thumb_url: '<%= @recipient.avatar.small_thumb.url%>',
+          type: 'User',
+          name: '<%= @recipient.full_name%>'
+        }
+      <% end%>
+    <% end %>
+    <%= javascript_include_tag("3p/handlebars") %>
+  <% end %>
+  
+  <%= render 'form' %>
+
+  <% content_for :pagetemplates do
+    render partial: "/js_templates/recognition_new"
+  end %>

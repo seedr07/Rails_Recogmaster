@@ -1,0 +1,14 @@
+<%= render partial: "admin_header", locals: {page: "Signup Requests"}%>
+
+<div class="row-fluid">
+    <div class="span2">Date</div>
+    <div class="span4">Email</div>
+    <div class="span2">Interest</div>
+  </div>
+  <% @requests.each do |r| %>
+    <div class="row-fluid">
+      <div class="span2"><%= r.created_at.to_formatted_s(:db)%></div>
+      <div class="span4"><%= r.email%></div>
+      <div class="span2"><%= r.pricing%></div>
+    </div>
+  <% end %>

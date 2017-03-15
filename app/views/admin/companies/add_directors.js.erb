@@ -1,0 +1,11 @@
+$(function(){
+  <% if @error %>
+    alert('Could not add user with email: <%= params[:user][:email]%> because: <%= @error %>');
+  <% elsif @user %>
+    <% list_item =  escape_javascript(render 'director_list_item', user: @user) %>
+    $('#directors-list').append($("<%= list_item %>"));
+    $("#user_email").val('');
+  <% else %>
+    alert('Could not find user with email: <%= params[:user][:email]%>');
+  <% end %>
+})();

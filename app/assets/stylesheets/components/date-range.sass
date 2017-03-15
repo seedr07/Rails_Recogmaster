@@ -1,0 +1,40 @@
+.date-range
+  .select2-container
+    width: 100% !important
+
+  .select2-container .select2-selection--single
+    height: 40px
+    background: $headerBg
+    color: white
+
+  .select2-container--default .select2-selection--single .select2-selection__rendered
+    color: white
+    line-height: 40px
+
+  .select2-container--default .select2-selection--single .select2-selection__arrow b
+    border-color: white transparent transparent transparent
+    margin-top: 3px
+
+  .date-range-select
+    display: none
+
+    &.active
+      display: block
+  
+    input[type=text]
+      width: 100px
+      
+  .selected-heading
+    margin-left: 5px
+
+  #date-range-select--1
+    input
+      width: 100px
+      min-height: 30px
+      padding: 0 5px
+
+    input[type=submit]
+      width: 55px
+      padding: 0
+      height: 28px
+  

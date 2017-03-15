@@ -1,0 +1,31 @@
+<%= form_for @badge, url: company_badges_path(network: @company.domain), remote: true do |f| %>
+  <span class="centered subtle-text smallPrint block">200px by 200px transparent PNG<br>
+Crop image to badge</span>
+  <div class="control-group">
+    <%= f.label :short_name, "Title" %>
+    <%= f.hidden_field :name %>
+    <%= f.text_field :short_name, placeholder: "Title of badge" %>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, "Description" %>
+    <%= f.text_area :description, rows: 2, placeholder: "Description of badge" %>
+  </div>
+
+  <div class="control-group" id="badge-image-control">
+    <div id="badge-image-wrapper">
+      <%= image_tag(@badge.image.thumb.url) if @badge.image.thumb.url%>
+    </div>  
+    <%= f.label :image %>
+    <%= f.file_field :image, :"data-url" => company_badges_path(network: @company.domain) %>
+    <%= f.hidden_field :image_cache %>
+    <div class="file-attach-progress">
+      <div class="message"></div>
+      <div id="progress-bar"><div id="progress-inner"><span class="right"></span></div></div>
+    </div>
+
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Create badge", class: "button button-highlight" %>
+  </div>
+<% end %>

@@ -1,0 +1,2 @@
+#!/bin/sh
+bin/rspec spec/controllers spec/forms spec/mailers spec/models spec/routing spec/views spec/api spec/services spec/lib

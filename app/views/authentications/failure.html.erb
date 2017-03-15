@@ -1,0 +1,14 @@
+
+<div class="centered">
+  <h2>Sorry, we could not authenticate you.</h2>
+  <%= render_flash %>
+
+  <% if params[:stategy] == "yammer" %>
+    <ul>
+      <li>Please ensure your Yammer network admin settings allow 3rd party app access.</li>
+    </ul>
+  <% end %>
+
+  <p>If this problem persists, please reach out to us at <%= mail_to "support@recognizeapp.com" %>. <br />In most cases, we'll get back to you within a few hours.</p>
+
+</div>

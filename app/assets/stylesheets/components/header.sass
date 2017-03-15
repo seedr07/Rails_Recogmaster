@@ -1,0 +1,751 @@
+$headerTop: 15px
+$headerTextColor: #fff
+$headerTextHoverColor: #fff
+
+.has-theme header #header-loggedin-logo
+  background-image: asset-data-url($logo)
+  background-repeat:  no-repeat
+  background-position:  0 3px
+  left: 50%
+  transform: translate(-50%,0)
+
+header#header
+  overflow: hidden
+
+  .point-interval
+    color: #fff
+
+  #header-signin-nav-mobile
+    display: none
+
+  .header-logout-mobile-menu-trigger
+    display: none
+
+.logout #logo
+  position: absolute
+
+.ios header.ios-hidden
+  display: none
+
+header
+  padding: 0 15px
+  background: $headerBg
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  z-index: 1001
+  @include box-sizing(border-box)
+  outline: 0
+
+  a
+    @include transition(background .15s linear)
+
+  #header-phone
+    font-size: 16px
+    position: relative
+    top: 10px
+
+    span
+      font-size: 20px
+
+  #header-loggedin-logo
+    position: absolute
+    font-weight: 300
+    @include flex-display()
+    @include align-items(center)
+    @include justify-content(center)
+    width: 100%
+    height: 100%
+    z-index: -1
+    color: $headerTextColor
+    left: 0
+
+    h3
+      margin-bottom: 0
+
+
+    a
+      display: block
+      padding: 10px
+      background: #FFF
+      border-radius: 4px
+      color: $headerBg
+      margin-left: 9px
+
+header,
+header .secondary-controls *,
+#header-settings,
+.nav-sub
+  @include transform(translateZ(0))
+
+header h2,
+header h3,
+header dd,
+header dt
+  color: #f4f4f4
+
+header > span
+  margin: 0
+  float: left
+
+header h1,
+.logout header #logo-text
+  font-size: 25px
+  text-align: center
+  line-height: 25px
+  color: #fff
+  @include latoFontFamily()
+  font-weight: 200
+
+
+header h1
+  margin-right: 0
+
+header h1:active,
+header h1 a.active,
+#recognition-page header h1 a
+  text-shadow: 0 1px 1px rgba(163, 159, 159, 0.8)
+  color: #474747
+
+header h2
+  font-size: 12px
+  margin: 0 0 0 7px
+  line-height: 2px
+  @include latoFontFamily
+
+header a:hover
+  text-decoration: none
+
+
+header h1 span
+  font-size: 14px
+
+header #home-nav
+  float: left
+  top: 12px
+  position: relative
+  right: 44px
+
+header #home-nav li,
+.header-button
+  font-size: 16px
+  @include latoFontFamily
+
+header #home-nav li
+  float: left
+
+header #home-nav li
+  margin-right: 25px
+
+header #home-nav ul
+  margin-right: -40px
+
+header #home-nav li.current a
+  color: #fff
+  text-shadow: 0 1px rgba(0,0,0,.4)
+  font-weight: 600
+
+header a
+  margin-right: 10px
+  text-decoration: none
+  color: $headerA
+
+header a:hover
+  color: #fff
+
+header nav a:last-child
+  margin-right: 0px
+
+header .primary-controls
+  float: left
+  position: relative
+  max-width: 290px
+
+header .secondary-controls
+  text-align: left
+  float: right
+
+.logout header .secondary-controls
+  width: auto
+
+header .profile
+  margin-top: -1px
+
+header .profile h2,
+header .profile h2 a
+  line-height: 15px !important
+  color: #fff
+  width: 105px
+  overflow: hidden
+  text-overflow: ellipsis
+  margin-right: 0
+  white-space: nowrap
+  font-size: 15px !important
+
+header .profile dl
+  display: inline-block
+  margin: 0 3px 0 0
+
+header .stats
+  margin-left: 8px
+
+header .profile h2,
+header .stats dd,
+header a
+  color: $headerTextColor
+
+header .profile:hover h2,
+header .profile:hover dd
+  color: $headerTextHoverColor
+
+header .stats dt,
+header .stats dd
+  display: inline-block
+
+header .stats dd
+  z-index: 2
+  font-size: 15px
+  text-align: center
+  margin-left: -1px
+  top: 3px
+  position: relative
+
+header .stats .received dt ,
+header .stats .sent dt
+  width: 15px
+
+header .stats dl
+  position: relative
+
+header .profile-pic
+  max-width: 35px
+
+.nav-sub
+  margin-left: 50px
+  margin-bottom: 15px
+  width: 109px
+  right: 42px
+  top: 46px
+  position: fixed
+  z-index: 9
+
+.nav-sub li
+  display: inline-block
+
+.nav-sub a
+  padding: 6px 8px
+  background: white
+  border-radius: 0 0 3px 3px
+  box-shadow: none
+  display: block
+
+.nav-sub li.active
+  padding: 6px 8px
+  background: #E1E1E1
+  box-shadow: 0 1px 2px 0 #999
+
+.nav-sub li a
+  box-shadow: 0 1px 2px 0 #999
+  text-decoration: none
+
+.nav-sub li:hover:not(.active) a
+  background: #EDEDED
+  color: inherit
+  box-shadow: 0 1px 1px 0 #CFCFCF
+
+#header-controls
+  width: 600px
+  text-align: center
+
+header .stats dt
+  text-indent: -9999px
+  color: transparent !important
+
+#header-login
+  margin-left: 30px
+
+#header-login .icon
+  background: transparent asset-data-url("icons/login-key.png") no-repeat 0 0
+  width: 14px
+  height: 14px
+  display: block
+  position: absolute
+  left: 8px
+
+html:not(.touch) #header-controls a:hover,
+html:not(.touch) #header-settings:hover,
+#header-controls a:active,
+#recognitions-index #header-stream,
+#recognitions-new #header-recognize,
+#recognitions-edit #header-recognize,
+#reports-index #header-reporting,
+#users-show.current-user-profile #header-profile-wrapper,
+#users-index #header-users,
+header #header-profile-wrapper:hover,
+.badges #header-badges,
+.hall_of_fame #header-fame,
+.redemptions #header-rewards
+  @include menuButton()
+
+html body header
+  #header-controls a,
+  #header-settings,
+  #header-reporting
+    display: block
+    margin-right: 3px
+    padding: 11px 12px
+    float: left
+
+#header-controls span,
+#header-settings span
+  display: block
+  margin-top: 2px
+  @include latoFontFamily()
+  font-size: 13px
+
+
+header #header-profile-wrapper
+  padding: 17px 4px
+  display: block
+  float: left
+  height: 65px
+
+#header-settings
+  float: right
+  margin-right: 0
+
+html:not(.ie8)
+  #header-settings > div
+    background: transparent asset-data-url($headerSettingsIcon) no-repeat center center
+
+  body:not(.logout) #header-recognize div
+    background: transparent asset-data-url($headerRecognizeIcon) no-repeat center center
+
+  #header-stream > div
+    background: transparent asset-data-url($headerStreamIcon) no-repeat center center
+
+  #header-reporting > div
+    background: transparent asset-data-url($headerStatsIcon) no-repeat center center
+
+  #header-users > div
+    background: transparent asset-data-url($headerUsersIcon) no-repeat center center
+
+  #header-badges > div
+    background: transparent asset-data-url($headerBadgeIcon) no-repeat center center
+
+  #header-fame > div
+    background: transparent asset-data-url($headerTrophyIcon) no-repeat center center
+
+  #header-rewards > div
+    background: transparent asset-data-url($headerRewardsIcon) no-repeat center center
+
+
+  #header-settings div,
+  body:not(.logout) #header-recognize div,
+  #header-controls div
+    width: 25px
+    height: 25px
+    @include background-size(25px)
+    margin: auto
+    background-repeat: no-repeat
+
+#header-search-label
+  display: none
+
+.touch #search-popup
+  display: none
+
+#search-popup
+  position: fixed
+  background: $menuBg
+  padding: 15px
+  @include transform(translate(0,0))
+  left: 0
+  width: 260px
+  top: 54px
+  border-radius: 0 0 8px 0
+  z-index: 100
+  border-bottom: 1px solid gray
+  border-bottom: 1px solid rgb(0,0,0.5)
+
+  input
+    margin-top: 13px
+    line-height: 31px
+    height: 38px
+    font-size: 18px
+    width: 100%
+    box-sizing: border-box
+    -moz-box-sizing: border-box
+    margin-bottom: 5px
+
+  .email-wrapper
+    display: none
+
+  .ui-helper-hidden-accessible
+    display: none
+
+  ul
+    top: 0 !important
+
+    li
+      margin: 5px 0
+      border-radius: 3px
+
+      img
+        margin-right: 10px
+        border-radius: 15px
+
+      a
+        color: #fff
+        display: block
+        padding: 3px
+        text-decoration: none
+        padding: 7px 0 7px 7px
+
+        &.ui-state-active,
+        &.ui-state-hover,
+        &.ui-state-focus,
+        &:hover
+          background: $menuHighlightColor
+          cursor: pointer
+
+
+
+.csstransforms #header-settings div
+  @include transition(.2s all ease-in-out)
+
+.header-menu
+  background: $menuBg
+  list-style: none
+  margin: 0
+  padding: 14px
+  position: fixed
+  right: 15px
+  top: 60px
+  border-radius: 0 0 8px 8px
+  border-top: 1px solid #3A3A3A
+  display: none
+  z-index: 999
+  max-height: 100%
+  overflow: auto
+
+
+  .button:not(.button-yammer-signup)
+    margin-bottom: 15px
+
+  .button-yammer-signup
+    width: 218px
+    margin-bottom: 10px !important
+    color: white !important
+
+  .sign-in-with-google,
+  .button-yammer-signup
+    display: block
+    text-align: center
+
+  label
+    color: #fff
+
+  a
+    color: $headerTextColor
+    text-indent: 0
+    text-decoration: none
+
+  a:hover:not(.sign-in-with-google)
+    color: $headerTextHoverColor
+
+.csstransforms .header-menu
+  @include transform(translate(0, -450px))
+  @include transitionTransform(.2s, ease-in-out)
+  display: block
+
+.no-csstransforms .header-menu
+  display: none
+
+#settings-menu
+  padding: 12px 0 12px 0
+
+#settings-menu li
+  padding-top: 4px
+  padding: 4px 12px
+  -webkit-tap-highlight-color: #333
+  opacity: .8
+  font-size: 18px
+
+#settings-menu a
+  padding-left: 22px
+  display: block
+
+#settings-menu li:hover
+  opacity: 1
+
+#login-menu
+  .login-hr
+    margin-bottom: 14px
+
+  .button-yammer-signup
+    margin-bottom: 1px
+
+  input:not(.button)
+    width: 100%
+    box-sizing: border-box
+    -moz-box-sizing: border-box
+    height: 38px
+
+
+
+#login-menu .control-group:last-child
+  margin-bottom: 0
+
+.csstransforms .header-menu-open #settings-menu,
+.csstransforms .header-menu-open #login-menu
+  @include transform(translate(0, 2px))
+
+.no-csstransforms .header-menu-open .header-menu
+  display: block
+
+.csstransitions  .header-menu-open #header-settings div
+  @include transform(rotate(100deg) translate(0, 0))
+
+#settings-menu .logout a
+  background-image: asset-data-url('chrome/header/logout.png')
+
+#settings-menu .invite a
+  background-image: asset-data-url('chrome/header/invite-small.png')
+
+#settings-menu .billing a
+  background-image: asset-data-url('icons/coin.png')
+
+#settings-menu .admin a
+  background-image: asset-data-url('chrome/header/admin.png')
+
+#settings-menu .support a
+  background-image: asset-data-url('chrome/header/contact.png')
+
+#settings-menu .teams a,
+.ui-autocomplete .team a:before
+  background-image: asset-data-url('chrome/header/teams.png')
+
+#settings-menu .help a
+  background-image: asset-data-url('chrome/header/help.png')
+
+#settings-menu .admin a,
+#settings-menu .logout a,
+#settings-menu .support a,
+#settings-menu .teams a,
+#settings-menu .billing a,
+#settings-menu .help a
+  @include background-size(15px)
+
+#settings-menu a
+  background-repeat: no-repeat
+  background-position: left 3px
+
+#settings-menu .help a
+  background-position-y: 2px
+
+#settings-menu .support a,
+#settings-menu .invite a
+  background-position-y: 4px
+
+.ios #settings-menu .support a
+  background-position-y: 7px
+
+.ios #settings-menu .invite a
+  background-position-y: 6px
+
+
+#settings-menu .invite a
+  @include background-size(15px, 13px)
+
+.header-button
+  background: #14608F
+  text-decoration: none
+  display: inline-block
+  color: #fff
+  border-radius: 3px
+  margin-right: 0
+  padding: 13px
+
+  &:hover
+    background: $blueDark
+
+#chrome-header
+  display: none
+
+.chrome #chrome-header
+  background: image-url("icons/chrome.png") no-repeat 0 0
+  height: 50px
+  padding-left: 55px
+  font-family: helvetica, helvetica neue, arial
+  display: inline-block
+  position: absolute
+  width: 222px
+  height: 29px
+  top: -7px
+  padding-top: 15px
+  font-size: 16px
+  font-weight: 400
+  text-shadow: none
+
+@media (max-width: 1122px)
+  #header-loggedin-logo
+    display: none
+
+  #logo
+    left: 15px
+    margin-left: 0
+
+  .chrome #chrome-header,
+  #header-phone
+    display: none
+
+
+@media (max-width: 1000px)
+  header
+    #header-search-wrapper
+      display: none
+
+    #home-nav li
+      margin-right: 15px
+
+
+@media (max-width: 1115px)
+  #header-loggedin-logo
+    display: none !important
+
+
+@media (max-width: 790px)
+
+  header #home-nav li
+    margin-right: 10px
+
+  #view-drawer-wrapper
+    #header-signin-nav
+      display: none
+
+@media (max-width: 750px)
+  #header .secondary-controls .point-interval-label
+    display: none
+
+  #login-menu
+    .hr
+      display: none
+    form
+      margin-bottom: 10px
+
+  #search-popup
+    top: 48px
+
+  #header-controls,
+  #header-settings
+    margin-top: 0
+
+  #header-controls a,
+  #header-settings
+    text-indent: -9999px
+    color: transparent !important
+    padding-right: 5px !important
+    padding-left: 5px !important
+
+  header #header-profile-wrapper
+    padding-top: 9px
+    padding-bottom: 3px
+
+  #header-controls a span,
+  #header-settings span
+    display: none
+
+  header
+    min-height: 38px
+
+  header .primary-controls
+    width: 163px
+
+  header #header-profile-wrapper
+    width: auto
+    display: inline-block
+    margin-right: 0
+    height: 47px
+
+  header .profile h2,
+  header .profile h2 a
+    font-size: 13px
+    width: 86px
+
+  header #home-nav
+    right: 27px
+    top: 10px
+
+  header #home-nav li
+    font-size: 11px
+
+
+  header #home-nav ul
+    margin-right: -32px
+
+  .header-menu-open #settings-menu,
+  .header-menu-open #login-menu
+    @include transform(translate(0, -16px))
+
+  $horizontalMobilePadding: 5px 4px
+
+  header#header
+    padding: 0 5px
+
+  header .secondary-controls
+    top: 6px
+    right: $horizontalMobilePadding
+    width: 141px
+
+  .header-menu
+    right: 3px
+
+  .nav-sub
+    margin-left: 0px
+    right: 5px
+
+  header .profile-pic
+    display: none
+
+  #header-controls
+    left: 0px
+
+  .nav-sub a,
+  .nav-sub li.active
+    padding: 2px 8px
+
+  header h1
+    font-size: 20px
+
+  .header-menu
+    top: 42px
+
+  #settings-menu
+    right: 5px
+
+  header .stats dd
+    font-size: 11px
+
+@media (max-width: 480px)
+  #header
+    .secondary-controls
+      width: 79px
+
+      & > a:first-child
+        padding: 0
+        margin-right: 5px
+
+      .profile-pic
+        margin-top: 6px
+        @include filter(brightness(72%))
+        display: block
+
+      .profile
+        position: absolute
+        bottom: 11px
+        text-shadow: 0 0 1px #000
+
+        h2
+          display: none

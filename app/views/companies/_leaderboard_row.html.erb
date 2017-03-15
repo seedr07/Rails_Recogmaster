@@ -1,0 +1,10 @@
+<tr class="table-rank-row">
+  <td><%= user[:rank]%></td>
+  <td class="">
+    <%= link_to user_path(user[:user]) do %>
+      <%= image_tag user[:user].avatar.small_thumb.url, style: "height: 15px;vertical-align:middle;" %>
+      <%= user[:user].full_name %>
+    <% end %>
+  </td>
+  <td class="span1"><%= user[attribute] %></td>
+</tr>

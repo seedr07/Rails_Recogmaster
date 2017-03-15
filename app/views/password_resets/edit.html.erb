@@ -1,0 +1,12 @@
+<% content_for :title, "Reset your password" %>
+<h1>Change My Password</h1>
+
+<%= form_for @user, :url => password_reset_path do |f| %>
+  <%= render_flash(include_errors: @user) %>
+
+  <%= f.label :password, "New Password" %><br />
+  <%# note i took out 'required' because i want to force server side pw validation, for testing... %>
+  <%= f.password_field :password %><br />
+  <br />
+  <%= f.submit "Update my password and log me in", class: "button" %>
+<% end %>

@@ -1,0 +1,156 @@
+<div id="settings" class="tab tab-pane">
+  <h2>Settings</h2>
+  <p>Settings are instantly set, but may require you to <strong>reload</strong> your page to see the changes.</p>
+
+  <div class="marginBottom20">
+    <%= show_toggle @company.disable_signups?, 
+    "Disable signups", 
+    data: {setting: "disable_signups"} %>  
+    <p class="subtle-text small-text">By disabling signups, users may not manually sign up. They must be imported by an admin.</p>
+  </div>
+
+  <div class="marginBottom20">
+    <%= show_toggle @company.allow_invite?,
+                    "Allow users invite others",
+                    data: {setting: "allow_invite"} %>
+  </div>
+
+  <div id="allow-teams-setting" class="marginBottom20">
+    <%= show_toggle @company.allow_teams?, "Allow teams", data: {setting: "allow_teams"} %>
+  </div>
+
+  <div class="marginBottom20">
+    <%= show_toggle @company.allow_google_contact_import?, 
+    "Allow users to import their google contacts", 
+    data: {setting: "allow_google_contact_import"} %>  
+  </div>
+
+  <div class="marginBottom20">
+    <%= show_toggle @company.allow_daily_emails?, 
+    "Send daily recognition summary email to all users", 
+    data: {setting: "allow_daily_emails"} %>  
+    <p class="subtle-text small-text">Turning on this setting resets user choice in their profile settings.</p>
+  </div>
+
+  <div class="marginBottom20">
+    <%= show_toggle @company.allow_interval_winner_notifications?, 
+    "Send updates to all users who are the winners for the previous #{reset_interval_noun(current_user.reset_interval)}", 
+    data: {setting: "allow_interval_winner_notifications"} %>  
+  </div>
+
+  <div class="marginBottom20">
+    <%= show_toggle @company.message_is_required?, 
+    "Message is required to send a recognition", 
+    data: {setting: "message_is_required"} %>  
+  </div>       
+
+  <div class="marginBottom20">
+    <%= show_toggle @company.global_privacy?, 
+    "By turning privacy on, all new recognitions will be private and are inaccessible to the public", 
+    data: {setting: "global_privacy"} %>  
+    <p class="subtle-text small-text">All recognitions are always accessible to your organization.</p>
+  </div>           
+
+  <div class="marginBottom20">
+    <%= show_toggle @company.disable_passwords?, 
+    "Disable passwords", 
+    data: {setting: "disable_passwords"} %>  
+    <p class="subtle-text small-text">By disabling passwords, users may only authenticate with Yammer, Google, or Active Directory.</p>
+  </div>
+
+   <div class="marginBottom20" id="allow-sms-notifications">
+    <%= show_toggle @company.allow_sms_notifications?, 
+    "Allow SMS Notifications", 
+    data: {setting: "allow_sms_notifications"} %>  
+    <p class="subtle-text small-text">Users can get notified by text message(SMS) to their cell phone when they are recognized.</p>
+  </div>
+
+  <hr>
+  <h3>Nominations</h3>
+   <div class="marginBottom20" id="allow-nominations">
+    <%= show_toggle @company.allow_nominations?, 
+    "Allow Nominations", 
+    data: {setting: "allow_nominations"} %>  
+  </div>
+
+   <div class="marginBottom20" id="nomination-message-is-required">
+    <%= show_toggle @company.nomination_message_is_required?, 
+    "Message is required", 
+    data: {setting: "nomination_message_is_required"} %>  
+  </div>
+
+  <hr>
+
+  <h3>Stats configuration</h3>
+  <p>Stats is the leaderboards in the top nav.</p>
+  <div id="allow-you-stats" class="marginBottom20">
+    <%= show_toggle @company.allow_you_stats?, "Allow leaderboards focused on the user", data: {setting: "allow_you_stats"} %>
+  </div>
+
+  <div id="allow-top-employee-stats" class="marginBottom20">
+    <%= show_toggle @company.allow_top_employee_stats?, "Allow leaderboards for top employees", data: {setting: "allow_top_employee_stats"} %>
+  </div>
+
+  <hr>
+
+  <h3>Hall of Fame</h3>
+  <p>This experimental feature will allow your staff to see the to employees each month, quarter, or year. Filter by company, team, or badge.</p>
+
+  <div class="marginBottom20">
+    <%= show_toggle @company.allow_hall_of_fame?,
+                    "Enable the Hall Of Fame feature",
+                    data: {setting: "allow_hall_of_fame"} %>
+  </div>
+
+  <hr>
+
+  <h3>Rewards</h3>
+  <p>Allow your staff to redeem items of  your choice for points they earn from recognition.</p>
+  <div id="allow-rewards" class="marginBottom20">
+    <%= show_toggle @company.allow_rewards?,
+                    "Allow rewards",
+                    data: {setting: "allow_rewards"} %>
+  </div>
+  <hr>
+
+  <h3>Yammer settings</h3>
+  <div class="marginBottom20">
+    <%= show_toggle @company.allow_posting_to_yammer_wall?,
+                    "Allow posting recognition events to Yammer wall",
+                    data: {setting: "allow_posting_to_yammer_wall"} %>
+  </div>
+
+  <div class="marginBottom20">
+    <%= show_toggle @company.allow_yammer_connect?,
+                    "Allow users to connect to Yammer",
+                    data: {setting: "allow_yammer_connect"} %>
+  </div>
+
+  <div class="marginBottom20">
+    <%= show_toggle @company.allow_yammer_manager_recognition_notification?,
+                    "Allow managers to be private messaged on yammer upon recognition",
+                    data: {setting: "allow_yammer_manager_recognition_notification"} %>
+  </div>
+
+  <h4>Instant recognitions</h4>
+  <p>Instant recognitions are the group of avatars on the stream page that can be instantly recognized by tapping their avatar. (Currently only for Yammer users).</p>
+  <div class="marginBottom20">
+    <%= show_toggle @company.allow_instant_recognition?,
+                    "Allow instant recognitions",
+                    data: {setting: "allow_instant_recognition"} %>
+  </div>
+
+  <hr>
+
+  <div class="marginBottom20">
+    <%= select_tag "reset-interval", options_for_reset_interval(@company), data: {setting: "reset_interval"} %>
+    <label class="checkbox-title">Change the interval at which users' and teams' points are reset</label>      
+  </div>
+
+  <%= render partial: "companies/recognition_limits" %>
+  <%= render partial: "companies/point_values" %>
+  <%= render partial: "companies/anniversaries" %>
+  <%= render partial: "companies/saml" %>
+  <%= render partial: "companies/kiosk" %>
+  <%= render partial: "layouts/cancel_account", locals: {account: @support_email, type: "Company"} %>
+</div>

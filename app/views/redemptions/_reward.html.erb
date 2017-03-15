@@ -1,0 +1,27 @@
+<div id="reward-card-<%= reward.id%>" class ="reward-card <%= reward_availability_status(reward, current_user) %>" data-points='<%= reward.points%>'>
+  <div class="reward-header" <% if reward.image_url.present? %> style="background-image: url('<%= reward.image_url.to_s %>')" <% end %>>
+    <div class="inner">
+      <h2><%= reward.title %></h2>
+    </div>
+
+  </div>
+  <div class="reward-content">
+    <p><%= reward.description %></p>
+  </div>
+  <div class="reward-form-wrapper">
+      <%= render "form", reward: reward %>
+      <div class="unredeemable-wrapper">
+        <h4><%= t("rewards.redeemable_for", num_points: reward.points) %></h4>
+        <div class="points subtle-text">
+          <%=t("rewards.you_need_html", num_points: redemption_points_needed(reward, current_user))%>
+        </div>
+        <% unless reward.interval.null? %>
+          <div class="frequency subtle-text">
+            <%= t('rewards.no_redemptions_left_for_interval', interval: reset_interval_label(reward.interval))%>
+          </div>
+        <% end %>
+      </div>
+  </div>
+
+  <div class='reward-success-button centered'><h4><%= t("rewards.redeemed")%></h4><div><%= t("rewards.you_will_be_contacted")%></div></div>
+</div>

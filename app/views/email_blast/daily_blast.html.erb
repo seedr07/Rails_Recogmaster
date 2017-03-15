@@ -1,0 +1,50 @@
+<%= render partial: "layouts/mailer/header" %>
+      <div style="text-align: center; ">
+        <h2 style="padding: 0 25px; display: inline-block; <%= mail_styles(:h2, :text, :title) %>">Recognitions sent in the past day</h2>
+      </div>
+
+
+      <% sent_recognition_count = @company_report.sent_recognitions.size
+         is_only_one = sent_recognition_count == 1; %>
+
+      <h3 style="text-align: center; margin: 30px 0; padding: 0; <%= mail_styles(:h3, :text) %>">
+        <% if sent_recognition_count == 0 %>
+          Who in your world deserves appreciation?
+        <% end %>
+      </h3>
+
+      <div style="margin: 0 -5% 0 0; padding: 0; <% if is_only_one %> text-align: center;<% end %>">
+        
+        <% @company_report.top_recognitions.each_with_index do |recognition, i| %>
+          <a style="<%= mail_styles(:recognitionCard) %> text-decoration: none; <% if is_only_one %> text-align: left; display: inline-block; float: none;<% end %>" href="<%= recognition.permalink %>">
+            <div style="background: #f7f9fc; padding: 7px;">
+              <img src="<%= recognition.badge.permalink(100, 'http:') %>" style="float: left; margin-right: 10px; width: 38%; max-width: 100px;">
+              <div style="float: left; width: 57%; padding-top: 7px;">
+                <div style="float: left; width: 25%; margin-right: 5px;">
+                  <% likes = recognition.approvals.size %>
+                  <% if likes > 0 %>
+                  <span style="<%= mail_styles(:counter, :text) %>">+<%= likes %></span>
+                  <% end %>
+                </div>
+                <h4 style="float: left; margin-bottom: 5px; margin-top: 0; font-size: 15px; width: 70%; <%= mail_styles(:h4, :text) %>"><strong style="<%= mail_styles(:text) %>"><%= recognition.sender.full_name %></strong> to <strong style="<%= mail_styles(:text) %>"><%= recognition.recipients.collect{|r| r.full_name}.to_sentence %></strong></h4>
+                <div style="clear:both;margin: -1px 0 7px 0;height: 0;"></div>
+                <p style="margin-top: 0; <%= mail_styles(:p) %> font-weight: 300; color: #333;" ><%= recognition.message %></p>
+                <p style="<%= mail_styles(:text, :p, :textSubtle) %>"><%= time_ago_in_words(recognition.created_at) %></p>
+              </div>
+              <%= mail_styles(:clear) %>
+            </div>
+          </a>
+        
+          <% if ((i+1) % 2) == 0 %>
+            <%= mail_styles(:clear) %>
+          <% end %>
+        <% end %>
+        
+         <%= mail_styles(:clear) %>
+      </div>
+
+      <div style="text-align: center; margin: 10px 0 30px 0;">
+        <%= link_to "View all your company's recognitions" , recognitions_url(network: @user.network, trk: "valycr"), style: mail_styles(:button)%>
+      </div>
+            
+<%= render partial: "layouts/mailer/footer" %>

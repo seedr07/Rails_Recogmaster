@@ -1,0 +1,51 @@
+<%= javascript_tag do %>
+    <%
+       company_data = @graph_data[:companies].to_array.to_s
+       recognition_data = @graph_data[:recognitions].to_array.to_s
+       user_data = @graph_data[:users].to_array.to_s
+       approval_data = @graph_data[:approvals].to_array.to_s
+
+    %>
+    var datasets = {
+    "companies": {label: "Companies", data: <%= company_data%>},
+    "recognitions": {label: "Recognitions", data: <%= recognition_data%>},
+    "users": {label: "Users", data: <%= user_data%>},
+    "approvals": {label: "Approvals", data: <%= approval_data%>}
+    };
+<% end%>
+
+<div id="admin-flipboard" class="row-fluid">
+  <div class="flipboard-wrapper span4">
+    <h3>Today</h3>
+    <% condition = Time.now.midnight%>
+    <%= render partial: "layouts/flipboard", locals: {label: "Companies", number: @companies.where(['companies.created_at > ?', condition]).count}%>
+    <%= render partial: "layouts/flipboard", locals: {label: "Users", number: @users.where(['users.created_at > ?', condition]).count}%>
+    <%= render partial: "layouts/flipboard", locals: {label: "Recognitions", number: @recognitions.where(['recognitions.created_at > ?', condition]).count}%>
+  </div>
+
+  <div class="flipboard-wrapper span4">
+    <h3>This week</h3>
+    <% condition = Time.now.beginning_of_week %>
+    <%= render partial: "layouts/flipboard", locals: {label: "Companies", number: @companies.where(['companies.created_at > ?', condition]).count}%>
+    <%= render partial: "layouts/flipboard", locals: {label: "Users", number: @users.where(['users.created_at > ?', condition]).count}%>
+    <%= render partial: "layouts/flipboard", locals: {label: "Recognitions", number: @recognitions.where(['recognitions.created_at > ?', condition]).count}%>
+  </div>
+
+  <div class="flipboard-wrapper span4">
+    <h3>Total</h3>
+    <%= render partial: "layouts/flipboard", locals: {label: "Companies", number: @companies.count}%>
+    <%= render partial: "layouts/flipboard", locals: {label: "Users", number: @users.count}%>
+    <%= render partial: "layouts/flipboard", locals: {label: "Recognitions", number: @recognitions.count}%>
+  </div>
+</div>
+<div class="hr hr-space"></div>
+
+<div id="series" class="clearfix marginTop15">
+  <% [:companies, :recognitions, :users, :approvals].each do |series|%>
+      <label class="checkbox left" style="margin-right: 10px">
+        <%= check_box_tag "#{series}_checkbox", series, true%> <%= series%>
+      </label>
+  <% end%>
+  <%= link_to "reset", "", id: "reset"%>
+</div>
+<div id="placeholder" style="width: 100%; height: 200px;"></div><div id="legend"></div>

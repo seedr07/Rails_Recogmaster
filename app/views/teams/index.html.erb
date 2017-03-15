@@ -1,0 +1,35 @@
+<% if current_user.allow_teams? %>
+
+  <h1><%= t("teams.teams_directory")%></h1>
+
+  <%= render partial: "teams/add" %>
+
+  <div id="teams-directory-wrapper">
+    <div id="teams-directory">
+      <table class="table">
+        <%= render :partial => 'teams/team_table_header', :locals => {:team_type => t("dict.your"), :team_id => "your-teams"}%>
+        <% locals = {user_on_team: true, team_method: :delete, button_text: t("dict.joined"), team_class: "team-leave"} %>
+
+        <% if @users_teams.blank? %>
+          <tr><td colspan="4"><h4><%= t("teams.join_a_team") %></h4></td></tr>
+        <% end %>
+
+        <% @users_teams.each do |team| %>
+          <%= render partial: "teams/team_table_row", locals: locals.merge(team: team) %>
+        <% end %>
+
+        <%= render :partial => 'teams/team_table_header', :locals => {:team_type => t("dict.other"), :team_id => "other-teams"}%>
+        <% locals = {user_on_team: false, team_method: :post, button_text: t("dict.join"), team_class: "team-join"} %>
+        <% @other_teams.each do |team| %>
+          <%= render partial: "teams/team_table_row", locals: locals.merge(team: team) %>
+        <% end %>
+
+      </table>
+    </div>
+  </div>
+
+<% else %>
+
+  <h2><%=t("teams.disabled", disabled_for: current_user.company.name)%></h2>
+
+<% end %>

@@ -1,0 +1,9 @@
+$(function(){
+  <% if @error %>
+    alert('Could not remove user with id: <%= params[:user_id]%> because: <%= @error %>');
+  <% elsif @user %>
+    $('#director-id-<%= @user.id%>').remove();
+  <% else %>
+    alert('Could not find user with id: <%= params[:user_id]%>');
+  <% end %>
+})();

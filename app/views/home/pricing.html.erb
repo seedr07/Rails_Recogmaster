@@ -1,0 +1,66 @@
+<section id="intro" class="animate-1 animate-hidden animate" data-no-turbolink="true">
+  <div class="inner" data-no-turbolink="true">
+    <h1 class="balance-text"><%= t(".title") %></h1>
+    <p class="tagline balance-text"><%= t(".description") %></p>
+    <%= link_to "Contact us & get started", contact_sales_path, class: "button button-big button-primary" %>
+  </div>
+  <%= render partial: "home/patterns/orange.svg" %>
+
+</section>
+
+<div id="points">
+  <div class="prices clearfix">
+
+    <% [{
+          price: '$2',
+          type: t(".users_month"),
+          note: t(".user_description_html")
+        },
+        {
+          price: '$0',
+          type: t(".setup"),
+          note: t(".remove_setup_cost", time: 5.weeks.from_now.strftime("%m/%d/%Y"))
+        }].each_with_index do |package, i| %>
+
+      <div class="price animate-<%= i+2 %> animate-hidden animate">
+        <dl>
+          <dd><%= package[:price] %></dd>
+          <dt><%= package[:type] %></dt>
+        </dl>
+        <p class="balance-text subtle-text lead"><%= package[:note] %></p>
+      </div>
+
+    <% end %>
+
+  </div>
+
+  <div class="see-features-wrapper centered animate-1 animate-hidden animate">
+    <h3>The pricing above includes all features</h3>
+    <div class="table-outer">
+      <table>
+        <tr>
+          <td class="lead subtle-text">Custom badges</td>
+          <td class="lead subtle-text">Rewards</td>
+          <td class="lead subtle-text">Leaderboards</td>
+        </tr>
+        <tr>
+          <td class="lead subtle-text">Points</td>
+          <td class="lead subtle-text">Departments</td>
+          <td class="lead subtle-text">Tech Support</td>
+        </tr>
+        <tr>
+          <td class="lead subtle-text">User Management</td>
+          <td class="lead subtle-text">Yammer</td>
+          <td class="lead subtle-text">Sharepoint</td>
+        </tr>
+        <tr>
+          <td class="lead subtle-text">Mobile</td>
+          <td class="lead subtle-text">Kiosk mode</td>
+          <td class="lead subtle-text">Export data</td>
+        </tr>
+      </table>
+    </div>
+
+    <%= link_to "See the Complete List of Features", features_path, class: "button button-primary" %>
+  </div>
+</div>

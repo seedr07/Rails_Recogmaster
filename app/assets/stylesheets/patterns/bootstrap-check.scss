@@ -1,0 +1,13 @@
+.bootstrap-check li .btn i {
+  display: none;
+}
+
+.bootstrap-check li .btn.btn-success i {
+  display: inline-block;
+  margin-right: 3px;
+}
+
+.bootstrap-check input[type=checkbox] {
+  position: absolute;
+  left: -9999px;
+}

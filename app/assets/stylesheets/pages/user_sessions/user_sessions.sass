@@ -1,0 +1,95 @@
+.user_sessions.logout,
+.password_resets.logout,
+#home-sign_up
+  #navbar
+    .nav
+      li:not(#signup-menu):not(#login-menu)
+        display: none
+
+.password_resets
+  #view-main-wrapper
+    .form-vertical
+      .button
+        width: 100%
+
+#home-sign_up
+  background: image-url("chrome/background.png") repeat
+
+  #new_user
+    .error
+      max-width: 380px
+
+  #action
+    height: 485px
+
+    .content
+      box-shadow: 0 120px 341px 150px #FFF
+      background: rgba(255, 255, 255, 0.7)
+      margin-top: 30px
+      margin-bottom: 15px
+
+.user_sessions
+  padding-bottom: 50px
+
+  .login-wrapper
+    .button-yammer-signup,
+    .sign-in-with-google
+      float: left
+
+.flexboxlegacy .user_sessions,
+.flexboxlegacy .password_resets,
+.flexboxlegacy .saml
+  .wrapper
+    form
+      input[type=text], input[type=email], input[type=password]
+        width: 100%
+        @include box-sizing(border-box)
+        height: 40px
+
+    .login-wrapper,
+    .user-sesssion-content
+      max-width: 600px
+      @include transform(translate(0, 0))
+      opacity: 1
+
+  #view-main-wrapper
+    display: flex
+    @include align-items(center)
+    @include justify-content(center)
+    @include box-pack(center)
+    padding-top: 0
+
+html body.user_sessions
+  padding-bottom: 10px
+
+  .login-wrapper 
+    @include transitionTransformWithStuff(.8s, cubic-bezier(.17,.67,.17,.95), opacity .8s linear)
+
+  .wrapper .login-wrapper.login-hide
+    opacity: 0
+    @include transform(translate(0, 20px))
+  
+  h1
+    background: asset-data-url('icons/keys.png') 0 7px no-repeat
+    @include background-size(29px)
+    padding-left: 45px
+    
+  #wrapper-outer .sign-in-with-google
+    margin: 0 0 0 7px
+    position: relative
+    top: 1px
+
+
+@media (max-width: 800px)
+  #home-sign_up
+    #action
+      height: 485px
+
+@media(max-width: 480px)
+  .user_sessions
+    .sign-in-with-google
+      margin: 10px 0 0 0
+    .login-wrapper
+      .button-yammer-signup,
+      .sign-in-with-google
+        display: block

@@ -1,0 +1,41 @@
+.comments-wrapper
+  
+  .button
+    -webkit-transition: all .4s linear
+
+.comments-list-wrapper
+  
+  .comment
+    margin-bottom: 20px
+    padding-bottom: 20px
+    position: relative
+
+  .comment:last-child
+    margin-bottom: 20px
+
+  .comment-content
+    margin: 0
+
+  .subtle-text
+    margin: 5px 0 0 0
+
+  img
+    max-width: 60px
+    margin-right: 15px
+    border-radius: 10px
+    margin-bottom: 5px
+    position: absolute
+    top: 0
+    left: 0
+
+  .comment-inner
+    padding-left: 75px
+  
+#comment_content      
+  width: 100%
+  box-sizing: border-box
+  height: 45px
+  
+@media (max-width: 480px)
+  .comments-wrapper .comment-content
+    max-width: 100%

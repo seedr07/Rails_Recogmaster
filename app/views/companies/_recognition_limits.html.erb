@@ -1,0 +1,42 @@
+<hr class="hr hr-space">
+<h5>Recognition sending limits</h5>
+<%= form_for @company, url: update_recognition_limits_company_path(network: @company.domain), remote: true do |f|%>
+  <p><label>Limit the number of badges that can be given.</label></p>
+  <div class="sending-limit-setting-wrapper">
+    <div class="label">
+      Default: 
+    </div>
+    <%= f.text_field :default_recognition_limit_frequency, type: :number, placeholder: "10", min: 0, style: "width: 50px;" %>
+      <%= sending_limit_scope_select("company[default_recognition_limit_scope_id]", @company.default_recognition_limit_scope_id) %>       
+      <select style="width: 100px;" name="company[default_recognition_limit_interval_id]">
+        <% Interval::RESET_INTERVALS.each do |value, name| %>
+          <% selected = @company.default_recognition_limit_interval_id == value ? "selected='true'" : "" %>
+          <option value="<%= value %>" <%= selected %>><%= name %></option>
+        <% end %>
+      </select>
+    <p class="description marginBottom30">
+      This limits the default total number of recognitions a user can send. This is for badges without limits on the custom badges page.
+    </p>
+
+  </div>
+
+  <div class="sending-limit-setting-wrapper">
+    <div class="label">
+      Global: 
+    </div>
+    <%= f.text_field :recognition_limit_frequency, type: :number, placeholder: "10", min: 0, style: "width: 50px;" %>
+      <%= sending_limit_scope_select("company[recognition_limit_scope_id]", @company.recognition_limit_scope_id) %>       
+      <select style="width: 100px;" name="company[recognition_limit_interval_id]">
+        <% Interval::RESET_INTERVALS.each do |value, name| %>
+          <% selected = @company.recognition_limit_interval_id == value ? "selected='true'" : "" %>
+          <option value="<%= value %>" <%= selected %>><%= name %></option>
+        <% end %>
+      </select>
+    <p class="description marginBottom30">
+      This limits the total number of recognitions a user can send, regardless of the badge settings on the custom badge page.
+    </p>
+  </div>
+  
+  <%= f.submit "Save badge limits", class: "button button-border" %>
+
+<% end %>

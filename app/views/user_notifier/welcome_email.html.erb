@@ -1,0 +1,9 @@
+<h2 style="<%= mail_styles(:h2, :text, :title) %>We've verified your identity and you are ready for lift off.</h2>
+
+<% if @user.consider_as_contact? %>
+  <p style="<%= mail_styles(:p, :text) %>">Look for another email from Josh Jermaine, our head of sales, to help you get started.</p>
+<% else %>
+  <p style="<%= mail_styles(:p, :text) %>">Others in your company have already joined. Log in now to recognize your coworkers.</p>
+<% end %>
+
+<%= link_to "Let's Recognize", login_url, style: "#{mail_styles(:button)}; margin-top: 20px;" %>

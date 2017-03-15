@@ -1,0 +1,12 @@
+
+<%= render partial: "payment/cc" %>
+
+<%= javascript_include_tag("https://js.stripe.com/v2/") %>
+<%= javascript_include_tag("https://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/jquery.validate.min.js") %>
+
+
+<script type="text/javascript">
+  $("head").append('<%= tag :meta, :name => "stripe-key", :content => STRIPE_PUBLIC_KEY, id: "stripe-key" %>');
+  window.R.paymentConfirmation();
+</script>
+

@@ -1,0 +1,40 @@
+<% if current_user.subscribed_account? %>
+  <p><%= link_to "Contact us", new_support_email_path %> to add users with an email other than <%= current_user.company.domain %>.</p>
+<% else %>
+  <p class="intro">Your account only consists of users with the email domain of <%= current_user.company.domain %>.</p>
+  <%= link_to "Upgrade to the business package to add any email address to your account", upgrade_path, class: "button button-no-chrome" %>
+<% end %>
+
+<div class="hr-thick hr-space"></div>
+
+<% if params[:email] %>
+<p class="form-errors">This user hasn't joined Recognize yet, please invite them by clicking invite button below.</p>
+<% end %>
+
+<div id="invite-row" class="row-fluid">
+ 
+  <div class="span4">
+    <h3><%= t("invite.invite_by_email") %></h3>
+    <p><%= t("invite.insert_an_email") %></p>
+    <div class="clearfix analyticsEvent" data-event="invite-individual-user" data-eventtype="click">
+      <div class="invite-email-group clearfix control-group" >
+        <%= text_field_tag "user[invitations][]", "", class: "text clone-input text-medium analyticsEvent", placeholder: t("invite.email_label"), data: {event: 'invite-individual-user', eventtype: "click"}, value: params[:email] %>
+        <% if params[:email] %>
+          <%= text_field_tag "user[invitations][]", "", class: "text clone-input text-medium analyticsEvent", placeholder: t("invite.email_label"), data: {event: 'invite-individual-user', eventtype: "click"} %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <% unless current_user.personal_account? && !current_user.allow_yammer_auth? %>
+    <div id="invite-yammer-wrapper" class="span4">
+      <h3><%= t("yammer.invite") %></h3>
+      <p><%= t("invite.here_is_a_list_of_a_few_people_in_yammer") %></p>      
+      <div id="yammer-invite-suggestions-wrapper"><%= image_tag "https://i.imgur.com/qkKy8.gif'"%></div>
+    </div>
+  <% end %>
+  <div class="span4">
+    <h3><%= t("invite.batch_invite") %></h3>
+    <p>We provide batch invite to our business and enterprise package customers.</p>
+    <p>Email <a href="mailto:support@recognizeapp.com">support@recognizeapp.com</a> to get started.</p>
+  </div>
+</div>

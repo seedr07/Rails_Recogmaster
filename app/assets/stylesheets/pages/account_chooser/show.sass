@@ -1,0 +1,20 @@
+body.account_chooser
+  background: url(/assets/chrome/background.png) repeat
+
+  #account-chooser-wrapper, #password-wrapper, #please-wait-wrapper
+    .outer
+      @include flex-centered
+      height: 100%
+
+    .well
+      width: 600px
+      margin: 20px auto 0 auto
+      max-width: 100%
+
+  #password-wrapper
+    .email-control-group
+      display: none
+
+    .password-control-group
+      label
+        display: none

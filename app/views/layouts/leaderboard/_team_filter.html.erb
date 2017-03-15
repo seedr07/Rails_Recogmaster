@@ -1,0 +1,24 @@
+<% if show_leaderboard_team_filter? %>
+  <div class="dropdown-wrapper">
+    <div class="dropdown">
+      <button type="button" class="button button-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><%= t("dict.filter_by_team") %> <span class="caret"></span></button>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <% all_path_args = leaderboard_path_args.slice(*(leaderboard_path_args.keys - [:team_id])) %>
+          <%= link_to "All", send(leaderboard_report_path_method, all_path_args), class: "#{'active' if @team.blank?}" %>
+        </li>
+        <% current_user.company.teams.each do |team| %>
+          <li>
+            <% btn_pressed_class = (@team.try(:id) == team.id) ? "active" : ""%>          
+            <%= link_to team.name, send(leaderboard_report_path_method, leaderboard_path_args.merge(team_id: team.id)), class: "#{btn_pressed_class}"%>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <% if @team.present? %>
+      <div class="selected-wrapper selected-team-wrapper">
+        <h4 class="left"><%= @team.name %></h4>
+      </div>
+    <% end %>    
+  </div>
+<% end %>

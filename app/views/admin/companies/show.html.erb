@@ -1,0 +1,119 @@
+<%= render partial: "admin/index/admin_header"%>
+<h3>Managing <%= link_to @company.domain, "/admin?network=#{@company.domain}" %> <%= admin_company_subscription_link %>
+</h3>
+<% if @company.parent_company.present? %>
+  <p>Child of <%= link_to @company.parent_company.domain, admin_company_path(@company.parent_company)%></p>
+<% end %>
+<%= render_flash %>
+
+
+<hr>
+<div class="row-fluid custom-badges">
+  <h4>Custom badges: </h4>
+  <span>
+    <% if @company.custom_badges_enabled? %>
+      Enabled
+    <% else %>
+      <%= link_to "Enable", enable_custom_badges_admin_company_path(@company), remote: true, method: :post, class: "enable_custom_badges_link", data: {disable_with: "Please wait..."}%>
+    <% end %>
+  </span>
+</div>
+
+<div class="row-fluid admin-dashboard">
+  <h4>Enable admin dashboard: </h4>
+  <span>
+    <% if @company.allow_admin_dashboard? %>
+      Enabled
+    <% else %>
+      <%= link_to "Enable", enable_admin_dashboard_admin_company_path(@company), remote: true, method: :post, class: "enable_admin_dashboard_link", data: {disable_with: "Please wait..."}%>
+    <% end %>
+  </span>
+</div>
+
+<div class="row-fluid admin-dashboard">
+  <h4>Enable achievements: </h4>
+  <span>
+    <% if @company.allow_achievements? %>
+      Enabled
+    <% else %>
+      <%= link_to "Enable", enable_achievements_admin_company_path(@company), remote: true, method: :post, class: "enable_achievements_link", data: {disable_with: "Please wait..."}%>
+    <% end %>
+  </span>
+</div>
+
+
+<div class="row-fluid admin-dashboard">
+  <h4>Enable themes: </h4>
+  <span>
+    <% if @company.has_theme? %>
+      Enabled
+    <% else %>
+      <%= link_to "Enable", enable_theme_admin_company_path(@company), remote: true, method: :post, class: "enable_themes_link", data: {disable_with: "Please wait..."}%>
+    <% end %>
+  </span>
+</div>
+
+<% if false#not implemented properly, come back to this... %>
+  <div class="row-fluid admin-dashboard">
+    <h4>Subscription: </h4>
+    <span>
+      <%= form_for [:admin, @company, @subscription], remote: true, html: {style: "display: inline"} do |f| %>
+        <%= f.select :plan_id, Plan.all.collect{|p| [p.long_label, p.id]} %>
+        <%= f.text_field :user_count, value: @subscription.user_count, size: 6, maxlength: 6, style: "width: 25px; min-height: 10px" %>
+        <%= f.submit (@subscription.persisted? ? "Update" : "Create"), data: {disable_with: "Please wait..."}, class: "create_subscription_button" %>
+      <% end %>
+    </span>
+  </div>
+<% end %>
+
+<hr>
+<div class="row-fluid companies">
+  <% if @company.parent_company.present? %>
+    
+    <%= render partial: "companies/move_users" %>
+
+  <% else %>
+
+    <div class="row-fluid">
+      <div class="span6">
+        <h4>Child companies</h4>
+        <div>Add new: </div>
+        <%= form_for [:admin, Company.new], remote: true do |f|%>
+          <%= hidden_field_tag :id, @company.domain%>
+          <%= f.text_field :domain, placeholder: "Enter child company's domain" %>
+          <%= f.submit "Create"%>
+        <% end %>
+        <ol>
+          <% @company.child_companies.each do |c|%>
+            <li><%= "#{c.id} - #{link_to(c.domain, admin_company_path(c))} - #{c.created_at.to_formatted_s(:db)}".html_safe %></li>
+          <% end %>
+        </ol>         
+      </div>
+
+      <div class="span6">
+        <h4>Add Directors</h4>
+        <div>Add new: </div>
+        <%= form_for User.new, url: add_directors_admin_company_path(@company), remote: true do |f|%>
+          <%= hidden_field_tag :id, @company.domain%>
+          <%= f.text_field :email, placeholder: "Enter email address",data: {endpoint: search_admin_users_path(company_id: @company.id), responseRootNode: 'users', itemLabelAttribute: 'email', itemUrlAttribute: 'avatar_thumb_url'} %>
+          <%= f.submit "Create"%>
+        <% end %>        
+        <%= javascript_tag do %>
+          (function(){
+            var autocomplete = new window.simpleAutocomplete('#user_email');
+          })();
+        <% end %>
+        <ul id="directors-list">
+          <% @company.directors.each do |user|%>
+            <%= render "director_list_item", user: user %>
+          <% end %>
+        </ul>         
+      </div>
+    </div>   
+  <% end %>
+</div>
+
+<div class="row-fluid">
+  <h2>Accounts</h2>
+  <%= render partial: "users/user_set", locals: {users: @users}%>
+</div>

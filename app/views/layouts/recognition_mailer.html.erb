@@ -1,0 +1,25 @@
+<%= render :partial => "layouts/mailer/header"%>
+
+<table style="width:100%;">
+  <tbody>
+    <tr>
+      <td style="background: #F1f1f1;">
+        <%= render partial: "user_notifier/recognition", locals: {
+            sender: @sender,
+            badge: @badge,
+            recognition: @recognition
+          }
+        %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<div style="background:#F8F8F8; padding: 3%;">
+  <%= yield%>
+  
+</div>
+
+
+<%= render :partial => "layouts/mailer/footer"%>

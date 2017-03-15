@@ -1,0 +1,34 @@
+
+<div id="recognize-badge-list-wrapper" class="fadeTop overlay">
+  <a href="#" class="close-icon recognition-overlay-close">close</a>
+
+  <div id="all-wrapper">  
+    <h3><%= t("recognition_new.all_badges")%></h3>  
+    <div id="badge-list-wrapper">
+      <ul id="badge-list" class="bootstrap-toggle-check clearfix">
+
+        <%= render :partial => "badges/badge", :collection => badge_set.reject(&:is_achievement?).sort{|a, b| b.points == a.points ? a.name <=> b.name : b.points <=> a.points}%>
+
+            <% if current_user.can_send_achievements? %>
+              <%= render :partial => "badges/badge", :collection => badge_set.select(&:is_achievement?).sort{|a, b| b.points == a.points ? a.name <=> b.name : b.points <=> a.points }%>
+            <% end %>
+
+            <% if !current_user.company.custom_badges_enabled? %>
+              <li class="badge-item">
+                <%= link_to welcome_path(upgrade: true), id: "upgrade-badges-link-badge" do %>
+                  <%= image_tag "badges/200/new-badge-p.png", width: 130, height: 130, class: "badge-image-small"%>
+                  <div class="button button-small">
+                    <i class="icon-ok icon-white opacity0"></i>
+                    <span>Get more badges</span>
+                  </div>
+                <% end %>
+              </li>
+            <% end %>
+      </ul>
+  </div>
+
+  </div>
+
+</div>
+
+

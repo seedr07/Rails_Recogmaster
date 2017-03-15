@@ -1,0 +1,104 @@
+<%
+ home_class, first_last_name_class, password_class = get_section_classes
+%>
+<section id="banner" class="home-form slideable <%= home_class%>">
+  <div class="content"><div class="content-inner">
+    <div class="headline">
+      <h3 itemprop="headline" class="balance-text">Sign up to view your company's recognitions for free</h3>
+      <p class="balance-text h4">All we ask is for an email, a name, and a password.</p>
+    </div>
+    <%
+    opts = {
+      url: signups_path, 
+      remote: true, 
+      html: {
+        data: {
+          errorwrapper: "#new_user .form-error-wrapper",
+          event: "signup-email",
+          eventproperties:'{"field": "email"}'
+        }
+      }
+    }
+    opts = opts.merge(form_opts) if defined?(form_opts) 
+    %>
+    <%= form_for @user, opts do |f|%>
+    <div class="form-error-wrapper">
+    </div>
+    <div class="text-field-wrapper">
+      <div class="inner clearfix">
+        <div class="form-wrapper">
+          <%= f.text_field :email, tabindex: "1", type: "email", placeholder: t('email_form.placeholder'), class: "field"%>
+        <%= hidden_field_tag :pricing, "", id: "requested-pricing"%>
+        <%= button_tag t('email_form.sign_up'), class: "button button-highlight right"%>
+      </div>
+        </div>
+      </div>
+    <% end%>
+    <%= render partial: "user_sessions/oauth_logins" %>
+
+  </div></div>
+</section>
+
+<section id="full_name-wrapper" class="home-form slideable <%= first_last_name_class %>">
+  <div class="content"><div class="content-inner">
+    <div class="headline">
+      <h3>First and last name please</h3>
+      <em class="tagline"><%= t('email_form.email_looks_good')%></em>
+    </div>
+    <%= form_for @user, url: full_name_signups_url, method: :put, html: {id: "full_name_form", data: {errorwrapper: "#full_name-wrapper .form-error-wrapper", event: "signup-company", eventproperties:'{"field": "company name"}' }}, remote: true do |f|%>
+    <div class="form-error-wrapper"></div>
+    <div class="text-field-wrapper">
+      <div class="inner">
+        <div class="form-wrapper">
+          <%= f.hidden_field :email, id: "full_name-hidden-email", class: "hidden-email" %>
+          <div class="name-field-wrapper">
+            <%= f.text_field :first_name, type: "text", placeholder: "First Name", class: "field"%>
+          </div>
+          <div class="name-field-wrapper">
+            <%= f.text_field :last_name, type: "text", placeholder: "Last Name", class: "field"%>
+          </div>
+          <%= button_tag t('dict.next'), id: "full_name_signup_next_btn", class: "button-highlight button right" %>
+        </div>
+      </div>
+    </div>
+  <% end%>
+      
+  </div></div>
+</section>
+
+<section id="password-wrapper" class="home-form slideable <%= password_class%>">
+  <div class="content"><div class="content-inner">
+    <div class="headline">
+      <div id="headline-inner" style="<%= 'padding-left: 0' if @user.persisted? %>">
+        <h3><%= t('email_form.set_password')%></h3>
+        <em class="tagline"><%= t('email_form.last_step')%></em>
+      </div>
+    </div>
+    <%= form_for @user, url: password_signups_path(refresh: true), method: :put, html: {id: "user_password_form", data: {errorwrapper: "#password-wrapper .form-error-wrapper", event: "signup-password", eventproperties:'{"field": "password"}'}}, remote: true do |f|%>
+      <div class="form-error-wrapper"></div>    
+      <div class="text-field-wrapper">
+        <div class="inner">
+          <div class="form-wrapper">
+            <%= f.hidden_field :email, id: "password-hidden-email", class: "hidden-email" %>          
+            <%= f.password_field :password, tabindex: "1", placeholder: t('dict.password'), class: "field"%>
+            <div class="checkbox-wrapper analyticsEvent show-password-wrapper" data-eventtype="click", data-event="signup-password-toggle">
+              <label class="checkbox-title"><%= t('email_form.show_password')%></label><input type="checkbox" class="on-off">
+            </div>
+            <%= button_tag t('dict.join'), class: "button-highlight button right"%>
+          </div>
+        </div>
+      </div>
+    <% end%>          
+    
+    <%= link_to_yammer t('yammer.sign_in'), params: {redirect: root_path} %>
+    
+    <%= link_to_google "Sign in with Google", class: "sign-in-with-google" do %>
+  
+      <span>Sign in with Google</span>
+  
+    <% end %>
+    
+    
+
+  </div></div>
+</section>

@@ -1,0 +1,35 @@
+<div id="payment-wrapper">
+    <span class="payment-errors"></span>
+    <div class="form-vertical clearfix">
+      <div class="form-column">
+        <h4>Contact</h4>
+        <div class="control-group">
+          <label>
+            <span class="label">Full Name</span>
+            <input type="text" value="<%= @current_user.full_name%>"/>
+          </label>
+        </div>
+
+      <div class="control-group">
+        <label>
+          <span class="label">Phone</span>
+          <input type="number"/>
+        </label>
+      </div>
+    </div><!-- end of left -->
+    <div class="form-column">
+      <div class="control-group">
+        <label>
+          <span class="label">Company Email *</span>
+          <input id="payment-company-email" type="email" placeholder="email@company.com" required value="<%= current_user.email%>"/>
+        </label>
+      </div>
+      <div class="hr-thick hr-space"></div>
+      <h4>Credit Card</h4>
+      <%= render partial: "cc_fields" %>
+
+    </div> <!-- end of left -->
+
+  </div><!-- end of vertical form -->
+
+</div><!-- end of payment wrapper -->

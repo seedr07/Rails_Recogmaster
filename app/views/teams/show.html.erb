@@ -1,0 +1,138 @@
+<div id="teams-show-wrapper">
+  <div class="row-fluid">
+    <div class="span4">
+      <div id="name-wrapper" class="clearfix">
+        <h1 id="<%= dom_id(@team)%>" class="left"><strong class="team-name"><%= @team.name %></strong></h1>
+         <% if permitted_to?(:edit, @team) %>
+          <%= link_to edit_team_path(@team, hide_edit_btn: true), class: "left pen-link", remote: true, id: dom_id(@team)+"_edit_btn" do %>
+            <span class="offscreen"><%= t("dict.edit")%></span>
+          <% end %>
+        <% end%>
+      </div>
+
+      <div class="buttons-wrapper clearfix">
+        <a id="column-switch" href="#team-details"><%= t("dict.view_details") %></a>
+
+        <% if permitted_to?(:destroy, @team) %>
+           <%= link_to t("teams.destroy_team"), team_path(@team), method: :delete, id: "team-destroy", confirm: t("teams.sure_delete") %>
+        <% end%>
+      </div>
+      <div class="stat-wrapper clearfix default-view">
+        <div class="clearfix marginBottom20">
+          <h5><%= t("dict.members") %></h5>
+          <ul>
+            <li><dl><dd><%= @team.users.count %></dd><dt class="subtle-text"><%= t("dict.users") %></dt></dl></li>
+            <li><dl><dd><%= @team.interval_member_recognitions.size %></dd><dt class="subtle-text"><%= t("dict.recognitions") %></dt></dl></li>
+            <li><dl><dd><%= @team.interval_member_points %></dd><dt class="subtle-text"><%= reset_interval_label(@team.reset_interval)%> <%= t("dict.points") %></dt></dl></li>
+          </ul>
+        </div>
+        <div class="clearfix">
+          <h5><%= t("teams.team") %></h5>
+          <ul>
+            <li><dl><dd><%= @team.interval_team_recognitions.size %></dd><dt class="subtle-text"><%= t("dict.recognitions") %></dt></dl></li>
+            <li><dl><dd><%= @team.interval_team_points %></dd><dt class="subtle-text"><%= reset_interval_label(@team.reset_interval)%> <%= t("dict.points") %></dt></dl></li>
+          </ul>
+        </div>
+
+        <hr class="hr hr-space">
+
+      </div>
+
+
+      <div id="managers-wrapper" class="default-view">
+        <div class="header-title-action">
+          <h4><%= t("dict.managers") %></h4>
+          <% if permitted_to?(:edit, @team) %>
+              <%= link_to "Manage", edit_team_managers_path(@team), class: "remote-overlay button button-no-chrome" %>
+          <% end %>
+        </div>
+        <ul class="user-list">
+          <% @team.managers.each do |manager| %>
+            <li class="manager user">
+              <%= link_to user_path(manager, network: manager.network) do %>
+                <%= image_tag(manager.avatar.small_thumb, itemprop: "image", class: "avatar") if manager.avatar.small_thumb %> 
+                <%= manager.full_name %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <hr class="hr hr-space default-view">
+
+      <div id="members-wrapper" class="clearfix default-view">
+        <div class="header-title-action">
+          <h4><%= t("dict.members") %></h4>
+
+          <% if permitted_to?(:edit, @team) %>
+              <%= link_to t("teams.manage"), edit_team_members_path(@team), class: "remote-overlay button button-no-chrome" %>
+          <% end %>
+        </div>
+
+        <ul class="user-list">
+        <% @team.users.each do |user|%>
+          <li class="user">
+            <%= link_to user_path(user, network: user.network) do %>
+              <%= image_tag(user.avatar.thumb, itemprop: "image", class: "avatar") if user.avatar %>
+              <%= user.full_name %>
+            <% end %>
+          </li>
+        <% end%>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="span6 default-view">
+      <div id="recognitions-wrapper" <% if @recognitions.blank? %>class="empty relative"<% end %>>
+        <% if @recognitions.blank? %>
+          <div class="empty-content-message flex-centered">
+            <h5><%= t("teams.need_recognition_notice") %></h5>
+          </div>
+          <%= image_tag "pages/teams/recognition-card-placeholder.png", alt: "Placeholder recognitions", class: "placeholder-image" %>
+        <% else %>
+          <% @recognitions.each do |recognition| %>
+            <%= render partial: "/recognitions/recognition", locals: {recognition: recognition} %>
+          <% end %>
+        <% end %>
+      </div>
+      <%= will_paginate @recognitions %>
+    </div>
+    <div id="team-details" class="span2">
+
+      <h4 class="cursor" title="<%= t("dict.res_definition") %>">RES<sup>?</sup></h4>
+      <div id="team-res" data-res="<%= @team.res_score %>"></div>
+      <hr class="hr hr-space">
+
+
+      <div id="badges-wrapper" class="marginBottom30 clearfix<% if @team.badges_with_count.length.zero? %> relative <% end %>">
+        <h4><%= t("dict.badges") %></h4>
+        <% badges_with_count = @team.badges_with_count %>
+        <% if badges_with_count.length.zero? %>
+          <div class="empty-content-message flex-centered">
+            <h5><%= t("teams.need_badges_notice") %></h5>
+          </div>
+          <%= image_tag "pages/teams/badges-vertical-placeholder.png", alt: "Placeholder of badges", class: "placeholder-image" %>
+        <% else %>
+          <ul class="badges">
+            <% badges_with_count.each do |badge, count| %>
+              <li>
+
+                <div class="image-wrapper">
+                  <%= image_tag badge.image_for_size(50) %>
+                </div>
+                <div class="badge-details">
+                  <%= badge.short_name %> <span class="subtle-text"><%= count %></span>
+                </div>
+                
+
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+
+</div>

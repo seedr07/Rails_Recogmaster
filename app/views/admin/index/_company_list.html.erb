@@ -1,0 +1,39 @@
+<% 
+attributes = {
+  domain: "Company", 
+  user_count: "Users",
+  is_activated: "Activated?",
+  is_churned: "Churned?",
+  sent_recognition_count: "Sent recognitions",
+  activated_user_count: "Activated users",
+  engaged_user_count_this_week: "Engaged users this week",
+  engaged_user_count_this_month: "Engaged users this month"
+}
+%>
+<div class="company-list">
+  <table border="0" cellspacing="5" cellpadding="5">
+    <thead>
+    <tr>
+      <% attributes.values.each do |column|%>
+        <th><%= column%></th>
+      <% end%>
+    </tr>
+    </thead>
+    <tbody>
+      <% companies.each do |id, hash| %>
+        <tr>
+          <% attributes.keys.each do |attr| %>
+            <% if attr == :domain %>
+              <td><%= link_to hash[attr], admin_company_path(hash[attr])%></td>
+            <% else%>
+              <td><%= hash[attr] %></td>
+            <% end %>
+          <% end%>
+        </tr>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <tr><td><a class="close-company-list">Close</a></td></tr>
+    </tfoot>
+  </table>
+</div>

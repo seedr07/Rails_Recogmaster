@@ -1,0 +1,50 @@
+<% todos = [
+  {
+    description: "Customize your badges, rewards, and more",
+    action: "Go to Company Admin",
+    url: company_path
+  },
+  {
+    description: "Review the Best Practices Handbook",
+    action: "Download",
+    url: "/best-practices-handbook.pdf"
+  },
+  {
+    description: "Review FAQ and How-to's",
+    action: "Go to Support",
+    url: "http://support.recognizeapp.com"
+  },
+  {
+    description: "Have more questions?",
+    action: "Contact us",
+    url: new_support_email_path
+  }
+]
+
+   if @integration == "office365"
+     todos << {
+       description: "Manage Yammer browser extensions for your company.",
+       action: "Learn more",
+       url: extension_path
+     }
+   end
+%>
+
+
+
+<ul class="next-steps white-zebra-list" data-no-turbolink="true">
+  <li>
+    <dl>
+      <dt>We emailed you to schedule a kick-off meeting</dt>
+      <dd>✔</dd>
+    </dl>
+  </li>
+  <% todos.each do |todo| %>
+    <li>
+      <dl>
+        <dt><%= todo[:description] %></dt>
+        <dd><%= link_to todo[:action], todo[:url] %></dd>
+      </dl>
+    </li>
+  <% end %>
+</ul>

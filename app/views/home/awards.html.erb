@@ -1,0 +1,69 @@
+<% content_for :meta_properties do %>
+  <meta property="og:title" content="Employee recognition awards for staff accomplishments and engagement | Recognize" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Recognize" />
+  <meta property="og:description" content="The best designed peer-to-peer recognition platform focused in positive psychology and workflow integration." />
+  <meta property="og:image" content="/assets/chrome/logo-mark-bleed.png" />
+<% end%>
+
+<section id="intro" class="animate-1 animate-hidden animate"  data-no-turbolink="true">
+  <div class="inner">
+    <h1 class="balance-text">Employee Recognition Awards</h1>
+    <p class="tagline balance-text">Create certificates for staff awards by clicking print on any recognition.</p>
+    <%= render partial: "home/patterns/dark_pink.svg" %>
+  </div>
+</section>
+
+
+<div id="points" class="animate-2 animate-hidden animate">
+
+  <section class="centered" style="padding-top: 20px; padding-bottom: 20px;">
+    <div class="inner" data-no-turbolink='true'>
+      <% cta_text = current_user.present? ? "Contact us to learn more" : "Employee recognition, awards, rewards. Contact us." %>
+      <%= link_to cta_text, new_support_email_path, class: "button button-primary button-large" %>
+    </div>
+  </section>
+
+  <section id="rewards-cards">
+    <div class="inner">
+      <div class="centered">
+        <h2 class="balance-text">The #1 way to create a certificate for an employee</h2>
+        <p class="tagline balance-text">Create a badge only executives can send once a year. Award this badge to a special employee. Print the certificate and present at an annual company event.</p>
+      </div>
+
+    </div>
+    <div class="centered">
+      <%= image_tag "pages/home-awards/certificate.jpg", alt: "An employee recognition award certificate" %>
+    </div>
+  </section>
+
+  <section id="steps">
+    <div class="inner">
+      <div class="row-fluid">
+        <div class="span7">
+          <h2 class="balance-text">Steps to create an employee award</h2>
+          <ol class="numbers">
+            <li>Make a special type of badge in Recognize. Admins and HR can make badges that can only be sent by specific people. Change the badge scarity to once a year or once a quarter.</li>
+            <li>Discover someone that deserves a staff award. The Recognize Reports can help in your search.</li>
+            <li>Send the nominated employee a recognition with the special badge.</li>
+            <li>On the recognition web page, click print to create a certificate! That's it!</li>
+          </ol>
+        </div>
+        <div class="span5">
+          <%= image_tag "pages/home-awards/browser.png", alt: "Click print from browser to certificate" %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="centered">
+    <div class="inner">
+      <h2 class="balance-text marginBottom40">Recognition, rewards, and awards for staff happiness.</h2>
+      <%= link_to "See How Rewards Works", rewards_path, class: "button button-primary button-large" %>
+    </div>
+  </section>
+
+</div>
+
+
+<%= render :partial => 'footer' %>

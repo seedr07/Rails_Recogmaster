@@ -1,0 +1,4 @@
+<%= form_for Redemption.new, remote: true do |f| %>
+  <%= f.hidden_field :reward_id, value: reward.id %>
+  <%= f.button t("rewards.redeem_for_points", num_points: reward.points), type: "submit", class: "button button-large centered" %>
+<% end %>

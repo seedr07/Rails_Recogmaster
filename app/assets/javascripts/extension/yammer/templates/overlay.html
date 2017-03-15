@@ -1,0 +1,39 @@
+<script id="r-overlay" type="text/x-handlebars-template">
+	<div class="r-overlay-wrapper r-hidden zindex-t4" style="position: fixed; top: 50%; left: 50%;">
+		<div id="yj-colorbox" role="dialog" aria-labelledby="yj_cboxTitle">
+
+      <div id="yj_cboxWrapper" role="document" style="">
+        <div id="yj_cboxTop"><div id="yj_cboxTopLeft" style="float: left;"></div></div>
+        <div id="yj_cboxTopCenter" style="float: left; width: 624px;"></div>
+        <div id="yj_cboxTopRight" style="float: left;"></div>
+      </div>
+
+      <div style="clear:left">
+        <div id="yj_cboxMiddleLeft" style=""></div>
+
+        <div id="yj_cboxContent">
+          {{#if title}}
+            <h1 id="yj_cboxTitle" class="" style="display: block;">{{title}}</h1>
+          {{/if}}
+
+          <div id="yj_cboxClose" role="button" class="" style="z-index: 1;">
+            <span class="yamicon yamicon-x yamicon-xx-small"><span class="r-ie-close">×</span></span>
+          </div>
+
+          <div id="yj_cboxLoadedContent" style="overflow-y: auto; overflow-x: hidden; width: 100%; height: 100%;">
+
+            <div class="yj-lightbox-content" style="overflow: hidden;">
+              {{{content}}}
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+		</div>
+	</div>
+</script>
+
+<script id="r-iframe" type="text/x-handlebars-template">
+  <iframe id="{{id}}" src="{{url}}" {{#height}}style="height: {{.}};"{{/height}}></iframe>
+</script>

@@ -1,0 +1,25 @@
+<hr class="hr hr-space" />
+<h5>Anniversary Email Recipients</h5>
+<%= form_tag change_roles_anniversaries_path(network: @company.domain), method: :get, remote: true, id: "anniversary-form" do %>
+<p><label>Choose who will receive an email when it is an employee's anniversary at the company.</label></p>
+<%@roles.each do |role|%>
+	<label>
+		<%= check_box_tag "roles[#{role.id}]", nil, @company.role_is_notified_of_anniversary?(role), :class => "role_toggle"%><%= role.long_name %>
+	</label>
+<%end%>
+
+<label>
+<%= check_box_tag "all_teams", nil, @company.all_teams_notified_of_anniversary?, :id => "all_teams_box"%>Team Manager
+</label>
+
+<%@teams.each do |team|%>
+	<label style="display:none">
+		<%= check_box_tag "teams[#{team.id}]",  nil, @company.team_is_notified_of_anniversary?(team), :class => "role_toggle_individual_team"%><%= team.name + " Manager"%>
+	</label>
+<%end%>
+<%= submit_tag "Save Changes", :style => "display:none"%>
+
+
+<% end %>
+
+

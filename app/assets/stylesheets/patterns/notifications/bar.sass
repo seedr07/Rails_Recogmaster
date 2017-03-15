@@ -1,0 +1,68 @@
+.notification-bar-item
+  opacity: 0
+  @include transition(.3s opacity ease-in-out)
+#notification-bars
+  position: fixed
+  top: 64px
+  width: 100%
+
+  .notification-bar-item
+    position: relative
+    display: block
+    border-radius: 5px
+    background: #DDDCE9
+    padding: 5px 30px
+    width: 530px
+    margin: 0 auto 8px auto
+    
+    .message
+      margin-top: 8px
+      float: left
+      
+    h4
+      text-shadow: 0 1px 1px white
+      color: #3C3C3C
+      line-height: 20px
+      font-size: 17px
+    
+  .notification-bar-item.show
+    opacity: 1
+    
+  .notification-bar-item.hide
+    display: none
+
+  .close
+    display: block
+    position: absolute
+    right: 40px
+    top: 15px
+    height: 10px
+    width: 10px
+    font-size: 14px
+    text-decoration: none
+
+  .action
+    @include button-dark()
+    margin-right: 38px
+    float: right
+    
+@media (max-width: 768px)
+  #notification-bars .notification-bar-item
+    width: 50%
+    
+    .message
+      margin-bottom: 5px
+    
+    .message,
+    .action
+      float: none
+    
+
+@media (max-width: 480px)
+  #notification-bars
+    margin-left: -5px
+  #notification-bars .notification-bar-item
+    width: 100%
+    @include box-sizing(border-box)
+    
+

@@ -1,0 +1,84 @@
+#badges-index
+  .badge-link
+    @include transitionTransform(.2s, $cubic)
+    @include animation-fill-mode(forwards)
+
+    &:hover
+      @include transform(scale(1.8))
+
+  .badge-thumbs
+    max-width: 800px
+    margin: 20px auto 50px
+
+    a
+      display: inline-block
+      margin: 5px
+
+
+  .badges-in-page
+    .badge-item
+      position: relative
+      box-sizing: border-box
+      display: block
+      max-width: 850px
+      margin: auto
+      position: relative
+      border-radius: 6px
+
+      &:nth-child(odd)
+        background: lighten(#E3E8EC, 5%)
+
+
+      &:hover
+        background: #E3E8EC
+
+
+.badge-page-item
+  min-height: 223px
+  position: relative
+
+  a
+    display: block
+    min-height: 224px
+    padding: 10px
+
+
+  .content
+    padding: 10px 10px 10px 250px
+
+  img
+    position: absolute
+    left: 20px
+    top: 10px
+
+  .description
+    font-size: 18px
+    line-height: 23px
+    font-weight: 200
+    max-width: 600px
+
+
+  .badge-stats
+    display: table
+
+    dl
+      display: table-cell
+      padding: 0 20px 0 0
+
+      &:last-child
+        padding-right: 0
+
+    dt
+      font-weight: 100
+
+    dd
+      font-size: 18px
+      font-weight: 200
+
+
+@media (max-width: 550px)
+  .badge-page-item
+    img
+      position: relative
+    .content
+      padding-left: 10px

@@ -1,0 +1,381 @@
+$grayTextColor: #565665
+$tagBg: desaturate(lighten($headerBg, 18), 10)
+
+#recognitions-show
+  background: $bgColor
+
+  .certificate
+    display: none
+
+
+  .nametag-wrapper
+
+    .nametag
+      float: left
+      margin-right: 30px
+
+
+  .recognition-tag
+    text-align: center
+    padding: 10px
+    background: $tagBg
+    display: block
+    margin-top: -2px
+
+    h5
+      text-transform: uppercase
+      margin: 0
+      color: text-color($tagBg)
+
+
+  #view-main-wrapper
+    padding-top: 67px
+
+  &.logout
+    #view-main-wrapper
+      padding-top: 58px
+
+  #skills span
+    display: inline-block
+    border: 1px #B8BCBD solid
+    border-radius: 6px
+    padding: 5px 7px
+    margin-right: 7px
+    background: #E8EDF1
+    font-size: 16px
+    color: #797979
+    text-transform: capitalize
+    margin-bottom: 5px
+
+    &:last-child
+      margin-bottom: 0
+  
+  #recognition-show-signup
+    text-align: left
+    width: 500px
+    left: 50%
+    max-width: 100%
+    margin-left: -250px
+    background: white
+    position: fixed
+    top: 85px
+    height: auto
+    z-index: 1000
+    padding: 25px
+    border-radius: 8px
+    box-shadow: 0 0 1px 5px rgba(0,0,0,.3)
+    
+    h1
+      font-size: 1.5em
+
+    &.closed
+      position: relative
+      margin: auto
+      left: 0
+      top: 0
+      box-shadow: none
+      background: transparent
+      z-index: 1
+      
+      .close-icon
+        display: none
+
+    .identity-providers
+      h1, h3
+        display: none
+
+  .yj-yammer-logo-container
+    display: none
+  
+  .yj-login .yj-signin-button-container
+    margin: 10px 0
+  
+  .yj-login
+    text-align: left
+
+  #yammer-feed #yj-embed
+    background: $widgetBoxBg
+  
+  #yammer-feed h3
+    display: none
+  
+  #yammer-feed #yj-wideEmbedMainMessageForm
+    padding-top: 5px
+  
+  #wrapper-outer
+    padding-left: 0 !important
+    padding-right: 0 !important
+
+  #reward-trigger-wrapper
+    background: #F3F3F2
+    padding: 25px
+    border-radius: 3px
+    
+  #recognition-show-top .image-wrapper
+    text-align: center
+    text-transform: capitalize
+    
+    .badge-image
+      margin: 0 auto 8px 0
+    
+  h1 .subtle-text
+    font-style: italic
+    text-align: left
+    @include defaultFontFamily()
+    margin-top: -7px
+
+  #cross-company
+    border-top: 1px solid #51555F
+    position: relative
+    top: -2px
+    padding: 7px 0 4px
+    font-weight: 100
+    color: white
+    margin: 0
+    line-height: 20px
+    background: $headerBg
+    text-align: center
+    display: block
+    letter-spacing: 1px
+    
+    dt
+      position: absolute
+      left: -9999px
+
+  #recognition-show-top #main-text
+    min-height: 222px
+    
+    h1 .subtle-text
+      letter-spacing: 1.5px
+      position: absolute
+    
+    dt
+      display: none
+    
+    h1
+      background: none
+      color: #888888
+      font-weight: 100
+      padding-left: 0
+      margin-bottom: 32px
+      
+      
+      em, em a
+        color: #333
+      em a:hover
+        color: #0555C7
+  
+    .message p
+      color: $grayTextColor
+      font-size: 25px
+      line-height: 33px
+      @include latoFontFamily()
+      margin-bottom: 5px
+      margin-top: 0
+      margin-bottom: 10px
+    
+    .time-definition
+      margin-bottom: 27px
+
+    #recipients-avatars
+      margin-bottom: 20px
+
+  #recognition-access-wrapper
+    position: absolute
+    right: -1px
+    top: 37px
+    
+    &.access-enabled
+      cursor: pointer
+      opacity: 0.85
+  
+  #recognition-access-wrapper:hover
+    opacity: 1
+
+  #recognition-access-wrapper.private 
+    #private
+      display: block
+    #public
+      display: none
+
+  #private, #public
+    width: 100px
+    height: 38px
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 20% 50%)
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 20% 50%)
+    padding: 10px 0 10px 40px
+    color: white
+
+
+  #private
+    display: none
+    background: gray
+
+  #public
+    background: $buttonPrimaryBg
+    display: block
+    
+        
+  #recognition-content
+    margin-left: 0px
+    padding-left: 23px
+    padding-right: 15px
+    margin-top: 25px
+    
+    .vote-wrapper
+      font-size: 30px
+      font-weight: 100
+      @include latoFontFamily()
+      position: relative
+      
+      span.vote
+        font-weight: 300
+      
+      .vote
+        float: left
+        font-size: 50px
+        color: #565665
+        left: 0px
+        
+        a
+          @include voteButton()
+          padding: 5px 10px
+        
+          &:hover
+            @include voteButtonHover()
+        
+      .who
+        padding-left: 20px
+        float: left
+        min-height: 60px
+        margin-top: 6px
+        width: 70%
+        
+    .user-can-approve .who
+      margin-top: 0
+
+      .hr
+        margin-bottom: 10px
+
+    a.left
+      margin-right: 20px
+  
+  .sub-wrapper
+          
+  .comments-wrapper
+    background: $widgetBoxBg
+    border-radius: 10px
+    padding: 25px
+    width: 700px
+
+.ios #recognitions-show #recognition-content .who
+  margin-top: -19px
+
+.ios #recognitions-show #recognition-content .vote a
+  padding-top: 0
+
+.ios #recognitions-show #recognition-content .user-can-approve .who
+  margin-top: 0px
+  
+@media (max-width: 1072px)
+  #recognitions-show 
+    padding-left: 0
+    padding-right: 0
+    
+    #recognition-content
+      margin-left: 0
+      padding-left: 15px
+      padding-right: 15px
+      
+      
+    #main-text p
+      width: 100%
+      
+@media (max-width: 768px)
+  body#recognitions-show
+    &.logout
+      padding-top: 48px !important
+
+    &:not(.logout)
+      #view-main-wrapper
+        padding-top: 48px !important
+
+  #recognitions-show
+
+    .wrapper
+      margin: 0
+
+    #recognition-show-row
+      display: block
+    
+    .comments-wrapper
+      width: 95%
+
+    #reward-trigger-wrapper
+      display: block
+      
+@media (max-width: 480px)
+
+  #recognitions-show
+
+    .view-certificate-link
+      display: none
+
+    #recognition-content .vote-wrapper
+      .who
+        width: auto
+        float: none
+
+      .vote
+        font-size: 20px
+
+    .nametag-wrapper
+      text-align: center
+      margin-bottom: 25px
+
+      .nametag
+        float: none
+        display: inline-block
+        margin-right: 0
+        max-width: 100%
+
+    .comments-wrapper
+      width: 100%
+      @include box-sizing(border-box)
+    
+    #recognition-show-top #main-text h1 .subtle-text
+      margin-top: -17px
+    
+    #recognition-show-signup
+      position: relative
+      left: 0
+      top: 0
+      margin: 10px auto
+      z-index: 1
+      width: auto
+      
+      .close-icon
+        display: none
+    
+    h1
+      font-size: 33px
+
+    a.left
+      float: none !important
+      margin: auto !important
+    
+    #recognition-show-top .image-wrapper
+      position: static
+      margin: 0 auto
+      height: auto
+      padding: 0
+      
+    #recognition-show-top  #main-text
+      padding: 15px
+      text-align: center
+      
+      h1
+        margin-right: 0px
+      
+      .message
+        width: 100%

@@ -1,0 +1,45 @@
+<div class="reward-card relative widget-box dark">
+  <%= form_for [:company, reward], remote: true do |f| %>
+    <%= image_tag reward.image.url, class: "reward-image" %>
+    <div class="control-group">
+      <%= f.label :image, "At least a 250x380 pixel image" %>
+      <%= f.file_field :image, :"data-url" => company_rewards_path(network: @company.domain) %>
+      <%= f.hidden_field :image_cache %>
+    </div>
+    <div class="control-group">
+      <%= f.text_field :title, class: "input-xlarge title-input", placeholder: t("rewards.title_of_reward") %>
+    </div>
+
+    <div class="control-group">
+      <%= f.text_area :description, class: "input-xlarge description-input", placeholder: t("rewards.description_of_reward") %>
+    </div>
+    <div class="control-group">
+      <h5><%= t("rewards.how_many_points") %></h5>
+      <%= f.text_field :points, class: "input-xlarge points-input", placeholder: "100" %>
+    </div>
+    <div class="control-group">
+      <h5><%= t("rewards.frequency_and_interval") %></h5>
+      <%= f.text_field :frequency, type: :number, placeholder: "10", min: 0, style: "width: 50px;" %>
+      <select style="width: 100px;" name="reward[interval_id]">
+        <% Interval::RESET_INTERVALS_WITH_NULL.each do |value, name| %>
+          <% name = Interval::NULL == value ? "No Limit" : name %>
+          <% selected = reward.interval_id == value ? "selected='true'" : "" %>
+          <option value="<%= value %>" <%= selected %>><%= name %></option>
+        <% end %>
+      </select>
+    </div>
+    <div class="control-group">
+      <h5><%= t("rewards.manager") %></h5>
+      <%= f.select :manager_id, [[reward.manager.try(:label), reward.manager_id]], {selected: reward.manager_id}, class: "reward-manager-select"%>
+    </div>
+    <div class="control-group">
+      <div class="file-attach-progress">
+        <div class="message"></div>
+        <div id="progress-bar"><div id="progress-inner"><span class="right"></span></div></div>
+      </div>
+      <%= f.submit t("dict.save"), class: "button rewards-edit-submit" %>
+    </div>
+  <% end %>
+  <% delete_url = reward.new_record? ? "javascript://" : company_reward_path(reward) %>
+  <%= link_to t("dict.delete"), delete_url, class: "close-icon " %>
+</div>

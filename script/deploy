@@ -1,0 +1,11 @@
+#!/bin/bash
+branch=`git branch |grep '\*' |awk '{print $2}'`
+echo "Pulling from $branch branch"
+git pull origin $branch
+bundle --without development test
+bundle exec rake db:migrate RAILS_ENV=production
+bundle exec rake assets:clean
+bundle exec rake assets:precompile
+touch tmp/restart.txt
+#RAILS_ENV=production script/delayed_job restart
+

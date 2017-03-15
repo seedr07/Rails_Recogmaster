@@ -1,0 +1,28 @@
+<div id="invoice">
+
+  <% if @subscription.invoices.present? || !@subscription.credit_card? %>
+    <%= render partial: "current_plan" %>
+  <% else %>
+    <%= render partial: "new_plan" %>
+  <% end %>
+
+  <% unless @subscription.pending? %>
+    <h2>Update payment information</h2>
+  <% end %>
+
+  <div class="control-group">
+    <label>
+      <span class="label">Name on card</span>
+      <input type="text" value="<%= @subscription.user.try(:full_name) || @current_user.full_name%>"/>
+    </label>
+    <label>
+      <span class="label">Email</span>
+      <input type="text" name="subscription[email]" value="<%= @subscription.email || current_user.email%>"/>
+    </label>
+  </div>
+  <%= render partial: "subscriptions/cc_fields", locals: {hide_placeholders: true} if @subscription.credit_card? %>
+  <div>
+    <% submit_label = @subscription.pending? ? "Purchase" : "Update Card"%>
+    <button id="submit-button" type="submit" class="button button-large button-primary form-loading-ignore"><%= submit_label%></button>
+  </div>
+</div>

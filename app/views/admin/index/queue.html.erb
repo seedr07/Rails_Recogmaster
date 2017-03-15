@@ -1,0 +1,38 @@
+<%= render partial: "admin_header"%>
+<h2>Delayed Job Background Task Queue</h2>
+<div>
+  <span style="font-weight:bold">Delayed Job process id:</span> <%= @queue_pid.present? ? @queue_pid : "none"%>  
+</div>
+<div>
+  <span style="font-weight:bold">Delayed Job tasks:</span> <%= @jobs.count%>  
+  <span style="font-weight:bold">Failed Delayed Job tasks:</span> <%= @failed_jobs.count%>  
+</div>
+<div>
+  <span style="font-weight:bold">Counts: </span><%= @counts.map{|q,count| (q.present? ? link_to(q, admin_queue_path(queue: q))+": #{count}" : link_to("queue", admin_queue_path)+": #{count}")}.join(",").html_safe %>
+</div>
+
+<div>
+  <a href="#" id="active-queue" class="button button-small button-highlight">Active Jobs</a>
+  <a href="#" id="failed-queue" class="button button-small button-warning">Failed Jobs</a>
+</div>
+<hr>
+
+<div>
+  <%= link_to "Clear :refresh_cached_yammer_groups", admin_clear_queue_task_path(:refresh_cached_yammer_groups!), method: :post, class: "button button-danger" %>
+  <%= link_to "Clear :prime_caches", admin_clear_queue_task_path(:prime_caches!), method: :post, class: "button button-danger"  %>
+</div>
+<hr>
+
+<div id="active_jobs">
+  <h2>Jobs being processed</h2>
+  <%= render partial: "delayed_jobs_table", locals: {jobs: @jobs.limit(500)}%>
+</div>
+
+<div id="failed_jobs" style="display:none">
+  <h2>Failed jobs <%= link_to "Purge failed jobs", admin_purge_failed_queue_path, remote: true, method: :post, data: {disable_with: "Purging..."}, style: "font-size:14px", confirm: "Are you sure you want to delete all the failed jobs"%></h2>
+  <%= render partial: "delayed_jobs_table", locals: {jobs: @failed_jobs.limit(500)}%>
+</div>
+
+<% content_for :afterjs do %>
+  <%= javascript_include_tag("pages/admin_index/queue.js") %>
+<% end%>

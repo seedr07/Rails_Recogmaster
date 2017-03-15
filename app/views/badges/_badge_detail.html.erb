@@ -1,0 +1,44 @@
+<div class="badge-page-item">
+  <%= image_tag badge.permalink(200),
+                :id => "badge-#{badge.id}",
+                :"data-imagePath" => badge.permalink,
+                :"data-relativeImagePath" => badge.permalink(200),
+                :"data-name" => badge.short_name, # used when badge is selected, pulled from js,
+                :"data-badge-id" => badge.id,
+                :"title" => badge.description
+  %>
+  <div class="content">
+    <% if page == "index" %>
+      <h3><%= badge.short_name %></h3>
+    <% else %>
+      <h1><%= badge.short_name %></h1>
+    <% end %>
+    <p class="description balance-text"><%= simple_format(badge.description) %></p>
+
+    <div class="badge-stats">
+      <dl><dt class="subtle-text">Points</dt><dd class="points"><%= badge.points %></dd> </dl>
+
+      <% if badge.sending_frequency.present? %>
+        <dl><dt class="subtle-text">Sending limit</dt><dd><%= badge.sending_frequency %></dd></dl>
+      <% end %>
+
+      <dl><dt class="subtle-text">Type</dt><dd>
+        <% if badge.restricted == true %>
+          Executive
+        <% elsif badge.is_achievement %>
+          Achievement
+        <% else %>
+          Peer
+        <% end %>
+      </dd></dl>
+
+      <% if badge.is_achievement %>
+        <dl><dt class="subtle-text">Receiving interval</dt> <dd><%= reset_interval_adverb(badge.interval).capitalize %></dd></dl>
+        <dl><dt class="subtle-text">Receiving limit</dt> <dd><%= badge.achievement_frequency %></dd></dl>
+      <% end %>
+
+    </div>
+
+  </div>
+
+</div>

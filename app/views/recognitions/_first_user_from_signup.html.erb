@@ -1,0 +1,29 @@
+<% if current_user.verified? %>
+  <div class="centered">
+    <h1>Your account is verified</h1>
+    <%= render partial: "recognitions/welcome_steps"%>
+  </div>
+<% else %>
+
+
+  <div class="centered marginBottom20">
+    <div style="display: inline-block" class="welcome-badge-link-trigger">
+      <%= link_to recognition_path(@recognitions.first), class: "analyticsClick", id: "new-user-badge-welcome", data: {event: "Recognition Leader badge link"} do %>
+
+        <% if @recognitions.first.badge.ambassador?%>
+          <div class="badge-ambassador badge-image-small"><h3 class="offscreen"><%= t("badges.ambassador")%></h3></div>
+        <% else %>
+          <div class="badge-new_user badge-image-small"><h3 class="offscreen"><%= t("badges.thumbs_up")%></h3></div>
+        <% end %>
+
+        <h3><%= t('recognitions_index.you_earned_a_recognition') %></h3>
+
+      <% end %>
+    </div>
+    <p class="marginBottom40"><strong>Send a recognition to promote a positive corporate mindset.</strong></p>
+    <%= link_to t("welcome_steps.send_a_recognition"), new_recognition_path, id: "welcome-send-recognition", class: "button button-highlight analyticsEvent recognize-new", data: {event: "welcome new recognition link"} %>
+
+  </div>
+
+
+<% end %>

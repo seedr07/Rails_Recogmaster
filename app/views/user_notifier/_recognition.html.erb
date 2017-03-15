@@ -1,0 +1,11 @@
+<div style="text-align: center; display: inline-block; width:100%;">
+  <%= image_tag badge.permalink(200, "http:"), style: "margin: 10px auto; max-width: 90%;" %>
+
+  <h3 style="<%= mail_styles(:text, :h3) %> font-weight: 600;"><%= badge.short_name %></h3>
+
+  <% if recognition.message.present? %>
+    <h2 style="<%= mail_styles(:h2, :text) %>; margin: 10px auto; max-width: 600px;">"<%= recognition.message %>" <span style="<%= mail_styles(:textSubtle) %>"></span></h2>
+  <% end%>
+
+  <p style="<%= mail_styles(:text, :p) %>"><%= sender.full_name %> from <%= sender.network %></p>
+</div>

@@ -1,0 +1,23 @@
+<li class="time-period">
+  <h5 class="time-period-title"><%= group.time_period %></h5>
+  <ul class="users clearfix">
+
+    <% group.user_ids.each do |user_id| %>
+      <li>
+        <div class="user clearfix">
+          <% if user_map[user_id] %>
+          <%= link_to user_path(user_map[user_id]) do %>
+            <%= image_tag user_map[user_id].avatar.thumb.url %>
+            <p class="name"><%= user_map[user_id].full_name %></p>
+          <% end %>
+          <% else %>
+                <% user = User.with_deleted.find(user_id) %>
+                <%= image_tag user.avatar.thumb.url %>
+                <p class="name"><%= user.full_name %>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+
+  </ul>
+</li>

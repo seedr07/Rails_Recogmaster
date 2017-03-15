@@ -1,0 +1,14 @@
+
+<% @threads.each do |thread|  %>
+  <h3><%= thread.first_message %></h3>
+  <table>
+    <% thread.chat_messages.each do |message|  %>
+      <tr>
+        <td><%= thread.email %></td>
+        <td>
+          <%= message.body %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

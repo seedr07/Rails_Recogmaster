@@ -1,0 +1,47 @@
+<%= render partial: "layouts/mailer/header" %>
+
+<% interval = @user.reset_interval %>
+<div style="background: #F8FAFF; padding: 2%; ">
+  <h2 style="<%= mail_styles(:h2, :text) %>" >Your company's monthly recognition winners</h2>
+  <div style="margin-bottom: 30px;">
+    <%= mail_styles(:hr) %>
+  </div>
+
+  <table style="width: 100%">
+    <tr>
+      <td style="width: 50%;vertical-align:top">
+        <% set = @winning_users.map{|u| u[:user]} %>
+        <div style="<%= mail_styles(:div, :text) %>">
+          Please congratulate the winners for <%= @interval_label %>:
+          <ul style="<%= mail_styles(:leaderboard) %> margin: 20px 0;">
+            <% set[0..19].each_with_index do |user, i| %>
+              <% extraStyles = (i % 2 == 1) ? "background: #F1F1F1;" : "background: white;" %>
+              <% extraStyles += (user[:id] == @user.id) ? "font-weight: 600;" : "font-weight: 400;" %>
+              <li style="<%= mail_styles(:p, :leaderboard_item) %> <%= extraStyles %>"><%= link_to user.full_name, user_url(user, network: user.network), style: mail_styles(:text, :a)%></li>
+            <% end %>
+          </ul>
+          <%= link_to "See more here", reports_url(network: @user.network), style: "#{mail_styles(:text, :a)}; display: block; margin-bottom: 20px;"  if set.length > 20 %>
+        </div>
+      </td>
+
+      <td style="width:50%;vertical-align:top">
+        <% set = @winning_teams.map{|t| t.team} %>
+        <div style="<%= mail_styles(:div, :text) %>">
+          Please congratulate the winning teams for <%= @interval_label %>:
+          <ul style="<%= mail_styles(:leaderboard) %> margin: 20px 0;">
+            <% set[0..19].each_with_index do |team, i| %>
+              <% extraStyles = (i % 2 == 1) ? "background: #F1F1F1;" : "background: white;" %>
+              <li style="<%= mail_styles(:p, :leaderboard_item) %> <%= extraStyles %>"><%= link_to team.name, team_url(team), style: mail_styles(:text, :a)%></li>
+            <% end %>
+          </ul>
+          <%= link_to "See more winners here", reports_url(network: @user.network), style: "#{mail_styles(:text, :a)}; display: block; margin-bottom: 20px;" if set.length > 20 %>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+
+  <p style="<%= mail_styles(:p, :text) %>"><%= link_to "Visit the stats page for #{@interval_label} to see more.", reports_url(network: @user.network), style: mail_styles(:button, :inline) %></p>
+</div>
+
+<%= render partial: "layouts/mailer/footer" %>

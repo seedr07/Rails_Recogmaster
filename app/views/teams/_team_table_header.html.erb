@@ -1,0 +1,6 @@
+<tr id="<%=team_id%>">
+	<th class="name"> <%=t("teams.whose_teams", whose: team_type) %></th>
+	<th class="members"><%= t("dict.members")%></th>
+	<th class="score"><%= reset_interval_label(current_user.reset_interval)%> <%= t("teams.team") %> <%= t("dict.points")%></th>
+	<th class="res cursor" title="<%= t("dict.res_definition") %>"><%=t("dict.res")%><sup>?</sup></th>
+</tr>

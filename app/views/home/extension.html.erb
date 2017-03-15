@@ -1,0 +1,173 @@
+<%= content_for :title, t('home_extension.extension')%>
+<link href="//vjs.zencdn.net/4.5/video-js.css" rel="stylesheet">
+<script src="//vjs.zencdn.net/4.5/video.js"></script>
+<section id="intro-video-wrapper">
+
+    <div class="animate-1 animate-hidden animate">
+      <h1 class="balance-text">
+        <%= t('home_extension.title')  %>
+      </h1>
+      <a href="#marketing-browser-extensions-info" class="button button-highlight button-large animate-scroll">Add Recognize to Your Yammer</a>
+    </div>
+  <div id="video-wrapper" class="animate-2 animate-hidden animate">
+    <video id="yammer-video" class="video-js vjs-default-skin"
+      controls data-setup='{ "controls": true, "autoplay": true, "preload": "auto" }' width="859" height="432"
+      poster="<%= asset_path('pages/home-extension/poster.jpg') %>">
+     <source src="<%= asset_path('video.mp4') %>" type='video/mp4' />
+    </video>
+  </div>
+</section>
+
+
+<div id="title-sub" class="centered">
+  <h2><%= t('home_extension.subtitle') %></h2>
+</div>
+
+<div id="functionality-wrapper" class="">
+  <div class="inner">
+    <h3 class="balance-text">Automatic Yammer integration features</h3>
+    <p class="balance-text">By signing in with Yammer at Recognizeapp.com, your company can easily improve employee engagement.</p>
+    <section  class="table-functionality table-functionality-single">
+      <div class="row">
+        <div class="functionality">
+          <h4><div class="check">Yes</div> Recognitions show on Yammer</h4>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="functionality">
+          <h4><div class="check">Yes</div> Sign in to Recognize from Yammer</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="functionality">
+          <h4><div class="check">Yes</div> Recognize Yammer users</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="functionality">
+          <h4><div class="check">Yes</div> Instantly recognize Yammer users</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="functionality">
+          <h4><div class="check">Yes</div> Invite Yammer users to Recognize</h4>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="marketing-browser-extensions-info" class="marginBottom40">
+    <div class="centered" data-no-turbolink='true'>
+      <h2>Enhance Yammer with the Recognize browser extensions</h2>
+      <p class="marginBottom30">The Internet Explorer extension is available to our Enterprise Package customers. <a href="/recognize_ie_extension_user_guide.pdf">Read the IE installation guide</a>.</p>
+      <div class="table">
+        <a href="javascript://" onclick="chrome.webstore.install()" id="chrome" class="item">
+
+          <h4>Google Chrome Recognize extension</h4>
+          <%= image_tag "pages/home-extension/chrome.png", alt: "Google Chrome browser" %>
+          <div class="button button-large button-no-chrome block">Install now</div>
+        </a>
+        <a href="/recognize-ie-extension-su.msi" id="ie"  class="item">
+          <h4>Microsoft Internet Explorer Recognize extension</h4>
+          <%= image_tag "pages/home-extension/ie.png", alt: "Microsoft Internet Explorer" %>
+
+          <% text_for_ie_button = "Try for free and download now" %>
+
+          <% if current_user.present? && current_user.subscribed_account? %>
+            <% text_for_ie_button = "Download now" %>
+          <% end %>
+
+          <div class="button button-primary button-large block margin-bottom-10"><%= text_for_ie_button %></div>
+        </a>
+        <a href="/recognize.xpi"  id="firefox" class="item" data-iconURL="<%= asset_url("chrome/logo-mark-bleed.png") %>">
+          <h4>Mozilla Firefox Recognize extension</h4>
+          <%= image_tag "pages/home-extension/firefox.png", alt: "Firefox browser" %>
+          <div class="button button-large button-no-chrome block">Install now</div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="inner">
+    <h3>Browser extension Yammer integration</h3>
+    <p>By installing the <strong>Recognize browser extension</strong>, an add-on for your web browser, Recognize is embedded inside Yammer.com.</p>
+
+
+    <section  class="table-functionality table-functionality-single">
+      <div class="row">
+        <div class="functionality">
+          <h4><div class="check">Yes</div>Send recognitions from Yammer</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="functionality">
+          <h4><div class="check">Yes</div>Recognitions show on user's Yammer profile</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="functionality">
+          <h4><div class="check">Yes</div>Recognize Yammer posts</h4>
+        </div>
+      </div>
+    </section></div>
+  </div>
+<div id="points">
+  <section id="point1-wrapper" class="clearfix">
+    <div class="inner clearfix">
+      <div class="content">
+        <h2><%= t('home_extension.point1') %></h2>
+        <p><%= t('home_extension.point1_description') %></p>
+      </div>
+      <div class="image"><span class="offscreen"><%= t('home_why.badges_like_brilliant_and_innovative_inspire_employees') %></span></div>
+    </div>
+  </section>
+
+  <section id="point2-wrapper" class="clearfix">
+    <div class="inner clearfix">
+      <div class="image"><span class="offscreen"></span></div>
+      <div class="content">
+        <h2><%= t('home_extension.point2') %></h2>
+        <p><%= t('home_extension.point2_description') %></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="point3-wrapper"class="clearfix">
+    <div class="inner clearfix">
+      <div class="content">
+        <h2><%= t('home_extension.point3') %></h2>
+        <p><%= t('home_extension.point3_description') %></p>
+      </div>
+      <div class="image"><span class="offscreen"></span></div>
+      
+    </div>
+  </section>
+
+  <section id="point4-wrapper" class="clearfix">
+    <div class="inner clearfix">
+      <div class="image"><span class="offscreen"></span></div>
+      
+      <div class="content">
+        <h2><%= t('home_extension.point4') %></h2>
+        <p><%= t('home_extension.point4_description') %></p>
+      </div>
+      
+    </div>
+  </section>
+
+</div>
+
+</div> <!-- main content -->
+
+
+
+<section id="action">
+  <div class="inner">  
+    <div class="content">
+      <%= render partial: "/home/bottom" %>   
+    </div>
+  </div>
+</section>
+
+
+<%= render :partial => 'footer' %>

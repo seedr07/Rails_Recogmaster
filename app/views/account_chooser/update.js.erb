@@ -1,0 +1,11 @@
+(function(R, $) {
+  var transition = new window.R.Transition();
+<% if @user.blank? %>
+  $("#password-wrapper").html("Could not find user");
+  transition.slide("#please-wait-wrapper", "#password-wrapper");    
+<% else @user.company.saml_enabled? %>
+  setTimeout(function(){
+    Turbolinks.visit('<%= identity_provider_path(network: @user.network) %>');
+  }, 800)
+<% end %>
+})(window.R, jQuery);

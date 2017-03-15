@@ -1,0 +1,74 @@
+#teams-index
+
+  th
+    vertical-align: bottom
+
+  th.name
+    margin: 0 0 0 0
+    font-size: 35px
+    line-height: 35px
+    font-weight: 200
+  
+  a h3, 
+  a p
+    color: #008CE5
+
+  .teams-index-user-avatar
+    width: auto
+    height: 30px
+    @include background-size(30px)
+
+  h1, #add-team-wrapper
+    margin: 0 15px 25px
+    
+  #wrapper-outer
+    padding-left: 0 !important
+    padding-right: 0 !important
+
+  #other-teams
+    border-style: solid
+    border-color: gray
+    border-width: 1px 0px 0px 0px
+    
+
+  .table tr:nth-child(odd) td
+    background: #F7F9FC
+
+  .table tr:nth-child(odd) th
+    background: #F7F9FC
+
+  .table
+    .name
+      width: 25%
+      padding: 9px 15px
+    
+    .members
+      width: 50%
+    
+    .score
+      width: 20%
+      
+    td.name, 
+    td.score
+      padding-top: 18px
+      
+    th
+      border-top: 0
+
+    .res-score
+      width: 200px
+
+      
+@media (max-width: 480px)
+
+  #teams-index
+
+    .res
+      display: none
+
+    .wrapper
+      margin: 0
+       
+    .table h3
+      font-size: 23px
+      line-height: 21px

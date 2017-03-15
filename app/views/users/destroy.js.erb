@@ -1,0 +1,13 @@
+(function(){
+  <% if current_user == @user %>
+    swal({
+      title: "Thank you for using Recognize", 
+      text: "If you have any suggestions for Recognize, please contact us."
+    }, function(){
+      window.location = "/";
+    });
+  <% else %>
+    var $row = $("tr#user_row_<%= @user.id%>");
+    $row.fadeOut(1500);
+  <% end %>
+})();

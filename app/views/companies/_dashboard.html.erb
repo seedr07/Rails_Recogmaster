@@ -1,0 +1,127 @@
+<% if @company.has_sent_or_received_recognitions? %>
+
+  <!--[if lt IE 9]>
+    <%= javascript_include_tag "3p/excanvas.compiled.js" %>
+  <![endif]-->
+
+  <% top_badge_length = @top_badges.length %>
+
+  <%= javascript_tag do %>
+
+    var windowEventListener = (window.addEventListener) ? window.addEventListener : window.attachEvent;
+
+    windowEventListener("load", function() {
+        $('a[data-toggle="tab"]').on('shown', function (e) {
+        var href = e.target.getAttribute("href");
+        if (href !== "#graphs") {
+          $("#tooltip").hide();
+        } else {
+          $("#tooltip").show();
+        }
+      });
+
+  });
+
+  <% end%>
+
+
+
+  <div id="dashboard" class="tab tab-pane active">
+
+    <div  class="row-fluid marginBottom40">
+      <div id="admin-admins" class="span6">
+        <%= link_to "Resource check list", check_list_company_path, class: "block marginBottom10" %>
+
+        <h4><%=t("dashboard.current_admins")%></h4>
+        <div class="admin-avatars clearfix">
+          <% @company.company_admins.each do |admin| %>
+            <%= image_tag admin.avatar.small_thumb, title: admin.label %>
+          <% end %>
+        </div>
+
+      </div>
+
+      <div id="admin-flipboard" class="span6">
+
+        <div class="flipboard-wrapper">
+          <h4><%= t("dashboard.today")%></h4>
+          <% condition = 1.day.ago%>
+          <%= render partial: "layouts/flipboard", locals: {label: t("dict.users"), number: @users.where(['users.created_at > ?', condition]).size, css_class: "today users"}%>
+          <%= render partial: "layouts/flipboard", locals: {label: t("dict.recognitions"), number: @recognitions.where(['recognitions.created_at > ?', condition]).size, css_class: "today recognitions"}%>
+        </div>
+
+        <div class="flipboard-wrapper">
+          <h4><%= t("dashboard.this_week")%></h4>
+          <% condition = Time.now.beginning_of_week%>
+          <%= render partial: "layouts/flipboard", locals: {label: t("dict.users"), number: @users.where(['users.created_at > ?', condition]).size, css_class: "week users"}%>
+          <%= render partial: "layouts/flipboard", locals: {label: t("dict.recognitions"), number: @recognitions.where(['recognitions.created_at > ?', condition]).size, css_class: "week recognitions"}%>
+        </div>
+
+        <div class="flipboard-wrapper">
+          <h4><%= t("dashboard.total")%></h4>
+          <%= render partial: "layouts/flipboard", locals: {label: t("dict.users"), number: @users.size, css_class: "total users"}%>
+          <%= render partial: "layouts/flipboard", locals: {label: t("dict.recognitions"), number: @recognitions.size, css_class: "total recognitions"}%>
+        </div>  
+      </div>
+    </div>
+
+    <% report = Report::Badge.new(@company, 3.months.ago, Time.now) %>
+    <%= render partial: "graphs/badge_graph", locals: {report:  report } if report.data.length > 1%>
+
+    <div id="recognition-badge-graph-wrapper">
+
+
+
+      <div class="row">
+        <div class="span7">
+          <h3><%= t("dashboard.top_badges")%></h3>
+
+          <ul id="piechart-wrapper" class='legend-wrapper marginTop15'>
+            <% colors = ['#00CBD4', "#D4FFEF", "#5A9097", "#0083B8", '#399CFF'] %>
+          <% @top_badges.each_with_index do |data, i| %>
+            <li id="legend-<%=colors[i] %>">
+              <p><span class="badge-name"><%= data[1][:badge].short_name%></span> <span class="badge-amount  subtle-text"><%= data[1][:count]%></span></p>
+              <div class="color" data-color="<%=colors[i] %>" style="background: <%=colors[i] %>"></div>
+
+            </li>
+          <% end %>
+          </ul>
+          <div id="piechart"></div>
+        </div>
+
+        <div class="span4">
+          <h3 class="cursor" title="<%= t("dict.res_definition") %>">RES<sup>?</sup></h3>
+          <% cache(cache_key_for_res) do %>
+            <div id="res-score" data-res="<%= @res_calculator.res_score %>">
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+
+    
+  <script type="text/javascript">
+    window.R = window.R || {};
+    window.R.company = window.R.company || {};
+    window.R.company.dashboard = window.R.company.dashboard || {};
+    window.R.company.dashboard.labels = [];
+    window.R.company.dashboard.values = [];
+    
+    <% @top_badges.each_with_index do |data, i| %>
+      window.R.company.dashboard.labels.push('<%= data[1][:badge].short_name%>');
+      window.R.company.dashboard.values.push(<%= data[1][:count]%>);
+    <% end %>
+
+  </script>
+
+<% else %>
+  <div id="dashboard" class="tab tab-pane active">
+    <h2>Get Started</h2>
+    <p>Looks like your company hasn't sent any recognitions yet.</p>
+    <p>Please send at least one so that we can show data associated with your recognitions in this dashboard. </p>
+  </div>
+<% end %>

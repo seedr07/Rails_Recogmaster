@@ -1,0 +1,25 @@
+<h3>Edit Coupon: <%= @coupon.code%></h3>
+<%= form_for @coupon, url: admin_coupon_path do |f|%>
+  <div class="control-group">
+    <%= f.label :css_class%>
+    <%= f.text_field :css_class %>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :plan_ids, "Plans"%>
+    <% Plan.active.each do |plan| %>
+      <%= f.label :plan_ids, value: plan.id, class: "checkbox-inline" do %>
+        <%= check_box_tag "coupon[plan_ids][]", plan.id,  @coupon.has_plan?(plan), id: "coupon_plan_ids_#{plan.id}"%>
+        <span><%= plan.label%></span>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :message%>
+    <%= f.text_area :message, size: "30x10"%>
+  </div>
+  <%= f.submit "Save", class: "button button-highlight"%>
+  <%= link_to "Back", admin_coupons_path%>
+<% end%>
+  

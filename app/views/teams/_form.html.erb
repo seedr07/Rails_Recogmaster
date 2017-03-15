@@ -1,0 +1,4 @@
+<%= form_for team, remote: true, html: {style: "display:inline-block"} do |f|%>
+  <%= f.text_field :name %>
+  <%= f.submit t("dict.save"), class: "button button-tall button-dark marginRight10" %>
+<% end %>

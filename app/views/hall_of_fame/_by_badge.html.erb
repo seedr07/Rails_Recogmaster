@@ -1,0 +1,32 @@
+<ul class="badges">
+
+  <% @winners_by_badge.each do |badge, time_period_groups| %>
+    <li class="badge">
+
+      <div class="badge-info">
+        <%= image_tag badge.permalink, class: "badge-graphic" %>
+        <h4><%= badge.short_name %></h4>
+      </div>
+      <div class="time-periods-wrapper">
+        <a class="arrow-clip arrow-clip-left hidden" href="javascript://"><div><span>See more</span></div></a>
+
+        <ul class="time-periods clearfix">
+          <% if time_period_groups.empty? %>
+            <li class="time-period">
+              <h5 class="time-period-title">No winners yet for this badge</h5>
+              <ul class="users clearfix"></ul>
+            </li>
+          <% end %>
+
+          <% time_period_groups.each do |group| %>
+            <%= render "winning_group", group: group %>
+          <% end %>
+        </ul>
+        <a class="arrow-clip arrow-clip-right" href="javascript://"><div><span>See more</span></div></a>
+      </div>
+
+
+    </li>
+  <% end %>
+
+</ul>

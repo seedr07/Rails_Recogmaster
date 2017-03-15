@@ -1,0 +1,36 @@
+<% if current_user && !current_user.subscribed_account? %>
+  <% content_for :tour_content do %>
+    <h3>See what your rewards <em>could</em> look like.</h3>
+    <div id="youtube-video" data-id="C8ADUzKk9b4"></div>
+  <% end %>
+<% end %>
+
+<div class="banner">
+  <div class="row">
+    <div class="span8">
+      <h1><%= t("rewards.rewards") %></h1>
+      <p class="subtitle"><%= t("rewards.redeem_rewards") %></p>
+    </div>
+
+    <div class="span2">
+      <dl>
+        <dt class="redeemable_points_total font-weight-100"><%= current_user.redeemable_points %></dt>
+        <dd class="subtle-text"><%=t("rewards.points_available")%></dd>
+      </dl>
+    </div>
+  </div>
+  <hr>
+</div>
+
+<% if @rewards.present? %>
+  <% @rewards.each do |reward|%>
+    <%= render "reward", reward: reward %>
+  <%end%>
+<% else %>
+  <p class="centered"><%= t("rewards.no_rewards", company: current_user.company.name) %></p>
+  <% if permitted_to?(:show, current_user.company) %>
+    <p class="centered"><%= t("rewards.configure_the_rewards") %> <%= link_to t("dict.company_admin"), company_path(network: current_user.network, anchor: "rewards") %></p>
+  <% end %>
+<% end %>
+
+

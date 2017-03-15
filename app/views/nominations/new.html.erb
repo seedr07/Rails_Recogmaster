@@ -1,0 +1,33 @@
+<%= render partial: "/js_templates/recognition_new" %>
+
+<%= render_flash%>
+
+<%= javascript_tag do%>
+
+  window.R = window.R || {};
+
+  <% if @send_recipient %>
+    R.recipient = {
+    <% if @send_recipient.id %>
+      id: <%= @send_recipient.id %>,
+    <% else %>
+      email: '<%= @send_recipient.email %>',
+    <% end %>
+    avatar_thumb_url: '<%= @send_recipient.avatar.small_thumb.url%>',
+    type: 'User',
+    name: '<%= @send_recipient.full_name%>'
+    };
+  <% end %>
+
+<% end %>
+
+<%= render partial: 'form_fullscreen' %>
+
+<%= render partial: 'recognitions/badge_list', locals: { badge_set: sendable_nomination_badges } %>
+
+
+<% if current_user.company.allow_teams? %>
+  <%= javascript_tag do %>
+    R.userTeamMap = <%= @user_team_map.to_json.html_safe %>;
+  <% end %>
+<% end %>

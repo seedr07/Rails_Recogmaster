@@ -1,0 +1,69 @@
+<div id="badge-line-graph-wrapper">
+  <div class="placeholder"></div>
+  <div class="legend" style="margin-top: 50px;"></div>
+</div>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<%= javascript_tag do %>
+  (function() {
+    var series = [
+
+        <% report.data.each do |badge, data| %>
+          {
+            name: "<%= badge.short_name%>",
+            data: <%= raw data.collect{|d| [d.timestamp, d.count]}.as_json %>
+          },
+        <% end %>
+
+      ];
+
+
+      $('#badge-line-graph-wrapper .placeholder').highcharts({
+        chart: {
+            type: 'column'
+        },      
+        title: {
+            text: 'Recognitions by week',
+            x: -20 //center
+        },
+        subtitle: {
+            text: 'Past 90 days',
+            x: -20
+        },
+        xAxis: {
+          type: 'datetime'
+        },        
+        yAxis: {
+            stackLabels: { enabled: true},
+            title: {
+                text: 'Recognitions received'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: '',
+            crosshairs: true,
+            xDateFormat: 'Week of %b %e, %Y'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: series,
+        plotOptions: {
+          column: {
+            stacking: 'normal',
+            dataLabels: { enabled: false}
+          }
+        }
+      });
+
+  })();
+  
+<% end %>

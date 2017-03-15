@@ -1,0 +1,39 @@
+<div class="row row-fluid well">
+  <div class="span6">
+    <h3 class="balance-text">Step 1: <strong>Insert Recognize into Yammer</strong></h3>
+    <p class="balance-text">No one has the kind of integration into Yammer that Recognize provides. We built a browser extension that inserts Recognize seemlessly into Yammer.</p>
+
+    <div class="browsers flex-centered">
+      <a href="javascript://" onclick="chrome.webstore.install()" id="chrome" class="button-download">
+        <%= image_tag "pages/home-extension/chrome.png", alt: "Google Chrome browser" %> Install into Chrome
+      </a>
+      <a href="/recognize-ie-extension-su.msi.zip" id="ie" class="button-download light">
+        <%= image_tag "pages/home-extension/ie.png", alt: "Microsoft Internet Explorer" %>
+        Install into Internet Explorer
+      </a>
+      <a href="/recognize.xpi" class="button-download" id="firefox" data-iconURL="<%= asset_url("chrome/logo-mark-bleed.png") %>">
+        <%= image_tag "pages/home-extension/firefox.png", alt: "Firefox browser" %>
+        Install into Firefox
+      </a>
+      <%= link_to new_support_email_path, id: "safari", class: "button-download light" do %>
+        <%= image_tag "pages/home-extension/safari.png", alt: "Safari" %>
+        Contact us to request Safari
+      <% end %>
+    </div>
+  </div>
+  <div class="span6 enable-yammer-wrapper">
+    <h3 class="balance-text">Step 2: <strong>Go to Yammer &amp; click Recognize</strong></h3>
+    <%= image_tag "pages/signup/welcome/yammer/enable-yammer.gif", alt: "How to enable Yammer. Click Recognize where Praise once was at the top above the post form." %>
+
+  </div>
+</div>
+
+<section class="padding3em">
+  <h3>Employee recognition is the beat of your company's heart</h3>
+  <div id="youtube-video" data-id="<%= @youtube_id %>"></div>
+  <%= render partial: "layouts/youtube_load" %>
+</section>
+
+
+<%= render partial: "welcome/primary_actions" %>
+

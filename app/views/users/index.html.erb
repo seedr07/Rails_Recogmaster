@@ -1,0 +1,5 @@
+<h2><%= t("users.user_directory") %></h2>
+
+<%= render "users/users", {users: @users}%>
+
+<%= will_paginate @users %>

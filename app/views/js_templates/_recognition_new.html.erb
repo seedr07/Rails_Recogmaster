@@ -1,0 +1,19 @@
+<script type="text/template" id='addRecepient'>
+  
+  <div class="recipient-wrapper" data-signature="{{#if email}}{{email}}{{else}}{{type}}:{{id}}{{/if}}" >
+    {{#avatar_thumb_url}}
+      <div class='left marginRight10'>
+        <img src="{{.}}" width=26px>
+      </div>
+    {{/avatar_thumb_url}}
+    
+    <div class='left marginRight25'>
+      <h4>{{name}}</h4>
+    </div>
+    
+    <div class='recipient-remove'>
+      ✖
+      <span class=offscreen>Close</span>
+    </div>
+  </div>
+</script>

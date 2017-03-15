@@ -1,0 +1,8 @@
+<div class="checkbox-wrapper">
+  <input 
+    type="checkbox" class="on-off" 
+    <% if condition %>checked="checked"<% end %> 
+    <% if opts[:data]%><%= opts[:data].map{|k,v| "data-#{k}='#{v}'"}.join(" ").html_safe%><% end %>
+    <%if opts[:input] && opts[:input][:name] %>name="<%= opts[:input][:name] %>"<% end %>>
+  <label class="checkbox-title"><%= title %></label>
+</div>

@@ -1,0 +1,95 @@
+<h2><%= t("help.how_things_work") %></h2>
+
+<% if current_user.locale.include?("en") %>
+  <a target="_blank" href="/recognize-starter-kit.pdf" class="button button-primary"><%=t("help.review_the_starter_kit")%></a>
+<% end %>
+
+<div class="how-things-work-wrapper">
+  
+  <%= render partial: "help/introduction" %>
+  
+  <div class="hr hr-space"></div>
+
+  <div class="row-fluid">
+  
+    <div class="span4">
+      <div class="inner">
+        <h3><%= t("help.recognize_with_company_email_address") %></h3>
+        <p><%= t("help.if_you_have_your_coworkers_email_address", strong: content_tag("strong", t("help.they_do_not_need_to_sign_up"))) %></p>
+      </div>
+    </div>
+    
+    <div class="span4">
+      <div class="inner">
+        <h3><%= t("help.editing_deleting_recognitions") %></h3>
+        <p><%= t("help.you_can_delete_or_edit_html", href: link_to(t("links.stream_page"), @root_path))%></p>
+        <p><%= t("help.you_can_also_edit_or_delete_html", href: link_to(t("links.user_profile"), user_path(current_user)))%></p>
+      </div>
+    </div>
+  
+    <div class="span4">
+      <div class="inner">
+        <h3><%= t("teams.teams") %></h3>
+        <p><%= t("help.anyone_on_a_team_can_delete_it_or_edit_the_name") %></p>
+        <p><%= t("help.if_you_delete_a_team_you_can_simply_recreate_") %></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="hr hr-space"></div>
+
+  <div class="row-fluid marginBottom30">
+
+    <div class="span4">
+      <div class="inner">
+        <h3><%= t("help.host_monthly_parties") %></h3>
+        <p><%= t("help.employee_recognition_becomes_part_of_your_company") %></p>
+        <p><%= t("help.throw_a_5pm_friday_monthly_party_in_your_offic") %></p>
+      </div>
+    </div>
+  
+    <div class="span4">
+      <div class="inner">
+        <h3><%= t("help.promote_appreciation_through_recognize") %></h3>
+        <p><%= t("help.you_dont_have_to_immediately_invite_your") %></p>
+      </div>
+    </div>
+  
+  
+    <div class="span4">
+      <div class="inner">
+        <h3><%= t("help.privacy") %></h3>
+        <p><%= t("help.we_keep_your_information_stored_safe_in_cloud") %></p>
+        <p><%= t("help.see_our_privacy_policy_html", href: link_to(t("help.privacy_policy"), privacy_policy_path))%></p>
+      </div>
+    </div>
+  </div>
+  <div class="hr hr-space"></div>
+
+  <div class="row-fluid marginBottom30">
+
+    <div class="span4">
+      <div class="inner">
+        <h3><%= t("dict.reports") %></h3>
+        <p><%= t("help.in_the_reports_tab_at_the_top_left_recognize_") %></p>
+        <p><%= t("help.the_scoreboards_show_top_recognized_employees") %></p>
+      </div>
+    </div>
+  
+    <div class="span4">
+      <div class="inner">
+        <h3><%= t("help.user_profiles") %></h3>
+        <p><%= t("help.you_can_edit_and_see_your_profile_in_the_toolbar") %></p>
+        <p><%= t("help.the_edit_button_is_at_the_top_right_of_your_us_html", add_teams: content_tag("strong", t("help.add_teams"))) %></p>
+      </div>
+    </div>
+    
+    <div class="span4">
+      <div class="inner">
+        <h3><%= t("dict.team_directory") %></h3>
+        <p><%= t("help.to_find_a_listing_of_all_the_teams_visit_the") %></p>
+      </div>
+    </div>
+
+  </div>
+</div>

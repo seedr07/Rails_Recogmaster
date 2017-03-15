@@ -1,0 +1,19 @@
+<div class="bottom">
+  <div class="buttons">
+    <% if current_user.subscribed_account? %>
+      <%= link_to "Send a recognition", new_recognition_path, class: "button button-large button-primary"%>
+
+
+    <% else %>
+      <%= link_to "Request a demo", contact_sales_path, class: "marginRight10" %>
+      <% if current_user.company.subscription.present? %>
+        <%= link_to "Purchase", upgrade_path, class: "button button-large button-primary" %>
+      <% else %>
+        <%= link_to "Purchase", "javascript://", class: "button button-large button-primary slideable-trigger", data: {
+                                              from: "#start",
+                                              to: "#user-count"
+                                            } %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

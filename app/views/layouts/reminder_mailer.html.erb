@@ -1,0 +1,10 @@
+<p>Hi <%= @user.first_name.present? ? @user.first_name : "there" %>,</p>
+
+<%= yield%>
+
+<p>Thanks so much,<br>
+Recognize Team</p>
+Twitter: <a href="http://www.twitter.com/recognizeapp">@recognizeapp</a>
+</p>
+
+<p style="<%= mail_styles(:text, :p, :textSubtle) %> margin-bottom: 5px;">To unsubscribe, or manage email notifications, go to the <%= link_to "Edit Profile page", edit_user_url(@user), style: mail_styles(:a) %>.</p>

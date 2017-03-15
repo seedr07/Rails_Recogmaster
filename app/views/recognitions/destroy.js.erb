@@ -1,0 +1,9 @@
+(function(){
+  var bodyId = $body.attr("id"), card;
+
+  if (bodyId === "recognitions-show") {
+    Turbolinks.visit("/", { action: "replace" });
+  } else {
+    $(".isotope").isotope( 'remove', $("#recognition-card-<%= @recognition.id%>") );
+  }
+})();

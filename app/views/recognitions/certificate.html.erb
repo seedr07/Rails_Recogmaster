@@ -1,0 +1,38 @@
+<% content_for :meta_properties do %>
+  <meta property="og:title" content="<%= render(partial: "recognitions/title", locals: {recognition: @recognition})%>" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Recognizeapp.com" />
+  <meta property="og:description" content="<%= @recognition.sender.full_name%> said <%= @recognition.message %>" />
+  <meta property="og:image" content="<%= @recognition.badge.permalink %>" />
+<% end%>
+<% content_for :title, "#{@recognition.sender.full_name} recognized #{@recognition.recipients_label}" %>
+
+<% content_for :description, "#{@recognition.recipients_label} is characterized as #{@recognition.badge.short_name} with the message \"#{@recognition.message}\"" %>
+
+<div class="certificate">
+
+  <%= image_tag "pages/recognitions/show/certificate.png", alt: "Certificate background for print", class: "bg" %>
+
+  <%= image_tag "pages/recognitions/show/certificate-title.png", alt: "Certificate background for print", class: "title" %>
+  <p class="subtitle">
+    <%= localize_datetime(@recognition.created_at, :slash_date) %>
+    <br>
+    <%= t("recognition_certificate.presented_to") %>
+  </p>
+
+  <div class="personal clearfix"><!--this is the flexible personalized data formatted in tables-->
+
+    <div class="images left">
+      <%= image_tag(@recognition.recipients.first.avatar_small_thumb_url, class: "avatar") %>
+      <p class="name"><%= @recognition.recipients.first.label %></p>
+    </div>
+
+    <div class="pronouns left">
+      <%= image_tag @recognition.badge.image_url, class: "badge" %>
+      <p class="name"><%= @recognition.badge.short_name %></p>
+    </div>
+
+  </div>
+
+  <p class="quote">&quot;<%= @recognition.message %>&quot;</p>
+</div>

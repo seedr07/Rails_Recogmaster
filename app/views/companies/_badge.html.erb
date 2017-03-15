@@ -1,0 +1,105 @@
+<% 
+  has_errors =  flash[:badge_errors].present? && flash[:badge_errors][badge.id].present?
+  badge_style = has_errors ? 'border: 1px solid red' : ''
+%>
+
+<div class="widget-box dark" id="badge-<%= badge.id%>" style="<%=  badge_style %>">
+  <% if has_errors %>
+    <div class="error">
+      <h5><%= flash[:badge_errors][badge.id].to_sentence%></h5>
+    </div>
+  <% end %>
+
+  <div class="item centered">
+
+    <%= text_field_tag "company[badges][#{badge.id}][short_name]", badge.short_name, class: "badge-name" %>
+    <%= image_tag badge.permalink(200) %>
+    <div class="marginVertical20">
+      <label class="button button-border" title="Disables badge and doesn't delete recognitions.">
+        <%= hidden_field_tag "company[badges][#{badge.id}][enabled]", false, id: nil %>
+        <%= check_box_tag "company[badges][#{badge.id}][enabled]", true, !badge.disabled? %>
+        Enable
+      </label>
+    </div>
+  </div>
+  
+  <div class="item badge-information-column">
+    <label class="marginBottom10">
+      Description<br>
+      <%= text_area_tag "company[badges][#{badge.id}][description]", badge.description, class: "badge-description", placeholder: "Description" %>
+    </label>
+
+    <div class="button-group badge-type-selectors clearfix">
+      <label>Points<br>
+        <%= text_field_tag "company[badges][#{badge.id}][points]", badge.points, class: "badge-points", type: "number", placeholder: "Points", style: "width: 100px;" %>
+      </label>
+
+      <% if current_user.company.allow_nominations? %>
+        <div class="nomination-wrapper">
+          <%= show_toggle badge.is_nomination?, "Nomination badge", input: {name: "company[badges][#{badge.id}][is_nomination]"} %>
+        </div>
+      <% end %>
+
+
+    </div>
+
+    <hr class="hr hr-space">
+    <label>Badge sending limits</label>
+    <div class="marginBottom10">
+        <%= text_field_tag "company[badges][#{badge.id}][sending_frequency]", badge.sending_frequency, type: :number, placeholder: "10", value: badge.sending_frequency, style:"width: 50px;" %>
+        <% %>
+        <%= sending_limit_scope_select("company[badges][#{badge.id}][sending_limit_scope_id]", badge.sending_limit_scope_id, class: "sending-limit-type-select") %>       
+        <select style="width: 100px;" name="company[badges][<%= badge.id %>][sending_interval_id]">
+          <% Interval::RESET_INTERVALS.each do |value, name| %>
+            <% selected = badge.sending_interval_id == value ? "selected='true'" : "" %>
+            <option value="<%= value %>" <%= selected %>><%= name %></option>
+          <% end %>
+        </select>
+    </div>
+
+    <label>Roles</label>
+    <div class="marginBottom10">
+      <%= select_tag "company[badges][#{badge.id}][roles][]", options_from_collection_for_select(@company_roles, :id, :name, selected_badge_roles(badge)), multiple: true, class: "company-role-select" %>
+    </div>
+
+
+    <% if current_user.company.allow_achievements? %>
+      <div class="button-group badge-type-selectors achievement-wrapper clearfix marginBottom10">
+
+          <%= show_toggle badge.is_achievement?, t('dict.achievement'), input: {name: "company[badges][#{badge.id}][is_achievement]"} %>
+
+      </div>
+   <% end %>
+
+    <% if current_user.auth_with_yammer? %>
+      <div class="normal-options badge-options <% if badge.is_achievement? || badge.restricted? %>hidden<% end %>">
+        <p>Peer badge setting, if the badge should be an instant recognition on the stream page. Anyone in your company can send these badges.</p>
+          <label class="">
+          <%= hidden_field_tag "company[badges][#{badge.id}][is_instant]", false %>
+          <%= check_box_tag "company[badges][#{badge.id}][is_instant]", true, badge.instant? %>
+          Instant
+         </label>
+      </div>
+    <% end %>
+
+    <% if current_user.company.allow_achievements? %>
+      <div class="achievement-options badge-options <% unless badge.is_achievement? %>hidden<% end %>">
+        <p>Achievement badges can be sent by managers of Recognize Teams to employees. The employees can only receive a finite number in a given time period.</p>
+        <label>How many times can the achievement be given and how often?</label>
+        <%= text_field_tag "company[badges][#{badge.id}][achievement_frequency]", badge.achievement_frequency, type: :number, placeholder: "10", value: badge.achievement_frequency %>
+        <select name="company[badges][<%= badge.id %>][achievement_interval_id]">
+          <% Interval::RESET_INTERVALS.each do |value, name| %>
+            <% selected = badge.achievement_interval_id == value ? "selected='true'" : "" %>
+            <option value="<%= value %>" <%= selected %>><%= name %></option>
+          <% end %>
+        </select>
+      </div>
+    <% end %>
+
+  </div>
+
+  <% unless @non_deletable_badge_ids && @non_deletable_badge_ids.include?(badge.id) %>
+    <%= link_to t("dict.delete"), company_badge_path(badge), method: :delete, remote: true, class: "button button-no-chrome", title: "Badges with recognitions may not be deleted." %>
+<% end %>
+
+</div>

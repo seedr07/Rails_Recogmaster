@@ -1,0 +1,48 @@
+<aside class="nametag" itemscope itemtype="http://schema.org/Person">
+  <div class="inner">
+      <div class="name-tag-wrapper widget-box">
+       
+          <div class="attachment"></div>
+           
+          <div class="avatar-wrapper">
+            <%= link_to user_path(user, network: user.network) do %>
+              <%= image_tag(user.avatar.thumb, itemprop: "image", class: "avatar") if user.avatar %>
+              <h3 itemprop="name"><%= user.full_name %></h3>
+              <p itemprop="jobTitle"><%= user.job_title %></p>
+              <p class="company-name" itemprop="worksFor"><%= user.company.name %></p>
+
+
+              <h5 title="score"><strong><%= interval_points(user) %></strong></h5>
+              <p class="subtle-text"><%= t("dict.total_points") %>: <%= user.total_points %></p>
+            <% end %>
+            
+          </div>
+          <div class="hr"></div>
+        <div class="scores clearfix">
+          <div class="inner">
+            <div class="received-recognitions" title="Total Received">
+              <p><%= t("dict.received") %></p>
+              <div class="inner">
+                
+                <div class="icon"></div>
+                <%= user.received_recognitions.size %>
+              </div>
+            </div>
+
+            <div class="recognitions" title="Total Sent">
+              <p><%= t("dict.sent") %></p>
+              <div class="inner">
+                <div class="icon"></div>
+                <%= user.sent_recognitions.size %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% if current_user %>
+          <%= link_to "★ #{t("dict.recognize")}", user_recognition_path(user), class: "recognition-link" if page_id != "users-show" && user != current_user%>
+        <% end %>
+      </div>
+
+
+  </div>
+</aside>

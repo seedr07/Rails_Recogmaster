@@ -1,0 +1,11 @@
+$(function(){
+  if($('#emailWrapper').length) {
+    var $emailWrapper = $('#emailWrapper');
+  } else {
+    var $emailWrapper = $('<div id="emailWrapper"><div class=\'close button\' style=\'position:absolute;top:0;right:0;cursor:pointer\'>Close</div><div class=inner></div></div>').appendTo('body');
+    $emailWrapper.css({ position : 'absolute', top : '25%', left : '10%', height : '65%', width : '80%', overflow :  'auto', border: '1px solid #ccc', backgroundColor: '#eee'});
+    $emailWrapper.find('.close').on('click', function(){$emailWrapper.remove()})
+  }
+  var $email = $("<div>").html('<%= j(@email.body.html_safe)%>');
+  $emailWrapper.find('.inner').html($email);
+})();

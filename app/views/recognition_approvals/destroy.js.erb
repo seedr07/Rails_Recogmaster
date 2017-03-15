@@ -1,0 +1,7 @@
+(function(R, $, undefined) {
+
+ $("#header #total_points .point-interval").html('<%= @approval.giver.interval_points %>');
+var $el = $("#recognition-approval-<%= @approval.recognition_id%>");
+$el.replaceWith('<%= escape_javascript(render partial: "recognitions/recognition_approval_section", locals: {recognition: @approval.recognition}) %>');
+
+})(window.R, jQuery);

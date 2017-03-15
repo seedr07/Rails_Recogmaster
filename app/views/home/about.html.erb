@@ -1,0 +1,91 @@
+<%= content_for :title, "About Recognize"%>
+
+<section id="intro" class="animate-hidden animate-1">
+  <div class="inner">
+    <h1>About Recognize</h1>
+    <p class="tagline">We are inspired by the power of positivity.<br>The following is our philosophy.</p>
+  </div>
+
+  <%= render partial: "home/patterns/bw.svg" %>
+</section>
+
+<div id="points" class="animate-hidden animate-2">
+
+  <section id="point1-wrapper" class="clearfix">
+    <div class="inner clearfix">
+      <div class="content">
+        <h2>A sense of journey through employee recognition.</h2>
+        <p>Levels of excellence provides workers with a roadmap to know where they are now and where they are headed. When companies promote individual greatness with a sense of journey, people are more valued and are better utilized.</p>
+      </div>
+      <%= image_tag "pages/home-about/levels.png", alt: "Level up in Recognize through a program tailored for your organization." %>
+    </div>
+  </section>
+
+  <section id="point2-wrapper" class="clearfix">
+    <div class="inner clearfix">
+      <div class="content">
+        <h2>Validating a worker's role in the organization.</h2>
+        <p>Good people choose companies that inspire them. Ultimately they need to know they are spending their time wisely. Our mission is to help workers feel engaged in a workplace.</p>
+      </div>
+      <%= image_tag "pages/home-about/badges.png", alt: "know your lifes value through your continued growth" %>
+
+    </div>
+  </section>
+
+  <section id="point3-wrapper"class="clearfix">
+    <div class="inner clearfix">
+      <div class="content">
+        <h2>To help companies maximize their potential.</h2>
+        <p>Companies are looking for ways to lower costs and increase revenue. Employee recognition is an easy, yet powerful, solution to creating an one-for-all organizational mentality.</p>
+      </div>
+      <%= image_tag "pages/home-about/graph.png", alt: "Employee recognition is an easy way to grow profits upwards." %>
+      
+    </div>
+  </section>
+
+  <section id="the-team" class="clearfix">
+    <div class="inner clearfix centered">
+      <h2>The Recognize team</h2>
+      <p>We are producing the best designed employee recognition program on the market.<br>Together, we are driven to promote positivity.</p>
+
+      <ul class="face-pile clearfix">
+        <li>
+          <%= image_tag("pages/home-about/team/alex.jpg", alt: "Alex Grande, Founder, CEO", title: "Alex Grande, Founder, CEO") %>
+        </li>
+        <li>
+          <%= image_tag("pages/home-about/team/peter.jpg", alt: "Peter Philips, Founder, CTO", title: "Peter Philips, Founder, CTO") %>
+        </li>
+        <li>
+          <%= image_tag("pages/home-about/team/josh.jpg", alt: "Josh Jermaine, Vice President of Sales", title: "Josh Jermaine, Vice President of Sales") %>
+        </li>
+        <li>
+          <%= image_tag("pages/home-about/team/ravi.jpg", alt: "Ravi Jagtiani, Business", title: "Ravi Jagtiani, Business") %>
+        </li>
+        <li>
+          <%= image_tag("pages/home-about/team/alexis.jpg", alt: "Alexis Held, Sales", title: "Alexis Held, Sales") %>
+        </li>
+        <li>
+          <%= image_tag("pages/home-about/team/sj.jpg", alt: "Satjot (SJ) Sawhney, Business", title: "Satjot (SJ) Sawhney, Business") %>
+        </li>
+        <li>
+          <%= image_tag("pages/home-about/team/kate.jpg", alt: "Kate Cohen, Content", title: "Kate Cohen, Content") %>
+        </li>
+        <li>
+          <%= image_tag("pages/home-about/team/atul.jpg", alt: "Atul Angra, Quality Assurance", title: "Atul Angra, Quality Assurance") %>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+
+<section id="action">
+  <div class="inner">  
+    <div class="content">
+      <%= render partial: "/home/bottom" %>
+    </div>
+  </div>
+</section>
+
+
+<%= render :partial => 'footer' %>

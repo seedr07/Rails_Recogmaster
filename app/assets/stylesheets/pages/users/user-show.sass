@@ -1,0 +1,145 @@
+#users-show
+  background: $bgColor
+
+  .small-screen-only
+    display: none
+
+  #view-main-wrapper
+    padding-top: 64px
+
+  .loading-wrapper
+    margin-top: 50px
+  
+  .recognition-card .message p
+    margin-top: 15px
+
+  h1
+    margin-bottom: 5px
+    line-height: 55px
+
+  #nametag-tab
+    display: block
+  
+  #nametag-trigger
+    display: none
+  
+  #nav-lower
+    display: none
+    
+  .wrapper
+
+  .user-profile-header
+    padding-top: 30px
+
+  .person
+    min-height: 80px
+
+    .button
+      position: absolute
+      right: 10px
+      top: 52px
+      z-index: 2
+
+  #edit-profile-button
+    float: right
+    position: relative
+    z-index: 5
+      
+  .wrapper
+    aside
+      position: fixed
+      
+    .main-content
+      padding-left: 275px
+      margin-top: 7px
+
+  #badges li
+    text-align: center
+    display: inline-block
+    background: #FFF
+    padding: .5em 1em
+    border-radius: 6px
+    margin: 0 1em 1em 0
+
+    p
+      margin: 0
+      color: #AFAFAF
+
+
+@media (max-width: 1035px)
+  #users-show
+
+    .small-screen-only
+      display: block
+
+    #view-main-wrapper 
+      padding-top: 85px
+  
+    #email-signature-tab
+      display: none
+  
+    #edit-profile-button
+      width: 100%
+      margin: 0
+      position: static
+      box-sizing: border-box
+      margin-bottom: 25px
+      float: none
+
+    .tab-nav ul li 
+      margin-right: 20px
+      
+      :last-child
+        margin-right: 0
+      
+      a
+        font-size: 11px
+  
+    #nametag-tab
+      display: none
+ 
+    .wrapper
+      padding-top: 0
+      
+      .recognitions
+        margin-right: auto
+        margin-left: auto
+      
+      aside
+        position: static
+        margin-bottom: 50px
+        width: 100%
+        
+        h1
+          margin-bottom: 50px
+
+        .inner
+          text-align: center
+  
+      .main-content
+        padding-left: 0
+        min-height: 232px
+        
+        .tab-pane
+          padding-top: 15px
+
+    .user-profile-header
+      position: relative
+      top: 0
+      height: auto
+      padding-top: 0
+      width: auto
+      left: 0
+      
+    .main-content
+      margin-top: -30px
+      
+    .user-profile-header .button
+      right: 20px
+      top: 0px
+
+@media (max-width: 750px)
+  #users-show
+
+  #view-main-wrapper 
+    padding-top: 75px

@@ -1,0 +1,10 @@
+<% network = @company_role.company.domain %>
+
+  <td colspan="3">
+    <%= form_for @company_role, url: company_admin_role_path(@company_role), remote: true, class: "clearfix" do |f|%>
+      <%= f.text_field :name %>
+      <%= f.submit "Update", class: "button button-primary" %>
+      <% end %>
+    <%= link_to "Cancel", company_admin_role_path(@company_role, network: network), remote: true, class: "button" %>
+  </td>
+

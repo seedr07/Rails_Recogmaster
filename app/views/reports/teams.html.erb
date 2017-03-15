@@ -1,0 +1,12 @@
+<table class="leaderboard">
+  <% @report.team_leaderboard(:total_points).each_with_index do |report, i| %>
+    <% selected = current_user.teams.map(&:id).include?(report.team.id) ? "selected" : "" %>
+    <tr class="leaderboard-item <%= selected %>">
+      <td class="rank"><%= i + 1%>.</td>
+      <td class="">
+        <%= link_to report.team.name, team_path(report.team) %>
+      </td>
+      <td class="points"><%= report.total_points %></td>
+    </tr>
+  <% end %>
+</table>

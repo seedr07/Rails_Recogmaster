@@ -1,0 +1,14 @@
+<%= form_for @recognition, url: update_recognition_path(@recognition ), remote: true, class: "edit-form" do |f|%>
+  <div class="control-group">
+    <div class="controls edit-controls" style="margin: 10px 15px 0;">
+      <%= f.label :skills, class:"control-label" %>
+      <%= f.text_field :skills, placeholder: "e.g. Photoshop, Research, Time Management" %>
+      <%= f.label :message, class:"control-label" %>
+      <%= f.text_area :message, class:"input", rows:"3" %>
+      
+  </div>
+  <div id="recognition-submit-wrapper" class="actions">
+    <%= f.submit class:"button-primary button edit-submit" %>
+    <%= link_to "Cancel", "#", class: "cancel-edit"%>
+  </div>
+<% end%>

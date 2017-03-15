@@ -1,0 +1,14 @@
+<div style="border: 1px solid #E7E7EA;">
+  
+  <div style="background: #fff;" id="recognize-mailer-header">
+    <div style="padding: 10px 2%;">
+      <h2 style="float: left; <%= mail_styles(:h2, :text) %> width: 42%; margin: 0 !important;">Hi <%= (@user.present? and @user.first_name.present?) ? @user.first_name : "there" %></h2>
+      <div style="float: right; min-width: 80px; max-width: 52%; padding-top: 11px;">
+        <a href="https://www.recognizeapp.com">
+          <%= image_tag "https://recognizeapp.com/assets/chrome/logo-blue.png", alt:"Recognize", style: "width: 80px;" %>
+        </a>
+      </div>
+      <%= mail_styles(:clear) %>
+    </div>
+    <%= mail_styles(:hr)%>
+  </div>

@@ -1,0 +1,17 @@
+(function(){
+  var $team_wrapper = $("#<%= dom_id(@team)%>");
+  var $control = $team_wrapper.find(".team-name");
+  var old = $control.html();
+
+  $control.html('<%= escape_javascript(render(partial: "form", locals: {team: @team}))%>');
+  $cancelLink = $('<%= link_to(t("dict.cancel"), "javascript://", class: 'button button-no-chrome button-tall') %>');
+  $cancelLink.click(function(){
+    $control.html(old);
+    $('#<%= dom_id(@team)+"_edit_btn"%>').show();
+  });
+
+  $control.find("form").append($cancelLink);
+  <% if params[:hide_edit_btn]%>
+    $('#<%= dom_id(@team)+"_edit_btn"%>').hide();
+  <% end%>
+})();

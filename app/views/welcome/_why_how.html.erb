@@ -1,0 +1,49 @@
+<div class="why-how">
+  <div class="inner">
+    <div class="row-fluid">
+
+      <% unless current_user.subscribed_account? %>
+        <!-- The value props of recognize -->
+        <h2>Why Recognize</h2>
+        <%= render partial: "welcome/value_props" %>
+      <% end %>
+
+      <div class="animated-gifs clearfix">
+        <h2>How Recognize works</h2>
+        <div class="image-title">
+          <div class="title">
+            <h3>Sending a recognition</h3>
+          </div>
+
+          <%= image_tag "pages/signup/welcome/#{@integration}/send.gif", alt: "Animated gif of creating a recognition", class: "marginBottom40" %>
+        </div>
+
+        <% unless current_user.subscribed_account? %>
+          <div class="image-title">
+            <div class="title">
+              <h3>Configure the badges</h3>
+            </div>
+            <%= image_tag "pages/signup/welcome/configure.gif", alt: "Configuring the badges" %>
+          </div>
+
+          <div class="image-title">
+            <div class="title">
+              <h3>Redeeming a reward</h3>
+            </div>
+            <%= image_tag "pages/signup/welcome/redeem.gif", alt: "Animated gif of redeeming a reward" %>
+
+          </div>
+        <% end %>
+        
+        <div class="image-title">
+          <div class="title">
+            <h3>Employee Recognition Award</h3>
+          </div>
+          <%= image_tag "pages/signup/welcome/awards.gif", alt: "Animated gif of award certificates" %>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

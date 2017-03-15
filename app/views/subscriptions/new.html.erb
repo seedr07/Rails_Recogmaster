@@ -1,0 +1,34 @@
+<div class="centered intro">
+  <h1>Upgrade Recognize</h1>
+  <p class="tagline marginBottom20">Retain and engage top staff through automated employee recognition.</p>
+  <%= link_to "View the pricing", pricing_path, class: "button button-primary", data: {"no-turbolink": true} %>
+</div>
+
+<section class="instructions">
+  <div class="row-fluid">
+    <div class="span6">
+      <%= image_tag "pages/subscriptions/upgrade-reasons.png", alt: "Align staff behind company initiatives, send official recognition from email, automatically share on Yammer, receive scheduled analytics reports." %>
+    </div>
+    <div class="span6">
+      <div class="flex-centered">
+
+        <%= form_for SupportEmail.new, remote: true, html: {data: {errorWrapper: "#trial-error-wrapper"}, class: "form-loading-ignore"} do |f| %>
+          <div id="trial-error-wrapper"></div>
+          <%= f.hidden_field :name, value: current_user.full_name %>
+          <%= f.hidden_field :email, value: current_user.email %>
+          <%= f.hidden_field :message, value: "upgrade" %>
+          <%= f.hidden_field :phone, value: "n/a" %>
+
+          <%= f.hidden_field :type, value: 'Sales' %>
+          <button type="submit" class="button button-grande button-arrow">Notify us to get started</button>
+        <% end %>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<article>
+  <%= render partial: "home/jay_quote" %>
+</article>

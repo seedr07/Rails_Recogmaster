@@ -1,0 +1,261 @@
+#teams-show
+
+  .overlay.widget-box
+    padding: 0
+
+  .buttons-wrapper
+    #column-switch
+      display: none
+
+
+  h1
+    margin-bottom: 0
+
+  #feedback-link
+    display: none
+
+  .pagination
+    display: none
+    bottom: 0
+    position: absolute
+
+  .orientation-wrapper
+    float: right
+
+  .stack-icon,
+  .vertical-icon
+    display: inline-block
+    text-indent: -9999px
+
+  .stack-icon
+    background: image-url('icons/grid-lines.png') 0 0 no-repeat
+    width: 17px
+    height: 17px
+
+  .vertical-icon
+    background: image-url('icons/vertical-lines.png') 0 0 no-repeat
+    width: 20px
+    height: 17px
+    margin-right: 10px
+
+  #view-main-wrapper
+    padding-top: 65px
+
+  #recognitions-wrapper
+    max-width: 100%
+    min-height: 336px
+
+  #recognitions-wrapper
+    .recognition-card
+      @include transition(none)
+
+  #teams-show-wrapper
+    padding: 20px 0
+
+    dt.subtle-text
+      font-size: 11px
+
+  #badges-wrapper
+    min-height: 266px
+    
+    .placeholder-image
+      max-width: 146px
+
+    li
+      margin-bottom: 15px
+      @include latoFontFamily()
+
+      .image-wrapper,
+      .badge-details
+        display: inline-block
+
+
+      .image-wrapper
+        margin-right: 10px
+
+  h1
+    vertical-align: top
+
+  .user-list
+    .user
+      margin-bottom: 25px
+      float: left
+      width: 45%
+      margin-right: 3%
+      overflow: hidden
+      white-space: nowrap
+      text-overflow: ellipisis
+
+      img
+        max-width: 50px
+        margin: auto 5px auto auto
+
+  #skills-wrapper
+    text-align: left
+
+    #skills
+      margin-left: -5px
+
+    .skill
+      border-radius: 3px
+      text-align: center
+      display: inline-block
+      box-sizing: border-box
+      margin: 0 0px 10px 5px
+      border: 1px solid #E4E4E4
+      text-transform: uppercase
+      @include latoFontFamily()
+
+      span
+        float: left
+        padding: 5px
+
+      .name
+        border-radius: 0 3px 3px 0
+        background: white
+
+      .count
+        border-radius: 3px 0 0 3px
+        background: $bgColor
+  
+  #name-wrapper
+    position: relative
+
+  .pen-link
+    background: asset-data-url("icons/pen-link.png") 0 0 no-repeat
+    @include background-size(21px)
+    width: 28px
+    height: 24px
+    display: inline-block
+    position: absolute
+    top: 5px
+    right: 5px
+    background-position: 4px 3px
+    border-radius: 3px
+    opacity: 0.6
+
+  .edit_team
+    display: block
+    margin-bottom: -11px
+  
+  .pen-link:hover
+    box-shadow: 0 0 3px 1px rgba(153, 153, 153, 0.73)
+  
+  .pen-link:active
+    opacity: 1
+    
+  .team-name .button-tall
+    float: left
+    padding-top: 18px
+    padding-bottom: 18px    
+
+  #team-destroy
+    background: asset-data-url("icons/bomb.png") 0 0 no-repeat
+    @include background-size(15px)
+    color: #888
+    margin: 0px 0 20px 0
+    padding: 9px 7px 5px 26px
+    background-position: 6px 11px
+    border-radius: 3px
+    display: inline-block
+
+
+  #team_name
+    @include latoFontFamily()
+    -webkit-appearance: none
+    background: rgb(245, 245, 245)
+    border: 0
+    @include h1()
+    margin-bottom: 0
+    height: 51px
+    outline: none
+    padding: 0
+    font-weight: 600
+    color: #333
+    float: left
+    width: 168px
+    margin-right: 5px
+    
+  #team_name:focus
+    outline: none 
+    outline: 0 none
+    box-shadow: 0
+    outline-width: 0
+    
+  form.edit_team
+    padding-bottom: 0
+    
+  .team-name
+    display: inline-block
+    overflow: hidden
+    text-overflow: ellipsis
+    padding-right: 34px
+    line-height: 54px
+
+  .stat-wrapper
+
+    .row-fluid:first-child
+      margin: 0 0 20px 0
+
+    ul
+      margin: 0
+
+    li
+      float: left
+      width: 25%
+
+    dd, dt
+      display: block
+      text-align: center
+
+    dd
+      @include latoFontFamily()
+      font-weight: 100
+      font-size: 35px
+
+@media (max-width: 768px)
+  #teams-show
+    #team-details
+      display: none
+      
+    #team-res
+      height: 250px
+
+    .buttons-wrapper
+      border-top: 1px solid $hrColor
+      border-bottom: 1px solid $hrColor
+      margin-bottom: 20px
+
+      #column-switch,
+      #team-destroy
+        padding: 10px
+        margin: 0
+
+      #column-switch
+        display: block
+        float: left
+
+      #team-destroy
+        float: right
+        padding-left: 26px
+
+
+@media (max-width: 480px)
+  #teams-show
+    padding-left: 0
+    padding-right: 0
+
+    #view-main-wrapper
+      padding-top: 45px
+    
+    h1.left
+      float: none !important
+      margin-bottom: 0
+    
+    .pen-link
+      position: absolute
+      top: 10px
+      right: 0
+    
+    .team-name
+      display: block

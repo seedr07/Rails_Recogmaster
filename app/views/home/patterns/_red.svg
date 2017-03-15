@@ -1,0 +1,68 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Group" sketch:type="MSLayerGroup" transform="translate(-102.000000, -293.000000)">
+            <path d="M88,239 L48,404 L170,298 L88,239 Z" id="Shape" stroke="#FFB49B" fill="#FFB49B" sketch:type="MSShapeGroup"></path>
+            <path d="M88,239 L170,298 L212,238 L88,239 Z" id="Shape" stroke="#FFC3A9" fill="#FFC3A9" sketch:type="MSShapeGroup"></path>
+            <path d="M212,238 L170,298 L353,306 L212,238 Z" id="Shape" stroke="#FEB396" fill="#FEB396" sketch:type="MSShapeGroup"></path>
+            <path d="M212,238 L353,306 L312,229 L212,238 Z" id="Shape" stroke="#FEB798" fill="#FEB798" sketch:type="MSShapeGroup"></path>
+            <path d="M312,229 L353,306 L472,310 L312,229 Z" id="Shape" stroke="#FEA685" fill="#FEA685" sketch:type="MSShapeGroup"></path>
+            <path d="M312,229 L472,310 L541,255 L312,229 Z" id="Shape" stroke="#FEA685" fill="#FEA685" sketch:type="MSShapeGroup"></path>
+            <path d="M541,255 L472,310 L670,318 L541,255 Z" id="Shape" stroke="#FE906D" fill="#FE906D" sketch:type="MSShapeGroup"></path>
+            <path d="M541,255 L670,318 L589,139 L541,255 Z" id="Shape" stroke="#FEA280" fill="#FEA280" sketch:type="MSShapeGroup"></path>
+            <path d="M589,139 L670,318 L843,249 L589,139 Z" id="Shape" stroke="#FD9A78" fill="#FD9A78" sketch:type="MSShapeGroup"></path>
+            <path d="M843,249 L670,318 L754,373 L843,249 Z" id="Shape" stroke="#FD7754" fill="#FD7754" sketch:type="MSShapeGroup"></path>
+            <path d="M843,249 L754,373 L922,338 L843,249 Z" id="Shape" stroke="#FC6C4C" fill="#FC6C4C" sketch:type="MSShapeGroup"></path>
+            <path d="M843,249 L922,338 L955,216 L843,249 Z" id="Shape" stroke="#FA795B" fill="#FA795B" sketch:type="MSShapeGroup"></path>
+            <path d="M955,216 L922,338 L1103,341 L955,216 Z" id="Shape" stroke="#F86449" fill="#F86449" sketch:type="MSShapeGroup"></path>
+            <path d="M955,216 L1103,341 L1150,188 L955,216 Z" id="Shape" stroke="#F37159" fill="#F37159" sketch:type="MSShapeGroup"></path>
+            <path d="M1150,188 L1103,341 L1267,321 L1150,188 Z" id="Shape" stroke="#EA5C48" fill="#EA5C48" sketch:type="MSShapeGroup"></path>
+            <path d="M1150,188 L1267,321 L1202,185 L1150,188 Z" id="Shape" stroke="#E86C5C" fill="#E86C5C" sketch:type="MSShapeGroup"></path>
+            <path d="M1202,185 L1267,321 L1359,293 L1202,185 Z" id="Shape" stroke="#E15B4B" fill="#E15B4B" sketch:type="MSShapeGroup"></path>
+            <path d="M1487,162 L1359,293 L1586,331 L1487,162 Z" id="Shape" stroke="#CA5346" fill="#CA5346" sketch:type="MSShapeGroup"></path>
+            <path d="M1487,162 L1586,331 L1704,222 L1487,162 Z" id="Shape" stroke="#BD5C4B" fill="#BD5C4B" sketch:type="MSShapeGroup"></path>
+            <path d="M48,404 L26,537 L239,472 L48,404 Z" id="Shape" stroke="#EA7E80" fill="#EA7E80" sketch:type="MSShapeGroup"></path>
+            <path d="M48,404 L239,472 L170,298 L48,404 Z" id="Shape" stroke="#FD8F81" fill="#FD8F81" sketch:type="MSShapeGroup"></path>
+            <path d="M170,298 L239,472 L353,306 L170,298 Z" id="Shape" stroke="#FE917C" fill="#FE917C" sketch:type="MSShapeGroup"></path>
+            <path d="M353,306 L239,472 L313,460 L353,306 Z" id="Shape" stroke="#FA7B6C" fill="#FA7B6C" sketch:type="MSShapeGroup"></path>
+            <path d="M353,306 L313,460 L472,310 L353,306 Z" id="Shape" stroke="#FE856C" fill="#FE856C" sketch:type="MSShapeGroup"></path>
+            <path d="M472,310 L313,460 L441,534 L472,310 Z" id="Shape" stroke="#F86B5C" fill="#F86B5C" sketch:type="MSShapeGroup"></path>
+            <path d="M472,310 L441,534 L645,506 L472,310 Z" id="Shape" stroke="#F35D50" fill="#F35D50" sketch:type="MSShapeGroup"></path>
+            <path d="M472,310 L645,506 L670,318 L472,310 Z" id="Shape" stroke="#FE6A51" fill="#FE6A51" sketch:type="MSShapeGroup"></path>
+            <path d="M670,318 L645,506 L754,373 L670,318 Z" id="Shape" stroke="#FB5B45" fill="#FB5B45" sketch:type="MSShapeGroup"></path>
+            <path d="M754,373 L645,506 L745,509 L754,373 Z" id="Shape" stroke="#ED473D" fill="#ED473D" sketch:type="MSShapeGroup"></path>
+            <path d="M754,373 L745,509 L961,453 L754,373 Z" id="Shape" stroke="#F44235" fill="#F44235" sketch:type="MSShapeGroup"></path>
+            <path d="M754,373 L961,453 L922,338 L754,373 Z" id="Shape" stroke="#FA4C38" fill="#FA4C38" sketch:type="MSShapeGroup"></path>
+            <path d="M922,338 L961,453 L1103,341 L922,338 Z" id="Shape" stroke="#F84231" fill="#F84231" sketch:type="MSShapeGroup"></path>
+            <path d="M1103,341 L961,453 L1142,471 L1103,341 Z" id="Shape" stroke="#EE3028" fill="#EE3028" sketch:type="MSShapeGroup"></path>
+            <path d="M1103,341 L1142,471 L1267,321 L1103,341 Z" id="Shape" stroke="#EA342B" fill="#EA342B" sketch:type="MSShapeGroup"></path>
+            <path d="M1267,321 L1142,471 L1280,497 L1267,321 Z" id="Shape" stroke="#E02122" fill="#E02122" sketch:type="MSShapeGroup"></path>
+            <path d="M1267,321 L1280,497 L1359,293 L1267,321 Z" id="Shape" stroke="#DE2F28" fill="#DE2F28" sketch:type="MSShapeGroup"></path>
+            <path d="M1359,293 L1280,497 L1424,509 L1359,293 Z" id="Shape" stroke="#D21A1D" fill="#D21A1D" sketch:type="MSShapeGroup"></path>
+            <path d="M1359,293 L1424,509 L1527,493 L1359,293 Z" id="Shape" stroke="#C9151A" fill="#C9151A" sketch:type="MSShapeGroup"></path>
+            <path d="M1359,293 L1527,493 L1586,331 L1359,293 Z" id="Shape" stroke="#C92521" fill="#C92521" sketch:type="MSShapeGroup"></path>
+            <path d="M1586,331 L1527,493 L1661,500 L1586,331 Z" id="Shape" stroke="#B71213" fill="#B71213" sketch:type="MSShapeGroup"></path>
+            <path d="M26,537 L104,661 L202,618 L26,537 Z" id="Shape" stroke="#AB7480" fill="#AB7480" sketch:type="MSShapeGroup"></path>
+            <path d="M26,537 L202,618 L239,472 L26,537 Z" id="Shape" stroke="#C96F7A" fill="#C96F7A" sketch:type="MSShapeGroup"></path>
+            <path d="M239,472 L202,618 L317,606 L239,472 Z" id="Shape" stroke="#BD666E" fill="#BD666E" sketch:type="MSShapeGroup"></path>
+            <path d="M239,472 L317,606 L313,460 L239,472 Z" id="Shape" stroke="#D66369" fill="#D66369" sketch:type="MSShapeGroup"></path>
+            <path d="M313,460 L317,606 L441,534 L313,460 Z" id="Shape" stroke="#CC5D61" fill="#CC5D61" sketch:type="MSShapeGroup"></path>
+            <path d="M441,534 L317,606 L481,625 L441,534 Z" id="Shape" stroke="#B2575B" fill="#B2575B" sketch:type="MSShapeGroup"></path>
+            <path d="M441,534 L481,625 L645,506 L441,534 Z" id="Shape" stroke="#C24D4F" fill="#C24D4F" sketch:type="MSShapeGroup"></path>
+            <path d="M645,506 L481,625 L683,599 L645,506 Z" id="Shape" stroke="#B84647" fill="#B84647" sketch:type="MSShapeGroup"></path>
+            <path d="M645,506 L683,599 L745,509 L645,506 Z" id="Shape" stroke="#C93E40" fill="#C93E40" sketch:type="MSShapeGroup"></path>
+            <path d="M745,509 L683,599 L745,631 L745,509 Z" id="Shape" stroke="#B63B3D" fill="#B63B3D" sketch:type="MSShapeGroup"></path>
+            <path d="M745,509 L745,631 L962,672 L745,509 Z" id="Shape" stroke="#A93235" fill="#A93235" sketch:type="MSShapeGroup"></path>
+            <path d="M745,509 L962,672 L961,453 L745,509 Z" id="Shape" stroke="#C42B30" fill="#C42B30" sketch:type="MSShapeGroup"></path>
+            <path d="M961,453 L962,672 L1093,684 L961,453 Z" id="Shape" stroke="#A51E28" fill="#A51E28" sketch:type="MSShapeGroup"></path>
+            <path d="M961,453 L1093,684 L1142,471 L961,453 Z" id="Shape" stroke="#C01A26" fill="#C01A26" sketch:type="MSShapeGroup"></path>
+            <path d="M1142,471 L1093,684 L1223,682 L1142,471 Z" id="Shape" stroke="#951323" fill="#951323" sketch:type="MSShapeGroup"></path>
+            <path d="M1142,471 L1223,682 L1280,497 L1142,471 Z" id="Shape" stroke="#AD0E21" fill="#AD0E21" sketch:type="MSShapeGroup"></path>
+            <path d="M1280,497 L1223,682 L1415,603 L1280,497 Z" id="Shape" stroke="#8F081E" fill="#8F081E" sketch:type="MSShapeGroup"></path>
+            <path d="M1280,497 L1415,603 L1424,509 L1280,497 Z" id="Shape" stroke="#A3051B" fill="#A3051B" sketch:type="MSShapeGroup"></path>
+            <path d="M1424,509 L1415,603 L1550,602 L1424,509 Z" id="Shape" stroke="#880018" fill="#880018" sketch:type="MSShapeGroup"></path>
+            <path d="M1424,509 L1550,602 L1527,493 L1424,509 Z" id="Shape" stroke="#950017" fill="#950017" sketch:type="MSShapeGroup"></path>
+            <path d="M1527,493 L1550,602 L1661,500 L1527,493 Z" id="Shape" stroke="#8E0014" fill="#8E0014" sketch:type="MSShapeGroup"></path>
+            <path d="M1661,500 L1550,602 L1737,655 L1661,500 Z" id="Shape" stroke="#6C0012" fill="#6C0012" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>

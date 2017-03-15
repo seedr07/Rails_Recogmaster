@@ -1,0 +1,65 @@
+#notice
+  @include widgetBox()
+
+  p
+    margin-bottom: 0
+    max-width: 353px
+    
+  h2, h3, h4
+    text-align: left
+
+  a,
+  p,
+  span,
+  img
+    float: left
+
+  .inner
+    max-width: 471px
+    text-align: left
+
+  #notice-close
+    margin-left: 20px
+
+  img:nth-child(2)
+    position: relative
+    left: -10px
+    top: 7px
+
+  img:nth-child(3)
+    position: relative
+    left: -20px
+    top: 7px
+
+  .buttons
+    float: right
+    text-align: justify
+
+    a
+      display: inline-block
+      float: none
+      line-height: 18px
+
+@media (max-width: 800px)
+  #notice
+    img
+      margin-bottom: 20px      
+    p
+      float: none
+      clear: both
+      margin-bottom: 20px
+
+      a
+        display: block
+        margin-top: 10px
+        float: none
+
+    .buttons
+      float: none
+      clear: both
+
+      .button
+        margin-bottom: 20px
+
+    #notice-close
+      margin-left: 0

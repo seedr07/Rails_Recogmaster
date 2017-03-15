@@ -1,0 +1,94 @@
+<section id="intro"  data-no-turbolink="true">
+  <div class="inner">
+    <h1 class="balance-text">Recognize Engagement</h1>
+    <p class="tagline balance-text">Recognize's unique strategy is focused on well-designed interfaces, on Yammer integration, and on a variety of metrics.</p>
+  </div>
+  <%= render partial: "home/patterns/light_red.svg" %>
+</section>
+
+
+<div id="points">
+
+  <section id="leaderboard">
+    <div class="inner">
+      <div class="centered">
+        <h2 class="balance-text">Focused on people</h2>
+        <p class="tagline balance-text">Recognize stats show the current user no matter where they are in the ranking. All the stats update in real-time.</p>
+        <%= image_tag "pages/home-analytics/laptop.jpg", alt: "Filter by group or recognition badge to discover top staff." %>
+      </div>
+    </div>
+  </section>
+
+  <section id="celebration-interval">
+    <div class="inner">
+      <div class="row-fluid flex-centered">
+        <div id="celebrate-content" class="span6">
+          <h2 class="balance-text">Status, not stuff</h2>
+          <p class="tagline balance-text">Each month, quarter, and year top staff and groups are celebrated for their accomplishments. We give the reporting to discover your staff and provide thought leadership on how to thank them.</p>
+          <%= link_to "Read the gamification strategy", gamification_path, class: "button button-large button-border marginBottom30" if false %>
+        </div>
+
+        <div class="span6">
+          <%= image_tag "pages/home-engagement/winners.png", alt: "Monthly winners is based on the different badges" %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="yammer">
+    <div class="inner">
+      <div class="row-fluid flex-centered">
+        <div class="span6">
+          <h2 class="balance-text">Yammer integrated</h2>
+          <p class="tagline balance-text">It is no secret Recognize has the best integration into Yammer. That's why users in Yammer send 8x more recognition via Recognize.</p>
+          <%= link_to "See Recognize's seamless Yammer integration", extension_path, class: "button button-large button-border marginBottom30" %>
+        </div>
+        <div class="span6">
+          <%= image_tag "pages/home-engagement/recognize-activity-in-yammer.png", alt: "Recognize in Yammer" %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="instant-recognitions">
+    <div class="inner">
+      <div class="row-fluid flex-centered">
+        <div class="span6">
+          <h2 class="balance-text">Click thanks</h2>
+          <p class="tagline balance-text">Stream page shows staff and by simply pressing their avatar they are recognized. The recognition can then be edited.</p>
+        </div>
+        <div class="span6">
+          <%= image_tag "pages/home-engagement/instant.jpg", alt: "A series of avatars" %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kiosk-mode">
+    <div class="inner centered">
+      <h2 class="balance-text">Automate showcasing your staff's successes</h2>
+      <p class="tagline balance-text">Recognitions update every five minutes. Setup on a mounted television in the lobby or the breakroom. The kiosk mode increases discussion of recognitions in real-life; in turn, helping staff stay focused on company values.</p>
+      <a href="/contact" class="button button-primary">Contact us for a demo</a>
+
+      <div class="centered">
+        <%= image_tag "pages/home-engagement/kiosk.png", alt: "Kiosk mode of all the company's recognitions." %>
+      </div>
+    </div>
+  </section>
+
+  <section id="email-campaigns">
+    <div class="inner">
+      <div class="row-fluid flex-centered">
+        <div class="span8">
+          <%= image_tag "pages/home-engagement/email.jpg", alt: "Email example showing noted recognitions and last week badges", class: "marginBottom30" %>
+        </div>
+        <div class="span4">
+          <h2 class="balance-text">Email campaigns</h2>
+          <p class="tagline balance-text">Recognize can send daily, weekly, and monthly email updates. The emails include top recognitions, achievements, leaderboards, and top badges for the email time period.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<%= render :partial => 'footer' %>

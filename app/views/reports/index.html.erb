@@ -1,0 +1,56 @@
+<% if current_user && !current_user.subscribed_account? %>
+  <% content_for :tour_content do %>
+    <h3>This is what your Stats page <em>could</em> look like.</h3>
+    <div id="youtube-video" data-id="dXy3Dm4GEj0"></div>
+  <% end %>
+<% end %>
+
+<%= render layout: "layouts/leaderboard" do %>
+  <h1>
+    <%= t("reports.stats")%> for <%= reset_interval_label_with_time(current_user.reset_interval, @start_date)%>
+  </h1>
+<% end %>
+
+<%
+  pagelet_params = {
+    network: current_user.network,
+    badge_id: params[:badge_id],
+    start_date: params[:start_date],
+    end_date: params[:end_date]
+  }
+%>
+
+<% grid_css_class = current_user.allow_top_employee_stats? && current_user.allow_you_stats? ? "span4" : "span6" %>
+
+  <hr class="hr hr-space" />
+  <div class="stats-columns-wrapper row-fluid">
+    <% if current_user.allow_you_stats? %>
+      <div class="<%= grid_css_class %>">
+        <h2><%= t("dict.you") %></h2>
+        <div class="pagelet" data-endpoint="<%= user_reports_path(pagelet_params) %>">
+          <div class="loading-wrapper">
+            <%= image_tag "icons/loading-bar-blue.gif" %>
+          </div>
+        </div>
+      </div>
+      <% if current_user.allow_teams? %>
+        <div class="<%= grid_css_class %>">
+          <h2><%= t("dict.teams") %></h2>
+          <div class="pagelet" data-endpoint="<%= team_reports_path(pagelet_params) %>">
+            <div class="loading-wrapper">
+              <%= image_tag "icons/loading-bar-blue.gif" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+    <% if current_user.allow_top_employee_stats? %>
+      <div class="<%= grid_css_class %>">
+        <h2><%= t("reports.top_users") %></h2>
+        <div id="rank" class="pagelet" data-endpoint="<%= top_users_reports_path(network: @company.domain, badge_id: params[:badge_id], start_date: params[:start_date]) %> #wrapper-outer .wrapper">
+          <%= image_tag "icons/loading-bar-blue.gif" %>
+        </div>
+      </div>
+    <% end %>
+  </div>

@@ -1,0 +1,11 @@
+<h3 style="<%= mail_styles(:text, :h3) %>">Your recognition to <%= @recipients_label %> has been sent!</h3>
+
+<div style="display: inline-block">
+  <%= image_tag @badge.permalink(200, "http:"), style: "display:inline-block;height:50px;margin-right:20px" %>
+</div>
+
+<% if @recognition.message.present? %>
+  <div style="<%= mail_styles(:text, :p) %>; display:inline-block;max-width: 600px;">"<%= @recognition.message %>" </div>
+<% end%>
+
+<%= link_to "View or edit recognition", recognition_url(@recognition), style: mail_styles(:button) %>

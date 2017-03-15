@@ -1,0 +1,8 @@
+<div style="">
+  <span style="margin-right: 10px;display:inline-block"><%= user[:rank]%></span> 
+  <% if false%>
+    <%= image_tag user[:user].avatar.small_thumb.url, style: "height: 15px;vertical-align:bottom;" %>
+  <% end %>
+  <span style="display:inline-block;"><%= user[:user].full_name %></span>
+  <span style="float: right;display:inline-block"><%= user[:points] %></span>
+</div>

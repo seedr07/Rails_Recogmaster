@@ -1,0 +1,10 @@
+<h1><%= t("help.help") %></h1>
+
+<%= render partial: "how_things_work"%>
+
+<div class="hr-thick hr-space"></div>
+
+<h3><%= t("help.feedback_questions")%></h3>
+<p><%= t("help.feedback_is_extremely_important_to_us")%></p>
+
+<%= link_to t("help.ask_us_anything"), contact_path, class: "button marginBottom30" %>

@@ -1,0 +1,29 @@
+<%= render partial: "admin_header"%>
+<h2>Recognitions for paid companies in the past 90 days</h2>
+<%= javascript_tag do %>
+
+    var datasets = {
+      <% @graph_data.each do |domain, graph_obj| %>
+        "<%= domain%>": {label: "<%= domain%>", data: <%= graph_obj.to_array.to_s %>},
+      <% end %>
+    };
+<% end%>
+
+<div class="hr hr-space"></div>
+
+<div id="placeholder" style="width: 100%; height: 200px;"></div>
+<div style="display: flex;">
+  <div id="series" class=" clearfix marginTop15">
+    <ul>
+    <% @graph_data.each do |domain, recognitions|%>
+      <li style="margin:0">
+        <label class="checkbox left" style="margin-right: 10px">
+          <%= check_box_tag "#{domain}_checkbox", domain, true%> <%= domain %>
+        </label>
+      </li>
+    <% end%>
+    </ul>
+    <%= link_to "reset", "", id: "reset"%>
+  </div>
+  <div id="legend" class="" style="margin-top:16px;font-size:18px"></div>
+</div>

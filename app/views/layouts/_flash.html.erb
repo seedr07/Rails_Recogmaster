@@ -1,0 +1,18 @@
+<% if flash %>
+  <% if flash[:notice]%>
+    <div class="message-info">
+      <h4><%= flash[:notice]%></h4>
+    </div>
+  <% elsif flash[:error]%>
+    <div class="message-info">
+      <h4><%= flash[:error]%></h4>
+      <% if defined?(include_errors) and include_errors.present?%>
+        <ul>
+          <% include_errors.errors.full_messages.each do |msg|%>
+            <li><%= msg%></li>
+          <% end %>
+        </ul>
+      <% end%>
+    </div>
+  <% end%>
+<% end %>

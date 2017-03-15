@@ -1,0 +1,54 @@
+<%= form_for @bulk_user_updater, remote: true, url: accounts_path, method: :patch do |f| %>
+  <div id="edit-accounts">
+    <div class="page-nav clearfix">
+      <div class="title-nav">
+        <h2>
+          Edit Accounts
+          <span id="response-feedback-wrapper"></span>
+        </h2>
+      </div>
+
+      <div class="aside-nav">
+        <div class="inner">
+
+          <span class="button-group">
+            <%= link_to_add_new_account_row(f) %>
+            <%= f.submit "Save", class: 'button button-primary'%>
+            <%= link_to 'Done', accounts_company_path, class: "button", id: "leave-edit-accounts"%>
+          </span>
+        </div>
+      </div>
+    </div>
+
+
+      <%= hidden_field_tag "bulk_user_updater_users_saved", "", readonly: true %>
+      <div>
+
+        <table class="table table-striped table-bordered table-ranking table-condensed table-hover table-responsive">
+          <thead>
+          <tr>
+            <th class="hidden">Sortkey</th>
+            <th class="hidden">Id</th>
+            <th class="offscreen">Update</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th class="email">Email</th>
+            <% if @bulk_user_updater.can_edit?(:department) %>
+              <th class="dept">Department</th>
+            <% end %>      
+            <th>Job Title</th>
+            <!-- <th class="not-mobile">Roles</th>      -->
+          
+          </tr>
+          </thead>
+          <tbody>
+            <% @users.each do |user| %>
+              <%= fields_for "bulk_user_updater[]", user do |user_form| %>
+                <%= render "account_row", user_form: user_form, user: user %>
+              <% end %>
+            <% end %>
+          </tbody>        
+        </table>
+      </div>  
+  </div>
+<% end %>

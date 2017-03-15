@@ -1,0 +1,69 @@
+<div id="user-set-wrapper">
+  <table id="user-set"  class="table table-striped table-bordered table-ranking table-condensed table-hover table-responsive">
+    <thead>
+    <tr>
+      <th class="not-mobile">Id</th>
+      <th><%=t("dict.first_name")%></th>
+      <th><%=t("dict.last_name")%></th>
+      <th class="email"><%=t("dict.email")%></th>
+      <% if current_user.company.in_family? %>
+        <th class="dept"><%=t("dict.department")%></th>
+      <% end %>      
+      <th class="not-mobile"><%=t("dict.roles")%></th>      
+      <th><%=t("dict.admin")%></th>
+      <th><%=t("dict.roles")%></th>
+      <th class=""><%=t("dict.status")%></th>      
+      <th class="not-mobile"><%=t("dict.created_at")%></th>
+      <th class="not-mobile"><%=t("company_admin.accounts.edit_profile")%></th>
+      <th class="not-mobile"><%=t("dict.delete")%></th>
+    
+    </tr>
+    </thead>
+    <tbody>
+    <% users.each do |user|%>
+      <tr id="user_row_<%= user.id%>">
+        <td class="not-mobile"><%= user.id%></td>
+        <td><%= link_to (user.first_name || ''), user, class: "user" %></td>
+        <td><%= link_to (user.last_name || ''), user, class: "user" %>
+          <% if current_user.admin?%>
+            <span>
+              <sup>
+                (<%= link_to "login", admin_login_as_path(email: user.email) %>)
+                <%= '(yammer)' if user.yammer_token.present?%>
+              </sup>
+            </span>
+          <% end %>
+        </td>
+        <td><%= user.email%></td>
+
+        <% if current_user.company.in_family? %>
+          <td class="not-mobile">
+            <%= user.network %>
+          </td>
+        <% end %>
+
+        <td class="roles-cell not-mobile"><%= user.roles.collect{|r| r.long_name.humanize}.join(", ")%></td>
+        <td class='promote-cell'><%= promote_demote_link(user) if current_user.admin? or current_user.company_admin?%></td>
+        <!--<td class='promote-executive-cell'><%= promote_demote_executive_link(user) if current_user.admin? or current_user.company_admin?%></td>-->
+        <td class='promote-executive-cell'>
+          <%= select_company_roles(user) if current_user.admin? or current_user.company_admin?%>
+        </td>
+
+        <td>
+          <%= user.friendly_status%>
+          <% if current_user.admin? && user.verified_at.blank? && user.perishable_token.present? %>
+            (<%= link_to "Verify URL", verify_signup_url(user.perishable_token) %>)
+          <% end %>
+
+          <% if current_user.company_admin? && user.verified_at.blank? %>
+            (<%= link_to "Resend invitation email", resend_invitation_email_company_path(email: user.email, network: user.network), remote: true, method: :post, class: "resend_invitation_email_link" %>)
+          <% end %>
+        </td>
+        <td class="not-mobile"><%= user.created_at.try(:strftime, "%Y/%m/%d %I:%M%p")  %></td>
+        <td><%= link_to t("company_admin.accounts.edit_profile"), edit_user_path(user), class: "button button-chromeless" %> </td>
+        <td><%= link_to t("dict.delete"), user_path(user), remote: true, method: :delete, class: "button button-chromeless" %></td>
+      </tr>
+    <% end%>
+    </tbody>
+  </table>
+</div>

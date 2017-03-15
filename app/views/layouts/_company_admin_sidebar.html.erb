@@ -1,0 +1,27 @@
+<div class="admin-nav-wrapper clearfix" data-no-turbolink="true">
+  <h2>Company Dashboard</h2>
+  <nav class="admin-nav">
+    <ul class="clearfix">
+      <% if current_user.director?%>
+        <% if current_user.company.family.length > 1 %>
+          <select id="dept-select" name="dept" style="width:100%">
+            <%= company_family_options_for_select %>
+          </select>
+        <% end %>
+        <hr>
+      <% end %>
+
+      <%= company_admin_sidebar_link("Dashboard", company_path(network: current_user.company.domain, anchor: "dashboard")) %>
+      <%= company_admin_sidebar_link("Custom Badges", company_path(network: current_user.company.domain, anchor: "custom_badges")) %>
+      <%= company_admin_sidebar_link("Recognitions", company_path(network: current_user.company.domain, anchor: "recognitions")) %>
+      <%= company_admin_sidebar_link("Top Employees", company_path(network: current_user.company.domain, anchor: "rank")) %>
+      <%= company_admin_sidebar_link("Rewards", company_path(network: current_user.company.domain, anchor: "rewards")) %>
+      <%= company_admin_sidebar_link("Nominations", company_admin_nominations_path(@company)) %>      
+      <%= company_admin_sidebar_link("Roles", company_admin_roles_path) %>
+      <%= company_admin_sidebar_link("Accounts", company_path(network: current_user.company.domain, anchor: "accounts")) %>
+      <%= company_admin_sidebar_link("Settings", company_path(network: current_user.company.domain, anchor: "settings")) %>
+
+
+    </ul>
+  </nav>
+</div>

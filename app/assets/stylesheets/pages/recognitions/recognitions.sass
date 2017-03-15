@@ -1,0 +1,103 @@
+#infscr-loading
+  display: none !important
+
+.recognitions
+  h1
+    margin-bottom: 5px
+    
+    .content
+      .approval_link
+        width: 8px
+        height: 8px
+      .approved
+        background: asset-url('icons/glyphicons-halflings.png') -117px -146px no-repeat
+      .unapproved
+        background: asset-url('icons/glyphicons-halflings.png') -94px -146px no-repeat
+      div.error
+      
+      ol
+        list-style: none
+        margin: 0
+        padding: 0
+        line-height: 1em
+
+  h3.cursor
+    position: relative
+    z-index: 2
+    
+  #res-score
+    margin: -50px auto 0 auto
+
+  .view-mode-wrapper
+    margin: 19px 11px 11px 11px
+  
+  .recogntion-option-wrapper
+    position: relative
+    top: 3px
+    left: 5px
+    float: left
+
+    a
+      padding: 5px 7px
+      border-radius: 3px
+  
+  .add-new:hover
+    box-shadow: 0 0 3px 1px rgba(153, 153, 153, 0.73)
+  
+  #stream
+    margin-top: 15px
+    min-height: 500px
+    margin: auto
+    @include transition(.3s opacity ease-in-out)
+    max-width: 100%
+
+  #infscr-loading
+    bottom: 5px
+    right: 5px
+    position: absolute
+    
+    img
+      margin-right: 5px
+      
+  .buttons-wrapper
+    width: 150px
+    margin-bottom: 20px
+    margin-top: 8px
+    float: right
+
+    #column-switch
+      display: none
+    
+  #stream-send-recognition
+    box-shadow: 0 0 1px 1px #666
+    background: #fff
+    border-radius: 5px
+    padding: 20px
+    height: 150px
+    width: 100px
+  
+
+@media (max-width: 768px)
+  .recognitions .buttons-wrapper
+    float: none
+    width: 100%
+    clear: both
+
+    .button-group
+      float: left
+      width: auto
+
+    #column-switch
+      display: block
+      float: right
+
+  .recognitions 
+    #res-score
+      height: 300px
+
+    #recognition-details
+      display: none
+    
+  .recognitions .recogntion-option-wrapper,
+  .view-mode-wrapper
+    display: none

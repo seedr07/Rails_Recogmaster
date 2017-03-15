@@ -1,0 +1,2 @@
+puma -b "ssl://127.0.0.1:50000?key=$HOME/.ssl/server.key&cert=$HOME/.ssl/server.crt"
+#thin start -p 50000 --ssl --ssl-verify --ssl-key-file $HOME/.ssl/server.key --ssl-cert-file $HOME/.ssl/server.crt

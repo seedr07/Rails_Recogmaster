@@ -1,0 +1,9 @@
+
+  <div id="steps">
+    <p>Recognize is a customizable employee recognition SaaS product focused on intrinsic motivation and positive psychology.</p>
+    <%= link_to t("welcome_steps.send_a_recognition"), new_recognition_path, id: "welcome-send-recognition", class: "button analyticsEvent recognize-new", data: {event: "welcome new recognition link"} %>
+    <%= link_to t("dict.knowledg_base"), "http://support.recognizeapp.com", id: "welcome-starter-kit", target: "_blank", class: "button button-no-chrome" %>
+    <%= link_to "Invite colleagues", invite_users_path, class: "button button-no-chrome", target: "_blank" %>
+    <a data-no-turbolink="true" href="/tour" class="button button-no-chrome">Tour Recognize</a>
+    <% if permitted_to?(:show, current_user.company) && current_user.subscribed_account? %><%= link_to "Welcome Checklist", welcome_path(checklist: true), class: "button button-no-chrome" %><% end %>
+  </div> 

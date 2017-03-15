@@ -1,0 +1,50 @@
+.r-overlay-wrapper {
+  -webkit-transition: opacity .3s linear;
+  -moz-transition: opacity .3s linear;
+  transition: opacity .3s linear;
+  max-height: 800px;
+
+  iframe, & {
+    max-height: 800px !important;
+  }
+}
+
+.ie9 .r-overlay-wrapper #yj_cboxWrapper {
+  margin-top: 32px;
+}
+
+.ie9 .r-overlay-wrapper #yj_cboxTitle {
+  margin-top: 0;
+}
+
+.r-ie-close {
+  display: none;
+}
+
+.ie9 .r-ie-close {
+  font-size: 25px;
+  display: block;
+  position: relative;
+  top: -11px;
+}
+
+.r-overlay-wrapper #yj_cboxWrapper,
+.r-overlay-wrapper #yj-colorbox {
+  position: static;
+  background: white;
+}
+
+.r-overlay-wrapper iframe {
+  min-height: 470px;
+  max-height: 100%;
+}
+
+.r-hidden {
+  opacity: 0;
+}
+
+.r-overlay-wrapper {
+  #yj-colorbox, #yj_cboxOverlay, #yj_cboxWrapper {
+    position: static;
+  }
+}

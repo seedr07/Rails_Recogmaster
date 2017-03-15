@@ -1,0 +1,13 @@
+<div class="page-nav clearfix">
+  <div class="title-nav">
+    <h2>Accounts</h2>
+  </div>
+
+  <div class="aside-nav">
+    <div class="inner">
+        <%= link_to 'Bulk Edit', edit_accounts_path, id: "edit-accounts", class: 'button'%>
+    </div>
+  </div>
+</div>
+
+<%= render partial: "users/user_set", locals: {users: @users}%>

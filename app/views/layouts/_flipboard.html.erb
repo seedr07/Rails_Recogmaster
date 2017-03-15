@@ -1,0 +1,25 @@
+<%
+  unless defined?(numbers)
+    numbers = Array(number)
+  end 
+
+  unless defined?(css_class)
+    css_class = ""
+  end
+%>
+<div class="flipboard <%= 'pointer' if numbers.length > 1%> <%= css_class %>">
+  <div>
+    <dl>
+      <dd>
+          <% numbers.each do |number| %>
+            <div class="number"><%= number.to_s.split("").collect{|i| "<span>#{i}</span>"}.join.html_safe %></div>        
+          <% end %>
+        <div class="flipboard-hr"></div>
+      </dd>
+      <dt><%= label%></dt>
+    </dl>
+  </div>
+  <% if block_given?%>
+    <div><%= yield %></div>
+  <% end%>
+</div>

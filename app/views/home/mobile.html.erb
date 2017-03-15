@@ -1,0 +1,61 @@
+<section class="top">
+  <h1>Employee Recognition <span>For Mobile</span></h1>
+  <div class="actions">
+    <p class="balance-text">Send staff recognition from Yammer, Sharepoint, or Slack to your employees' smart phones. Just one click to send a recognition on the new employee recognition mobile app.</p>
+    <%= link_to "Contact us to learn more", contact_sales_path, class: "button button-highlight" %>
+  </div>
+  <div class="actions displayNone">
+    <a href="javascript://" class="video-trigger" video-id="#"><%= image_tag "pages/home-mobile/white-play-icon.png", alt: "video icon" %>
+      Video</a>
+    <span>
+      <a href="https://geo.itunes.apple.com/us/app/spotify-music/id324684580?mt=8" style="display:inline-block;overflow:hidden;background:url(http://linkmaker.itunes.apple.com/images/badges/en-us/badge_appstore-lrg.svg) no-repeat;width:136px;height:40px;"></a>
+      <a href="#"><%= image_tag "pages/home-mobile/android-store.png", alt: "Download Recognize for your Android phone", height: "40px" %></a>
+      <a href="#"><%= image_tag "pages/home-mobile/windows-store.png", alt: "Download Recognize for your Windows phone", height: "40px" %></a>
+    </span>
+  </div>
+  <section class="features">
+    <ul>
+      <li>
+        <%= image_tag "pages/home-mobile/android-arrow-up-right.png", alt: "Arrow pointing up", height: "27px" %>
+        Easily send your colleagues a <span title="With role-based recognition, you can create your own type of users and allow only these employees send certain types of recognition values. This way managers, HR, directors, and employees can send their own unique recognition values.">role-based<sup>?</sup></span> employee recognition
+      </li>
+      <li>
+        <%= image_tag "pages/home-mobile/android-arrow-down-right.png", alt: "Arrow pointing down", height: "27px" %>
+        Instantly receive notification when you receive recognition
+      </li>
+      <li>
+        <%= image_tag "pages/home-mobile/android-share.png", alt: "Share your recognitions", height: "27px" %>
+        Share on Linkedin, Facebook, & Twitter
+      </li>
+    </ul>
+    <%= render partial: "home/patterns/yellow_wave.svg" %>
+    <%= render partial: "home/patterns/blue_wave.svg" %>
+  </section>
+</section>
+
+
+
+<section class="questions-answers clearfix">
+  <div>
+    <h2 class="balance-text">Can I sign up for Recognize from the mobile app?</h2>
+    <p class="balance-text">You need to already have an account with Recognize to use the Recognize employee recognition mobile app. You can sign up from the website now.</p>
+  </div>
+
+  <div>
+    <h2 class="balance-text">Does Recognize read my phone's data?</h2>
+    <p class="balance-text">Unlike many mobile apps, the Recognize employee recognition mobile app does absolutely nothing other than try to make positivity the forefront of your company's culture. The Recognize employee recognition app does not read your contact data, observe your behavior, nor track your location.</p>
+  </div>
+
+  <div>
+    <h2 class="balance-text">How much does it cost to use the Recognize mobile app?</h2>
+    <p class="balance-text">Recognize employee recognition app for Android, iPhone, and Windows Phone costs nothing to use. If your company would like to customize their Recognize employee recognition program, they will need to purchase a subscription.</p>
+    <%= link_to "See pricing", pricing_path, class: "button button-highlight" %>
+  </div>
+
+  <div>
+    <h2 class="balance-text">Can I administer our Recognize account from the mobile app?</h2>
+    <p class="balance-text">You can fully customize and manage your Recognize employee recognition program from recognizeapp.com from your smart phone or tablet.</p>
+  </div>
+</section>
+
+<%= render :partial => 'footer' %>

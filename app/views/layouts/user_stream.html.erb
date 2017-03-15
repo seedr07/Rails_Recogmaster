@@ -1,0 +1,40 @@
+<%= render :partial => 'layouts/head' %>
+<body id=<%= page_id %> class="<%= page_class %> <% if !current_user %>logout<% end %>" data-script=<%= js_class %>>
+  
+  <%= render :partial => "layouts/header" %>
+  <% if flash[:info]%>
+    <div class="message-info"><%= flash[:info]%></div>
+  <% end %>
+  <div class="wrapper-outer">
+    <div class="wrapper">
+      <%= yield %>
+    </div>
+  </div>
+  
+  <div class="wrapper-outer">
+    <div class="wrapper">
+      <%= render @user %>
+
+      <%= yield %>
+
+    </div>
+  </div>
+
+  <%= javascript_include_tag "application" %>
+  
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-34202140-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
+
+</body>
+</html>

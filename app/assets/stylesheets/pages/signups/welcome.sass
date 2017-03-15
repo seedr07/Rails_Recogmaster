@@ -1,0 +1,342 @@
+.chrome #welcome-show #chrome,
+.firefox #welcome-show #firefox,
+.ie #welcome-show #ie,
+.safari #welcome-show #safari
+  display: block
+
+.next-steps
+  margin: 2em auto
+  max-width: 800px
+  border: 3px solid white
+  border-radius: 6px
+  box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.15)
+
+  li
+    display: table
+    vertical-align: middle
+    width: 100%
+
+  dl
+    display: table-row
+
+  dt, dd
+    font-size: 20px
+    line-height: 23px
+    display: table-cell
+
+  dt
+    text-align: right
+    width: 70%
+
+  dd
+    width: 30%
+    text-align: left
+    vertical-align: middle
+    padding: 0 0 0 2em
+
+
+#welcome-show
+  .row
+    margin-left: 0 !important
+
+  .bottom-action
+    background: $headerBg
+    padding: 40px !important
+    text-align: left
+    
+    a:not(.button)
+      color: white
+      display: inline-block
+      margin: 0 10px 10px 0
+
+    h3, p
+      color: white
+
+    svg
+      position: absolute
+      bottom: 0
+      right: 0
+      z-index: 0
+
+  h1
+    margin-bottom: 40px
+
+  .well.row-fluid
+    padding: 3em
+    margin-left: 0
+
+    .span6:first-child
+      padding-left: 2em
+      padding-right: 2em
+
+  .browsers
+    a
+      display: none
+
+    img
+      max-width: 30px
+      margin-bottom: 10px
+
+  .enable-yammer-wrapper
+    img
+      max-width: 390px
+
+  .statement
+    padding: 50px
+    background: image_url("pages/home-index/office-background.jpg") no-repeat 0 0
+    background-attachment: fixed
+    background-size: 100%
+
+    h2
+      color: white
+
+
+
+  iframe
+    max-width: 100%
+
+  h1
+    font-size: 3.5em
+    line-height: 1.2em
+
+    & + p,
+    & + p + p
+      font-size: 1.6em
+
+  h2 + p,
+  h2 + p + p
+    font-size: 1.5em
+
+  .smaller-h2
+    font-size: 0.7em
+
+  .wrapper-outer
+    padding: 0
+
+  #view-main-wrapper
+    padding-top: 67px
+
+  #welcome-wrapper
+    height: 600px
+    position: relative
+
+  #start
+    text-align: center
+
+    .top
+      padding: 2em 0
+
+    .bottom
+      padding: 2em
+
+      .buttons
+        position: relative
+        display: inline-block
+
+        .button-large
+          width: 320px
+          max-width: 100%
+
+      .upgrade-now
+        position: absolute
+        right: -315px
+        top: -124px
+
+  .why-how
+    background: white
+    padding: 2em
+
+    .inner
+      margin: auto
+      max-width: 1200px
+
+  .animated-gifs
+    vertical-align: top
+    text-align: left
+
+    img
+      max-width: 569px
+      border: 1px solid #70C2FF
+      box-shadow: 0 3px 6px 1px rgba(76, 76, 76, 0.35)
+      border-radius: 4px
+
+  .image-title
+    position: relative
+    display: inline-block
+    margin: 1%
+    float: left
+    max-width: 48%
+    height: 450px
+
+    &:nth-child(odd)
+      margin-right: 0
+
+    &:nth-child(even)
+      margin-left: 0
+
+
+    img
+      margin-top: -5px
+      width: 100%
+
+
+    .title
+      text-align: center
+      height: 50px
+      background: darken($headerBg, 18%)
+      width: 100%
+      box-shadow: 0 3px 6px 1px rgba(76, 76, 76, 0.35)
+      border-radius: 4px 4px 0 0
+
+      h3
+        color: white
+        line-height: 45px
+        margin: 0
+
+  #user-count, #user-count-high
+    text-align: center
+
+    .flex-centered
+      height: 100%
+
+
+  #user-count
+    .top
+      height: 300px
+
+  #user-count-high
+    background: white url(/background.png) repeat
+
+  .high-count-inner
+    background: white
+    border-radius: 6px
+    padding: 40px
+    display: inline-block
+    max-width: 500px
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.35)
+
+  .testimonial
+    width: 100%
+    background: white
+    padding: 40px 5px
+    margin: 100px 0 0 0
+
+    blockquote
+      margin: 0
+      margin: auto
+      max-width: 470px
+      position: relative
+
+    img
+      width: 100px
+      position: absolute
+      left: 0
+      top: 0
+
+    .content
+      font-size: 18px
+      padding-left: 120px
+      text-align: left
+
+      footer
+        font-size: 14px
+        color: $grayTextColor
+        margin: 10px 0
+
+  #user-count-low
+    #price-subheading
+      height: 36px
+      padding-top: 10px
+      padding-left: 14px
+
+    .payment-wrapper
+      background: #FFFFFF
+      border: 1px solid #979797
+      box-shadow: 0px 2px 34px 0px rgba(0,0,0,0.24)
+      border-radius: 6px
+      padding: 3em 5em
+      margin: 2em auto
+
+      input
+        width: 100%
+
+      .cc-mini-digits
+        input
+          width: 90px
+
+        .card-cvc
+          margin-right: 10px
+
+    #submit-button
+      width: 100%
+      display: block
+
+
+    .title-wrapper
+      color: darken($headerBg, 10%)
+
+    .top, .bottom .inner
+      padding: 3em 5px
+      max-width: 1170px
+      margin: auto
+
+    .title-wrapper
+      margin: 2em
+
+    .bottom
+      background: $headerBg
+      padding-right: 3em
+      padding-left: 3em
+
+      .title-inner
+        text-align: right
+        margin: 31px 40px 0 0
+
+      h2, h3, h4, li, p
+        color: white
+
+      li
+        margin: 1em 0
+        font-size: 24px
+        line-height: 27px
+        font-weight: 100
+      ul
+        margin-top: -1em
+
+  #user_count
+    height: 56px
+    font-size: 22px
+    line-height: 28px
+
+
+  #user-activated
+    padding: 3em 0
+
+
+@media (max-width: 650px)
+  #welcome-show
+    .bottom-action
+      padding: 10px
+
+@media (max-width: 980px)
+  #welcome-show
+    .upgrade-now
+      display: none
+
+@media (max-width: 930px)
+  #welcome-show
+    .value-props
+      li
+        float: none
+        width: 100%
+
+    .image-title
+      float: none
+      max-width: 100%
+      margin: 1em 0
+      height: auto
+
+@media (max-width: 768px)
+  #welcome-show
+    #user-count-low .bottom .title-inner
+      text-align: left

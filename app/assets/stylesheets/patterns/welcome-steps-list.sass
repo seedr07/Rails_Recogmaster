@@ -1,0 +1,91 @@
+.flexboxlegacy
+  #first-user-welcome-steps
+
+  #welcome-steps-list
+    @include align-items(stretch)
+    @include justify-content(stretch)
+    min-height: 100%
+
+#first-user-welcome-steps
+  height: 100%
+
+  #welcome-steps-list
+    display: block
+    display: flex
+    display: -webkit-flex
+    display: -ms-flex
+    display: -moz-flex
+
+    .welcome-badge-link-trigger
+      @include transitionTransform(.1s, linear)
+
+    .welcome-badge-link-trigger:hover
+      @include transform(scale(1.02))
+
+    & > div:first-child
+      flex: 1.5
+
+    input
+      @include box-sizing(border-box)
+      height: 40px
+      width: 100%
+
+    & > div
+      flex: 1
+      padding: 0 0 15px 0
+
+      h2
+        background: rgba(255, 255, 255, 0.5)
+        box-shadow: 0 5px 14px 2px rgba(0, 0, 0, 0.2)
+        padding: 9px
+        width: 100%
+        box-sizing: border-box
+
+      .inner
+        padding: 0 15px
+
+      &:hover,
+      &.active
+        opacity: 1
+
+      &:nth-child(1)
+        background: desaturate(lighten($headerBg, 47%), 50%)
+
+      &:nth-child(2)
+        background: desaturate(lighten($headerBg, 52%), 50%)
+
+
+      &:nth-child(3)
+        background: desaturate(lighten($headerBg, 56%), 50%)
+
+        .inner
+          padding-right: 70px
+
+@media (max-width: 1000px)
+  .flexboxlegacy
+  
+    #first-user-welcome-steps
+      position: static
+
+      #welcome-steps-list
+        display: block
+
+        & > div
+          opacity: 1
+
+          &:nth-child(3)
+            .inner
+              padding-right: 15px
+
+  #welcome-show
+    .wrapper
+      margin-left: 0
+      margin-right: 0
+
+    #wrapper-outer
+      padding-left: 0 !important
+      padding-right: 0 !important
+
+
+
+@media (max-width: 835)

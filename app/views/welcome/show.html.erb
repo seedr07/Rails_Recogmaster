@@ -1,0 +1,28 @@
+<% if current_user.subscribed_account? %>
+    <% integration_title = "Welcome to Recognize!" %>
+    <% integration_subtitle = "Send and receive official recognition in your company." %>
+<% else %>
+  <% if @integration == "office365" %>
+    <% integration_title = "We’ve got Office 365 covered!" %>
+    <% integration_subtitle = "Seamless Office 365 integration helps companies increase engagement 2x to 8x." %>
+  <% elsif @integration == "yammer" %>
+    <% integration_title = "Never leave Yammer to send employee recognitions & redeem rewards." %>
+    <% integration_subtitle = "Join us in our mission to transform traditional corporate culture one recognition at a time. " %>
+  <% else %>
+    <% integration_title = "Employee Engagement Based on Science" %>
+    <% integration_subtitle = "Recognize helps companies unlock their staff's hidden potential." %>
+  <% end %>
+<% end %>
+
+<div id="welcome-wrapper">
+  <% if current_user.subscribed_account? && current_user.company_admin? %>
+    <%= render partial: "welcome/activated" %>
+  <% else %>
+    <%= render partial: "welcome/start", locals: {
+                                         integration_title: integration_title,
+                                         integration_subtitle: integration_subtitle
+                                       } %>
+  <% end %>
+
+
+</div>

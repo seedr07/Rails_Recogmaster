@@ -1,0 +1,31 @@
+<div class="centered">
+    <h1><%= t("badges.welcome", name: current_user.company.name)%></h1>
+</div>
+<div class="clearfix badge-thumbs centered">
+  <% @badges.each do |badge| %>
+    <a class="badge-link animate-scroll" href="#badge-<%= badge.id %>">
+
+      <%= image_tag badge.permalink(100),
+                    :"width" => "50",
+                    :"height" => "50",
+                    :"data-imagePath" => badge.permalink,
+                    :"data-relativeImagePath" => badge.permalink(100),
+                    :"data-name" => badge.short_name, # used when badge is selected, pulled from js,
+                    :"data-badge-id" => badge.id
+      %>
+    </a>
+  <% end %>
+</div>
+
+  <ul class="badges-in-page clearfix">
+
+    <% @badges.each do |badge| %>
+      <li class="badge-item marginBottom30" data-type="<%= badge[:name] %>">
+        <%= link_to company_badge_path(id: badge.id) do %>
+
+          <%= render partial: "badges/badge_detail", locals: {badge: badge, page: "index"} %>
+
+        <% end %>
+      </li>
+    <% end %>
+  </ul>

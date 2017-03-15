@@ -1,0 +1,26 @@
+<%= form_for @user do |form| %>
+  <% if @user.errors.any? %>
+    <div>
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this record from being saved:</h2>  
+      <ul>  
+      <% @user.errors.full_messages.each do |msg| %>  
+        <li><%= msg %></li>  
+      <% end %>  
+      </ul>  
+    </div>
+  <% end%>
+
+  <div class="form-vertical">
+    <div class="control-group">
+      <%= form.label :email, "Email", class:"control-label" %>
+      
+      <div class="controls">
+         <%= form.text_field :email, placeholder: "name@company-email.com" %>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <%= form.submit "Sign Up", class:"btn btn-warning" %>
+    </div>
+  </div>
+<% end %>

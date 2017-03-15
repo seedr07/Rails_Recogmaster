@@ -1,0 +1,11 @@
+<h2>Departments</h2>
+
+<% if @company.child_companies.blank? %>
+  <h4>There are no departments set up right now</h4>
+<% else %>
+  <div id="departments-wrapper">
+    <% @company.child_companies.each do |dept| %>
+      <%= render "department", department: dept %>
+    <% end %>
+  </div>
+<% end %>

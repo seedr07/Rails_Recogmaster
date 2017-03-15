@@ -1,0 +1,8 @@
+<li id="director-id-<%= user.id%>">
+  <span class="pull-left">
+    <%= user.full_name %> - <%= user.email %>
+  </span>
+  <span class="pull-right">
+    <%= link_to "X", remove_directors_admin_company_path(@company, user_id: user.id), method: :delete, remote: true%>
+  </span>
+</li>

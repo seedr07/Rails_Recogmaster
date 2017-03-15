@@ -1,0 +1,6 @@
+<h2> Login as a user</h2>
+<%= render_flash %>
+<%= form_tag admin_login_as_path do %>
+  <%= text_field_tag "email", "", placeholder: "Enter email address" %>
+  <%= submit_tag "Login", class: "button" %>
+<% end %>

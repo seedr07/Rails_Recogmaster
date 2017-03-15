@@ -1,0 +1,23 @@
+<% if current_user.allow_invite? %>
+
+  <div class="" id="invite">
+    <%= render_flash%>
+    <h1><%= t('invite.invite_colleagues')%></h1>
+    <div class="form-inline">
+      <%= form_for @user, url: send_invitations_users_path, html: {class: "analyticsForm", multipart: true, data:{event: "invite form"}} do |f|%>
+      <%= render partial: "invite" %>
+      <div class="hr-thick marginBottom30"></div>
+      <div>
+        <%= submit_tag "Invite", class: "button button-highlight"%>
+      </div>
+      <% end%>
+    </div>
+
+  </div>
+
+<% else %>
+
+  <h1>You cannot invite users</h1>
+  <p>The Recognize admin of your company disabled this setting.</p>
+
+<% end %>

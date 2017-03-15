@@ -1,0 +1,14 @@
+<div class="department" id="department-<%= department.id%>">
+  <div class="dept-header">
+    <h4><%= department.name %> <%= link_to 'delete', department_path(id: department.id), method: :delete, remote: true%></h4>
+    <div class="select-wrapper">
+      <select>
+        <option>Enter email</option>
+      </select>
+    </div>
+  </div>
+  <div class="user-list-wrapper">
+    <ul>
+    </ul>
+  </div>
+</div>

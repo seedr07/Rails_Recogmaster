@@ -1,0 +1,189 @@
+<nav id="navbar" class="navbar navbar-default" role="navigation" <% if !is_home? %>data-no-turbolink<% end %>>
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span>Menu</span>
+      </button>
+      <a id="logo" class="navbar-brand" href="/" data-no-turbolink>
+        <% if page_id == "home-index" %>
+          <h1 id="logo-text"  itemprop="name"><%= t("dict.recognize")%></h1>
+        <% else %>
+          <span id="logo-text"><%= t("dict.recognize")%></span>
+        <% end %>
+      </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="/pricing" itemprop="relatedLink">Pricing</a>
+        </li>
+        <li class="dropdown grande-menu">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Product <span class="caret"></span></a>
+          <div class="dropdown-menu" role="menu">
+            <div class="link-group">
+              <div class="links">
+                <div class="inner">
+                  <h4><%= link_to "Office 365", office365_path, itemprop: "relatedLink", class: "analyticsClick", id: "menu-office365" %></h4>
+
+                  <h4><%= link_to "Yammer integration", extension_path, itemprop: "relatedLink", class: "analyticsClick", id: "menu-yammer" %></h4>
+                  <ul>
+                    <li><%= link_to "Capabilities", extension_path(anchor: "functionality-wrapper"), itemprop: "relatedLink", class: "analyticsClick", id: "menu-yammer-capabilities" %></li>
+                    <li><%= link_to "Browser extensions", extension_path(anchor: "marketing-browser-extensions-info"), itemprop: "relatedLink", class: "analyticsClick", id: "menu-yammer-extension" %></li>
+                    <li><%= link_to "Screenshots", extension_path(anchor: "points"), itemprop: "relatedLink", class: "analyticsClick", id: "menu-yammer-screenshots" %></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="links">
+                <div class="inner">
+                  <h4><%= link_to "Analytics", analytics_path, id: "menu-analytics", itemprop:"relatedLink" %></h4>
+                  <ul>
+                    <li><%= link_to "Top employees", analytics_path(anchor: "top-employees"), id: "menu-analytics-employees", itemprop:"relatedLink" %></li>
+                    <li><%= link_to "Value graph", analytics_path(anchor: "value-graph"), id: "menu-analytics-value", itemprop:"relatedLink" %></li>
+                    <li><%= link_to "Pie chart", analytics_path(anchor: "pie"), id: "menu-analytics-pie", itemprop:"relatedLink" %></li>
+                    <li><%= link_to "RES", analytics_path(anchor: "res"), id: "menu-analytics-res", itemprop:"relatedLink" %></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="link-group">
+              <div class="links">
+                <div class="inner">
+                  <h4><%= link_to "Customizations", customizations_path, id: "menu-customizations", itemprop:"relatedLink" %></h4>
+                  <ul>
+                    <li><%= link_to "Celebration interval", customizations_path(anchor: "celebration-interval"), id: "menu-customizations-celebration", itemprop:"relatedLink" %></li>
+                    <li><%= link_to "White label", customizations_path(anchor: "white-label"), id: "menu-customizations-white", itemprop:"relatedLink" %></li>
+                    <li><%= link_to "Choose Values", customizations_path(anchor: "choose-values"), id: "menu-customizations-values", itemprop:"relatedLink" %></li>
+                    <li><%= link_to "Settings", customizations_path(anchor: "your-style"), id: "menu-customizations-settings", itemprop:"relatedLink" %></li>
+                    <li><%= link_to "Recognition levels", customizations_path(anchor: "right-type"), id: "menu-customizations-levels", itemprop:"relatedLink" %></li>
+                    <li><%= link_to "Points", customizations_path(anchor: "custom-points"), id: "menu-customizations-points", itemprop:"relatedLink" %></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="link-group">
+              <div class="links">
+                <div class="inner">
+                  <h4><%= link_to "Mobile", mobile_path, id: "menu-mobile", class: "analyticsClick", itemprop:"relatedLink" %></h4>
+                  <h4><%= link_to "Features", features_path, id: "menu-features", class: "analyticsClick", itemprop:"relatedLink" %></h4>
+                  <h4><%= link_to "Rewards", rewards_path, id: "menu-rewards", class: "analyticsClick", itemprop:"relatedLink" %></h4>
+                  <h4><%= link_to "Awards", awards_path, id: "menu-awards", class: "analyticsClick", itemprop:"relatedLink" %></h4>
+
+                </div>
+              </div>
+              <div class="links">
+                <div class="inner">
+                  <%= link_to "Tour", tour_path, id: "menu-tour", class: "analyticsClick", itemprop: "relatedLink" %>
+                  <%= link_to "Getting started", "/recognize-starter-kit.pdf", id: "menu-getting-started", class: "analyticsClick", itemprop: "relatedLink" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li id="strategy-nav" class="dropdown grande-menu">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Strategy <span class="caret"></span></a>
+          <div class="dropdown-menu" role="menu">
+            <div class="link-group">
+              <div class="links">
+                <div class="inner">
+                  <h4><%= link_to "Engagement", engagement_path, id: "menu-engagement", class: "analyticsClick", itemprop: "relatedLink" %></h4>
+                  <ul>
+                    <li><%= link_to "Celebration interval", engagement_path(anchor: "celebration-interval"), id: "menu-engagement-celebration-interval", class: "analyticsClick", itemprop: "relatedLink" %></li>
+                    <li><%= link_to "Leaderboard", engagement_path(anchor: "leaderboard"), id: "menu-leaderboard", class: "analyticsClick", itemprop: "relatedLink" %></li>
+                    <li><%= link_to "Kiosk mode", engagement_path(anchor: "kiosk-mode"), id: "menu-kiosk", class: "analyticsClick", itemprop: "relatedLink" %></li>
+                    <li><%= link_to "Yammer", engagement_path(anchor: "yammer"), id: "menu-engagement-yammer", class: "analyticsClick", itemprop: "relatedLink" %></li>
+                    <li><%= link_to "Instant recognition", engagement_path(anchor: "instant-recognition"), id: "menu-instant-recognition", class: "analyticsClick", itemprop: "relatedLink" %></li>
+                    <li><%= link_to "Email campaigns", engagement_path(anchor: "email-campaigns"), id: "menu-email-campaigns", class: "analyticsClick", itemprop: "relatedLink" %></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!--
+            <div class="link-group">
+              <div class="links">
+                <div class="inner">
+                  <h4><%= link_to "Gamification", gamification_path, id: "menu-gamification", class: "analyticsClick", itemprop: "relatedLink" %></h4>
+                  <ul>
+                    <li><%= link_to "Type of badges", gamification_path(anchor: "type-of-badges"), id: "menu-type-of-badges", class: "analyticsClick", itemprop: "relatedLink" %></li>
+                    <li><%= link_to "Points", gamification_path(anchor: "points"), id: "menu-points", class: "analyticsClick", itemprop: "relatedLink" %></li>
+                    <li><%= link_to "Custom badges", gamification_path(anchor: "custom-badges"), id: "menu-custom-badges", class: "analyticsClick", itemprop: "relatedLink" %></li>
+                    <li><%= link_to "Stats", gamification_path(anchor: "stats"), id: "menu-stats", class: "analyticsClick", itemprop: "relatedLink" %></li>
+                    <li><%= link_to "Achievements", gamification_path(anchor: "achievements"), id: "menu-achievements", class: "analyticsClick", itemprop: "relatedLink" %></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="link-group">
+              <div class="links">
+                <div class="inner">
+                  <h4><%= link_to "Best practices", gamification_path, id: "menu-gamification", class: "analyticsClick", itemprop: "relatedLink" %></h4>
+                  <ul>
+                    <li><%= link_to "Staff cohorts", gamification_path(anchor: "type-of-badges"), id: "menu-type-of-badges", class: "analyticsClick", itemprop: "relatedLink" %></li>
+                    <li><%= link_to "SAPS", gamification_path(anchor: "points"), id: "menu-points", class: "analyticsClick", itemprop: "relatedLink" %></li>
+                    <li><%= link_to "Events", gamification_path(anchor: "custom-badges"), id: "menu-custom-badges", class: "analyticsClick", itemprop: "relatedLink" %></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            -->
+            <div class="link-group">
+              <div class="links">
+                <div class="inner">
+                  <h4><%= link_to "Case study", case_study_path, id: "menu-case-study", class: "analyticsClick", itemprop: "relatedLink" %></h4>
+                  <ul>
+                    <li><%= link_to "Download PDF", "/goodway-group-case-study.pdf" %></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="links">
+                <div class="inner">
+                  <a href="/distributed-workforce-infographic" itemprop="relatedLink">Infographic</a>
+                  <a href="https://blog.recognizeapp.com" itemprop="relatedLink">Recognize Blog</a>
+                  <a href="https://twitter.com/recognizeapp" itemprop="relatedLink">Recognize Twitter</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li id="about-nav" class="dropdown grande-menu">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">About <span class="caret"></span></a>
+          <div class="dropdown-menu"  role="menu">
+            <div class="link-group">
+            <div class="links">
+              <div class="inner">
+                <ul>
+                <li data-no-turbolink='true'><%= link_to "Contact", contact_sales_path, id: "menu-contact", class: "analyticsClick", itemprop:"relatedLink" %></li>
+                <li><%= link_to "Why", why_path, id: "menu-why", class: "analyticsClick", itemprop: "relatedLink" %></li>
+                <li><%= link_to "About", about_path, id: "menu-about", class: "analyticsClick", itemprop:"relatedLink" %></li>
+                </ul>
+              </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <% if current_user.blank? %>
+
+          <li id="login-menu" class="dropdown" data-no-turbolink>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= t('dict.signin')%> <span class="caret"></span></a>
+            <div class="dropdown-menu" role="menu">
+              <%= render :partial => "user_sessions/login" %>
+            </div>
+          </li>
+          <li id="signup-menu">
+            <a href="/sign-up">Sign up</a>
+          </li>
+        <% else %>
+          <li id="dashboard-menu" data-no-turbolink>
+            <%= link_to "Back to #{current_user.company.name}", stream_path %>
+          </li>
+        <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

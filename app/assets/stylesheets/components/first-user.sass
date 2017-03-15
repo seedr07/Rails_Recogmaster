@@ -1,0 +1,232 @@
+.companies .upgrade-banner
+  display: none
+
+.upgrade-banner
+  margin-bottom: 0
+  margin-top: -8px
+
+  .flex-centered,
+  .value-props
+    height: 222px
+
+  .span5 > .flex-centered > .content
+    padding: 20px
+
+
+  .tour-content
+    text-align: center
+
+    & > .content
+      background: url("/assets/pages/home-index/office-background.jpg") no-repeat 0 0
+      background-color: darken($headerBg, 10%)
+      padding: 20px 20px 0 20px
+
+    h3, h2, p, li
+      color: white
+
+    .value-props
+      margin: 0
+
+      ul
+        @include flex-centered()
+        height: 100%
+
+      li
+        display: none
+        float: none
+
+#get-started-screenshot
+  position: relative
+  top: -27px
+  left: 0
+  z-index: 10
+
+  img
+    max-width: 100%
+    position: absolute
+
+.upgrade-banner
+  background: white
+  margin-bottom: 2em
+  margin-top: -24px
+
+  & > .content
+    padding: 2.5em 2em 2em 2em
+
+body.first-user
+  #view-main-wrapper
+    padding: 66px 0 0 0
+
+  #wrapper-outer
+    padding: 0
+    position: absolute
+    height: 100%
+    width: 100%
+
+    .wrapper
+      height: 100%
+
+#first-user-welcome
+  display: block
+
+  .widget-box
+    h2, h3, &
+      text-align: left
+
+  h1
+    background: none
+    padding: 0
+    margin: 15px 0 15px 0
+
+  a h3
+    color: inherit
+
+  .recognition-card 
+    margin: auto !important
+    
+  .hr-space
+    margin: 50px 0
+
+  
+  #culture li
+  list-style-position: inside
+  
+  #culture h4
+    text-align: left
+    display: inline
+    
+  .welcome-info,
+  .welcome-info h2,
+  .welcome-info h3,
+  .welcome-info h4
+    text-align: left
+
+  .welcome-info .span4 p:last-child
+    margin-bottom: 0
+    
+  .welcome-info .row-fluid
+    margin-bottom: 50px
+    
+  #culture h2
+    font-size: 35px
+    line-height: 35px
+    font-weight: 200
+    text-align: left
+    
+  #steps
+
+    .inner-step
+      padding: 0 30px
+  
+  #steps p 
+    min-height: 35px
+
+  .widget-box 
+    margin-bottom: 25px
+    
+  #badge
+    margin-right: 18px
+    
+    h4
+      font-size: 20px
+      color: #008CE5
+      
+      &:hover
+        color: #0555C7
+    
+  #badge-wrapper
+    display: inline-block
+    
+  #text-wrapper
+    margin-top: 5px
+    text-align: left
+    
+#secondary-users h1
+  padding-left: 0
+      
+    
+#secondary-users,
+#first-user-welcome
+  .img-step 
+    position: relative
+    
+    img
+      min-width: 100%
+
+  .img-step:after
+    content: " "
+    background: image-url("firstuser/shadow.png") 0 0 no-repeat
+    width: 100%
+    height: 16px
+    display: block
+    background-size: 100%
+    
+  .button
+    margin-top: 10px
+
+@media (max-width: 768px)
+  .upgrade-banner
+    .value-props,
+    .flex-centered
+      height: 100%
+
+    .tour-content .value-props
+      ul
+        @include justify-content(flex-start)
+
+
+
+@media (max-width: 480px)
+  body.first-user
+    #view-main-wrapper
+      padding-top: 0 !important
+
+  #first-user-welcome #text-wrapper
+    text-align: center
+    float: none !important
+    width: auto !important
+    
+  body.first-user
+    padding: 54px 0 0 0  
+    
+  #first-user-welcome h1
+    padding-left: 0
+    font-size: 30px
+    
+  #first-user-welcome #badge-wrapper
+    display: block
+  #first-user-welcome #badge 
+    margin-right: 0
+
+  #first-user-welcome .badge-image
+    margin: auto
+
+  #first-user-welcome #badge.left
+    float: none !important
+
+  .welcome-info
+    padding: 0 !important
+    
+    .inner
+      margin-top: 20px
+    
+  .recognitions #first-user-welcome
+    margin-top: 10px !important
+  
+  .recognitions #first-user-welcome #steps p 
+    min-height: auto
+    
+  .recognitions #steps
+    padding: 0 5px
+    
+  .recognitions #steps .span4
+    margin-bottom: 50px
+    
+  #first-user-welcome #steps,
+  #first-user-welcome #culture
+    padding: 0
+    
+  #first-user-welcome #steps
+    text-align: center
+    
+  

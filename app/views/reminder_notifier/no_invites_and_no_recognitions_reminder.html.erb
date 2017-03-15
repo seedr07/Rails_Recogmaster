@@ -1,0 +1,11 @@
+<p>Thanks for signing up for Recognize.</p>
+  
+<p>Is there anyone in your office you want to invite to Recognize? What good work is happening in your office?</p>
+
+<p>Here are a couple of links to get you going with Recognize:</p>
+
+<p>Invite coworkers:<br><%= link_to invite_users_url(@user), invite_users_url(@user) %></p>
+
+<p>Send a recognition: <br><%= link_to new_recognition_url(@user.network), new_recognition_url(@user.network) %></p>
+
+<p>Do you have any questions about the application? Feedback is very important to us. Feel free to reply to this email.</p>

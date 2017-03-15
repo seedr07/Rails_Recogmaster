@@ -1,0 +1,87 @@
+<%= content_for :page_class, "first-user"%>
+<div id="first-user-welcome-steps" class="actually-first-user">
+
+  <div id="welcome-steps-list" class="loading">
+    <div>
+      <h2><%=t("welcome.what_is_recognize")%></h2>
+      <div class="inner">
+        <h4 class="marginBottom20"><%=t("welcome.staff_give_kudos")%></h4>
+
+        <ul class="bullet-list">
+          <li><%=t("welcome.incentivize")%></li>
+          <li><%=t("welcome.discover")%></li>
+          <li><%=t("welcome.gamification")%></li>
+          <li><a id="welcome-steps-exp-contact" href="/contact/">Contact us</a> for a free trial of the business package or demo of the product.</li>
+        </ul>
+        <hr class="hr hr-space hr-white">
+        <h3><%=t("welcome.view_admin")%></h3>
+        <%= link_to "Company Admin", company_path(network: current_user.company.domain), class: "button button-highlight" %>
+        <hr class="hr hr-space hr-white">
+        <h3><%=t("welcome.resources")%></h3>
+        <%= render :partial => "layouts/marketing_links" %>
+
+      </div>
+    </div>
+
+    <div>
+      <h2><%=t("welcome.complete_profile")%></h2>
+      <div class="inner">
+        <% unless current_user.start_date.present? %>
+        <%= form_for current_user do |form| %>
+          <div class="form-vertical">
+
+              <div class="control-group">
+                <%= form.label :start_date, t("user_edit.start_date_input_label", company: current_user.company.name), class:"control-label" %>
+                <div class="controls start-date">
+                   <%= form.date_select :start_date, start_year: 1980, end_year: Date.today.year + 1, default: Date.today %>
+                </div>
+              </div>
+              <button class="button button-inactive button-big"><%=t("dict.save")%></button>
+              <hr class="hr">
+
+          </div>
+        <% end %>
+
+      <% end %>
+        <h4><%=t("welcome.invite_coworkers")%></h4>
+        <%= link_to t("welcome.invite_colleagues"), invite_users_path, class: "marginBottom10 button button-inactive block" %>
+        <%= link_to t("welcome.upload_avatar"), edit_user_path(current_user), class: "marginBottom20 button button-inactive block" %>
+      </div>
+    </div>
+
+    <div>
+      <h2><%=t("welcome.recognize")%></h2>
+      <div class="inner">
+
+        <% first_recognition = @recognitions.first %>
+
+        <% if first_recognition %>
+          <% if first_recognition.badge.ambassador? || first_recognition.badge.new_user? %>
+            <%= render partial: "recognitions/first_user_from_signup"%>
+          <% else %>
+            <%= render partial: "recognitions/first_user_from_recognition"%>
+          <% end %>
+        <% else %>
+          <p><%=t("welcome.see_how_easy")%></p>
+          <%= link_to t("welcome.send_recognition_to_colleagues"), new_recognition_path, class: "button button-big block" %>
+          <hr>
+          <p><strong><%=t("welcome.pro_tip")%> </strong> <%=t("welcome.try_cc")%></p>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<% content_for :afterjs do %>
+  <script type="text/javascript">
+      $(function() {
+        $("#welcome-steps-list").addClass("loaded");
+
+        $("#welcome-steps-list > div").bind("mouseover", function() {
+          $("#welcome-steps-list").removeClass("loading");
+        });
+      });
+  </script>  
+<% end %>

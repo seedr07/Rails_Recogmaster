@@ -1,0 +1,10 @@
+---
+sqlite: false
+ruby_version: ruby-2.2.2
+bundler_version: 1.9.9
+coverage: true
+hooks:
+  pre_setup: cp config/local.yml.travis config/local.yml && openssl enc -d -aes-256-cbc -in config/credentials.yml.solano.enc -out config/credentials.yml -k $CREDS_ENC_KEY
+  worker_setup: RAILS_ENV=test bundle exec rake recognize:init
+test_pattern:
+  - spec/**_spec.rb

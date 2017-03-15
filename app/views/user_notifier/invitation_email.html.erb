@@ -1,0 +1,37 @@
+<h2 style="<%= mail_styles(:h2, :text, :title) %> padding: 0;"><%= @inviter.full_name%> wants you to join Recognize.</h2>
+<p style="<%= mail_styles(:p, :text) %>">Recognize is a social employee recognition and rewards program for <%= @inviter_company.name%>.</p>
+
+<a href="<%= @verification_url %>" style="<%= mail_styles(:button) %> margin-top: 20px; ">Verify your account now</a>
+
+<h3 style="<%= mail_styles(:h3, :text) %>"><strong>Things you want to do:</strong></h3>
+
+<ul>
+  <li>
+    <a href="<%= edit_user_url(@user) %>" style="<%= mail_styles(:text, :a) %> display: block; margin-bottom: 10px;">Edit your personal information</a>
+  </li>
+  <li><a href="<%= new_recognition_url(network: @user.network) %>" style="<%= mail_styles(:text, :a) %> display: block; margin-bottom: 10px;">Send a recognition to a colleague</a>
+  </li>
+  <li><a href="<%= stream_url(network: @user.network) %>" style="<%= mail_styles(:text, :a) %> display: block; margin-bottom: 10px;">See your company's recognitions</a>
+  </li>
+  <li><a href="<%= extension_url %>" style="<%= mail_styles(:text, :a) %> display: block; margin-bottom: 20px;">Use inside Yammer</a>
+  </li>
+</ul>
+
+<%= mail_styles(:hr) %><br>
+
+<h3 style="<%= mail_styles(:h3, :text) %>">Gain more from your actions at work.</h3>
+
+<ul style="margin-bottom: 20px;">
+  <li style="<%= mail_styles(:p, :text) %>">Official recognition from your colleagues</li>
+  <li style="<%= mail_styles(:p, :text) %>">Redeem rewards</li>
+  <li style="<%= mail_styles(:p, :text) %>">Celebrate more often</li>
+  <li style="<%= mail_styles(:p, :text) %>">Receive awards</li>
+</ul>
+
+<a href="<%= @verification_url %>" style="<%= mail_styles(:button) %>">Verify your account now</a>
+
+
+
+
+
+

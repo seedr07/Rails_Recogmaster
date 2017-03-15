@@ -1,0 +1,12 @@
+en-GB:
+  time:
+    formats:
+      slash_date: "%d/%m/%Y"
+  date:
+    formats:
+      slash_date: "%d/%m/%Y"
+  dict:
+    recognize: "Recognise"
+
+  recognition_new:
+    recipient_search_title_html: "Who do you want to <strong>recognise</strong>?"

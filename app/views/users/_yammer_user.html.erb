@@ -1,0 +1,10 @@
+<div class="person">
+  <i class=icon-ok icon-white></i>
+  <%= image_tag yammer_user.mugshot_url, alt: yammer_user.full_name %>
+  <h4><%= yammer_user.full_name%></h4>
+  <input type="checkbox" name="user[yammer_users][<%= yammer_user.yammer_id%>][invite]" value="" class="checkbox">
+  <input type="hidden" name="user[yammer_users][<%= yammer_user.yammer_id%>][email]" value="<%= yammer_user.email%>">
+  <input type="hidden" name="user[yammer_users][<%= yammer_user.yammer_id%>][first_name]" value="<%= yammer_user.first_name%>">
+  <input type="hidden" name="user[yammer_users][<%= yammer_user.yammer_id%>][last_name]" value="<%= yammer_user.last_name%>">
+  <input type="hidden" name="user[yammer_users][<%= yammer_user.yammer_id%>][avatar_url]" value="<%= User.yammer_image_from_template(yammer_user.mugshot_url_template)%>">
+</div>

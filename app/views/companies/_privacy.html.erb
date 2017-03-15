@@ -1,0 +1,19 @@
+<div id="privacy" class="tab tab-pane centered">
+  <div class="widget-box inline">
+    <h2>Privacy</h2>
+    <p>By turning <strong>privacy on</strong>, all new recognitions will be private and are inaccessible to the public.</p>
+    <p>All recognitions are always accessible to your organization.</p>
+
+    <%
+      if @company.global_privacy?
+        privacy_label = "On"
+        privacy_class = "button-primary"
+      else
+        privacy_label = "Off"
+        privacy_class = "button-inactive"
+      end
+
+    %>
+    <a id="privacy-button" class="button <%= privacy_class%>" href="<%= update_privacy_company_path%>">Privacy <%= privacy_label%></a>
+  </div>
+</div>

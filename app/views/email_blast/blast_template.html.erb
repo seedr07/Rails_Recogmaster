@@ -1,0 +1,151 @@
+<%= render partial: "layouts/mailer/header" %>
+      <div style="text-align: center; ">
+        <h2 style="padding: 0 25px; display: inline-block; <%= mail_styles(:h2, :text, :title) %> text-transform: capitalize;"><%= blast_template_heading %></h2>
+      </div>
+
+
+<% recognitions = @company_report.sent_recognitions.limit(3)
+   is_only_one = recognitions.count == 1; %>
+
+<h3 style="text-align: center;  margin: 30px 0; padding: 0; <%= mail_styles(:h3, :text) %>">This <%= reset_interval_noun(@interval) %>'s Popular Badges</h3>
+
+<div style="text-align: center; margin-bottom: 30px;">
+
+  <% @company_report.top_badges(limit: 4).collect do |badge_id, badge_data| %>
+    <div style="display: inline-block; padding: 0 10px;">
+      <img src="<%= badge_data[:badge].permalink(100) %>" />
+      <h5 style="margin:0px; color: #999797 !important; <%= mail_styles(:h5, :text) %>"><%= badge_data[:badge].short_name %></h5>
+      <strong style="<%= mail_styles(:text) %>"><%= badge_data[:count] %></strong>
+    </div>
+  <% end %>
+
+
+</div>
+
+<%= mail_styles(:hr) %>
+
+<h3 style="text-align: center; margin: 30px 0; padding: 0; <%= mail_styles(:h3, :text) %>">
+  <% if recognitions.size > 0 %>
+    Noted Recognition<% if recognitions.size >= 2 %>s<% end %>
+  <% else %>
+    Recognize at least one person a week
+  <% end %>
+</h3>
+
+<div style="padding: 5px; <% if is_only_one %> text-align: center;<% end %>">
+
+  <% @company_report.top_recognitions[0..4].each_with_index do |recognition, i| %>
+    <a style="<%= mail_styles(:recognitionCard) %> text-decoration: none; <% if is_only_one %> text-align: left; display: inline-block; float: none;<% end %>" href="<%= recognition.permalink %>">
+      <div style="background: #f7f9fc; padding: 7px;">
+        <img src="<%= recognition.badge.permalink(100, 'http:') %>" style="float: left; margin-right: 10px; width: 38%; max-width: 100px;">
+        <div style="float: left; width: 57%; padding-top: 7px;">
+          <div style="float: left; margin-right: 5px;">
+            <% likes = recognition.approvals.size %>
+            <% if likes > 0 %>
+              <span style="<%= mail_styles(:counter, :text) %>">+<%= likes %></span>
+            <% end %>
+          </div>
+          <h4 style="float: left; margin-bottom: 5px; margin-top: 0; font-size: 15px; width: 70%; <%= mail_styles(:h4, :text) %>"><strong style="<%= mail_styles(:text) %>"><%= recognition.sender.full_name %></strong> to <strong style="<%= mail_styles(:text) %>"><%= recognition.recipients.collect{|r| r.full_name}.to_sentence %></strong></h4>
+          <div style="clear:both;margin: -1px 0 7px 0;height: 0;"></div>
+          <p style="margin-top: 0; <%= mail_styles(:p) %> font-weight: 300; color: #333;" ><%= recognition.message %></p>
+          <p style="<%= mail_styles(:text, :p, :textSubtle) %>"><%= time_ago_in_words(recognition.created_at) %></p>
+        </div>
+        <%= mail_styles(:clear) %>
+      </div>
+    </a>
+
+    <% if ((i+1) % 2) == 0 %>
+      <%= mail_styles(:clear) %>
+    <% end %>
+  <% end %>
+
+  <%= mail_styles(:clear) %>
+</div>
+
+<div style="text-align: center; margin: 10px 0 30px 0;">
+  <%= link_to "View all your company's recognitions" , recognitions_url(network: @user.network, trk: "valycr"), style: mail_styles(:button)%>
+</div>
+
+
+      <div style="width: 44%; float: left; text-align: center; margin: 0 3%;">
+
+        <div style="height: 140px;">
+          <dl style="<%= mail_styles(:dllist) %> float: none; display: inline;">
+            <dd style="<%= mail_styles(:dllistDD, :text) %> color: #1099BB;"><%= @user_report.points %></dd>
+            <dt style="<%= mail_styles(:dllistDT, :text) %> color: #1099BB;">Your points this <%= reset_interval_noun(@interval) %></dt>
+          </dl>
+        </div>
+        <%= mail_styles(:clear) %>
+        <h3 style="<%= mail_styles(:h3, :text) %>">Your <%= reset_interval_adverb(@interval).capitalize %> Leaderboard</h3>
+
+        <ul style="<%= mail_styles(:leaderboard) %>">
+        <% @company_report.leaderboard_relative_to(@user, :points, 5).each_with_index do |user, i| %>
+          <% extraStyles = (i % 2 == 1) ? "background: #F1F1F1;" : "background: white;" %>
+          <% extraStyles += (user[:id] == @user.id) ? "font-weight: 600;" : "font-weight: 400;" %>
+          <li style="<%= mail_styles(:p, :leaderboard_item) %> <%= extraStyles %>">
+            <%= render "leaderboard_row", user: user, attribute: @attribute %>
+          </li>
+        <% end %>
+        </ul>
+
+        <h3 style="<%= mail_styles(:h3, :text) %>">Your All Time Leaderboard</h3>
+        <ul style="<%= mail_styles(:leaderboard) %>">
+        <% @all_time_company_report.leaderboard_relative_to(@user, :points, 5).each_with_index do |user, i| %>
+          <% extraStyles = (i % 2 == 1) ? "background: #F1F1F1;" : "background: white;" %>
+          <% extraStyles += (user[:id] == @user.id) ? "font-weight: 600;" : "font-weight: 400;" %>
+          <li  style="<%= mail_styles(:p, :leaderboard_item) %> <%= extraStyles %>">
+            <%= render "leaderboard_row", user: user, attribute: @attribute %>
+          </li>
+        <% end %>
+        </ul>
+
+      </div>
+
+      <div style="width: 44%; float: left; text-align: center; margin: 0 3%;">
+        <div style="height: 140px;">
+          <dl style="<%= mail_styles(:dllist) %> float: none; display: inline;">
+            <dd style="<%= mail_styles(:dllistDD, :text) %> color: #072794;"><%= @company_report.sent_recognitions.size %></dd>
+            <dt style="<%= mail_styles(:dllistDT, :text) %> color: #072794;"><%= @company_report.company.name.humanize%> recognitions this <%= reset_interval_noun(@interval) %></dt>
+          </dl>
+        </div>
+      <%= mail_styles(:clear) %>
+        <h3 style="<%= mail_styles(:h3, :text) %>"><%= @company_report.company.name.humanize%> <%= reset_interval_adverb(@interval).capitalize %> Leaderboard</h3>
+
+        <ul style="<%= mail_styles(:leaderboard) %>">
+        <% @company_report.user_leaderboard(:points).values[0..4].each_with_index do |user, i| %>
+          <% extraStyles = (i % 2 == 1) ? "background: #F1F1F1;" : "background: white;" %>
+          <% extraStyles += (user[:id] == @user.id) ? "font-weight: 600;" : "font-weight: 400;" %>
+          <li style="<%= mail_styles(:p, :leaderboard_item) %> <%= extraStyles %>">
+            <%= render "leaderboard_row", user: user, attribute: @attribute %>
+          </li>
+        <% end %>
+        </ul>
+
+        <h3 style="<%= mail_styles(:h3, :text) %>"><%= @company_report.company.name.humanize%> All Time Leaderboard</h3>
+        <ul style="<%= mail_styles(:leaderboard) %>">
+        <% @all_time_company_report.user_leaderboard(:points).values[0..4].each_with_index do |user, i| %>
+          <% extraStyles = (i % 2 == 1) ? "background: #F1F1F1;" : "background: white;" %>
+          <% extraStyles += (user[:id] == @user.id) ? "font-weight: 600;" : "font-weight: 400;" %>
+          <li style="<%= mail_styles(:p, :leaderboard_item) %> <%= extraStyles %>">
+            <%= render "leaderboard_row", user: user, attribute: @attribute %>
+          </li>
+        <% end %>
+        </ul>
+
+      </div>
+        <%= mail_styles(:clear) %>
+
+
+      <div style="text-align: center; margin: 10px 0 30px 0;">
+        <%= link_to "Recognize a coworker now", recognitions_url(network: @user.network, trk: "rs"), style: mail_styles(:button)%>
+      </div>
+
+
+
+      <% if @user.company.show_achievements? %>
+        <div style="padding: 20px; background: #FDFCFC; margin-bottom: 30px; border-top: 1px solid #d9dadd; border-bottom: 1px solid #d9dadd;">
+          <%= render partial: "email_blast/achievements" %>
+        </div>
+      <% end %>
+
+<%= render partial: "layouts/mailer/footer" %>

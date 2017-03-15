@@ -1,0 +1,200 @@
+#navbar
+  a
+    text-decoration: none
+
+$logoBgY: 17px
+#logo
+  font-weight: 700
+  font-size: 16px
+  background: transparent asset-data-url($logo) no-repeat 0 $logoBgY
+  display: block
+  height: 100%
+  margin-left: 5px
+
+  span
+    margin-top: 1px
+
+#about-nav .dropdown-menu
+  width: auto
+
+#strategy-nav .dropdown-menu
+  width: 360px
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)
+  #logo
+    background: transparent asset-data-url('chrome/logo-mark-white@2x.png') no-repeat 0 $logoBgY
+    background-size: 20px
+    padding: 13px 0px 0 17px
+
+#navbar h1,
+#navbar #logo-text
+  font-size: 25px
+  text-align: center
+  line-height: 25px
+  color: #fff
+  @include latoFontFamily()
+  font-weight: 200
+  padding: 0px 10px
+
+#navbar
+  position: fixed
+  width: 100%
+  top: 0
+  left: 0
+  z-index: 100
+  background: $headerBg
+  border-radius: 0
+  border: 0
+
+  .navbar-brand
+    padding: 14px 0 0 15px
+
+    h1
+      margin-bottom: 0
+
+  .navbar-toggle
+    border: 0
+    padding: 10px 10px
+
+  h1
+    margin-right: 0
+
+  .navbar-nav > li > a
+    color: white
+    font-weight: 200
+    @include latoFontFamily()
+    font-size: 18px
+
+  .dropdown-menu > li > a
+    color: $linkColor
+
+  #header-profile-wrapper
+    padding: 6px 10px 0 10px
+
+  .dropdown-menu
+    @include grandeMenuBorder()
+    input, .button, .sign-in-with-google
+      width: 100%
+
+    .button, .sign-in-with-google
+      font-size: 16px
+
+    .sign-in-with-google
+      text-align: center
+
+  #dashboard-menu
+    a
+      box-shadow: 1px -5px 17px 3px rgba(0, 0, 0, 0.61)
+      background: lighten($headerBg, 10%)
+
+#bs-example-navbar-collapse-1
+  overflow: auto
+
+#login-menu
+
+  .dropdown-menu
+    min-width: 340px
+    max-width: 100%
+    padding: 20px
+
+
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus
+  background: transparent
+
+.navbar-default .navbar-toggle .icon-bar
+  background-color: #FFF
+
+@media (min-width: 768px)
+  #navbar .navbar-nav > li
+
+    &.dropdown.open > a
+      background: #fff
+      color: $headerBg
+
+    & > a
+      padding-top: 20px
+      padding-bottom: 20px
+
+@media (max-width: 768px)
+
+  #navbar
+    a
+      display: block
+
+    .links
+      a
+        margin: 7px 0
+        
+      li
+        margin: 0
+
+  .navbar-collapse.collapse.in
+    padding-left: 0
+    padding-right: 0
+    margin-left: 0
+    margin-right: 0
+
+  body.menuOpen.logout
+    padding-top: 0px !important
+    background: $headerBg !important
+    min-height: 100%
+
+    #wrapper-outer
+      display: none
+
+    #navbar
+      min-height: 100%
+      position: static
+
+  #login-menu
+    .dropdown-toggle
+      margin-bottom: 8px
+
+    &.open
+      background: darken($headerBg, 15%)
+
+    .dropdown-menu
+      min-width: 200px
+      max-width: 100%
+      padding: 3px
+
+      label
+        color: white
+
+      input.button
+        background: lighten($headerBg, 20%)
+
+
+  #session-nav
+    li
+      float: left
+
+  .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus
+    background-color: #38aae7
+
+  body.logout
+    padding-left: 0
+    padding-right: 0
+    padding-top: 75px !important
+
+    .navbar-nav
+      margin: 5px 0
+    #navbar .navbar-nav > li
+      .dropdown-menu a
+        color: white
+
+    #logo
+      background-position: 3px 16px
+
+    #view-main-wrapper
+      padding-top: 0px !important
+
+@media (max-width: 480px)
+  #navbar
+    .navbar-brand
+      padding-top: 13px
+
+    .navbar-header
+      margin-left: 0
+      margin-right: 0

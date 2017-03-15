@@ -1,0 +1,73 @@
+<% 
+  feature_notice_version = "v6.79"
+  show_feature_notice = true
+  show_feature_notice &&= (current_user.yammer_id.present? || current_user.auth_with_yammer?) # delete when notice is no longer specific to yammer
+  show_feature_notice &&= !current_user.has_read_feature?(feature_notice_version)
+%>
+
+<% if show_feature_notice %>
+  <div id="notice" class="hidden widget-box marginBottom20">
+    <a href="javascript://" id="notice-close" class="close-icon"></a>
+
+    <h3>Easy, configurable employee recognition for Yammer</h3>
+
+    <div class="inner clearfix">
+      <%= image_tag("chrome/logo-mark.png", width: 40, height: 40) %>
+      <%= image_tag("3p/yammer-round.png", width: 40, height: 40) %>
+      <p><span id="notice-message"></span><a href="/yammer-integration" data-no-turbolink>Learn more</a></p>
+      <div class="buttons">
+        <a href="javascript://" id="install-extension" class="button button-primary button-big"><%= image_tag("icons/chrome.png", width: 25, height: 25, style:"position: relative; top: -4px; left: -5px; margin-bottom: -4px;") %> Install Recognize Extension</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+  
+    var noticeElement = document.getElementById("notice");
+
+    function success() {
+      $("#notice-message").html("Congrats! The Chrome Extension is now installed. Go to <a target=_blank style='float: none;' href=https://yammer.com>Yammer</a> to see the new features.&nbsp;&nbsp;");
+      $("#notice .button").text("Learn about the features").attr("href", "/yammer-integration");
+
+      $document.off("click", "#install-extension");
+
+      $("#notice-close").text("Close");
+      
+      sendNoticeRead();
+    }
+
+    function failure(err) {
+      $("#notice-message").html("<em>Something happened...</em>&nbsp;"+ err+".");
+      $("#notice p a").html("&nbsp;&nbsp;Learn more about the Yammer integration");
+    }
+
+    function sendNoticeRead() {
+      $.ajax({
+        type: "put",
+        url: '<%= has_read_new_feature_user_path(current_user)%>',
+        data: {'feature' : '<%= feature_notice_version %>'}
+      });
+    }
+
+    if (window.chrome && window.chrome.webstore && !!noticeElement) {
+      $(noticeElement).removeClass("hidden");
+    }
+
+    $document = window.$document || $(document);
+    $document.on(R.touchEvent, "#install-extension", function(e) {
+      e.preventDefault();
+
+
+      // TODO fill in chrome extension link
+      chrome.webstore.install("https://chrome.google.com/webstore/detail/khonmmgfpdbncbianbikkhchhgleeako", success, failure);
+    });
+
+    $document.on(R.touchEvent, "#notice-close", function(e) {
+      e.preventDefault();
+
+      $("#notice").fadeOut("fast");
+
+      sendNoticeRead();
+    });
+  </script>
+<% end %>

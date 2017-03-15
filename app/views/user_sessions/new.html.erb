@@ -1,0 +1,20 @@
+
+<div class="login-wrapper login-hide">
+  <%= render partial: "layouts/flash", locals: {flash: flash}%>
+  <% content_for :title, t("dict.login") %>
+
+  <% if @user_session.errors.any?%>
+  <div class="form-errors">
+    <h4 class="header"><%= t("forms.looks_like_we_have_a_small_problem")%></h4>  
+    <ul>
+    <% @user_session.errors.full_messages.each do |msg| %>  
+      <li><%= msg %></li>  
+    <% end %>  
+  </ul>  
+  </div>
+  <% end%>
+
+  <% if @user%>
+  <% end%>
+  <%= render :partial => "login" %>
+</div>

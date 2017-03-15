@@ -1,0 +1,56 @@
+#home-about
+  #points
+
+    .content
+      width: 450px
+
+      img
+        max-width: 100%
+
+  .face-pile
+    max-width: 600px
+    margin: 50px auto 0
+    overflow: hidden
+
+    li
+      float: left
+      display: block
+      overflow: hidden
+
+      &:hover img
+        @include transform(scale(1.1))
+
+      img
+        width: 200px
+        @include transitionTransform(.3s, ease-in-out)
+
+
+@media (max-width: 1150px)
+  #home-about
+    #points
+      text-align: center
+      
+      .inner
+        padding-left: 10px
+        padding-right: 10px
+        width: auto
+
+      .content
+        float: none
+        width: 750px
+        text-align: left
+
+      img, .content
+        margin: 10px auto
+
+  .face-pile
+    img
+      margin: 0 !important
+
+
+
+@media (max-width: 810px)
+  #home-about
+    #points
+      .content
+        width: auto

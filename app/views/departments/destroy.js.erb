@@ -1,0 +1,7 @@
+(function(){
+  <% if @department.errors.present? %>
+    sweetAlert("Oops", '<%= escape_javascript(@department.errors.full_messages.to_sentence) %>', "error");
+  <% else %>
+    $('#department-<%= @department.id%>').fadeOut(function(){ location.reload(); });
+  <% end %>
+})();

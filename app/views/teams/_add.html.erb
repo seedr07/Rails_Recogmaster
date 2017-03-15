@@ -1,0 +1,15 @@
+<%= form_for Team.new, remote: true, html: {class: "", id: "teams"} do |form| %>
+
+  <div class="row-fluid">
+    <div class="add span6">
+      <div class="form-inline marginBottom30 clearfix" id="add-team-wrapper">
+        <h3><%= t("teams.add_a_team") %></h3>
+        <div class="inner" id="inner-add">
+          <%= form.text_field :name, id: "add-team-input", placeholder: t("teams.create_a_new_team"), class: "text-medium" %>
+          <input type="submit" value="<%= t("teams.add_team") %>" id="add-team" class = "button button-primary">
+        </div>
+      </div>
+    </div>        
+  </div>
+
+<% end %>

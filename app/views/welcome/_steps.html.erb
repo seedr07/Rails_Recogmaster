@@ -1,0 +1,11 @@
+<div id="user-count" class="slideable <% if @step == "count" || params[:upgrade].present? %>current<% end %>">
+  <%= render partial: "welcome/user_count" %>
+</div>
+
+<div id="user-count-low" class="slideable">
+  <%= render partial: "welcome/purchase" %>
+</div>
+
+<div id="user-activated" class="slideable">
+  <%= render partial: "welcome/activated" %>
+</div>

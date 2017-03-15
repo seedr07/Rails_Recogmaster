@@ -1,0 +1,4 @@
+<% text = @nomination.is_awarded? ? t("nominations.awarded") : t("nominations.award") %>
+(function() {
+  $("#nomination-<%=@nomination.id %> .nomination-status").text('<%= text %>').toggleClass("button-success");
+})();

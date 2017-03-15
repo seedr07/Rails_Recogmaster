@@ -1,0 +1,46 @@
+<div id="start" class="slideable <% if @step != "count" && params[:upgrade].blank? %>current<% end %>">
+  <div class="top">
+    <h1 class="balance-text"><%= integration_title %></h1>
+    <% if @integration == "yammer" %>
+      <%= render partial: "welcome/yammer_start" %>
+    <% else %>
+      <p class="lead marginBottom30 balance-text balance-text"><%= integration_subtitle %></p>
+
+      <div id="youtube-video" data-id="<%= @youtube_id %>"></div>
+      <%= render partial: "layouts/youtube_load" %>
+      <%= render partial: "welcome/primary_actions" %>
+
+  <% end %>
+  </div>
+
+  <div class="flex-centered statement">
+    <h2 class="balance-text">Join us in our mission to transform traditional corporate culture one recognition at a time. </h2>
+  </div>
+
+  <%= render partial: "welcome/why_how" %>
+
+  <section class="bottom-action">
+    <div class="inner">
+      <h3>Test Drive</h3>
+      <div class="marginBottom20">
+        <%= link_to "Invite colleagues", invite_users_path, class: "button" %>
+        <%= link_to "Send test recognition", new_recognition_path, class: "button" %>
+      </div>
+      <div  data-no-turbolink>
+        <h3>Resources</h3>
+        <%= link_to "Mobile", mobile_path %>
+        <%= link_to "Yammer", extension_path %>
+        <%= link_to "Office 365 & Sharepoint", office365_path %>
+        <%= link_to "Awards", awards_path %>
+        <%= link_to "Infographic", distributed_workforce_infographic_path %>
+        <%= link_to "Pricing", pricing_path %>
+        <%= link_to "Case study", case_study_path %>
+        <%= link_to "Contact", contact_sales_path %>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<%= render partial: "welcome/steps" %>
+

@@ -1,0 +1,13 @@
+<div id="company-admin-content-wrapper" class="<%= paid_class%>">
+  <%= render_flash %>
+
+  <%= render partial: "companies/dashboard" %>  
+  <%= render partial: "companies/custom_badges" %>
+  <%= render partial: "companies/recognitions" %>
+  <%= render partial: "companies/top_employees"%>
+  <%= render partial: "companies/rewards" %>
+  <%= render partial: "companies/accounts" %>
+  <%= render partial: "companies/departments" if current_user.director? %>
+  <%= render partial: "companies/settings"%>
+
+</div>

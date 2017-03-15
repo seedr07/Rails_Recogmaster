@@ -1,0 +1,49 @@
+body .overlay
+  box-shadow: 0 0 1px 850px rgba(0,0,0,.5)
+  border: 1px solid #B3B3B3
+  position: fixed
+  top: 10px
+  left: 50%
+  margin-left: -288px
+  width: 576px
+  z-index: 1001
+  border-radius: 8px
+
+  .close-icon
+    cursor: pointer
+
+  .overlay-wrapper
+    max-height: 450px
+    min-height: 200px
+    overflow-y: auto
+
+  .button-wrapper
+    text-align: center
+    margin: 10px auto 0
+    padding: 10px 0
+    background: #F5F5F5
+    border-radius: 0 0 8px 8px
+    border-top: 1px solid #B4B7BB
+    position: absolute
+    bottom: 0
+    width: 100%
+
+
+@media (max-width: 768px)
+  body .overlay
+    position: absolute
+    
+@media (max-width: 600px)
+  body .overlay.current
+    left: 0%
+    width: 99%
+    margin-left: 2px
+
+@media (max-width: 480px)
+  body .overlay.current
+    margin: 0 0 0 2px
+
+
+    .close-icon
+      right: 0
+

@@ -1,0 +1,19 @@
+<div class="span4">
+  <h4>Add users from <%= @company.parent_company.domain%></h4>
+  <% url = current_user.admin? ? add_users_admin_company_path(@company) : add_users_company_path(network: @company) %>
+  <%= form_for @company, url:  url do |f|%>
+    <% options = @company.parent_company.users.not_disabled.collect{|u| ["#{u.email} (#{u.status})", u.id]}.sort{|a,b| a[0].downcase <=> b[0].downcase}%>
+    <%= f.select :users, options, {}, multiple: true %>
+    <%= f.submit "Add users"%>
+  <% end %>
+</div>
+
+<div class="span4">
+  <h4>Send users back to <%= @company.parent_company.domain%></h4>
+  <% url = current_user.admin? ?  add_users_admin_company_path(@company.parent_company): add_users_company_path(network: @company.parent_company)%>
+  <%= form_for @company.parent_company, url: url do |f|%>
+    <% options = @company.users.collect{|u| ["#{u.email} (#{u.status})", u.id]}.sort{|a,b| a[0].downcase <=> b[0].downcase}%>
+    <%= f.select :users, options, {}, multiple: true %>
+    <%= f.submit "Remove users"%>
+  <% end %>
+</div>

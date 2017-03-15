@@ -1,0 +1,20 @@
+<%= render partial: "admin_header", locals: {page: "Latest Emails Sent Out"}%>
+
+<div class="row-fluid">
+  <div class="span1">Date</div>
+  <div class="span2">From</div>
+  <div class="span2">To</div>
+  <div class="span6">Subject</div>
+  <div class="span1">Body</div>
+</div>
+<%= will_paginate @emails %>
+<% @emails.each do |email|%>
+  <div class="row-fluid">
+    <div class="span1"><%= email.date.to_formatted_s(:db)%></div>
+    <div class="span2"><%= email.from%></div>
+    <div class="span2"><%= email.to%></div>
+    <div class="span6"><%= email.subject%></div>
+    <div class="span1"><%= link_to "body", admin_email_path(id: email.id), remote: true%></div>
+  </div>
+<% end%>
+<%= will_paginate @emails %>

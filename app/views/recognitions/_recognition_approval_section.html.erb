@@ -1,0 +1,27 @@
+<% if recognition.approvable_by?(current_user) or recognition.has_approvals?%>
+  <% approvers_limit = defined?(approvers_limit) ? approvers_limit : 0 %>
+  <div class="bottom clearfix" id="recognition-approval-<%= recognition.id%>">
+    <div class="vote-wrapper clearfix <% if recognition.approvable_by?(current_user) %>user-can-approve<% end %>">
+      <% if recognition.approvable_by?(current_user)%>
+        <span class="vote"><%= recognition_approval_link(recognition, current_user) %></span>
+        <span class="who">
+          <% if (recognition.has_approvals?) %>
+            <%= recognition_approvers(recognition, approvers_limit)%>
+      
+          <!-- list names of people who approved here -->
+          <% else %>
+            <h4><%= t("recognition_card.first_to_validate")%></h4>
+          <% end %>
+        </span>
+
+      <% else%>
+        <% if recognition.has_approvals? %>
+          <span class="vote counter"><%= like_counter(recognition) %></span>
+          <span class="who">
+            <%= recognition_approvers(recognition, approvers_limit)%>
+          </span>
+        <% end%>
+      <% end %>
+    </div>
+  </div>
+<% end%>

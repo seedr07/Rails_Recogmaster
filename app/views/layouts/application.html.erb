@@ -1,0 +1,98 @@
+<%= render :partial => 'layouts/head' %>
+
+<body id=<%= page_id %>
+                  class="<%= body_classes %>"
+        <% if current_user %> data-name="<%= current_user.company.domain %>" data-uid="<%= current_user.id %>"
+        data-email="<%= current_user.email %>"
+        <% end %> data-script="<%= js_class %>" itemscope itemtype="http://schema.org/Product"
+        data-parent-name="<%= current_user.company.parent_company.domain if current_user and current_user.company.child_company? %>"
+  <%= yield :body_attributes %>>
+
+  <!--[if lt IE 9]>
+  <div id="ie">
+  <![endif]-->
+
+  <div id="view-drawer-wrapper">
+    <div class="inner">
+      <header><h3><%= yield :drawer_title %></h3> <span class="drawer-trigger">✕</span></header>
+      <%= yield :drawer %>
+    </div>
+  </div>
+
+  <div id="view-main-wrapper">
+    <%= render :partial => use_marketing_layout? ? "layouts/header_marketing" : "layouts/header" %>
+
+    <% if current_user.present? %>
+        <script type="text/javascript">
+            (function () {
+                window.R = window.R || {};
+            })();
+        </script>
+    <% end %>
+
+    <%= render partial: "layouts/admin_warning" %>
+    <% if show_upgrade_banner? %>
+      <%= render partial: "layouts/upgrade_banner" %>
+    <% end %>
+
+
+    <div id="wrapper-outer" class="wrapper-outer">
+      <div class="wrapper">
+        <%= content_for?(:content) ? yield(:content) : yield %>
+      </div>
+    </div>
+
+  </div>
+
+  <!--[if lt IE 9]>
+  </div>
+  <![endif]-->
+
+  <script type="text/javascript">
+    try{
+      window.R.init();
+    } catch(e) {
+      console.log("Recognize didn't load :(");
+      console.log(e.stack);
+    };
+  </script>
+  
+  <% if Rails.env.production? || !Rails.configuration.local_config.has_key?("skip_analytics") %>
+    <!-- Start of recognize Zendesk Widget script -->
+    <script>/*<![CDATA[*/window.zEmbed||function(e,t){var n,o,d,i,s,a=[],r=document.createElement("iframe");window.zEmbed=function(){a.push(arguments)},window.zE=window.zE||window.zEmbed,r.src="javascript:false",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="display: none",d=document.getElementsByTagName("script"),d=d[d.length-1],d.parentNode.insertBefore(r,d),i=r.contentWindow,s=i.document;try{o=s}catch(c){n=document.domain,r.src='javascript:var d=document.open();d.domain="'+n+'";void(0);',o=s}o.open()._l=function(){var o=this.createElement("script");n&&(this.domain=n),o.id="js-iframe-async",o.src=e,this.t=+new Date,this.zendeskHost=t,this.zEQueue=a,this.body.appendChild(o)},o.write('<body onload="document._l();">'),o.close()}("//assets.zendesk.com/embeddable_framework/main.js","recognize.zendesk.com");/*]]>*/</script>
+    <!-- End of recognize Zendesk Widget script -->
+
+    <script type="text/javascript">
+        (function () {
+          <% if !Rails.env.test? %>
+            analytics.page(); // segment.io
+          <% end %>
+
+          <% if current_user && !Rails.env.test? %>
+            var context = {};
+            analytics.identify('<%= current_user.id %>', {
+              name: '<%= current_user.full_name %>',
+              email: '<%= current_user.email %>',
+              network: '<%= current_user.network %>',
+              company: {
+                  id: '<%= current_user.company.id%>',
+                  name: '<%= current_user.network%>',
+                  created_at: '<%= current_user.company.created_at.to_i %>'
+              }
+            }, context);
+          <% end %>
+        })();
+    </script>
+  
+  <% end %>
+
+  <% if (page_id == "signups-welcome") %>
+
+      <%= stylesheet_link_tag "application", media: "all" %>
+
+  <% end %>
+
+</body>
+</html>
+
+

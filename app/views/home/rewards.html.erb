@@ -1,0 +1,113 @@
+<% content_for :meta_properties do %>
+  <meta property="og:title" content="Staff rewards for employee recognition awards | Recognize" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Recognize" />
+  <meta property="og:description" content="The best designed peer-to-peer recognition platform focused in positive psychology and workflow integration." />
+  <meta property="og:image" content="/assets/chrome/logo-mark-bleed.png" />
+<% end%>
+
+<section id="intro" class="animate-1 animate-hidden animate" data-no-turbolink="true">
+  <div class="inner">
+    <h1 class="balance-text">Recognize Rewards</h1>
+    <p class="tagline balance-text">Create your own rewards catalog full of experiences and non-monetary rewards staff can redeem with points.</p>
+    <%= link_to "Learn About The Awards Offering", awards_path, class: "button button-primary button-large" %>
+  </div>
+  <%= render partial: "home/patterns/dark_pink.svg" %>
+</section>
+
+
+<div id="points" class="animate-2 animate-hidden animate">
+  <section id="rewards-cards">
+    <div class="inner">
+      <div class="centered">
+        <h2 class="balance-text">Staff can redeem any kind of reward with Recognize</h2>
+        <p class="tagline balance-text">The Recognize Team has listened to customer's needs for non-monetary rewards. Now companies can create rewards that are unique to them with Recognize Rewards package.</p>
+      </div>
+
+    </div>
+    <div class="centered">
+      <%= image_tag "pages/home-rewards/reward-cards.png", alt: "Screenshot of reward cards" %>
+    </div>
+  </section>
+
+  <section id="create-rewards">
+    <div class="inner">
+      <div class="row-fluid">
+        <div class="span6" data-no-turbolink='true'>
+          <h2 class="balance-text">Create employee rewards is free and easy</h2>
+          <p class="tagline balance-text">Any employee recognition and rewards vendor that charges money for points is self-serving for their own profits. That's how Recognize is different. We want your staff to be happy and that means releasing control of rewards to you. With Recognize, you can choose title, description, who is responsible for redeeming the reward, how many points it is worth, and how often someone can redeem it. It is powerful while still simple.</p>
+          <%= link_to "Contact Us to Learn More", new_support_email_path, class: "button button-highlight" %>
+
+        </div>
+        <div class="span6">
+          <%= image_tag "pages/home-rewards/rewards-create.png", alt: "Create rewards is flexible and easy - screenshot", width: 415 %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="rewards-manager">
+    <div class="inner">
+      <div class="centered">
+        <h2 class="balance-text">What it means to be a Staff Rewards Manager</h2>
+      </div>
+
+      <div class="row-fluid flex-centered">
+        <div class="span5 offset1">
+          <p class="tagline balance-text">An rewards manager is someone who is responsible to make a reward happen. When an employee redeems an employee reward in Recognize, the person indicated by the admin to be the rewards manager for that reward will receive an email. They will then be responsible to make sure that reward happens. It could be as simple as making sure they get their parking spot or lunch delivered.</p>
+          <h3>Monetary rewards</h3>
+          <p>If you are interested in using gift cards, hand a stack of gift cards to a reward manager and let them know to hand them out to staff when an email is received to do so. It is that simple.</p>
+        </div>
+        <div class="span6">
+          <%= image_tag "pages/home-rewards/manager.jpg", alt: "Rewards manager", width: 415, class: "border-radius-8" %>
+          <p class="smallPrint subtle-text">Photo credit <a href="https://www.flickr.com/photos/99781513@N04/16830777741" target="_blank">Scott Lewis</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rewards-ideas">
+    <div class="inner centered">
+        <h2 class="balance-text">Employee reward ideas</h2>
+        <p class="tagline balance-text">
+          A list of possible employee reward ideas you can use in Recognize.
+        </p>
+
+        <ul class="clearfix marginBottom40">
+          <li class="tagline">A special parking spot</li>
+          <li class="tagline">Access to a conference</li>
+          <li class="tagline">Power to make a certain type of decision</li>
+          <li class="tagline">Be the team lead for a time period</li>
+          <li class="tagline">Get a half day off</li>
+          <li class="tagline">Get a day off</li>
+          <li class="tagline">Lunch delivery</li>
+          <li class="tagline">Dinner for two</li>
+          <li class="tagline">Lunch with the CEO</li>
+          <li class="tagline">Concert or movie tickets</li>
+          <li class="tagline">Massage or spa pass</li>
+          <li class="tagline">Pizza party for the team</li>
+          <li class="tagline">Get a sports car for the day</li>
+          <li class="tagline">A cooking class for two</li>
+          <li class="tagline">Sky diving</li>
+          <li class="tagline">Gift card</li>
+          <li class="tagline">Window desk for the quarter</li>
+          <li class="tagline">Corner office for a month</li>
+          <li class="tagline">Be the CEO for the day</li>
+        </ul>
+
+      <a href="/company-engagement-strategy.pdf" class="button">Read Our Strategy</a>
+
+
+    </div>
+  </section>
+
+  <section class="centered" data-no-turbolink='true'>
+    <%= link_to "Contact Us To Get Started", new_support_email_path, class: "button button-grande button-arrow" %>
+  </section>
+
+
+</div>
+
+
+<%= render :partial => 'footer' %>

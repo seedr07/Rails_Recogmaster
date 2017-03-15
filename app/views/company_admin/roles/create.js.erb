@@ -1,0 +1,5 @@
+(function(){
+  var $row = $('<%= escape_javascript(render(partial: "company_role", locals: {role: @company_role }))%>');
+  $("#role-set").append($row);
+  $("#company_role_name").val("");
+})();

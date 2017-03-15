@@ -1,0 +1,169 @@
+#redemptions-index
+
+  .redeemable_points_total
+    font-size: 26px
+    line-height: 26px
+
+  .banner
+    padding: 1.5em
+
+  .reward-card
+    min-height: 490px
+    width: 30%
+    color: rgb(7, 7, 7)
+    border-radius: 4px
+    background-color: rgb(205, 223, 237)
+    border: 1px solid rgb(212, 212, 212)
+    float: left
+    margin: 0px 1.65% 2em 1.65%
+    position: relative
+    @include background(linear-gradient(135deg, rgba(255,255,255,1) 0%, desaturate(lighten($headerBg, 50%), 30%) 100%) )
+    @include transitionTransform(2s, $cubic)
+    position: relative
+
+    .reward-success-button
+      display: none
+
+    &.redeemed
+      @include transform(translate(0, -10px))
+
+    &.redeemed .reward-success-button
+      display: block
+
+    .reward-content
+      p
+        font-size: 1.3em
+
+    & > div
+      padding: 1em 2em
+
+    .reward-header
+      position: relative
+      height: 250px
+      overflow: hidden
+      padding: 0
+      background: url('/assets/chrome/pattern.png')
+      background-size: cover
+
+      &:hover
+        .inner
+          @include linear-gradient(rgba(255, 255, 255, .5), rgba(0, 0, 0, 0))
+
+        p, h2, h3, h4, h5, li
+          color: black
+
+
+      .inner
+        @include transition(.4s background $cubic)
+        @include linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, 0))
+
+        height: 100%
+        background-size: cover
+        padding: 2em
+
+
+
+      *:last-child,
+      *:only-child
+        margin-bottom: 0
+
+      p, h2, h3, h4, h5, li
+        color: white
+        position: relative
+        z-index: 2
+        font-weight: 600
+
+    .reward-success-button,
+    .reward-form-wrapper
+      position: absolute
+      width: 100%
+      text-align: center
+
+    .reward-form-wrapper
+      bottom: 0
+
+      form
+      margin-bottom: 0
+
+    .reward-success-button
+      bottom: 11px
+
+    .redemption-success-button
+      background-color: #1568A6
+      cursor: default
+
+    h4
+      font-size: 20px
+
+    h1
+      font-size: 30px!important
+      margin-top: 0px!important
+      margin-bottom: 26px!important
+      text-align: center
+
+    .button
+      width: 100%
+
+  .redeemable
+    form
+      display: block
+      margin-bottom: 0
+
+    .unredeemable-wrapper
+      display: none
+
+  .unredeemable
+    form
+      display: none
+
+    .unredeemable-wrapper
+      display: block
+
+    &.unredeemable-by-points
+      .points
+        display: block
+      .frequency
+        display: none
+
+    &.unredeemable-by-frequency
+      .points
+        display: none
+      .frequency
+        display: block
+
+  .redeemed
+    @include background(linear-gradient(135deg,  rgba(255,255,255,1) 0%, lighten($highlightTopColor, 50%) 100%) )
+
+    .reward-header .inner
+      @include linear-gradient(rgba(255, 255, 255, .8), rgba(0, 0, 0, 0))
+
+      p, h2, h3, h4, h5, li
+        color: black
+
+@media (min-width: 768px)
+  #redemptions-index
+    .banner
+      .span2
+        text-align: center
+        float: right
+
+
+@media (max-width: 1040px)
+  #redemptions-index
+    .button-large
+      font-size: 13px
+
+@media (max-width: 900px)
+  #redemptions-index
+    .reward-card
+      width: 45%
+      margin-right: 2.5%
+      margin-left: 2.5%
+
+@media (max-width: 550px)
+  #redemptions-index
+    .reward-card
+      width: 100%
+      margin-right: 0%
+      margin-left: 0%
+

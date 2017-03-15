@@ -1,0 +1,16 @@
+<div id="comment-<%= comment.id%>" class="comment clearfix" itemscope itemtype="http://schema.org/Comment">
+  <%= image_tag comment.commenter.avatar.small_thumb, alt: "#{comment.commenter.full_name} avatar", class: "avatar"  %>
+  <div class="comment-inner">
+      <p itemprop="comment" class="comment-content"><strong itemprop="author"><%= link_to comment.commenter.full_name, comment.commenter %> – </strong> <%= comment.content %></p>
+      <p class="subtle-text"  itemprop="dateCreated"><%= time_ago_in_words(comment.created_at) %> ago</p>
+      <% if permitted_to?(:edit, comment)%>
+        <%= link_to "Edit", edit_recognition_comment_path(@recognition, comment), remote: true%>  
+      <% end %>
+      <% if permitted_to?(:edit, comment) and permitted_to?(:destroy, comment)%>
+       | 
+      <% end %>
+      <% if permitted_to?(:destroy, comment) %>
+        <%= link_to "Delete", recognition_comment_path(@recognition, comment), remote: true, method: :delete%>
+      <% end %>
+  </div>
+</div>

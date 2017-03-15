@@ -1,0 +1,72 @@
+<% if @show_contract %>
+ <style type="text/css">
+    @font-face {
+      font-family: black_jack;
+      src: url("/assets/black_jack-webfont.ttf") format("truetype"), url("/assets/black_jack-webfont.woff") format("woff"), url("/assets/black_jack-webfont.svg#black_jack") format("svg"), url("/assets/black_jack-webfont.eot");
+    }
+  </style>
+<% end %>
+
+<div class="payment-instructions">
+  <h2>Payment Agreement <i class="subtle-text"><%= @company.name%></i></h2>
+  <% if @subscription.pending? && @subscription.contract_title.present?   %>
+
+    <h3>Steps</h3>
+    <ol class="steps">
+      <li class="step"><a href="#payment-form" class="animate-scroll">1. Review contract</a></li>
+      <% if @show_contract %>
+        <li class="step"><a href="#signature" class="animate-scroll">2. Sign contract</a></li>
+      <% end %>
+      <li class="step"><a href="#invoice" class="animate-scroll">3. Purchase</a></li>
+    </ol>
+  <% end %>
+</div>
+
+<div class="payment-callout">
+  <% if !params[:success] && !@subscription.cancelled? %>
+    <div>
+    <h2 class="hidden"><%= "#{checkout_verb.capitalize} subscription" %></h2>
+    <%= form_for @subscription, html: {id: "payment-form"} do |f|%>
+
+      <%= render_flash(include_errors: @subscription) %>
+
+      <% if @subscription.contract_title.present? %>
+        <h1><%= @subscription.contract_title %></h1>
+      <% end %>
+
+      <% if @show_contract %>
+        <div class="form-group contract-body">
+          <%= @subscription.contract_body.html_safe %>
+        </div>
+      <% end %>
+
+      <% if @show_contract %>
+        <%= content_tag :div, class: "row-fluid marginVertical50" do %>
+          <div class="row marginBottom40">
+            <div class="span6">
+              <div id="signature" class="form-material-group">
+                <%= f.text_field :contract_signature, required: "required", readonly: @subscription.contract_signature.present? %>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Sign signature here</label>
+              </div>
+            </div>
+
+            <div class="span6">
+              <div id="date" class="form-material-group">
+                <% value =  (@subscription.sign_date.blank? ? Time.now : @subscription.sign_date) %>
+                <%= f.text_field :sign_date, required: "required", readonly: true, value: localize_datetime(value, :friendly)%>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Sign date</label>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+      <%= render partial: "invoice" %>
+    <% end%>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,4 @@
+(function(R, $, undefined) {
+  var comment = $("#comment-<%= @comment.id%>");
+  comment.replaceWith('<%= escape_javascript(render @comment)%>');
+})(window.R, jQuery);

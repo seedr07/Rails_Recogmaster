@@ -1,0 +1,3 @@
+var row = $("tr#user_row_<%= @user.id%>")
+row.find('td.roles-cell').html('<%= escape_javascript(@user.role_symbols.collect{|r| r.to_s.humanize}.join(', '))%>');
+row.find('td.promote-cell').html('<%= escape_javascript(promote_demote_link(@user))%>');

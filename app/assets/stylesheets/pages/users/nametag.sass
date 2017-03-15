@@ -1,0 +1,84 @@
+.nametag
+
+  .score,
+  .recognitions
+    color: #333
+
+  .hr
+    margin-bottom: 0 !important
+    
+  .name-tag-wrapper
+    padding: 0
+    position: relative
+    display: inline-block
+    width: auto
+    text-align: center
+    margin-top: 50px
+    
+    .attachment
+      background: asset-data-url("pages/user/nametag-attachment.png") no-repeat center 0 
+      height: 63px
+      width: 58px
+      margin: -46px auto 20px
+      
+    img
+      margin-bottom: 10px
+      width: 76px
+      
+    h3
+      font-size: 20px
+      font-weight: 500
+      margin-bottom: 0
+
+    .avatar-wrapper
+      margin-bottom: 30px
+      
+      h3 + p
+        margin: 0 0 10px 0
+        color: $lighterGrayTextColor
+
+    .scores
+      display: table
+      
+    .scores > div
+      display: table-row
+    
+    .scores > div > div
+      display: table-cell
+      width: auto
+      padding: 30px 30px 32px 30px
+      font-size: 21px
+      
+    .icon
+      float: left
+      margin-right: 10px
+      
+    .received-recognitions
+      border-right: 1px solid #e6e8ea
+      
+    .recognitions
+      border-left: 1px solid #ffffff
+      
+    .received-recognitions .icon
+      background: image-url("icons/recognitions-triangle-down.png") no-repeat 0 0
+      width: 19px
+      height: 20px
+      
+    .recognitions .icon
+      background: image-url("icons/recognitions-triangle.png") no-repeat 0 0
+      width: 19px
+      height: 20px
+      margin-top: 3px
+      
+  .recognition-link
+    border-top: 1px solid #e6e8ea
+    display: block
+    padding: 10px 0
+    font-size: 15px
+    margin: 0
+    background: #FFF
+    border-radius: 0 0 10px 10px
+    
+    &:hover
+      box-shadow: 0 0 3px 1px gray
+      -webkit-transform: scale(1.02)

@@ -1,0 +1,62 @@
+.home
+  #points
+    margin: 0 auto
+
+    & > section
+      padding: 100px 50px
+
+      &:nth-child(odd)
+        @include homeWell()
+
+      p,
+      .point-description
+        @include homeText()
+
+      img
+        max-width: 100%
+
+      .bullets li
+        font-size: 18px
+        line-height: 28px
+        margin-bottom: 20px
+        background: url(image_path("icons/check-price.png")) 0 0 no-repeat
+        padding-left: 35px
+
+      .image-wrapper
+        height: 150px
+
+      h2
+        margin-bottom: 10px
+
+      .tagline, h2
+        color: #0F3B67
+
+      .tagline
+        margin-bottom: 33px
+
+      .inner
+        max-width: 1080px
+        margin: auto
+
+      h2 + .row-fluid,
+      .centered + div
+        margin-top: 40px
+
+      .image,
+      .content
+        float: left
+        width: 340px
+
+@media (max-width: 480px)
+  .home
+    #points > section
+      height: auto !important
+      padding: 20px 5px
+
+    #points section .content
+      width: 100%
+      margin-top: 20px !important
+
+    #points section .inner
+      padding: 0 10px
+      width: auto !important

@@ -1,0 +1,68 @@
+<div class="top row-fluid">
+  <div class="row">
+    <div class="span6">
+      <a href="javascript://" class="slideable-trigger" data-from="#user-count-low" data-to="#user-count" data-direction="reverse">Back to user count</a>
+      <div class="payment-wrapper">
+        <h2><strong>$<span id="price-text"></span><span id="interval-text">/mo</span></strong> <span class="smaller-h2">for <span id="number-of-users"></span> users</span></h2>
+        
+        <%= form_tag subscriptions_path, id: "payment-form", remote: true do %>
+
+          <div class="marginBottom20 clearfix">
+            <div id="subscription-interval-group" class="button-group ">
+              <button id="subscription-interval-monthly" class="button button-pressed" data-interval="<%= Interval.monthly.to_i%>"><%= t("dict.monthly")%></button>
+              <button id="subscription-interval-yearly" class="button" data-interval="<%= Interval.yearly.to_i %>"><%= t("dict.yearly")%></button>
+            </div>
+            <div id="price-subheading" class="subtle-text left"></div>
+          </div>
+
+          <%= render partial: "subscriptions/cc_fields" %>
+
+          <input type="hidden" id="quantity" name="quantity">
+          <input type="hidden" id="subscription-interval" name="subscription[interval]" value="<%= Interval.monthly.to_i %>">
+          <input type="hidden" id="coupon" name="subscription[coupon_code]">
+
+          <button id="submit-button" type="submit" class="button button-large button-highlight form-loading-ignore">Purchase</button>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="span6">
+      <div class="title-wrapper">
+        <h1>Get Started <i class="discount displayNone">With 10% Off</i></h1>
+        <p><%= @purchase_integration_value %></p>
+        <p>Once purchased, we will help you onboard, train, and support your company. Next screen is our proven check-list to start now.</p>
+        <%= link_to "Questions? Contact Sales", contact_path(), class: "button" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bottom row-fluid">
+  <div class="inner">
+    <div class="row">
+      <div class="span4">
+        <div class="title-inner">
+          <h2>Benefits</h2>
+          <%= link_to "Contact us", contact_sales_path, class: "button" %>
+        </div>
+      </div>
+
+      <div class="span4">
+        <ul>
+          <li>Customize badges or edit the existing 30 graphics</li>
+          <li>Create your own rewards catalog</li>
+          <li>Gain best practices from bi-weekly check-ins</li>
+        </ul>
+      </div>
+
+      <div class="span4">
+        <ul>
+          <li><%= @purchase_value %></li>
+          <li>Create a strategy unique as your company</li>
+          <li>Automatic employee recognition through our API</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>

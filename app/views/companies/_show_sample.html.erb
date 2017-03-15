@@ -1,0 +1,31 @@
+<div id="company-admin-content-wrapper" class="<%= paid_class%>">
+  <div id="dashboard" class="tab tab-pane current active" data-no-turbolink="true">
+    <h3 class="marginTop40">See what your Company Admin <em>could</em> look like.</h3>
+    <div id="youtube-video" data-id="Hq4wvp6wnqQ"></div>
+    <%= render partial: "layouts/youtube_load" %>
+    <p class="balance-text">Use with Office 365, Yammer, Sharepoint, Google, and now Slack.</p>
+    <%= link_to "Customize your program & sign up", welcome_path(upgrade: true), id: "upgrade-link", class: "button button-highlight" %>
+  </div>
+
+  <div id="custom_badges" class="tab tab-pane">
+    <h2>Custom badges</h2>
+    <p>Upload your own badges, edit existing ones, edit permissions, and more.</p>
+    <p><%= link_to "Upgrade Now" ,welcome_path, "data-no-turbolink" => true, class: "unlocked button button-highlight" %></p>
+    <p>Have questions? <%= link_to "Contact us", contact_sales_path, "data-no-turbolink" => true, class: "unlocked" %></p>
+  </div>
+
+  <div id="rewards" class="tab tab-pane">
+    <h2>Rewards</h2>
+    <p>Create, manage, and review rewards when you upgrade.</p>
+    <p><%= link_to "Upgrade Now" ,welcome_path, "data-no-turbolink" => true, class: "unlocked button button-highlight" %></p>
+    <p>Have questions? <%= link_to "Contact us", contact_sales_path, "data-no-turbolink" => true, class: "unlocked" %></p>
+  </div>
+
+  <%= render partial: "companies/recognitions" %>
+  <%= render partial: "companies/top_employees"%>
+  <%= render partial: "companies/privacy" %>
+  <%= render partial: "companies/accounts" %>
+  <%= render partial: "companies/settings"%>
+
+</div>
+

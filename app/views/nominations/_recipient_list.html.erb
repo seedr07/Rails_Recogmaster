@@ -1,0 +1,22 @@
+<% @nominations.each do |nomination| %>
+  <%
+    votes = nomination.votes
+    votes = votes.sent_by(current_user) unless current_user.company_admin?
+  %>
+  <% votes.each do |vote| %>
+    <div class="marginBottom10">
+      <div class="row-fluid">
+        <div class="span3 badge marginBottom20 centered">
+          <%= image_tag nomination.badge.image_url, class: "badge-image-extra-small", alt: nomination.badge.short_name %><br>
+          <%= nomination.badge.short_name %>
+        </div>
+        <div class="span9 marginBottom20">
+          <% if vote.message.present? %>
+            <h4 class="inline">"<%= vote.message %>"</h4>
+            <span class="subtle-text"><%= vote.sender.full_name %></span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

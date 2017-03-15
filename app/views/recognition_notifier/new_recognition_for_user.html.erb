@@ -1,0 +1,11 @@
+
+<p style="<%= mail_styles(:p) %>">You can view, comment, or share your recognitions by clicking the button below.</p>
+<a style="<%= mail_styles(:button) %> margin-bottom: 15;" href="<%= recognition_url(@recognition) %>">Comment on this recognition</a>
+
+<div style="<%= mail_styles(:hr_styles)%> margin: 15px 0;"></div>
+  
+<%= link_to user_recognition_url(@sender, network: @sender.network), style: mail_styles(:text, :a) do %>
+
+ Send a recognition to <%= @sender.full_name %>
+
+<% end %>

@@ -1,0 +1,28 @@
+<section id="full_name-wrapper" class="well well-shadow user-session-content centered">
+  <h1 class="balance-text">Welcome to Recognize</h1>
+  <h3 itemprop="headline" class="balance-text">One last thing.</h3>
+
+  <div class="content"><div class="content-inner">
+    <div class="headline">
+      <h3>Please tell us your name.</h3>
+    </div>
+    <%= form_for @user, url: complete_saml_index_path, method: :put, html: {data: {errorwrapper: "#full_name-wrapper .form-error-wrapper"}}, remote: true do |f|%>
+    <div class="form-error-wrapper"></div>
+    <div class="text-field-wrapper">
+      <div class="inner">
+        <div class="form-wrapper">
+          <%= f.hidden_field :email, id: "full_name-hidden-email", class: "hidden-email" %>
+          <div class="name-field-wrapper">
+            <%= f.text_field :first_name, type: "text", placeholder: "First Name", class: "field"%>
+          </div>
+          <div class="name-field-wrapper">
+            <%= f.text_field :last_name, type: "text", placeholder: "Last Name", class: "field"%>
+          </div>
+          <%= button_tag t('dict.next'), id: "full_name_signup_next_btn", class: "button-highlight button left" %>
+        </div>
+      </div>
+    </div>
+  <% end%>
+      
+  </div></div>
+</section>

@@ -1,0 +1,27 @@
+<div class="top-pane clearfix">
+  <div class="title-wrapper">
+    <h1><%= t("dict.hall_of_fame") %></h1>
+    <% if @team %>
+      <h2><%= @team.name %></h2>
+    <% elsif @badge %>
+      <h2>
+        <%= image_tag @badge.image.small_thumb.url, class: "badge-graphic" %>      
+        <%= @badge.short_name %>
+      </h2>
+    <% end %>
+
+  </div>
+
+  <%= render "current_winners" %>
+
+</div>
+
+<div class="main-pane">
+  <%= render "toolbar" %>
+
+  <% if params[:group_by] == "team" %>
+    <%= render "by_team" %>
+  <% else %>
+    <%= render "by_badge" %>
+  <% end %>
+</div>

@@ -1,0 +1,9 @@
+<%= stylesheet_link_tag "3p/bootstrap-datepicker" %>
+  <%= javascript_include_tag "3p/bootstrap-datepicker" %>
+
+<div class="clearfix">
+  <h1>Payment Agreement <i class="subtle-text"><%= link_to @company.domain, admin_company_path(@company) %></i></h1>
+</div>
+
+<%= render partial: "form", locals: {form_action: "Create"}%>
+

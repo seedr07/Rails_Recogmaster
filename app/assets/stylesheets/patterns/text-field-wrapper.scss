@@ -1,0 +1,61 @@
+.text-field-wrapper {
+  border-radius: 9px;
+  background-color: #fefefe;
+  @include linear-gradient(top, #fefefe, #e5e7ef);
+  padding: 10px;
+  width: 527px;
+  margin: 30px auto 0;
+  z-index: 5;
+  position: relative;
+  box-shadow: 0 0px 1px 1px #DFDFDF;
+}
+
+.text-field-wrapper .inner {
+  border-radius: 2px;
+  border-top: 1px solid #9fa7b2;
+  border-right: 1px solid #9fa7b2;
+  border-right: 1px solid -webkit-gradient(linear, 0 0, 0 100%, from(#9fa7b2), to(#bec4cb));
+  border-left: 1px solid #9fa7b2;
+  border-left: 1px solid -webkit-gradient(linear, 0 0, 0 100%, from(#9fa7b2), to(#bec4cb));
+  border-bottom: 1px solid #c9ced6;
+  box-shadow: 0 1px #fff;
+  padding: 11px;
+  background-color: #dee2ec;
+  @include linear-gradient(top, #dee2ec, #eceef3);
+  min-height: 43px;
+  text-align: left;
+}
+
+.text-field-wrapper .form-wrapper {
+  position: relative;
+}
+
+.text-field-wrapper input,
+.text-field-wrapper p {
+  @include appearance(none);
+  font-size: 18px;
+  font-weight: 300;
+  width: 79%;
+  margin: 0;
+  padding: 11px 0;
+  box-shadow: none;
+  line-height: 20px;
+  line-height: 21px;
+}
+
+.text-field-wrapper input {
+  background: white;
+  border: 1px solid #666;
+  padding-left: 10px;
+  height: 53px;
+}
+
+.text-field-wrapper p {
+  background: transparent;
+  border: 0;
+}
+
+.text-field-wrapper input:focus {
+  outline: none;
+}
+ 

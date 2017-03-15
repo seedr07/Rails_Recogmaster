@@ -1,0 +1,8 @@
+<%= render partial: "layouts/flash", locals: {flash: flash}%>
+<h1>Thanks for signing up!</h1>
+<div id="survey-wrapper">
+  <p>Currently, we only allow professional email domains.</p>
+  <p style="font-weight:bold">Would you be interested in a personal Recognize account?</p>
+  <button id="interested-btn" class="button button-highlight" data-id="<%= @encoded_email%>">Yes, I want a Recognize account</button>
+</div>
+<p id="complete" style="display:none">Thank you, when we open to your domain we will contact you</p>

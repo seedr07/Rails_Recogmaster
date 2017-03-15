@@ -1,0 +1,54 @@
+<%= content_for :body_attributes do %>
+  data-company-scope="<%= @company.domain %>"
+<% end %>
+
+<div class="admin-nav-wrapper clearfix">
+  <h2>Company Dashboard</h2>
+  <nav class="admin-nav">
+    <ul class="clearfix">
+      <% if current_user.director?%>
+        <% if current_user.company.family.length > 1 %>
+          <select id="dept-select" name="dept" style="width:100%">
+            <%= company_family_options_for_select %>
+          </select>
+        <% end %>
+        <hr>
+      <% end %>
+      <li class="active">
+        <a data-toggle="tab" href="#dashboard">Dashboard</a>
+      </li>
+      <li>
+        <a data-toggle="tab" href="#custom_badges">Custom Badges</a>
+      </li>
+      <li>
+        <a data-toggle="tab" href="#recognitions">Recognitions</a>
+      </li>
+      <li>
+        <a data-toggle="tab" href="#rank">Top Employees</a>
+      </li>
+      <li>
+        <a data-toggle="tab" href="#rewards">Rewards</a>
+      </li>
+      <%= company_admin_sidebar_link("Nominations", company_admin_nominations_path(@company)) %>
+      <%= company_admin_sidebar_link("Roles", company_admin_roles_path) %>
+      <li >
+        <a data-toggle="tab" href="#accounts">Accounts</a>
+      </li>
+      <li>
+        <a data-toggle="tab" href="#settings">Settings</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<div class="content-wrapper">
+  <div id="admin-inner-wrapper">
+
+    <% if @company.allow_admin_dashboard? %>
+      <%= render partial: "show", locals: {paid_class: "paid"} %>
+    <% else %>
+      <%= render partial: "show_sample", locals: {paid_class: "unpaid"} %>
+    <% end %>
+
+  </div>
+</div>

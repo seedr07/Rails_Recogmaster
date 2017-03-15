@@ -1,0 +1,32 @@
+<%= render partial: "admin/index/admin_header"%>
+
+<%= stylesheet_link_tag "datatables" %>
+
+<h1>Subscriptions</h1>
+
+<nav class="tab-nav">
+  <ul class="clearfix">
+
+    <li id="active-trigger" class="active"><a href="#active-tag" data-toggle="tab" data-event= "subscription-tab" eventtype="click" eventproperties='{"content": "active"}'>Active</a></li>
+
+    <li id="canceled-trigger"><a href="#canceled-tag" data-toggle="tab" data-event= "subscription-tab" eventtype="click" eventproperties='{"content": "canceled"}'>Canceled</a></li>
+
+  </ul>
+  <div class="hr-bottom"></div>
+</nav>
+
+<h4 style="display:inline-block;margin-left: 15px">MRR: $<%= '%g' % @mrr %> | YRR: $<%= '%g' % @yrr %></h4>
+
+<div class="main-content">  
+  <%= render_flash %>
+
+  <section id="active-tag" class="tab tab-pane active">
+    <%= render partial: "table", locals: {subscriptions_list: @active_subscriptions}%>
+  </section>
+  
+  <section id="canceled-tag" class="tab tab-pane">
+    <%= render partial: "table", locals: {subscriptions_list: @canceled_subscriptions}%>
+  </section>
+
+</div>
+

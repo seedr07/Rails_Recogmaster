@@ -1,0 +1,69 @@
+.no-touch #wrapper-outer
+  .admin-nav
+    a:hover
+      background: $headerBg
+      color: white
+
+
+.admin-nav-wrapper
+  overflow: auto
+  background: lighten($headerBg, 5%)
+  color: white
+  padding: 10px 0
+  width: 200px
+  left: 0
+  position: fixed
+  height: 100%
+  min-height: 100%
+  margin-top: -20px
+  z-index: 21
+
+  & + .content-wrapper
+    padding-left: 200px
+
+  h2
+    padding: 0 10px
+    color: white
+
+  h4
+    color: white
+
+  .admin-nav
+    position: relative
+    z-index: 20
+
+    li.active a
+      background: $menuHighlightColor
+      color: white
+
+    li
+      display: block
+
+    a
+      padding: 10px 20px
+      display: block
+      color: white
+
+@media (max-width: 750px)
+  .admin-nav-wrapper
+    margin-top: -35px
+
+@media (max-width: 700px)
+  .admin-nav-wrapper
+    display: block
+    position: relative
+    width: 100%
+    margin-top: -19px
+    float: none
+
+    & + .content-wrapper
+      padding: 0 10px
+
+@media (max-width: 650px)
+  .admin-nav-wrapper
+    margin-bottom: 20px
+    margin-top: 0
+
+    a
+      font-size: 12px
+      padding: 10px

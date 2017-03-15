@@ -1,0 +1,10 @@
+  <% if current_user.present? %>
+    <div class="widget-box-flat">
+      <h2>Find out more about Recognize</h2>
+      <%= render :partial => "layouts/marketing_links" %>
+    </div>
+  <% else %>
+    <div class="relative">
+      <%= render :partial => "email_form", locals: {title: "Add employee recognition to your company's workflow"} %>
+    </div>
+  <% end %>

@@ -1,0 +1,137 @@
+<% content_for :meta_properties do %>
+  <meta property="og:title" content="<%= render(partial: "recognitions/title", locals: {recognition: @recognition})%>" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Recognizeapp.com" />
+  <meta property="og:description" content="<%= @recognition.sender.full_name%> said <%= @recognition.message %>" />
+  <meta property="og:image" content="<%= @recognition.badge.permalink %>" />
+<% end%>
+
+<% content_for :title, "#{@recognition.sender.full_name} recognized #{@recognition.recipients_label}" %>
+
+<% content_for :description, "#{@recognition.recipients_label} is characterized as #{@recognition.badge.short_name} with the message \"#{@recognition.message}\"" %>
+
+<%
+  privacyClass = @recognition.is_public? ? "" : "private"
+  accessEnabledClass = "access-enabled" if permitted_to?(:toggle_privacy, @recognition) and (@recognition.is_public? or (@recognition.is_private? and @recognition.sender_company.allows_public_recognitions?))
+%>
+
+<% if @recognition.badge.is_achievement? || @recognition.badge.restricted? %>
+  <div class="recognition-tag">
+    <h5><%= @recognition.badge.type %></h5>
+  </div>
+<% end %>
+
+<% if @invited_user and @invited_user.crypted_password.blank? %>
+  <%= render "recognition_signup" %>
+<% end %>
+
+<%= render_flash %>
+
+<div id="recognition-show-top" class="clearfix widget-box top">
+
+  <div id="recognition-show-row" class="row-fluid">
+    <div class="image-wrapper span4">
+      <%= image_tag @recognition.badge.image_url, class: "badge-image" %>
+      <h4 class="marginBottom20"><%= @recognition.badge.short_name %></h4>
+      <%= link_to t("recognition_show.view_certificate"), certificate_recognition_path(@recognition), class: "view-certificate-link" if permitted_to?(:certificate, @recognition) %>
+
+    </div>
+    
+    <div id="main-text" class="span5">
+      <h1 class="marginBottom10" itemscope itemtype="http://schema.org/Person">
+        <em itemprop="name"><%= recipients_label(@recognition)%></em>
+      </h1>
+
+      <div id="recipients-avatars">
+        <%= recipients_avatars(@recognition) %>
+      </div>
+
+      <% if permitted_to?(:edit, @recognition)#current_user.try(:company_admin?) || (current_user == @recognition.sender)%>
+        <%= link_to t("recognitions.edit_recognition"), edit_recognition_path(@recognition), class: "button button-inactive button-small button-big"%>
+      <% end %>
+
+      <% if permitted_to?(:destroy, @recognition)%>
+        <%= link_to t("dict.delete"), destroy_recognition_path(@recognition), method: :delete,  class: "recognition-delete button button-no-chrome danger", remote: true, data: {event: "recognition-delete"}%>
+      <% end %>
+      
+      <% if @recognition.skills.present? %>
+      <div class="hr hr-space"></div>
+      
+        <div id="skills">
+          <label class="time subtle-text">Skills</label> 
+          <div>
+            <% @recognition.skills.split(",").each do |skill| %>
+              <% next if skill.blank? %>
+              <span><%= skill.strip %></span>
+            <% end %>
+          </div>
+        </div>
+
+        
+      <% end %>
+      
+      <div class="hr hr-space"></div>
+
+    <% if @recognition.reason.present? %>
+      <p class="message"><%= @recognition.reason %></p>
+    <% end %>
+    
+    <% if @recognition.message.present? %>
+      <div class="message">
+        <%= simple_format(@recognition.message) %>
+      </div>
+    <% end %>
+    <p itemscope itemtype="http://schema.org/Person">
+      <%= t("recognitions.sent_from") %> <span itemprop="name"><%= @recognition.sender.full_name%></span> <i itemprop="worksFor"><%= @recognition.sender.company.name %></i> <span class="subtle-text"><%= time_ago_in_words(@recognition.created_at)%> ago</span>
+    </p>
+
+
+      <% if @recognition.is_public? or @recognition.sender_company.allows_public_recognitions? %>
+        <div class="hr hr-space"></div>
+        <div id="sharing" class="<%= accessEnabledClass%>">
+          <% unless @recognition.is_public? %>
+            <p>When you share this recognition it becomes public.</p>
+          <% end %>
+          <div class="sharing-badges">
+            <%= link_to "Google Plus", share_recognition_path(@recognition, :googleplus), class: "google badge analyticsEvent", target: "_blank", data: {event: "share", eventtype: "click", eventproperties: '{"network": "google"}'} %>
+            <%= link_to "Linkedin", share_recognition_path(@recognition, :linkedin), class: "linkedin badge analyticsEvent", target: "_blank", data: {event: "share", eventtype: "click", eventproperties: '{"network": "linkedin"}'} %>
+            <%= link_to "Facebook", share_recognition_path(@recognition, :facebook), class: "facebook badge analyticsEvent", target: "_blank", data: {event: "share", eventtype: "click", eventproperties: '{"network": "facebook"}'} %>
+            <%= link_to "Twitter", share_recognition_path(@recognition, :twitter), class: "twitter badge analyticsEvent", target: "_blank", data: {event: "share", eventtype: "click", eventproperties: '{"network": "twitter"}'} %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+  </div><!-- fluid row -->
+
+  <div id="recognition-access-wrapper" class="<%= "#{privacyClass} #{accessEnabledClass}" %>" data-param="<%= @recognition.to_param%>" title="<%= t("recognitions.privacy_explanation") %>" data-restrictpublic="<%= !@recognition.sender_company.allows_public_recognitions?%>">
+    <div id="private" class="ribbon analyticsEvent" data-event="toggle-recognition-public" data-eventtype="click"><%= t("dict.private") %></div>
+    <div id="public" class="ribbon analyticsEvent" data-event="toggle-recognition-private" data-eventtype="click"><%= t("dict.public") %></div>
+  </div>
+</div>
+
+
+<div id="recognition-content">
+  <div class="sub-wrapper">
+    <% if @recognition.approvable_by?(current_user) or @recognition.has_approvals? %>  
+    <div class="marginBottom30">
+      <%= render partial: "recognitions/recognition_approval_section", locals: {recognition: @recognition, approvers_limit: 0}%>
+    </div>
+    <% end %>
+
+    <%= render partial: "comments"%>
+
+    <div class="hr hr-space"></div>
+
+    <div class="nametag-wrapper">
+      <% @recognition.participants.each do |participant| %>
+        <% if participant.kind_of?(User) %>
+          <%= render partial: "users/nametag", locals: {user: participant} %>
+        <% end %>
+      <% end %>
+    </div>
+
+
+    <div class="clear"></div>
+  </div>
+</div>

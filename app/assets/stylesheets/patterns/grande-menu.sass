@@ -1,0 +1,151 @@
+$border-colors: #1C70AD #268DD8 #59AAE4 #A0CFF0 #DCF0FE !default
+
+.navbar-nav
+  margin-left: 0
+  margin-right: 0
+
+  
+@mixin noButton()
+  background: none
+  color: white
+  padding: 0
+  display: block
+  border: 0
+  text-align: left
+
+@mixin grandeMenuPlainLinks()
+  font-size: 14px
+  list-style: none
+  font-weight: 400
+  margin: 0 0 5px 0
+  padding: 0
+
+
+
+#ie
+  .grande-menu
+    .link-group
+      padding: 0 15px
+
+    ul
+      padding: 0
+
+    h4 + ul
+      display: none
+
+    li, .btn, li a, h4
+      @include grandeMenuPlainLinks()
+
+    .btn
+      @include noButton()
+
+
+@media (max-width: 768px)
+  .grande-menu
+
+    .dropdown-menu
+      padding-left: 10px
+      padding-right: 10px
+
+    h4, ul
+      padding-left: 0
+
+    h4
+      margin-bottom: 0
+      padding-bottom: 0
+
+    ul
+      margin-bottom: 15px
+
+    h4 + ul
+      display: none
+
+    li, .btn, li a, h4
+      @include grandeMenuPlainLinks()
+
+    .btn, .links a
+      @include noButton()
+
+    a
+      margin: 10px 0
+
+      &:hover
+        background: lighten($headerBg, 15%)
+
+@media (min-width: 768px)
+  .grande-menu
+
+    &.its-too-narrow-now
+      position: static
+
+      .dropdown-menu
+        left: 0
+        border-radius: 4px !important
+
+    &.open
+      .dropdown-menu
+        display: table
+
+    .dropdown-menu
+      width: 580px
+      @include grandeMenuBorder()
+
+      .link-group
+        display: table-cell
+
+        .links
+          width: 100%
+
+      .links
+        padding: 15px 20px
+        box-sizing: border-box
+
+        ul
+          list-style: none
+          margin: 0
+          padding: 0
+
+        li
+          margin: 0
+
+          a:not(.btn):not(.button)
+            font-weight: 200
+            line-height: 15px
+
+        .inner
+          h4
+            margin-bottom: 5px
+
+        a
+          display: block
+          text-decoration: none
+
+          &.btn
+            padding: 3px 10px
+            margin-bottom: 10px
+
+            &:last-child
+              margin-bottom: 0
+
+        a:not(.btn):not(.button)
+          @include transition(color, .3, ease-in-out)
+          padding: 3px 3px 3px 7px
+
+          &:hover
+            background-color: $headerBg
+            color: white
+
+
+        &.naked .inner
+          border-left: none !important
+
+      $i: 1
+      @while $i < length($border-colors)
+        .links:nth-child(#{$i}) .inner,
+        .links.links-#{$i} .inner
+          border-left: 2px solid nth($border-colors, $i)
+          $i: $i + 1
+
+    &.grande-menu-vertical
+      .dropdown-menu
+        width: auto

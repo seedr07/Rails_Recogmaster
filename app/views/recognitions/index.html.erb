@@ -1,0 +1,125 @@
+       <%
+  # we  need to trigger an alias command right after signup so that mixpanel 
+  # will keep the guest session history and associate it with the logged in 
+  # user that we've called "identify" for.  
+  # See analytics-facade.js'
+%>
+
+<% content_for :title, "Recognition Stream" %>
+
+<% unless params[:code]%>
+  <%= render partial: "layouts/notice" %>
+<%end %>
+
+
+<% if flash[:newly_signedup] %>
+  <% content_for :pagejs do %>
+    <% javascript_tag do %>
+      var triggerAlias = true;
+    <% end %>
+  <% end %>
+<% end %>
+
+<% if params[:fullscreen] %>
+  <div class="top-background"></div>
+<% end %>
+
+<% content_for_stream_page %>
+
+<% unless params[:code]%>
+  <% unless current_user.has_read_welcome?%>
+    <div id="first-user-welcome"  style="margin: auto;">
+      <div id="secondary-users" class="widget-box">
+        <%= link_to "close welcome", hide_welcome_user_path(current_user), method: :patch, remote: true, class: "close-icon"%>
+        <h2><%= t("recognitions_index.hello", name: current_user.full_name) %></h2>
+        <%= render partial: "welcome_steps"%>
+      </div>
+    </div>
+  <% end%>
+<%end%>
+
+<% if params[:fullscreen].blank? %>
+<div class="row-fluid">
+
+  <div class="span9">
+<% end %>
+    <div class="clearfix">
+      <div class="stream-toolbar-wrapper left clearfix  marginBottom20">
+        <% if params[:fullscreen] && @company.has_theme? %>
+          <div class="theme-logo-large left" style="margin-right: 10px;"></div>
+        <% end %>
+        <h1 class="left"><%= t("dict.recognitions")%></h1>
+        <div class="recogntion-option-wrapper clearfix">
+          <%= link_to t("recognitions.add_new"), new_recognition_path, class: "left add-new button-no-chrome recognize-new" %>
+        </div>
+        <div class="clear"></div>
+        <% if @company.has_theme? == false %>
+          <i class="subtle-text capitalize"><%= @company.name %></i>
+        <% end %>
+      </div>
+
+      <div class="buttons-wrapper clearfix">
+        <div id="latest-popular-buttons" class="button-group clearfix">
+          <button id="sort-latest" class="button button-pressed"><%= t("recognitions_index.latest")%></button>
+          <button id="sort-popular" class="button"><%= t("recognitions_index.popular")%></button>
+        </div>
+        <a id="column-switch" href="#recognition-details"><%= t("dict.view_details") %></a>
+      </div>
+      <div class="right view-mode-wrapper">
+        <% unless params[:fullscreen] %>
+          <%= link_to t("dict.kiosk"), stream_path(network: @company.domain, fullscreen: true), class: "button-no-chrome", "data-no-turbolink"=> "true", title: "For showing Recognize on a lobby TV, it will refresh every 3 minutes for showing new recognitions." %>
+        <% end %>
+      </div>
+    </div>
+
+
+    <div id="stream" class="opacity0">
+      <% if true#params[:code]%>
+        <%= render @recognitions %>
+      <% else %>
+        <% cache(cache_key_for_stream_page, expires_in: 1.day) do %>
+          <%= render @recognitions %>  
+        <% end %>
+      <% end %>
+    </div>
+
+    <%= will_paginate @recognitions %>
+
+ <% if params[:fullscreen].blank? && params[:code].blank? %>
+  </div>
+
+      <div id="recognition-details" class="span3">
+        <% unless current_user.subscribed_account? %>
+          <div class="well marginBottom20 block">
+          <h3>Learn more about Recognize</h3>
+          <%= render :partial => "layouts/marketing_links" %>
+          <%= link_to "View Company Admin", company_path(network: current_user.company.domain), class: "button button-primary button-full-width"  %>
+          </div>
+        <% end %>
+
+        <% if current_user.company.allow_instant_recognition? && current_user.auth_with_yammer? && !sharepoint_viewer? %>
+          <hr class="hr hr-space">
+          <%= render partial: "recognitions/people" %>
+        <% end %>
+
+        <% if current_user.company.allow_teams? %>
+          <h3><%= t('teams.teams') %></h3>
+          <ul class="blue-links">
+            <% if current_user.company.teams.present? %>
+
+              <% current_user.company.teams.each do |team| %>
+                <li><h4><%= link_to team.name, team_path(team) %></h4></li>
+              <% end %>
+            <% else %>
+              <p>There are no teams present</p>
+            <% end %>
+          </ul>
+        <% end %>
+
+      </div>
+    
+
+
+  </div>
+
+ <% end %>

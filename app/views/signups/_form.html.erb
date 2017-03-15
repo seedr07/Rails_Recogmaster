@@ -1,0 +1,10 @@
+<div class="inner">
+  <%= form_for @user, url: signups_path, remote: true do |f|%>
+    <%= f.text_field :email, tabindex: "1", required: true, type: "email", placeholder: "Enter your email for early private beta access"%>
+    <%= button_tag "Sign up"%>
+  <% end%>
+</div>
+<%= form_for @user, url: signups_path do |f|%>
+  <%= render partial: "signups/company_name", locals: {f: f}%>
+  <%= render partial: "signups/password", locals: {f: f}%>          
+<% end %>      

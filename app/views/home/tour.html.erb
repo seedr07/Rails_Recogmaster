@@ -1,0 +1,83 @@
+<%= content_for :title, t('dict.tour')%>
+
+<section id="intro" class="animate-hidden animate-1 animate" data-no-turbolink="true">
+  <div class="inner">
+    <h1><%= t('home_tour.how_recognize_works') %></h1>
+    <p class="tagline balance-text"><%= t('home_tour.title') %></p>
+  </div>
+
+  <%= render partial: "home/patterns/purple.svg" %>
+</section>
+
+<div id="points"  class="animate-hidden animate-2 animate">
+
+  <section id="point1-wrapper" class="clearfix">
+    <div class="inner">
+      <div class="content">
+        <h2 class="balance-text"><%= t('home_tour.point1_title') %></h2>
+        <p class="balance-text"><%= t('home_tour.point1') %></p>
+        <%= link_to "See the customizations", customizations_path, id: "tour-customizations", itemprop:"relatedLink", class: "button button-border" %>
+
+      </div>
+      <div class="image"><span class="offscreen"><%= t('home_tour.send_badges_like_punctual_and_innovative') %></span></div>
+
+    </div>
+  </section>
+
+  <section id="point2-wrapper" class="clearfix">
+    <div class="inner">
+      <div class="image"><span class="offscreen"></span></div>
+      <div class="content">
+        <h2 class="balance-text"><%= t('home_tour.point2_title') %></h2>
+        <p class="balance-text"><%= t('home_tour.point2') %></p>
+        <%= link_to "View the available analytics", analytics_path, id: "menu-analytics", itemprop:"relatedLink", class: "button button-border" %>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="point3-wrapper"class="clearfix">
+    <div class="inner">
+      <div class="content">
+        <h2><%= t('home_tour.point3_title') %></h2>
+        <p class="balance-text"><%= t('home_tour.point3') %></p>
+        <%= link_to "See the engagement strategy", engagement_path, id: "tour-engagement", itemprop: "relatedLink", class: "button button-border" %>
+
+      </div>
+      <div class="image"><span class="offscreen"></span></div>
+      
+    </div>
+  </section>
+
+  <section id="point4-wrapper" class="clearfix">
+    <div class="inner">
+      <div class="image"><span class="offscreen"></span></div>
+      
+      <div class="content">
+        <h2 class="balance-text"><%= t('home_tour.point4_title') %></h2>
+        <p class="balance-text"><%= t('home_tour.point4') %></p>
+      </div>
+      
+    </div>
+  </section>
+
+  <section id="point5-wrapper" class="clearfix">
+    <div class="inner">
+      <div class="content">
+        <h2 class="balance-text"><%= t('home_tour.point5_title') %></h2>
+        <p class="balance-text"><%= t('home_tour.point5') %></p>
+      </div>
+      <div class="image"><span class="offscreen"></span></div>
+    </div>
+  </section>
+</div>
+
+<section id="action">
+  <div class="inner">  
+    <div class="content">
+      <%= render partial: "/home/bottom" %>
+    </div>
+  </div>
+</section>
+
+<%= render :partial => 'footer' %>

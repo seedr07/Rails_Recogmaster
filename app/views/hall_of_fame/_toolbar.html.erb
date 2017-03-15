@@ -1,0 +1,16 @@
+<div class="toolbar">
+  <% interval_options = interval_options_for_select(params[:interval] || Interval::MONTHLY, I18n.t('interval.by'))%>
+  <%= select_tag "interval", interval_options, class: "param-select" %>
+
+  <% if current_user.company.allow_teams %>
+    <%= select_tag "group_by", options_for_select([[t("dict.group_by_badge"), "badge"], [t("dict.group_by_team"), "team"]], params[:group_by]), class: "param-select", data: {"reset-tools": true} %>
+
+    <% if params[:group_by] == "team" %>
+      <% badge_options = options_for_select(@company.company_badges.order('short_name asc').map{|b| [b.short_name, b.id]}, params[:badge_id]) %>
+      <%= select_tag "badge_id", badge_options, include_blank: t("dict.all_badges"), class: "param-select" %>
+    <% else %>
+      <% team_options = options_for_select(@company.teams.order('name asc').map{|t| [t.name, t.id]}, params[:team_id]) %>
+      <%= select_tag "team_id", team_options, include_blank: t("dict.all_company"), class: "param-select" %>
+    <% end %>
+  <% end %>
+</div>

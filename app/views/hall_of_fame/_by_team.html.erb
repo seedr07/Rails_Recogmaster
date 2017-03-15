@@ -1,0 +1,31 @@
+<ul class="teams">
+
+  <% @winners_by_team.each do |team, time_period_groups| %>
+    <li class="team">
+
+      <div class="team-info">
+        <h4><%= team.name %></h4>
+      </div>
+      <div class="time-periods-wrapper">
+        <a class="arrow-clip arrow-clip-left hidden" href="javascript://"><div><span>See more</span></div></a>
+
+        <ul class="time-periods clearfix">
+          <% if time_period_groups.empty? %>
+            <li class="time-period">
+              <h5 class="time-period-title">No winners yet for this team</h5>
+              <ul class="users clearfix"></ul>
+            </li>
+          <% end %>
+
+          <% time_period_groups.each do |group| %>
+            <%= render "winning_group", group: group %>
+          <% end %>
+        </ul>
+        <a class="arrow-clip arrow-clip-right" href="javascript://"><div><span>See more</span></div></a>
+      </div>
+
+
+    </li>
+  <% end %>
+
+</ul>

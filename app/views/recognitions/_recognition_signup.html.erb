@@ -1,0 +1,30 @@
+<div id="recognition-show-signup">
+  <a href="#" class="close-icon">Close</a>
+  <h3><%= t("sign_up.wants_you_to_join", who: @invited_user.invited_by.full_name) %></h3>
+
+  <hr class=''>
+
+  <%= render "identity_providers/show", company: @invited_user.company, email: @invited_user.email, network: @invited_user.network, skip_password_auth: true %>
+
+  <% unless @invited_user.company.disable_passwords? %>
+    <hr class='hr-space'>
+    <h4>Or set a password to login.</h4>
+    <%= form_for @invited_user, url: password_signups_path, method: :put, html: {id: "user_password_form", data: {errorwrapper: "#password-wrapper .form-error-wrapper", event: "signup-password", eventproperties:'{"field": "password"}'}}, remote: true do |f|%>  
+      <div class="form-error-wrapper"></div>    
+      <div class="text-field-wrapper">
+        <div class="inner">
+          <div class="form-wrapper">
+            <%= f.hidden_field :email, id: "password-hidden-email", class: "hidden-email" %>          
+            <%= f.text_field :first_name, tabindex: "1", placeholder: t('forms.first_name'), class: 'field'%>
+            <%= f.text_field :last_name, tabindex: "2", placeholder: t('forms.last_name'), class: 'field'%>
+            <%= f.password_field :password, tabindex: "3", placeholder: t('dict.password'), class: "field"%>
+            <div>
+              <%= button_tag t('dict.join'), class: "button-highlight button"%>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    <% end%>          
+  <% end %>
+</div>

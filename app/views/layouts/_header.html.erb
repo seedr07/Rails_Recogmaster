@@ -1,0 +1,112 @@
+<header id="header" class="clearfix loading ios-hidden">
+  <div class="primary-controls clearfix">
+      <aside id="header-controls" class="clearfix">
+        <% unless current_user.personal_account? %>
+          <%= link_to stream_path(network: current_user.network), id: "header-stream" do %>
+            <div></div><span><%= t("dict.stream")%></span>
+          <% end %>
+        <% end %>
+
+        <%= link_to new_recognition_path(network: current_user.network), id: "header-recognize", class: "recognize-new" do %>
+          <div></div><span><%= t("dict.recognize")%></span>
+        <% end %>
+
+        <% unless current_user.personal_account? %>
+          <% if current_user.allow_stats? %>
+            <%= link_to reports_path(network: current_user.network), id: "header-reporting" do %>
+              <div></div><span><%= t("dict.stats")%></span>
+            <% end %>
+          <% end %>
+
+          <%= link_to users_path(network: current_user.network), id: "header-users" do %>
+            <div></div><span><%= t("dict.users")%></span>
+          <% end %>
+          <%= link_to company_badges_path, id: "header-badges" do %>
+            <div></div><span><%= t("dict.badges")%></span>
+          <% end %>
+
+          <% if permitted_to?(:index, :hall_of_fame, object: current_user, skip_attribute_test: false) %>
+            <%= link_to hall_of_fame_index_path, id: "header-fame"  do %>
+              <div></div><span><%= t("dict.fame")%></span>
+            <% end %>
+          <% end %>
+        <% end %>
+
+        <% if permitted_to?(:index, :redemptions, object: current_user, skip_attribute_test: false) %>
+          <%= link_to redemptions_path, id: "header-rewards" do %>
+            <div></div><span><%= t("dict.rewards")%></span>
+          <% end %>
+        <% end %>
+      </aside>
+  </div>
+
+    <div id="header-loggedin-logo" data-no-turbolink='true'>
+      <% if !has_theme? %>
+        <h3><%= t("dict.recognize")%></h3>
+
+        <% #end %>
+      <% end %>
+    </div>
+
+    <aside class="clearfix secondary-controls">
+
+      <%= link_to user_path(current_user), id: "header-profile-wrapper", class: "clearfix block" do %>
+        <%= image_tag(current_user.avatar.small_thumb, class: "profile-pic pull-left avatar") if current_user.avatar %>
+
+        <div class="profile pull-left">
+          <h2><%= current_user.full_name %></h2>
+          <div class="stats">
+            <dl>
+              <dt class="offscreen" title='<%= t("stats.total_score")%>'><%= t("stats.total_score")%></dt>
+              <dd id="total_points"><%= interval_points(current_user) %></dd>
+            </dl>
+          </div>
+        </div>
+      <% end %>
+
+      <a id="header-settings" class="header-menu-trigger" href="#settings-menu">
+        <div></div><span><%= t("dict.menu")%></span>
+      </a>
+    </aside>
+</header>
+
+<div class="clear"></div>
+
+<ul id="settings-menu" class="header-menu visibilty-hidden">
+
+  <% if !current_user.personal_account? && current_user.allow_teams? %>
+    <li class="teams">
+      <%= link_to t('dict.team_directory'), teams_path(network: current_user.network), id: "menu-teams", class: "analyticsClick" %>
+    </li>
+  <% end %>
+
+  <% if current_user.allow_invite? %>
+       <li class="invite"><%= link_to t('dict.invite'), invite_users_path(network: current_user.network), id: "menu-invite", class: "analyticsClick" %></li>
+  <% end %>
+
+  <% if current_user.company.subscription.present? && permitted_to?(:edit, current_user.company.subscription) %>
+    <li class="billing" data-no-turbolink>
+      <%= link_to t('dict.billing'), subscription_path(current_user.company.subscription), id: "menu-invite", class: "analyticsClick" %>
+    </li>
+  <% end %>
+
+  <% if current_user.admin? %><li class="admin"><%= link_to "Site Admin", admin_path%></li><% end%>
+  
+  <% if permitted_to?(:show, current_user.company) %><li class="admin" data-no-turbolink='true'><%= link_to "Company Admin", company_path(network: current_user.company.domain)%></li><% end%>
+
+
+  <% if current_user.team_leader? %><li class="team-admin"><%= link_to t("dict.team_administration"), "#"%></li><% end%>
+  <li class="support"><%= link_to t('dict.contact'), contact_path %></li>
+  <li class="help">
+    <%= link_to t("dict.help"), "http://support.recognizeapp.com" %>
+  </li>
+  <li class="logout" data-no-turbolink=true><%= link_to t('dict.logout'), logout_path, class: "analyticsClick", id:"menu-logout" %></li>
+</ul>
+
+<% unless current_user.personal_account? %>
+  <div id="search-popup" class="visibilty-hidden">
+    <label id="header-search-label" for="header-search-input"><%= t("users.search_users") %></label>
+    <input type="search" id="header-search-input" placeholder=<%=t("users.search_users") %>>
+    <div id="header-search-results"></div>
+  </div>
+<% end %>

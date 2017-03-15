@@ -1,0 +1,11 @@
+$(function(){
+  <% unless @subscription.persisted? %>
+    console.log("Errors: "+'<%= @subscription.errors.full_messages.to_sentence%>');
+  <% end %>
+  var btn = $(".create_subscription_button");
+  var oldhtml = btn.html();
+  btn.html("Created").delay(100).queue(function(n){
+    $(this).val("Update");
+    n();
+  })
+})();

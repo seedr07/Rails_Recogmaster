@@ -1,0 +1,26 @@
+<div id="instructions">
+  <h2>Welcome to Recognize!</h2>
+  <p>Here's a couple of tips to get you started.</p>
+  <div class="hr hr-space"></div>
+  <ol>
+    <li>
+      <h3>1. Choose a badge</h3>
+      <p>To recognize a coworker, start by choosing a badge by <strong>clicking "Choose badge" graphic</strong>. The badges will show and you simply click a badge to select it.</p>
+    </li>
+    <li>
+      <h3>2. Sending a recognition</h3>
+      <p><strong>Enter a coworker's name or email</strong>, and a recognition message on the left side of the screen once you are ready to get started.</p>
+    </li>
+
+    <li>
+      <h3>3. Other things you can do</h3>
+      <p>On the <%= link_to "Stream Page", root_path %> you can review all the recognitions in your company. <%= link_to "Edit your profile", edit_user_path(current_user) %> to join teams. See where everyone stands on the <%= link_to "reports page", reports_path %>.</p>
+      <p>Browser around by clicking on the items in the top gray navigation bar. There's lots of fun stuff to check out!</p>
+      <p>We want to hear from you. If you have <%= link_to "feedback go here", contact_path %>.</p>
+    </li>
+  </ol>
+
+  <div class="hr hr-space"></div>
+    
+  <button class="button button-primary">Okay, I'm ready to start!</button>
+</div>

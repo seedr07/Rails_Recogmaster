@@ -1,0 +1,22 @@
+<% 
+  u = User.unscoped.joins(:user_roles).where(company_id: c.id, user_roles: {role_id: Role.company_admin.id}).first
+  row_class = c.has_one_verified_user? ? 'verified' : 'unverified'
+%>
+<tr class='<%= row_class%>' id="company_row_<%= c.id%>">
+  <td><%= link_to c.name, "http://#{c.child_company? ? c.parent_company.domain : c.domain}", target: "_blank"%><% if c.child_company? %><sup><%= c.parent_company.name%></sup><% end %></td>
+  <% if u.present? %>
+    <td><%= u.full_name%> - <%= u.email%><span style="font-size: 10px">(<%= link_to "login", admin_login_as_path(email: u.email) %>)</span></td>
+  <% else %>
+    <td class="no-company-admin"><%= link_to "No company admin! Assign one now", admin_company_path(c)%></td>
+  <% end %>
+  <td><%= link_to c.users_count, "/#{c.domain}/users" %></td>
+  <td><%= link_to (c.sent_user_recognitions_count || 0), "/#{c.domain}/recognitions" %></td>
+  <td><%= link_to (c.received_user_recognitions_count || 0), "/#{c.domain}/recognitions" %></td>
+  <td><%= localize_datetime(c.created_at, :friendly_with_time)%></td>
+  <td align="center"><%= localize_datetime(c.last_recognition_sent_at, :slash_date_with_time) || @spacer %></td>
+  <td align="center"><%= localize_datetime(c.last_user_created_at, :slash_date_with_time) || @spacer%></td>
+  <td align="center"><%= @company_auth_map[c.id].present? ? "yes" : @spacer%></td>
+  <td align="center" class="custom-badges-link">
+    <%= link_to "Manage", admin_company_path(c) %>
+  </td>
+</tr>

@@ -1,0 +1,20 @@
+<% if page_id.include?("chromeless")
+  r_path = new_chromeless_recognitions_path
+  n_path = new_chromeless_nominations_path
+else
+  r_path = new_recognition_path
+  n_path = new_nomination_path
+end %>
+
+<% if @company.nominations_enabled?(current_user) %>
+  <div class="recognition-type clearfix">
+    <nav>
+      <%= link_to r_path, class: "recognition-page-trigger" do %>
+        <div><%= t("dict.recognize") %></div>
+      <% end %>
+      <%= link_to n_path, class: "nomination-page-trigger" do %>
+        <div><%= t("nominations.nominate") %></div>
+      <% end %>
+    </nav>
+  </div>
+<% end %>

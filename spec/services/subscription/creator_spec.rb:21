@@ -1,0 +1,7 @@
+[Cassette: 'subscription/creator/when_missing_required_attributes_when_its_a_wire_payment_should_have_errors_on_the_subscription_object'] Initialized with options: {:record=>:once, :match_requests_on=>[:method, :uri], :allow_unused_http_interactions=>true, :serialize_with=>:yaml, :persist_with=>:file_system}
+  [Cassette: 'subscription/creator/when_missing_required_attributes_when_its_a_wire_payment_should_have_errors_on_the_subscription_object'] Initialized HTTPInteractionList with request matchers [:method, :uri] and 0 interaction(s): {  }
+[Cassette: 'Subscription::Creator/when missing required attributes/when its a wire payment/should have errors on the subscription object'] Initialized with options: {:record=>:once, :match_requests_on=>[:method, :uri], :allow_unused_http_interactions=>true, :serialize_with=>:yaml, :persist_with=>:file_system}
+  [Cassette: 'Subscription::Creator/when missing required attributes/when its a wire payment/should have errors on the subscription object'] Initialized HTTPInteractionList with request matchers [:method, :uri] and 0 interaction(s): {  }
+[Cassette: 'test'] Initialized with options: {:record=>:once, :match_requests_on=>[:method, :uri], :allow_unused_http_interactions=>true, :serialize_with=>:yaml, :persist_with=>:file_system}
+[webmock] Handling request: [get https://api.stripe.com/v1/plans?created%5Bgt%5D=1432537200] (disabled: false)
+[webmock] Identified request type (unhandled) for [get https://api.stripe.com/v1/plans?created%5Bgt%5D=1432537200]

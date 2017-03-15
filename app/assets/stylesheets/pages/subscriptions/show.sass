@@ -1,0 +1,128 @@
+@font-face
+  font-family: black_jack
+  src: url('/assets/black_jack-webfont.ttf') format('truetype'), url('/assets/black_jack-webfont.woff') format('woff'), url('/assets/black_jack-webfont.svg#black_jack') format('svg'), url('/assets/black_jack-webfont.eot')
+
+
+#subscriptions-show,
+#subscriptions-update
+
+  .contract-body
+    max-height: 380px
+    overflow: scroll
+    border-bottom: 1px solid rgb(202, 202, 202)
+    padding: 20px 0
+
+  .row-fluid
+    .row
+      margin-left: 0
+      margin-right: 0
+
+  .payment-instructions
+    position: fixed
+    top: 231px
+    width: 490px
+    border: 1px solid #E0E0E0
+    background-color: #F9F9F9
+    z-index: 10000
+    padding: 20px
+    box-shadow: 1px 3px 3px 1px rgba(168, 168, 168, 0.22)
+    left: 0px
+    display: inline-block
+
+    .steps
+      display: inline-block
+      margin: auto
+      list-style-type: decimal
+
+      .step
+        float: left
+        margin-right: 20px
+
+  .payment-instructions + .payment-callout
+    margin-left: 490px
+
+  #signature,
+  #date
+    input
+      font-size: 32px
+      line-height: 34px
+      font-weight: 100
+      min-height: 70px
+
+  #signature
+    input
+      font-family: black_jack, script
+
+  #payment-form
+
+    #invoice
+      width: 100%
+
+    .table-responsive
+      td:last-child
+        width: 60%
+
+    .total-row
+      td:last-child
+        font-size: 3em
+        line-height: 1em
+        font-weight: 200
+        padding: .75em
+
+
+    .control-group
+      text-align: left
+
+      input
+        width: 100%
+        box-sizing: border-box
+        -moz-box-sizing: border-box
+        min-height: 40px
+
+      &.left input
+        width: auto
+
+      .label
+        display: block
+
+      label.error
+        display: block
+        color: #B94A48
+
+    #payment-cvc-wrapper
+      margin-right: 10px
+
+  .table-responsive
+    border: 0
+
+  .total-row
+    td
+      font-weight: bold
+
+
+@media (max-width: 1150px)
+
+  #subscriptions-show,
+  #subscriptions-update
+    .payment-instructions
+      width: 405px
+
+    .payment-callout
+      margin-left: 410px
+
+
+@media (max-width: 975px)
+
+  #subscriptions-show,
+  #subscriptions-update
+    .payment-instructions
+      width: 100%
+      position: static
+
+    .payment-instructions + .payment-callout
+      margin-left: 0
+
+    #payment-form
+
+      #invoice
+        width: 100%

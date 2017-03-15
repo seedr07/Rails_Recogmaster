@@ -1,0 +1,109 @@
+<script id="r-recognitions-toolbar" type="text/x-handlebars-template">
+  {{#if loggedIn}}
+    <li id="recognize-toolbar" class="yj-header-menu-item  yj-header-navigation--jewel yj-header-list-section-border sprite-parent yj-component" data-yj-tabname="recognition">
+      <a href="javascript://" title="Recognitions" role="button" aria-haspopup="true" class="yj-header-navigation--jewel-link yj-simple-click-menu-trigger" style="position: static;">
+        <span class="yj-header-navigation--jewel-text">&#9733; {{i18n.recognize}}</span>
+      </a>
+      <ul class="yj-header-navigation--dropdown-left yj-click-menu">
+        <li class="yj-header-navigation--dropdown-item" role="presentation">
+          <a id="recognize-someone-trigger" href="//recognizeapp.com/recognitions/new" class="yj-header-navigation--dropdown-link" title="{{i18n.send_recognition}}" role="menuitem" aria-label="send recognition">{{i18n.send_recognition}}</a>
+        </li>
+        <li class="yj-header-navigation--dropdown-item" role="presentation">
+          <a href="//recognizeapp.com/reports/" id="reports-trigger" class="yj-header-navigation--dropdown-link" title="Recognize {{i18n.stats}}" role="menuitem" aria-label="Recognize stats">{{i18n.stats}}</a>
+        </li>
+        {{#if user.company_admin}}
+        <li class="yj-header-navigation--dropdown-item" role="presentation">
+          <a href="//recognizeapp.com/company/" id="company-admin-trigger" class="yj-header-navigation--dropdown-link" title="Recognize {{i18n.company_admin}}" role="menuitem" aria-label="Recognize company admin">{{i18n.company_admin}}</a>
+        </li>
+        {{/if}}
+      </ul>
+    </li>
+  {{ else }}
+  <li id="recognize-toolbar" class="yj-header-menu-item  yj-header-navigation--jewel yj-header-list-section-border sprite-parent yj-component" data-yj-tabname="recognition">
+    <a href="{{signupUrl}}" title="Sign In to Recognize" role="button" class="yj-header-navigation--jewel-link" style="position: static; padding-left: 0; padding-right: 5px;">
+      <span class="yj-header-navigation--jewel-text">&#9733; {{i18n.sign_in}}</span>
+    </a>
+  </li>
+  {{/if}}
+</script>
+
+<script id="r-recognitions-toolbar-new-main" type="text/x-handlebars-template">
+  {{#if loggedIn}}
+    <li id="recognize-list" class="switcher-option" data-name="Recognize">
+      <a class="unstyle-button-as-span yj-simple-click-menu-trigger" href="javascript://">
+        <span class="option-icon yamicon">★</span>
+        <span class="option-label">{{i18n.recognize}}</span>
+      </a>
+
+      <ul class="yj-click-menu yj-nav-menu--primary-actions-drop-down-list" style="display: none;">
+
+        <li class="yj-nav-menu--primary-actions-drop-down-item" role="presentation">
+          <a  id="recognize-someone-trigger" href="//recognizeapp.com/recognitions/new" class="yj-nav-menu--primary-actions-drop-link" data-qaid="ellipsis_menu_invite_link" role="menuitem">
+            <strong>{{i18n.send_recognition}}</strong>
+          </a>
+        </li>
+
+        <li class="yj-nav-menu--primary-actions-drop-down-item" role="presentation">
+          <a href="//recognizeapp.com/reports/" id="reports-trigger" class="yj-nav-menu--primary-actions-drop-link" data-qaid="ellipsis_menu_group_link" role="menuitem">
+            <strong>{{i18n.stats}}</strong>
+          </a>
+        </li>
+        {{#if user.company_admin}}
+        <li class="yj-nav-menu--primary-actions-drop-down-item" role="presentation">
+          <a href="//recognizeapp.com/company/" id="company-admin-trigger" class="yj-nav-menu--primary-actions-drop-link" data-qaid="ellipsis_menu_people_link" role="menuitem">
+            <strong>{{i18n.company_admin}}</strong>
+          </a>
+        </li>
+        {{/if}}
+      </ul>
+    </li>
+{{ else }}
+  <li id="recognize-list" class="switcher-option" data-name="Recognize">
+    <a href="{{signupUrl}}" title="Sign In to Recognize">
+      <span class="option-icon yamicon">★</span>
+      <span class="option-label">{{i18n.recognize}}</span>
+    </a>
+  </li>
+  {{/if}}
+
+</script>
+
+<script id="r-recognitions-toolbar-sidebar" type="text/x-handlebars-template">
+  {{#if loggedIn}}
+  <li id="recognize-list-sidebar" class="yj-header-menu-item yj-nav-menu--primary-actions-item  yj-component">
+    <a href="javascript://" class="yj-nav-menu--primary-actions-link yj-simple-click-menu-trigger yk-dim yj-nav-menu--primary-actions-notifications"  aria-haspopup="true" role="button" data-speechtip="" style="position: relative;">
+      <span class="r-icon"></span>
+    </a>
+    <ul class="yj-click-menu yj-nav-menu--primary-actions-drop-down-list" style="display: none;">
+
+      <li class="yj-nav-menu--primary-actions-drop-down-item" role="presentation">
+        <a  id="recognize-someone-trigger" href="//recognizeapp.com/recognitions/new" class="yj-nav-menu--primary-actions-drop-link" data-qaid="ellipsis_menu_invite_link" role="menuitem">
+          <strong>{{i18n.send_recognition}}</strong>
+        </a>
+      </li>
+
+      <li class="yj-nav-menu--primary-actions-drop-down-item" role="presentation">
+        <a href="//recognizeapp.com/reports/" id="reports-trigger" class="yj-nav-menu--primary-actions-drop-link" data-qaid="ellipsis_menu_group_link" role="menuitem">
+          <strong>{{i18n.stats}}</strong>
+        </a>
+      </li>
+      {{#if user.company_admin}}
+      <li class="yj-nav-menu--primary-actions-drop-down-item" role="presentation">
+        <a href="//recognizeapp.com/company/" id="company-admin-trigger" class="yj-nav-menu--primary-actions-drop-link" data-qaid="ellipsis_menu_people_link" role="menuitem">
+          <strong>{{i18n.company_admin}}</strong>
+        </a>
+      </li>
+      {{/if}}
+    </ul>
+  </li>
+
+  {{ else }}
+
+  <li id="recognize-list-sidebar" class="yj-header-menu-item  yj-header-navigation--jewel yj-header-list-section-border sprite-parent yj-component">
+    <a href="{{signupUrl}}" title="{{i18n.sign_in}}" class="yj-nav-menu--primary-actions-link yk-dim yj-nav-menu--primary-actions-notifications " role="button" data-speechtip="" style="position: relative;">
+      <span class="r-icon"></span>
+    </a>
+  </li>
+  {{/if}}
+
+</script>

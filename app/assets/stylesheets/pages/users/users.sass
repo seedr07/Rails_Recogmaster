@@ -1,0 +1,51 @@
+#users-index
+  .pagination
+    display: none
+
+  .user-list
+
+    .avatar-wrapper
+      min-width: 65px
+
+    h3
+      padding: 0 !important
+      overflow: hidden
+      text-overflow: ellipsis
+
+    img.avatar
+      max-width: 65px
+
+    h4
+      margin-right: 10px
+
+    h4 + .subtle-text
+      white-space: nowrap
+
+    li
+      padding: 15px
+
+      &:nth-child(odd)
+        background: white
+
+    .badge
+      text-align: center
+      text-overflow: ellipsis
+      overflow: hidden
+
+    .latest-recognition-label
+      font-size: 12px
+      margin: 0 0 15px 0
+
+    .badge-detail
+      margin-bottom: 5px
+
+.users
+  .to p
+    font-size: 17px
+    color: #333 !important
+
+@media (max-width: 768px)
+  #users-index
+    .user-list
+      .badge
+        text-align: left

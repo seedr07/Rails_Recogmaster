@@ -1,0 +1,377 @@
+$recognitionCardContentBorderColor: #e8e9eb
+
+.recognition-detail-link
+  display: block
+
+#recognitions-wrapper.vertical
+  min-width: 100%
+
+  .recognition-card
+    width: 100%
+    box-sizing: border-box
+    margin: 0 0 20px 0
+
+    .to-wrapper
+      margin-bottom: 10px
+      .to
+        width: auto
+
+        li
+          float: left
+          margin-right: 10px
+
+.recognition-card
+  margin: 0 5% 30px
+  width: 90%
+  max-width: 800px
+
+  .comment-wrapper
+    border-top: 1px solid #E6E6E6
+
+
+    li
+      margin-bottom: 5px
+
+      &:last-child
+        margin-bottom: 0
+
+    p
+      font-size: 12px
+      margin: 0
+
+    span
+      font-size: 10px
+
+  .edit-controls
+    input,
+    textarea
+      width: 224px
+  
+  .cross-company-card
+    position: absolute
+    top: -7px
+    right: -7px
+    background: asset-data-url("recognition-card/external-network.png") 0 0 no-repeat
+    width: 83px
+    height: 88px
+    text-indent: -9999px
+    
+  h4
+    transform: translateZ(0)
+    
+  .from i,
+  .to i
+    color: $lighterGrayTextColor
+
+  .recognition-badge 
+    width: auto
+
+  a
+    text-decoration: none
+
+  $recognitionBg: #f4f4f4
+
+  .content 
+    position: relative
+    border-radius: 5px
+    border: 1px solid #C0BFBF
+    position: relative
+    background: white
+    
+  h3 
+    float: left
+    font-size: 16px
+    margin-bottom: 0
+    margin-left: 3px
+
+  .badge-wrapper
+    display: block
+    padding-top: 15px
+    border-bottom: 1px solid #E6E6E6
+    border-radius: 5px 5px 0 0
+    background: $recognitionBg
+    min-height: 74px
+    overflow: hidden
+    position: relative
+
+    &:hover
+      background: darken($recognitionBg, 5%)
+
+  .image-wrapper 
+    z-index: 2
+    width: 50px
+    height: 50px
+    @include background-size(50px)
+    margin: -4px 0 0 15px
+    border-radius: 102px
+    box-shadow: 0 2px 5px 1px rgba(105, 104, 104, 0.73)
+    position: absolute
+    top: 18px
+    left: 0
+
+  .image-wrapper:hover
+    box-shadow: 0 2px 5px 2px rgba(105, 104, 104, 0.73)
+
+  .to-wrapper,
+  .from-wrapper,
+  .comment-wrapper
+    padding: 15px
+
+  .to-wrapper
+    padding: 0 0 0 85px
+    width: 100%
+
+    li
+      margin-bottom: 3px
+      float: left
+      width: 145px
+
+      &:only-child
+        width: 100%
+
+    .avatar
+      width: 19px
+      height: 19px
+      margin-right: 5px
+
+  .to-wrapper .image
+    float: left
+    margin-right: 5px
+    max-width: 50px
+
+  .recognitino-card .profile-pic
+    max-width: 60px
+
+  .message p
+    font-size: 25px
+    line-height: 33px
+    margin-top: 5px
+    font-weight: 200
+
+    &:empty
+      display: none
+
+    .read-more
+      font-size: 13px
+      font-weight: 400
+      display: inline-block
+      padding-left: 43px
+      margin-left: -36px
+      @include linear-gradient(-90deg, white 64%,  rgba(white, 0.76) 84%, rgba(white, 0) 100%)
+      background-color: transparent
+
+    ul:not(.single-recipient)
+      li:only-child
+        strong
+          overflow: visible
+
+      strong
+        overflow: hidden
+        white-space: nowrap
+        text-overflow: ellipsis
+        float: left
+
+  .to-wrapper h4
+    margin-bottom: 4px
+    overflow: hidden
+    text-overflow: ellipsis
+    padding-bottom: 2px
+
+  .to-wrapper p 
+    margin-top: 0
+    margin-bottom: 0
+
+
+  .from-wrapper dt 
+    position: absolute
+    left: -9999px
+
+  .from-wrapper dd 
+    margin-left: 0
+
+  .time 
+    font-size: 11px
+
+  .time,
+  .from 
+    display: inline-block
+  
+  .bottom
+    padding: 20px 15px 20px
+    border-top: 1px solid $recognitionCardContentBorderColor
+
+  .bottom a,
+  .bottom p
+    font-size: 12px
+
+  .vote a, 
+  .counter
+    font-size: 14px
+    line-height: 14px
+    cursor: pointer
+    float: left
+    margin-right: 10px
+    width: 33px
+    height: 12px
+    @include voteButton()
+    min-height: 24px
+
+  .counter
+    cursor: auto
+    background: transparent
+    color: #666 !important
+    font-size: 20px
+    box-shadow: none
+    text-shadow: none
+  
+  .vote a:hover
+    @include voteButtonHover()
+  
+  .vote a:active
+    background: $btnBlueTopColor
+  
+  .bottom .who a,
+  .bottom p
+    text-decoration: none
+    color: #666
+    margin-bottom: 0
+    
+  .who h4
+    font-size: 13px
+    line-height: 13px
+
+  .bottom .who p,
+  .bottom .who a
+    line-height: 13px
+
+  .bottom .who a:hover
+    text-decoration: underline
+
+  .bottom .who
+    float: left
+    width: 156px
+
+  .vote-wrapper p
+    margin: 0
+
+  dl
+    margin-bottom: 9px
+
+    &:last-child
+      margin-bottom: 0
+
+  .options
+    position: absolute
+    bottom: 0
+    right: 0
+  
+    .options-menu
+      display: none
+
+      li
+        float: left
+        margin-right: 5px
+    
+    .options-trigger
+      padding: 10px
+      margin: -9px -1px -8px -1px
+      visibility: hidden
+      float: right
+      cursor: pointer
+      padding: 10px
+      text-indent: -9999px
+    
+      .gear-big
+        background: asset-data-url("recognition-card/gear-big.png") 0 0 no-repeat
+        @include background-size(15px)
+        width: 15px
+        height: 15px
+        position: relative
+        left: -5px
+        top: 2px
+        
+      .gear-small
+        background: asset-data-url("recognition-card/gear-small.png") 0 0 no-repeat
+        @include background-size(10px)
+        width: 10px
+        height: 10px
+        position: relative
+        right: -5px
+
+.touch .options .options-trigger
+  visibility: visible
+        
+.recognition-card:not(.edit-open):hover .options-trigger,
+.recognition-card.options-open .options-trigger
+  visibility: visible
+
+
+.recognition-card.options-open .options
+  position: static
+  margin-top: -30px
+
+
+        
+.recognition-card.options-open .options-menu
+  display: block
+  margin: 10px
+
+
+.csstransitions .recognition-card.options-open .options-trigger .gear-big,
+  @include transform(rotate(30deg))
+
+.csstransitions .recognition-card.options-open .options-trigger .gear-small,
+  @include transform(rotate(100deg))
+  
+html:not(.ios).csstransforms .recognition-card .gear
+  @include transitionTransform(.2s, ease-in-out)
+
+.recognition-card:hover .options .options-trigger
+  display: block
+
+.csstransitions .recognition-card .content
+  @include transform(translate3d(0, 0, 0))
+
+.recognition-card.edit-open .inner > div:not(.to-wrapper)
+  display: none
+
+.recognition-card form
+  padding-bottom: 0
+  
+  .control-group
+    margin-bottom: 0
+  
+  textarea
+    margin-bottom: 10px
+    
+.recognition-card #recognition-submit-wrapper 
+  .button
+    margin-right: 7px
+
+  a,
+  a:hover
+    color: white !important
+
+  a:hover
+    font-weight: 600
+      
+.ios .recognition-card
+  .vote a, 
+  .counter
+    line-height: 9px
+
+@media (max-width: 768px)
+  .recognition-card
+    margin-right: 0
+    margin-left: 0
+    width: 100%
+
+    .to-wrapper .to
+      width: 100%
+
+      ul
+        @include column-count(1)
+
+@media (max-width: 600px)
+  .recognition-card .to-wrapper li
+    width: 100%

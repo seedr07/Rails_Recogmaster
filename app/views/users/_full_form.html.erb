@@ -1,0 +1,120 @@
+  <%= form_for @user, remote: true do |form| %>
+  <div class="clear"></div>
+  <!-- TODO Localize -->
+  <h1><%= t("user_edit.title")%></h1>  <%= form.submit t("dict.save"), class:"button-no-chrome" %>
+  
+
+  <% if @user.errors.any? %>
+  <div class="form-errors">
+    <ul>  
+    <% @user.errors.full_messages.each do |msg| %>  
+      <li><%= msg %></li>
+    <% end %>  
+    </ul>  
+  </div>
+  <% end%>
+  
+  <div class="row-fluid">
+    <div class="form-vertical span4">
+      <div class="control-group">
+        <%= form.label :first_name, t("forms.first_name"), class:"control-label" %>
+      
+        <div class="controls">
+           <%= form.text_field :first_name %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= form.label :last_name, t("forms.last_name"), class:"control-label" %>
+      
+        <div class="controls">
+           <%= form.text_field :last_name %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= form.label :email, t("forms.email"), class:"control-label" %>
+      
+        <div class="controls">
+           <%= form.text_field :email %>
+        </div>
+      </div>
+
+      <%# NOTE: not sure who we want to enable this for.  Should all users have the ability to switch companies at any point in time?%>
+      <% if current_user.company.in_family? %>
+        <div class="control-group">
+          <%= form.label :company, "Company", class:"control-label" %>
+        
+          <div class="controls">
+             <%= form.select :company_id, company_family_options(current_user), selected: current_user.company.id %>
+          </div>
+        </div>
+      <% end %>
+      
+      <div class="control-group" id="avatar-control">
+        <%= form.label :avatar, t("user_edit.upload_an_avatar"), class:"control-label" %>
+        <div id="avatar-wrapper">
+          <%= image_tag(@user.avatar.thumb) if @user.avatar%>
+        </div>
+        <%= form.file_field :avatar, :"data-url" => upload_avatar_user_path(@user)%>
+        <div class="file-attach-progress">
+          <div class="message"></div>
+          <div id="progress-bar"><div id="progress-inner"><span class="right">Uploading...</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-vertical span4">
+      <% unless current_user.company.disable_passwords? %>
+        <div class="control-group">
+          <%= form.label :original_password, t("forms.original_password"), class:"control-label" %>
+          <p class='subtle-text margin0 smallPrint'><%= t("user_edit.password_instructions") %></p>
+
+          <div class="controls">
+             <%= form.password_field :original_password, autocomplete: "off" %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= form.label :password, t("forms.password"), class:"control-label" %>
+
+          <div class="controls">
+             <%= form.password_field :password, autocomplete: "off" %>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="control-group">
+        <%= form.label :job_title, t("user_edit.job_title"), class:"control-label" %>
+
+        <div class="controls">
+           <%= form.text_field :job_title %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= form.label :phone, t("user_edit.phone"), class:"control-label" %>
+
+        <div class="controls">
+           <%= form.text_field :phone, value: formatted_phone(form.object.phone), placeholder: "516-555-1234" %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= form.label :start_date, t("user_edit.start_date_input_label", company: current_user.company.name), class:"control-label" %>
+
+        <div class="controls start-date">
+           <%= form.date_select :start_date, prompt: true, start_year: 1980, end_year: Date.today.year + 1, default: Date.today %>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="marginBottom5"><%= t("dict.language") %></label>
+        <%= form.select :locale, 
+          options_for_select([["United States English", "en"], ["Great Britain English", "en-GB"], ["French", "fr"]], current_user.locale) %>
+      </div>
+    </div>
+
+    <%= render "email_settings", form: form %>
+  </div>
+
+  <%= form.submit t("dict.save"), class:"button button-primary button-large marginBottom30" %>
+  
+
+<% end %>

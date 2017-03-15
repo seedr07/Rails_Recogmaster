@@ -1,0 +1,13 @@
+<% if current_user.authenticated_with_yammer?(Recognize::Application.yammer_client) %>
+  <% if @yammer_users_to_invite.present?%>
+    <div id="invite-yammer-users">
+      <div id="invite-inner">
+          <%= render partial: "users/yammer_user", collection: @yammer_users_to_invite %>
+      </div>
+    </div>
+  <% else %>
+    <p><strong><%= t("invite.sorry_there_are_no_users_from_yammer_to_invite") %></strong></p>
+  <% end%>
+<% else %>
+  <%= link_to_yammer "Show Yammer users", redirect_to: invite_users_path, data: {event: "invite-yammer-users", eventtype: "click"}%>
+<% end %>

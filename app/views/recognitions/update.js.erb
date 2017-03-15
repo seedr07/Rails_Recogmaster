@@ -1,0 +1,11 @@
+(function() {
+  var $html = $('<%= escape_javascript(render(@recognition))%>');
+  var $card = $("#recognition-card-<%= @recognition.id%>");
+  var $mw = $card.find(".message-wrapper");
+  var newMessage = $html.find(".message-wrapper").html();
+  $mw.html(newMessage);
+  // TODO Reduce DRY. This same kind of code is used other places. Like stream.js.
+  $card.find(".edit_recognition").remove();
+  $card.removeClass("edit-open");
+  $body.trigger("recognition:change");
+})();

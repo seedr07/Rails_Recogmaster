@@ -1,0 +1,56 @@
+<hr class="hr hr-space" />
+
+<div class="row row-fluid saml-settings">
+  <div class="span6 well">
+    <h5>SSO Settings</h5>
+    <%= form_for @saml_configuration, url: company_saml_configuration_path, method: :put, remote: true do |f| %>
+      <div class="control-group">
+        <%= show_toggle @saml_configuration.is_enabled, "Enable SSO", input: {name: "saml_configuration[is_enabled]"}%>
+      </div>
+
+      <% fields = [:entity_id, :sso_target_url, :slo_target_url] %>
+      <% fields.each do |field| %>
+        <div class="form-control">
+          <%= f.label field %>
+          <%= f.text_field field %>
+        </div>
+      <% end %>
+
+      <div class="form-control">
+        <%= f.label :name_identifier_format %>
+        <%= f.text_field :name_identifier_format, value: @saml_configuration.name_identifier_format || "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress" %>
+      </div>
+
+      <div class="form-control">
+        <%= f.label :certificate %>
+        <%= f.text_area :certificate %>
+      </div>
+
+      <div class="form-control">
+        <%= f.submit "Save settings", class: "button button-border" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="span5 offset1">
+    <h5><strong>Now your turn</strong>, please copy and paste these URLs into your SAML settings.</h5>
+    <ul class="white-zebra-list">
+      <li>
+        <h6>Audience</h6>
+        <pre>https://<%= "#{Recognize::Application.config.host}/#{current_user.company.domain}" %>/saml/metadata</pre>
+      </li>
+      <li>
+        <h6>Recipient</h6>
+        <pre>https://<%= "#{Recognize::Application.config.host}/#{current_user.company.domain}" %>/saml/acs</pre>
+      </li>
+      <li>
+        <h6>CS (Consumer) URL Validator</h6>
+        <pre>^https:\/\/<%= "#{Recognize::Application.config.host}/#{current_user.company.domain}".gsub(/\./, "\\.").gsub(/\-/, '\\-')%>\/saml\/acs\/$</pre>
+      </li>
+      <li>
+        <h6>ACS (Consumer) URL</h6>
+        <pre>https://<%= "#{Recognize::Application.config.host}/#{current_user.company.domain}" %>/saml/acs</pre>
+      </li>
+    </ul>
+  </div>
+</div>

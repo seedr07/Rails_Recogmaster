@@ -1,0 +1,230 @@
+#home-extension
+
+  h2
+    margin-bottom: 30px
+
+  #marketing-browser-extensions-info
+    color: white
+
+    .table
+      display: table
+
+    .item
+      padding: 50px 30px 40px 30px
+      box-sizing: border-box
+      width: 33%
+      display: table-cell
+      @include transition(background .2s linear)
+      background: #E7EFF3
+
+      &:hover
+        background: #D4E5EE
+
+      img
+        margin: 20px 0 40px 0
+
+    #ie
+      background: #FCFAE7
+
+      &:hover
+        background: #FFFBD7
+
+  #intro-video-wrapper
+    background: image-url("pages/home-pricing/bg.jpg") center 0 no-repeat
+    background-size: auto 100%
+    background-attachment: fixed
+    text-align: center
+    height: 698px
+    position: relative
+    max-width: 100%
+    overflow: hidden
+
+  h1
+    color: white
+    padding-top: 64px
+    text-shadow: 0 0 7px #000
+
+  #functionality-wrapper
+    
+    .inner
+      padding: 15px
+
+    .table
+      margin-bottom: 0
+      width: 100%
+
+
+  #video-wrapper
+    background: image-url("pages/home-extension/laptop.png") center 0 no-repeat
+    width: 924px
+    height: 490px
+    position: absolute
+    bottom: -2px
+    left: 50%
+    margin-left: -462px
+
+  #yammer-video
+    top: 56px
+    background: transparent
+    position: relative
+    margin: auto
+
+  #title-sub
+    padding: 50px 0
+    width: 100%
+    background: $headerBg
+    margin-bottom: 50px
+    
+    h2
+      color: white
+      margin-bottom: 0
+
+
+  #yammer-body
+    max-width: 1000px
+    margin: auto
+
+
+#yammer-extension-intro-wrapper
+  max-width: 740px
+  margin: 100px auto
+
+#home-extension
+  background: white
+
+  .wrapper-outer
+    padding-left: 0
+    padding-right: 0
+  
+  #points section .inner
+    max-width: 100%
+    display: inline-block
+    width: auto
+    padding: 70px 0
+
+   
+  #points   
+    & > section
+      text-align: center
+      width: 100%
+
+      .content
+        text-align: left
+
+
+
+    #point1-wrapper .image
+      background: transparent image-url('pages/home-extension/instant.png') no-repeat 0 0
+      width: 320px
+      height: 320px
+
+    #point2-wrapper .image
+      background: transparent image-url('pages/home-extension/recognitions-profile.png') no-repeat 0 0
+      width: 500px
+      height: 500px
+         
+
+    #point4-wrapper .image
+      background: transparent image-url('pages/home-extension/send-recognition-profile.png') no-repeat 0 0
+      width: 350px
+      height: 350px
+
+    #point3-wrapper .image
+      background: transparent image-url('pages/home-extension/new-recognition-form.png') no-repeat 0 0
+      width: 525px
+      height: 525px
+      top: 0
+
+    #point1-wrapper .content
+      width: 340px
+      margin-top: 60px
+
+    #point2-wrapper .content
+      width: 390px
+      margin-top: 110px
+      margin-left: 59px
+
+    #point3-wrapper .content
+      width: 388px
+      margin-top: 80px
+      margin-left: 41px
+
+    #point4-wrapper .content
+      width: 408px
+      margin-top: 89px
+      margin-left: 21px
+  
+  #banner h2  
+    margin-right: auto
+    margin-left: auto
+    width: 508px
+
+@media (max-width: 895px)
+  #home-extension
+    #intro-video-wrapper
+      height: 296px
+
+    #video-wrapper
+      display: none    
+    
+@media (max-width: 768px)
+  #home-extension
+    padding-left: 0
+    padding-right: 0
+    
+    #action h2 
+      width: auto
+
+    #wrapper-outer #points
+      .content,
+      .image
+        float: none
+        max-width: 100%
+        background-size: 100% auto
+
+      #point1-wrapper .content,  
+      #point2-wrapper .content,
+      #point3-wrapper .content
+        margin: 0
+        
+@media (min-width: 560px) and (max-width: 960px)
+  #home-extension h1
+    width: 557px
+    margin-right: auto
+    margin-left: auto
+
+@media (max-width: 600px)
+  #home-extension
+    #points
+      #point3-wrapper
+        .image
+          width: 220px
+          height: 220px
+
+      #point3-wrapper
+        .image
+          width: 225px
+          height: 225px
+
+      #point4-wrapper
+        .image
+          width: 250px
+          height: 250px
+
+      #point2-wrapper
+        margin-bottom: 50px
+        
+        .image
+          height: 220px
+
+    #marketing-browser-extensions-info
+      .item
+        display: block
+        width: 100%
+        box-sizing: border-box
+
+@media (max-width: 480px)
+  #home-extension
+    #intro-video-wrapper
+      height: 360px
+      background-attachment: scroll

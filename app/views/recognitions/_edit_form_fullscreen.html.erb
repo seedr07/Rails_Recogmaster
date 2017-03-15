@@ -1,0 +1,93 @@
+  <div id="recognition-new-wrapper">
+    <%= form_for(@recognition, url: update_recognition_path(@recognition), remote: true, html: {data: {errorwrapper: "#recognition-send-error-wrapper", event: "edit-recognition-form"}}) do |f| %>
+      <%= f.hidden_field :sender_id%>
+
+      <div id="top" class="clearfix" <% if !current_user.verified? %> style="opacity: 0.2"<% end %>>
+         <div class="left">
+          <h1><%= t("recognitions.update_recognition")%></h1>
+        </div>
+                
+        <div class="hr-thick hr-space"></div>
+        <div id="recognition-form-inputs">
+          <div class="row-fluid">
+  					<div class="image-wrapper span4 <%= @recognition.badge ? 'chosen' : ''%>">
+  					<%
+  					if @recognition.badge
+  						name = @recognition.badge.name 
+  						long_name = @recognition.badge.short_name 
+  					else
+  						name = t("recognition_new.choose")
+  						long_name = t("recognition_new.choose_a_badge")
+  					end
+  					%>
+          
+            <%= f.hidden_field :badge_id %>
+          	<a href="#" id="badge-trigger" class="badge-<%= name %> analyticsEvent", data-event="badge-trigger", data-eventtype="opened">
+          	  <%= image_tag @recognition.badge.permalink%>
+          	</a>
+  
+            <h4 id="badge-name" class="subtle-text"><%= long_name%></h4>
+            <a id="badge-edit"><%= t("recognition_new.edit_badge_html")%></a>
+          </div>
+
+          <div id="main-text" class="span8">
+           <div class="controls">
+           
+           
+             <%= hidden_field_tag :recognition_sender_name, @current_user.full_name %>
+
+                    
+  					 <div id="chosen-recepient-wrapper" class="clearfix empty">
+
+    				  <label><%= t("recognitions.recipients") %></label>
+                        <%# error messages for individual recipients attach to this hidden field %>
+                        <%= hidden_field_tag :recognition_recipients , "", class: "hidden-field", id: "recognition_recipients"%>
+
+                <div class="inner">
+                  <% @recognition.recipients.each do |r| %>
+                    <div class="recipient-wrapper">    
+                      <div class="left marginRight10">
+                        <% if r.kind_of?(Team) %>
+                          <%= image_tag "icons/teams-icon.png", class: "team-icon" %>
+                        <% else %>
+                          <%= image_tag r.avatar.small_thumb.url %>
+                        <% end %>
+                      </div>    
+                      <div class="left marginRight25">
+                        <h4><%= r.full_name%></h4>
+                      </div>
+                    </div>                  
+                  <% end %>
+                  
+                </div>
+  					 </div>
+           </div>
+             <%= f.label :message, message_label, class:"control-label subtle-text"%>
+            <div class="controls marginBottom10">
+              <%= f.text_area :message, class:"input-xlarge analyticsEvent", placeholder: "Reason for the recognition", cols: 1, rows: 2, data: {event: "recognition-message", eventtype: "focused"} %>
+            </div>
+          
+            <%= f.label :skills, t("recognition_new.optional_skills"), class:"control-label subtle-text" %>
+           <div class="controls">
+             <%= f.text_field :skills, placeholder: t("recognition_new.skill_examples") %>
+           </div>
+          </div>
+        
+        </div>
+        </div>
+
+      </div>
+
+      <div id="recognition-content">
+
+      </div>
+      <div class='button-wrapper'>
+        <div id="recognition-submit-wrapper">
+          <!-- TODO Localization, to change button text -->
+          <% if current_user.verified? %>
+            <%= f.submit t("recognition_new.edit_recognition"), class:"button-primary button button-big" %>
+          <% end %>
+        </div>
+      </div>
+  <% end%>
+  </div>

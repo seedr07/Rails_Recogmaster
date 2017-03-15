@@ -1,0 +1,74 @@
+<%= render partial: "admin/index/admin_header"%>
+
+<h1>
+Coupons
+<%= link_to "Sync", sync_admin_coupons_path, remote: true, method: :post, loading: "syncing...", class: "button button-highlight button-small"%>
+</h1>
+<p>
+  <%= link_to_if(params.has_key?("show"), "Active", admin_coupons_path)%> | 
+  <%= link_to_unless_current "Expired", admin_coupons_path(show: "expired")%> | 
+  <%= link_to_unless_current "Deleted", admin_coupons_path(show: "deleted")%> |
+  <%= link_to_unless_current "All", admin_coupons_path(show: "all")%>
+</p>
+<table>
+  <thead>
+    <tr>
+      <th class="action">Action</th>
+      <th class="coupon-code">Code</th>
+      <th class="coupon-expiration">Expires</th>
+      <th class="percent-off">Discount</th>
+      <th class="time-redeemed">Uses</th>
+      <th class="max-redemptions">Max Redemptions</th>
+      <th class="coupon-plans">Plans</th>
+      <th class="coupon-css-class">Wrapper classes</th>
+      <th class="coupon-message">Message</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @coupons.each do |c| %>
+    <% 
+      if c.deleted?
+        row_class = "deleted"
+      else
+        row_class = c.valid_for_use? ? 'valid' : 'invalid'
+      end
+    %>
+    <tr class="<%= row_class%>">
+      <td><%= link_to_if(c.valid_for_use?, "Edit", edit_admin_coupon_path(c), class: "button button-small button-primary") { ""}%></td>
+      <td><%= link_to_if(c.valid_for_use?, c.code, upgrade_promotion_url(code: c.code), class: 'zclip') %></td>
+      <td><%= c.expiration%></td>
+      <td><%= c.percent_off%>%</td>
+      <td><%= c.times_redeemed%></td>
+      <td><%= c.max_redemptions%></td>
+      <td><%= c.plans.empty? ? "None" : c.plans.map(&:name).join(", ") %></td>
+      <td><%= c.css_class %></td>
+      <td><%= c.message%></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% content_for :afterjs do%>
+  <%= javascript_include_tag "3p/zclip/jquery.zclip.min"%>
+  <%= javascript_tag do %>
+    $(document).ready(function(){
+
+      $('a.zclip').zclip({
+          path: '/assets/3p/zclip/ZeroClipboard.swf',
+          copy: function(e){
+            e.preventDefault();
+            return $(e.target).prop('href');
+          },
+          afterCopy: function(e) {
+            var href = $(e.target).prop('href');
+            var $alert = $("<div style='position:absolute;top: 15%;left:20%;border: 1px solid #ccc;padding: 20px;font-size: 22px;border-radius: 5px;background-color: #ccc;font-weight: bold'><a href="+href+">"+href+"</a> copied to clipboard</div>");
+            $("body").append($alert);
+            setTimeout(function(){
+              $alert.fadeOut(4000);
+            }, 2000);
+          }
+      });
+
+    });  
+  <% end%>
+<% end %>

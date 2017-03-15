@@ -1,0 +1,75 @@
+
+<%= render partial: "admin_header"%>
+<% if params[:network].present? && @companies.present? %>
+<hr>
+<h2><%= link_to params[:network], admin_company_path(@companies.first) %> - <%= link_to "clear company filter" , admin_path, style: "font-size: 12px" %></h2>
+
+<% end %>
+
+  <div class="pagelet" data-endpoint="<%= admin_graph_path(params.slice("network")) %>" id="admin-graph">
+    <div class="loading-wrapper">
+      <%= image_tag "icons/loading-bar-blue.gif" %>
+    </div>
+  </div>
+
+  <div class="hr-thick hr-space"></div>
+
+<h3>Top Badges</h3>
+<div class="row-fluid marginBottom20">
+  <% @top_badges.each do |badge_id, data|%>
+    <div class="span2" style="text-align: center;">
+      <img src="<%= data[:badge].permalink(100, request.protocol) %>" alt="<%= data[:badge].short_name%>"/>
+      <h5 style="margin:0px; font-weight: bold"><%= data[:badge].short_name %></h5>
+
+    </div>
+  <% end%>
+</div>
+  
+<h3>Companies</h3>
+Sort By:
+<% opts = [['Default', ''], 
+          ['Last Recognition', 'last_recognition'],
+          ['Last User', 'last_user'],
+          ['Most Recognitions Sent', 'most_recognitions_sent'],
+          ['Most Recognitions Received', 'most_recognitions_received'],
+          ['Most Users', 'most_users'],
+          ['Yammer', 'yammer']
+        ]
+%>
+<%= select_tag "filter", options_for_select(opts, params[:order_by]), class:"button" %>
+<%= form_tag admin_path, method: :get, style: "display:inline" do %><%= text_field_tag "network", "", placeholder: "Enter network to filter by" %><% end %>
+
+<script type="text/javascript" charset="utf-8">
+  document.querySelector("#filter").addEventListener("change", function(e) {
+    if(e.target.value) {
+      window.location = '/admin?order_by='+e.target.value;      
+    } else {
+      window.location = '/admin'
+    }
+  });
+
+</script>
+
+<table class="table table-striped table-bordered table-condensed table-hover table-responsive">
+  <tr>
+    <th>Name</th>
+    <th>Company Administrator</th>
+    <th>Users</th>
+    <th>Sent Recognitions</th>
+    <th>Received Recognitions</th>
+    <th>Created</th>
+    <th>Last recognition sent at</th>
+    <th>Last user added at</th>
+    <th>Has Yammer user?</th>
+    <th>Actions</th>
+  </tr>
+  <% @sorted_companies[0..@limit].each do |c|%>
+  <%= render partial: "company_row", locals: {c: c}%>
+  <% end%>
+</table>
+<hr class="marginBottom20">
+<% if @limit == @sorted_companies.length%>
+  <%= link_to "Show less", admin_path(order_by: params[:order_by]), class: "button button-highlight"%>
+<% else%>
+  <%= link_to "Show All", admin_path(limit: @sorted_companies.length, order_by: params[:order_by]), class: "button button-highlight"%>
+<% end%>

@@ -1,0 +1,13 @@
+<% content_for :title, t("user_edit.title") %>
+<%= render_flash %>
+<%= render :partial => "full_form" %>
+<% if @user.oauth_access_tokens.present? %>
+  <hr>
+  <h3><%= t("user_edit.authorized_applications") %></h3>
+  <%  @user.oauth_access_tokens.to_a.uniq(&:application_id).each do |token| %>
+    <li id="application-<%= token.application_id%>"><%= token.application.name %> - <%= link_to t("dict.revoke"), revoke_oauth_token_user_path(@user, application_id: token.application_id), remote: true, method: :patch %></li>
+  <% end %>
+  <hr>
+<% end %>
+
+<%= render partial: "layouts/cancel_account", locals: {account: current_user} %>

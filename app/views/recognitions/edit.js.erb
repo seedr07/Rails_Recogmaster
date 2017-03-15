@@ -1,0 +1,12 @@
+(function() {
+  var html = '<%= escape_javascript(render(partial: "recognitions/edit"))%>';
+  var $card = $("#recognition-card-<%= @recognition.id%>");
+  var $inner;
+  $card.removeClass("options-open").addClass("edit-open");
+  
+  $inner = $card.find(".inner");
+
+  $inner.append($(html));  
+  
+  $body.trigger("recognition:change");
+})();

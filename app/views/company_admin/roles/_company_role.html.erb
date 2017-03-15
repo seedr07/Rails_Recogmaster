@@ -1,0 +1,13 @@
+<% network = role.company.domain %>
+
+<tr id="company-role-<%= role.id %>" class="company-role-row">
+  <td><%= role.name %></td>
+  <td>
+    <%= link_to("Edit", edit_company_admin_role_path(network: network, id: role.id),
+                class: "button button-chromeless", remote: true) %>
+  </td>
+  <td>
+    <%= link_to("Delete", company_admin_role_path(network: network, id: role.id),
+                remote: true, method: :delete, class: "button button-chromeless") %>
+  </td>
+</tr>

@@ -1,0 +1,5 @@
+<% if @company_report.inactive? %>
+  <%= render template: "email_blast/no_recognitions"%>
+<% else %>
+  <%= render template: "email_blast/blast_template"%>
+<% end %>

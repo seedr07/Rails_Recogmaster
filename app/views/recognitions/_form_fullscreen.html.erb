@@ -1,0 +1,102 @@
+  <div id="recognition-new-wrapper" class='<% if params[:layout] === 'false' %> fadeTop overlay <% end %>'>
+
+    <% if current_user and !current_user.verified? and params[:controller] != "password_resets"%>
+      <%= render partial: "/recognitions/verify_warning"%>
+    <% end %>
+    
+    <%= form_for(@send_recognition, url: recognitions_url(network: current_user.network),remote: true, html: {data: {errorwrapper: "#recognition-send-error-wrapper", event: "send-recognition-form"}}) do |f| %>
+      <%= f.hidden_field :sender_id%>
+
+      <div id="top" class="clearfix" <% if !current_user.verified? %> style="opacity: 0.2"<% end %>>
+                
+        <div id="recognition-form-inputs">
+          <div class="row-fluid">
+            <%
+            if @send_recognition.badge
+              name = @send_recognition.badge.name 
+              long_name = @send_recognition.badge.short_name 
+            else
+              name = "choose"
+              long_name = t("recognition_new.choose_a_badge")
+            end
+            %>
+  		
+            <div class="span4 <%= @send_recognition.badge ? 'chosen' : ''%>">
+              
+            <div class="image-wrapper marginBottom10 centered">
+              <%= f.hidden_field :badge_id %>
+              <h4 id="badge-name" class="subtle-text"><%= long_name%></h4>
+
+            	<a href="#" id="badge-trigger" class="badge-<%= name %> analyticsEvent", data-event="badge-trigger", data-eventtype="opened"></a><br>
+                <a id="badge-edit"><%= t("recognition_new.edit_badge_html")%></a>
+            </div>
+
+
+          </div>
+
+          <div id="main-text" class="span8">
+           <div class="controls">
+           
+           
+             <%= hidden_field_tag :recognition_sender_name, @current_user.full_name %>
+
+              <h4><%= t("recognition_new.recipient_search_title_html")%></h4>
+              <% if @send_recognition.recipients.present? %>
+                <% raise "not implemented yet" %>
+              <% else %>
+               <%= f.hidden_field :recipients, multiple: true, class: "hidden-field recognition_recipients", id: "recognition_recipients_1", 
+                value: nil, data: {index: 1} %>
+              <% end %>
+
+             <%= text_field_tag "", "", id: "recognition_recipient_name", class: "input-xlarge analyticsEvent", placeholder: t("recognition_new.recipient_input_placeholder", company: add_preceding_article(@current_user.company.domain)), data: {event: "recognition-recipient-name", eventtype: "focused"} %>
+           
+  					 <div id="recognition-new-autocomplete-wrapper"></div>
+           
+  					 <div id="chosen-recepient-wrapper" class="clearfix no-recipients">
+
+    				  <label class="subtle-text"><%= t("forms.recipients") %></label>
+
+              <%# error messages for individual recipients attach to this hidden field %>
+              <%= hidden_field_tag :recipients , "", class: "hidden-field", id: "recognition_recipients"%>
+
+                <div class="inner"><span class="message"><%= t("recognition_new.no_recipients_have_been_added") %></span></div>
+  					 </div>
+           </div>
+
+           <div id="recognition-form-extras" class="">
+               <%= f.label :message, message_label, class:"control-label subtle-text"%>
+              <div class="controls marginBottom10">
+                <%= f.text_area :message, class:"input-xlarge analyticsEvent", placeholder: t("recognition_new.reason_for_the_recognition"), cols: 1, rows: 2, data: {event: "recognition-message", eventtype: "focused"} %>
+              </div>
+            
+              <%= f.label :skills, t("recognition_new.optional_skills"), class:"control-label subtle-text" %>
+             <div class="controls">
+               <%= f.text_field :skills, placeholder: t("recognition_new.skill_examples"), class: "input-xlarge" %>
+         
+             </div>
+
+             <% if current_user.can_post_to_yammer_wall? %>
+               <div class="controls">
+                  <%= show_toggle true,
+                    t("recognition_new.post_to_the_yammer_wall"),
+                    input: {name: "recognition[post_to_yammer_wall]"} %>  
+               </div>
+              <% end %>
+          </div>
+        
+        </div>
+        </div>
+             
+        </div>
+
+      </div>
+      <div class='button-wrapper'>
+        <div id="recognition-submit-wrapper">
+          <!-- TODO Localization, to change button text -->
+          <% if current_user.verified? %>
+            <%= f.submit t("recognition_new.send_recognition"), class:"button-primary button button-big", data: {"lf-page-change"=> true} %>
+          <% end %>
+        </div>
+      </div> 
+    <% end%>
+  </div>

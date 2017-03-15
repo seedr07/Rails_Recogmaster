@@ -1,0 +1,62 @@
+.tab-nav
+  margin-top: 20px
+  width: 100%
+  margin-bottom: 25px
+    
+  .hr-bottom
+    @include hr-thick()
+    position: relative
+    top: -11px
+    z-index: 1
+    
+  ul
+    position: relative
+    z-index: 2
+
+    li:last-child
+      margin-right: 0
+
+    li
+      float: left
+      margin-right: 25px
+        
+      a
+        @include latoFontFamily()
+        text-decoration: none
+        font-weight: 200
+        text-transform: uppercase
+        color: #989eae
+        font-size: 18px
+        line-height: 17px
+        display: block
+        padding-bottom: 22px
+
+      &.active
+        position: relative
+
+        a
+          color: #000
+          font-weight: 400
+
+
+        &::after
+          border-right: 2px solid black
+          border-bottom: 2px solid black
+          position: absolute
+          width: 10px
+          height: 10px
+          content: ""
+          @include transform(rotate(43deg))
+          left: 50%
+          margin-left: -5px
+          bottom: 9px
+
+@media (max-width: 1175px)
+  .tab-nav
+    margin-top: 0
+
+    ul
+      margin-left: 0
+
+      a
+        font-size: 16px

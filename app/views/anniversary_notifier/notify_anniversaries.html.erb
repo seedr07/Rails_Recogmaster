@@ -1,0 +1,13 @@
+<h2 style="<%= mail_styles(:h2, :text, :title) %>">Today's Anniversaries</h2><br/>
+
+<h3 style="<%= mail_styles(:h3, :text, :title) %>">It's these employees anniversaries at <%=@user.company.name%> today, so make sure you let them know how much you appreciate them!</h3>
+
+
+	<%@anniversary_array.each do |anniversary_user|%>
+	<p style="<%= mail_styles(:p) %>">
+		<%=anniversary_user.full_name %> has been with <%=anniversary_user.company.name%> for <%=anniversary_user.years_of_service%> year<%= anniversary_user.years_of_service == 1 ? "" : "s"%>!
+
+		<%= link_to "Recognize #{anniversary_user.full_name}", user_recognition_url(anniversary_user, network: anniversary_user.network), id: "edit-profile-button", class: "button button-inactive"%>
+
+		</p>
+	<%end%>

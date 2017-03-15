@@ -1,0 +1,17 @@
+<div  id="comments-<%= @recognition.id%>" class="comments-wrapper">
+  <h3  class="marginBottom20"><%= t("dict.comments") %></h3>
+  <div class="hr marginBottom20"></div>
+  <div class="comments-list-wrapper">
+    <% if @recognition.comments.present? %>
+      <% no_comment_style = "display:none" %>
+      <%= render @recognition.comments%>
+    <% else %>
+      <% no_comment_style = "display:block" %>
+    <% end %>
+    <div style="margin-bottom: 15px;<%= no_comment_style%>" class="no-comments" data-no-turbolink="true">
+      <p><%= t("recognitions.there_are_no_comments") %></p>
+      <%= t("dict.sign_in_or_sign_up_html") unless current_user.present? %>
+    </div>
+  </div>
+  <%= render partial: "comments/form", locals: {comment: Comment.new} %>
+</div>

@@ -1,0 +1,68 @@
+#home-pricing
+  #intro
+    padding-bottom: 40px
+
+  .prices
+    width: 768px
+    max-width: 100%
+    margin: 1em auto 5em auto
+
+  .price
+    float: left
+    width: 50%
+    text-align: center
+
+    dl
+      border-bottom: 1px solid $lightGray
+      padding: 2em 2em 2em 2em
+      margin-bottom: 1em
+      font-weight: 100
+
+    dd
+      font-size: 5em
+
+    dt
+      font-size: 2.5em
+
+    p
+      color: $lightGray
+      @include homeText()
+
+  .see-features-wrapper
+    padding: 1em 1em 5em
+
+    .table-outer
+      width: 430px
+      max-width: 100%
+      min-width: 430px
+      margin: 10px auto 30px
+      padding: 10px
+      border-radius: 4px
+
+    td
+      font-size: 1.3em
+      padding: .5em
+
+    .button
+      position: absolute
+      top: 110px
+      left: 50%
+      margin-left: -109px
+      box-shadow: 0 0 136px 60px #fff
+
+@media (max-width: 500px)
+  #home-pricing
+    font-size: .5em
+
+  .price
+    dl
+      font-weight: 400
+
+    p
+      font-size: 15px !important
+      line-height: 20px !important
+
+@media (max-width: 450px)
+  #home-pricing
+    .see-features-wrapper .table-outer
+      min-width: 100%

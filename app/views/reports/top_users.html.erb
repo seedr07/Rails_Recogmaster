@@ -1,0 +1,27 @@
+<%
+   locals = {
+     report_path_method: :company_path,
+     report_path_args: {anchor: "rank", sort: params[:sort]}
+   }
+%>
+
+
+<% if !@top_users.empty? %>
+  <table class="leaderboard">
+    <% @top_users.values[0..19].each_with_index do |user, i| %>
+      <tr class="leaderboard-item">
+        <td class="rank"><%= user[:rank]%>.</td>
+        <td class="">
+          <%= link_to user_path(user[:user]) do %>
+            <%= image_tag user[:user].avatar.small_thumb.url, style: "height: 15px;vertical-align:middle;" %>
+            <%= user[:user].full_name %>
+          <% end %>
+        </td>
+        <td class="points"><%= user[:points] %></td>
+      </tr>
+    <%end%>
+  </table>
+<%else%>
+  <h4><%= t(reports.no_users) %></h4>
+<%end%>
+

@@ -1,0 +1,24 @@
+<%= form_for form_object, url: url, remote: true, html: {class: "people-picker"} do |f| %>
+  <div class="content">
+    <h3><%= t("teams.picker") %></h3>
+      <% if form_object.errors.present? %>
+        <ul>
+          <% form_object.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+      <% end %>
+      <div class="clearfix marginBottom40">
+        <% people.sort_by(&:full_name).each do |person| %>
+          <%= label_tag do %>
+            <% checked = form_object.has_person?(person) %>
+            <%= check_box_tag "#{form_object.class.to_s.underscore.gsub('/','_')}[people][]", person.id, checked%>
+            <%= person.full_name %>
+          <% end %>
+        <% end %>
+      </div>
+  </div>
+  <div class="button-wrapper">
+    <%= f.submit t("dict.save"), class: "button button-primary" %>
+  </div>
+<% end %>

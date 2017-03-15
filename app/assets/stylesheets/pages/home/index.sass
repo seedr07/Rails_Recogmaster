@@ -1,0 +1,532 @@
+#home-index
+  padding-top: 0 !important
+
+  .tagline
+    font-size: 25px
+
+  .exp-top
+    .button-border
+      color: white
+
+      &:hover
+        background: $headerBg
+
+  .value-props
+    margin-bottom: 0
+
+  .testimonial-wrapper
+    padding-top: 90px
+
+  .testimonials
+    max-width: 1000px
+    margin: auto
+    text-align: center
+    padding-top: 0
+
+    li
+      width: 40%
+      padding: 2%
+      margin: 2%
+      background: lighten($homeBg, 5%)
+      float: none
+      display: inline-block
+      vertical-align: top
+      text-align: left
+
+
+      & > div > img
+        width: 200px
+        float: left
+        margin-right: 50px
+        padding-right: 10px
+        padding-left: 10px
+        background: white
+
+
+  blockquote
+    margin: 0
+
+  section.home-padding
+    padding-right: 50px
+    padding-left: 50px
+
+    .inner
+      max-width: 1200px
+      margin: auto
+
+  section
+    p, h3
+      color: white
+
+  .exp-main
+    h2
+      font-size: 49px
+      line-height: 50px
+
+  #youtube-video
+    margin-bottom: -5px
+
+  #navbar #dashboard-menu a
+    border-radius: 0 0 0 6px
+
+  .arrow_box
+    position: relative
+    border-bottom: 1px solid $hrColor
+
+  .arrow_box:after, .arrow_box:before
+    top: 100%
+    left: 50%
+    border: solid transparent
+    content: " "
+    height: 0
+    width: 0
+    position: absolute
+    pointer-events: none
+
+  .arrow_box:after
+    border-color: rgba(255, 255, 255, 0)
+    border-top-color: #ffffff
+    border-width: 60px 150px
+    margin-left: -150px
+
+  .arrow_box:before
+    border-color: rgba(143, 166, 181, 0)
+    border-top-color: #8fa6b5
+    border-width: 61px 152px
+    margin-left: -152px
+
+
+  #how-it-works-section
+    padding: 93px 6% 50px
+    background: #D7E7F4
+    text-align: center
+
+    img
+      max-height: 100%
+
+    h2
+      margin-bottom: 50px
+
+    .recognition-card-graphic
+      max-width: 200px
+
+    .image-wrapper
+      height: 200px
+      margin-bottom: 15px
+      display: flex
+      display: -webkit-flex
+      display: -moz-flex
+      display: -ie-flex
+      @include align-items(center)
+      @include justify-content(center)
+
+    li
+      float: left
+      width: 33.33333%
+      box-sizing: border-box
+      -moz-box-sizing: border-box
+      padding: 0 20px
+      list-style: none
+
+      p
+        font-size: 20px
+        line-height: 22px
+
+    .how-works-badges
+      width: 299px
+
+
+#home-index.gradient-show
+  #intro-wrapper .bg
+    width: 100%
+
+#home-index.demo-show
+
+  #demo-wrapper
+    visibility: visible
+    left: 2%
+    right: 2%
+    position: fixed
+    z-index: 100000
+    box-shadow: 0 0 0px 100px rgba(0, 0, 0, 0.8)
+
+  .purechat
+    display: none !important
+
+#home-index
+
+  &.scrolled #navbar,
+  .navbar-collapse.in
+    background: rgba(41,118,175,1)
+
+  #navbar
+    background: rgba(41,118,175,0)
+
+  #distributed-section
+    a
+      margin-bottom: 40px
+
+  #view-main-wrapper
+    padding-top: 0px !important
+
+    section.dark
+      h2, h3, h4, p
+        color: #003f66
+
+
+  #res-section
+    background: #ECF1F5
+
+    #res-gauge
+      width: 550px
+      height: 330px
+      margin-left: -90px
+      margin-top: -15px
+
+  #res-section + .hr
+    margin: 0
+
+  #demo-wrapper
+    visibility: hidden
+    position: absolute
+    top: 12px
+    left: -99999px
+    width: 100%
+    width: 96%
+
+  .wrapper-outer
+    padding-left: 0
+    padding-right: 0
+
+  #intro-wrapper
+    position: relative
+    padding: 80px 18% 80px 10%
+    background: asset-url('pages/home-index/office-clear.jpg') 0 0 no-repeat
+    background-size: cover
+    padding-top: 120px
+    overflow: hidden
+
+    .button-highlight
+      box-sizing: border-box
+      font-size: 16px
+
+    .bg
+      @include transition(width 1.5s ease-out)
+      @include linear-gradient(226deg, #006EAF 0%, #041926 100%)
+      position: absolute
+      top: 0
+      left: 0
+      z-index: 0
+      width: 300%
+      height: 100%
+      opacity: .9
+
+    .secondary, .intro
+      position: relative
+      z-index: 1
+
+    .intro
+      float: left
+      color: $blueLight
+      text-align: left
+      width: auto
+
+      h1, h2, h3, p, li
+        color: $blueLight
+
+    .secondary
+      float: right
+
+    .play-video-trigger
+      text-decoration: none
+      vertical-align: middle
+      display: block
+      padding: 10px
+      border-radius: 6px
+      font-size: 20px
+      color: white
+      margin-top: 60px
+
+      img
+        padding: 0 10px
+        @include jiggle-horizontal()
+
+  #secondary-section
+    padding: 20px 9%
+
+    #customers, #trial-wrapper
+      float: left
+      @include box-sizing(border-box)
+
+    #customers
+      width: 60%
+      padding-right: 50px
+
+      .inner
+        max-width: 635px
+        margin-left: -10px
+
+      img
+        max-width: 100%
+
+    #trial-wrapper
+      width: 40%
+
+    #trial-wrapper .inner
+      margin: 10px 0
+
+      input.text
+        width: 194px
+        border: 1px $headerBg solid
+        border-radius: 4px
+        height: 39px
+        font-size: 15px
+        margin-top: 9px
+        top: 1px
+        position: relative
+
+  .side-by-side-section
+    padding: 40px 10%
+
+    .text,
+    .image
+      float: left
+      @include box-sizing(border-box)
+
+    .text
+      padding-right: 50px
+      width: 60%
+
+      p
+        font-size: 20px
+        line-height: 30px
+
+      .inner
+        max-width: 598px
+        margin-top: 80px
+
+    .image
+      width: 40%
+
+      img
+        width: 100%
+        max-width: 380px
+
+  #teams-section
+    background: asset-url("pages/home-index/office-clear.jpg") 0 0 no-repeat
+    background-attachment: fixed
+    position: relative
+    text-align: center
+    padding: 20px 0 0 0
+    background-size: cover
+
+    p.balance-text
+      max-width: 670px
+      margin-left: auto
+      margin-right: auto
+
+    &:before
+      content: ""
+      position: absolute
+      height: 100%
+      width: 100%
+      left: 0
+      top: 0
+      @include linear-gradient(226deg, #006EAF 0%, #041926 100%)
+      opacity: .8
+      z-index: 0
+
+    .inner
+      position: relative
+      z-index: 1
+      padding-top: 52px
+
+    h2, p
+      color: white !important
+
+    p
+      font-size: 20px
+      margin-bottom: 30px
+
+    #team-video
+      margin: auto
+      max-width: 100%
+
+    .vjs-big-play-button
+      display: none !important
+
+  #yammer-section
+    text-align: center
+    padding: 40px 0
+    border-bottom: 1px solid $hrColor
+    border-top: 1px solid $hrColor
+
+    .inner
+      display: inline-block
+
+      & > div
+        float: left
+
+      .logo
+        margin-right: 60px
+
+      .text
+        max-width: 450px
+        text-align: left
+        margin-top: 10px
+        margin-right: 20px
+
+      .yammer-action
+        margin-top: 17px
+
+  #action
+    background: #D7E7F4
+    height: 449px
+    padding: 100px 0 100px
+    border-bottom: 1px solid $hrColor
+
+    & .inner > .content
+      margin: auto
+
+  .container > .navbar-header, .container-fluid > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-collapse
+    margin-left: 0
+    margin-right: 0
+
+@media (min-width: 768px)
+  #home-index
+    #navbar
+      background: rgba(41,118,175,0)
+
+@media (max-width: 1165px)
+  #home-index
+    #intro-wrapper
+      @include transition(padding .4s linear)
+      padding-left: 10%
+      padding-right: 10%
+
+@media (max-width: 945px)
+  #home-index
+    padding-left: 0
+    padding-right: 0
+
+    #res-section
+      padding-top: 80px
+
+      #res-gauge
+        margin-top: -70px
+
+    .side-by-side-section
+      padding: 40px 5%
+
+      .text .inner
+        margin-top: 0
+
+
+    #intro-wrapper
+      padding-left: 5%
+      padding-right: 5%
+
+@media (max-width: 880px)
+  #home-index
+
+    #how-it-works-section
+      padding-left: 2%
+      padding-right: 2%
+
+    #secondary-section
+      padding: 25px
+
+      #trial-wrapper
+        .inner
+          margin: 20px 0
+
+    #yammer-section
+      padding-left: 10px
+      padding-right: 10px
+
+@media (max-width: 780px)
+  #home-index
+
+    #how-it-works-section
+      li
+        float: none
+        width: 100%
+        margin-bottom: 20px
+
+        &:last-child
+          margin-bottom: 0
+
+        .image-wrapper
+          height: auto
+
+        img
+          max-width: 200px
+          max-height: 150px
+
+
+    #intro-wrapper
+      padding: 75px 5px
+
+      .intro, .secondary
+        width: 100%
+        float: none
+
+      .intro
+        text-align: center
+
+      .secondary
+        text-align: center
+
+      #demo-video-trigger
+        display: inline-block
+
+@media (max-width: 570px)
+  #home-index
+
+    #action
+      height: 500px
+
+    #intro-wrapper
+      padding-top: 60px
+
+    #teams-section
+      padding-bottom: 20px
+
+      p
+        margin-bottom: 0
+
+    #team-video
+      display: none
+
+    #res-section #res-gauge
+      width: 320px
+      margin-left: -40px
+      height: 190px
+      margin-top: -50px
+
+    .side-by-side-section
+      .image, .text
+        float: none
+
+      .image
+        width: 100%
+
+      .text
+        width: 100%
+        margin-right: 0
+        padding-right: 0
+
+    #secondary-section
+      #customers, #trial-wrapper
+        width: 100%
+        float: none
+        padding: 0
+        text-align: center
+        max-width: 100%
+
+      #customers
+        margin-bottom: 50px
+
+      #trial-wrapper
+        .inner
+          margin: 20px 0

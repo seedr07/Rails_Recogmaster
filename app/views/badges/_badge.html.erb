@@ -1,0 +1,23 @@
+<li class="badge-item">
+  <% if true#badge.custom? %>
+    <%= image_tag badge.permalink(200), 
+      :width => 130, 
+      :height => 130,
+      :id => "badge-#{badge.id}",
+      :class => "badge-image-small",
+      :"data-imagePath" => badge.permalink, 
+      :"data-relativeImagePath" => badge.permalink(200),
+      :"data-name" => badge.short_name, # used when badge is selected, pulled from js,
+      :"data-badge-id" => badge.id
+      %>
+  <% else %>
+    <div id="badge-<%= badge.id%>" class="badge-<%= badge.name %>" data-imagePath="<%= badge.permalink %>" data-cssclass="badge-<%= badge.name %>" data-name="<%= badge.short_name %>" data-badge-id="<%= badge.id%>"></div>
+  <% end %>
+  <% if current_user.can_send_achievements? && badge.is_achievement?%>
+    <p><%= t('dict.achievement') %></p>
+  <% end %>
+  <div class="button button-small">
+    <i class="icon-ok icon-white opacity0"></i>
+    <span><%= badge.short_name %><% if badge.points > 0 && !badge.is_nomination?%> (<%= badge.points %>pts)<% end %></span>
+  </div>
+</li>

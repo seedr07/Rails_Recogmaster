@@ -1,0 +1,11 @@
+<% if (@received_recognitions.blank?) %>
+  <% if current_user == @user%>
+    <p class="list-empty-warning"><%= t("user_show.you_have_not_received_any_recognitions_yet") %> <%= link_to t("dict.invite_a_colleague"), invite_users_path%></p>
+  <% else%>
+    <p class="list-empty-warning"><%= t("user_show.has_not_received_any_recognitions", name: @user.full_name) %> </p>
+  <% end%>
+<% else %>
+  <%= render :partial => "recognitions/recognition_inline", :collection => @received_recognitions, :as => :recognition %>
+<% end %>
+
+<%= will_paginate @received_recognitions %>

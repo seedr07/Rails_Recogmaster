@@ -1,0 +1,16 @@
+<ul id="team-list" class="team-list">
+  <li>
+    <div class="row-fluid">
+      <div class="span2">
+        <h3><%= link_to "#{@team.name}", team_path(@team) %><%= %></h3>
+      </div>
+
+      <div class="span8">
+        <%= render partial: "nominations/recipient_list" %>
+      </div>
+
+    </div>
+  </li>
+
+</ul>
+

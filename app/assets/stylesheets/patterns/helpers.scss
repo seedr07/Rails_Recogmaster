@@ -1,0 +1,337 @@
+.clear {
+  clear: both;
+  height: 1px;
+  margin-top: -1px;
+}
+
+.offscreen {
+  position: absolute;
+  left: -9999px;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.inlineBlock {
+  display: inline-block !important;
+}
+
+.displayNone {
+  display: none !important;
+}
+
+.inline {
+  display: inline;
+}
+
+.marginTop0 {
+  margin-top: 0 !important;
+}
+
+.marginTop10{
+  margin-top: 10px !important;
+}
+
+.marginBottom0 {
+  margin-bottom: 0 !important;
+}
+
+.margin3 {
+  margin: 3px 0 !important;
+}
+
+.marginBottom10 {
+  margin-bottom: 10px !important;
+}
+
+.marginBottom20 {
+  margin-bottom: 20px !important;
+}
+
+.marginBottom30 {
+  margin-bottom: 30px !important;
+}
+
+.marginBottom40 {
+  margin-bottom: 40px !important;
+}
+
+.marginTop40 {
+  margin-top: 40px !important;
+}
+
+.marginBottom5 {
+  margin-bottom: 5px !important;
+}
+
+.marginLeft10 {
+  margin-left: 10px !important;
+}
+
+.marginLeft5 {
+  margin-left: 5px !important;
+}
+
+.opacity0 {
+  opacity: 0;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+}
+
+.opacity1 {
+  opacity: 1;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+}
+
+.opacityAnimate {
+  @include transition(.3s opacity linear);
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.ie .hr {
+  background: $dividerColor;
+}
+
+.hr {
+  width: 100%;
+  height: 1px;
+  clear: both;
+}
+
+.hr-space {
+  margin: 20px 0;
+}
+
+.hr-white {
+  border-bottom: 1px solid #F0F0F0;
+}
+
+.hr-thick {
+  @include hr-thick();
+  clear: both;
+}
+
+.logout .hr {
+  background: $dividerColor;
+}
+
+.hr {
+  background: #fff;
+  clear: both;
+}
+
+.visibilty-hidden {
+  visibility: hidden;
+}
+
+.block {
+  display: block !important;
+}
+
+.marginVertical20 {
+  margin: 20px 0;
+}
+
+.marginVertical50 {
+  margin: 50px 0;
+}
+
+.padding0 {
+  padding: 0 !important;
+}
+
+.padding3em {
+  padding: 3em;
+}
+
+.dl-list {
+  dt {
+    position: absolute;
+    left: -9999px;
+  }
+}
+
+.avatar {
+  border-radius: 50%;
+}
+
+.border-radius-8 {
+  border-radius: 8px;
+}
+
+.margin0 {
+  margin: 0 !important;
+}
+
+.smallPrint {
+  font-size: 11px !important;
+}
+
+.text-warn {
+  color: $orange;
+}
+
+.text-success {
+  color: #39B335;
+}
+
+.success-text {
+  color: $highlightTopColor; 
+}
+
+@media (min-width: 768px) {
+  .flex-centered {
+    @include flex-centered();
+  }
+}
+
+@mixin centerPage() {
+  @include display-box;
+  @include box-pack(center);
+  @include box-align(center);
+  @include box-orient(vertical);
+  height: 100%;
+  width: 100%;
+}
+
+.centeredPage {
+  @include centerPage();
+}
+
+.header-title-action {
+  margin-bottom: 10px;
+
+  h1, h2, h3, h4 {
+    margin-right: 0px;
+  }
+  
+  h1, h2, h3, h4, a {
+    display: inline-block;
+  }
+}
+
+.empty-content-message {
+  position: absolute;
+  height: 65px;
+  width: 150px;
+  background: white;
+  background: rgba(255,255,255,0.7);
+  border-radius: 8px;
+  box-shadow: 0 0 3px 0px rgba(0,0,0,.4);
+  padding: 10px;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  margin-left: -80px;
+  margin-top: -37px;
+
+  h3,h4,h5,h6,p {
+    margin: 0;
+  }
+}
+
+.placeholder-image {
+  width: 100%;
+}
+
+.relative {
+  position: relative;
+}
+
+.point-interval {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.danger {
+  color: $danger;
+}
+
+.well {
+  padding: 10px;
+  background: white;
+  display: inline-block;
+  border-radius: 4px;
+
+  &.well-shadow {
+    box-shadow: 0 0 23px 6px rgba(123, 123, 123, 0.6);
+    padding: 3.2em;
+  }
+}
+
+.quote {
+  padding: 15px;
+  position: relative;
+
+  img {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .content {
+    padding-left: 175px;
+  }
+
+  q {
+    font-size: 24px;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 200;
+  }
+
+  span {
+    color: #666;
+  }
+}
+
+.text-right {
+  text-align: right;
+}
+
+ol.numbers {
+  padding-left: 35px;
+
+  li {
+    padding: 5px;
+    list-style-type: decimal;
+    font-size: 22px;
+    list-style-position: outside;
+    font-weight: 100;
+    overflow: visible;
+  }
+}
+
+.white-zebra-list {
+  li {
+    padding: 20px;
+  }
+
+  li:nth-child(even) {
+    background: white;
+  }
+}
+
+@media (max-width: 768px) {
+  .quote {
+    img {
+      width: 65px;
+      margin: 10px;
+    }
+
+    .content {
+      padding-left: 75px;
+    }
+  }
+}
+
+.selected-wrapper {
+  margin: 10px 0;
+}

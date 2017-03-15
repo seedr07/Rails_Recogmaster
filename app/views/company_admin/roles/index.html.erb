@@ -1,0 +1,30 @@
+<div id="admin-inner-wrapper">
+  <h2>Custom Roles</h2>
+
+  <div id="" class="">
+    <div class="new-company-role-wrapper">
+      <%= form_for CompanyRole.new, url: company_admin_roles_path(network: @company.domain), remote: true do |f| %>
+          <%= f.text_field :name, placeholder: "CEO" %>
+          <%= f.submit "Create Role", class: "button button-primary" %>
+      <% end %>
+    </div>
+
+    <div class="company-roles">
+      <table id="role-set" class="table table-striped table-bordered table-ranking table-condensed table-hover">
+        <thead>
+        <tr>
+          <th class="name">Name</th>
+          <th class="role-actions">Edit</th>
+          <th class="role-actions">Delete</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @company_roles.each do |role| %>
+            <%= render(partial: 'company_role', locals: { role: role }) %>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

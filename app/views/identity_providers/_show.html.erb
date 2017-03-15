@@ -1,0 +1,31 @@
+<% 
+  idp_company = defined?(company) ? company : @company 
+  email = defined?(email) ? email : nil
+  network = defined?(network) ? network : nil
+%>
+<h1><%= idp_company.name %> sign in </h1>
+<div class="identity-providers">
+  <%= render_flash(include_errors: @user) %>
+  <ul class="list-subtle-border">
+    <% if idp_company.allow_yammer_auth? %>
+      <li class="marginBottom20">
+        <h3>Sign in to Recognize with Yammer.</h3>
+        <%= link_to_yammer t('yammer.sign_in'), params: {redirect: root_path} %>
+      </li>
+    <% end %>
+
+    <% if idp_company.saml_enabled? %>
+      <li class="marginBottom20">
+        <h3>Single Sign In(SSO) to Recognize with SAML</h3>
+        <%= link_to_saml t('saml.sign_in'), network: idp_company.domain %>
+      </li>
+    <% end %>
+
+    <% unless idp_company.disable_passwords? || (defined?(skip_password_auth) && skip_password_auth) %>
+      <li class="marginBottom20">
+        <h3>Do you have a username and password?</h3>
+        <%= render "user_sessions/login", skip_oauth_logins: true, send_remote: true, show_network: true, email: email, network: network %>
+      </li>
+    <% end %>
+  </ul>
+</div>

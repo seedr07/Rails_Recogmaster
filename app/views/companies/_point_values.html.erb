@@ -1,0 +1,22 @@
+<hr class="hr hr-space">
+<h5>Point values</h5>
+<%= form_for @company, html: {id: "point-values"}, url: update_point_values_company_path(network: @company.domain), remote: true do |f|%>
+  <div class="row">
+    <div class="span2">
+      <%= f.label "Points for sending a recognition" %>
+      <%= f.number_field :sent_recognition_value %>
+    </div>
+
+    <div class="span2">
+      <%= f.label "Points for receiving an approval" %>
+      <%= f.number_field :received_approval_value %>
+    </div>
+
+    <div class="span2">
+      <%= f.label "Points for sending an approval" %>
+      <%= f.number_field :sent_approval_value %>
+    </div>
+  </div>
+  <%= f.submit "Save point values", class: "button button-border" %>
+
+<% end %>

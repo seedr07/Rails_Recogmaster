@@ -1,0 +1,76 @@
+$caseStudyGreen: #52B58A
+
+@mixin greenBorderLeft()
+  border-left: 10px solid $caseStudyGreen
+
+#home-case_study
+  
+  h1
+    text-shadow: 0 0 10px rgba(255,255,255, 0.5)
+    color: black !important
+  
+  section
+    p, li
+      font-size: 18px
+      line-height: 22px
+
+  #intro 
+    height: 145px
+    padding-top: 99px
+    background: image-url("pages/home-casestudy/pattern.jpg")
+
+  #wrapper-outer
+    padding: 0 !important
+
+  #case-study-inner
+    padding: 0 20px
+    max-width: 800px
+    margin: auto
+
+    section
+      margin-bottom: 50px
+
+  #description
+    @include greenBorderLeft()
+    padding-left: 20px
+    margin-top: 50px
+    
+    p
+      font-size: 24px
+      line-height: 28px
+      margin-bottom: 0
+
+  .quote
+    @include greenBorderLeft()
+    background: #EBF1F1
+    min-height: 149px
+
+  .stat
+    text-align: center
+
+    dd
+      font-size: 80px
+      display: block
+      color: $caseStudyGreen
+      font-weight: 100
+      @include latoFontFamily()
+
+    dt
+      color: #666
+      font-size: 12px
+
+@media (max-width: 767px)
+  #home-case_study
+    padding-left: 0
+    padding-right: 0
+
+    #view-main-wrapper
+      padding-top: 48px
+
+@media (max-width: 480px)
+  #home-case_study
+    #intro  
+      margin-left: 0
+      margin-right: 0
+      margin-top: 0
+      padding-top: 83px

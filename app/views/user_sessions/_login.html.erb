@@ -1,0 +1,47 @@
+<% 
+  show_oauth_logins = defined?(skip_oauth_logins) ? false : true 
+  email = defined?(email) ? email : @user_session.try(:email)
+  network = defined?(network) ? network : @user_session.try(:network)
+
+  user_session = @user_session || UserSession.new
+  user_session.email = email if email.present?
+  user_session.network = network if network.present?
+  
+%>
+
+  <%
+    form_opts = { class:"analyticsForm", html: {class: "analyticsForm", data:{event: "login form"}} }
+    form_opts[:remote] = true if defined?(send_remote) && send_remote
+    show_network_hidden_field = defined?(show_network ) ? true : false
+  %>
+  <%= form_for user_session, form_opts do |form| %>
+    <%= form.hidden_field :network, class: "user-session-network" if show_network_hidden_field %>
+
+    <div class="form-vertical">
+      <div class="control-group email-control-group">
+        <%= form.label :email, t("forms.email"), class:"control-label" %>
+        <div class="controls">
+           <%= form.text_field :email, type: "email", placeholder: t("forgot_password.nameatcompanycom"), class: "user-session-email" %>
+        </div>
+      </div>
+      <div class="control-group password-control-group">
+        <%= form.label :password, t("forms.password"), class:"control-label" %>
+        <div class="controls">
+           <%= form.password_field :password, placeholder: t("forms.password"), class: "user-session-password" %>
+        </div>
+      </div>
+      <div class="control-group clearfix" style="margin-top: 20px;">
+        <%= form.submit t("dict.go"), class:"button button-primary button-big", style: "float: left; margin-right: 10px;" %>
+        <div style="float: left">
+          <p><%= link_to t("forgot_password.title"), password_resets_url%></p>
+        </div>
+      </div>
+    </ol>
+    </div>
+    
+  <% end %>
+
+  <% if show_oauth_logins %>
+    <div class="hr hr-space"></div>
+    <%= render partial: "user_sessions/oauth_logins" %>
+  <% end %>

@@ -1,0 +1,156 @@
+<div id="recognitions" class="tab tab-pane">
+  <%= stylesheet_link_tag "datatables" %>
+  <%= javascript_include_tag "datatables" %>
+
+  <!-- 
+    Hi Alex, I took a liberty to remove this, looks way better I think, lmk.
+  -->
+  <h2 style="display:none"><%=t("dict.recognitions")%></h2>
+
+  <div class="clearfix">
+
+    <div id="recognitions-table-form-wrapper" class="pull-left">
+      <%= form_tag recognitions_company_path(network: @company.domain, format: :json), id: "recognitions-table-form" do %>
+        <% if false #delete whole block %>
+          <input type="text" class="form-control datepicker" name="from" id="recognitions-form-from", placeholder=<%=t("forms.ddmmyyyy")%> value='<%= localize_datetime(30.days.ago, :slash_date)%>'>
+          <input type="text" class="form-control datepicker" name="to" id="recognitions-form-to", placeholder=<%=t("forms.ddmmyyyy")%> value='<%= localize_datetime(Time.now, :slash_date)%>'>
+          <input type="submit" value="Filter by date" class="button">      
+        <% end %>
+        <%= render partial: "layouts/time_selector", locals: {param_scope: "recognitions"} %>
+      <% end %>
+    </div>
+
+
+    <div id="recognitions-table-export-wrapper" class='pull-right'>
+      <%= form_tag recognitions_company_path(network: @company.domain, format: :csv), method: :get, id: "recognitions-export-form" do %>
+        <select name="format" id="export-format">
+          <option value="csv"><%= t("forms.csv")%></option>
+          <option value="xls"><%= t("forms.excel")%></option>
+          <option value="json"><%=t("forms.json")%></option>
+        </select>
+        <input type="submit" value="Export" class="button button-primary">
+
+      <% end %>
+    </div>
+  </div>
+
+  <table class="table table-condensed table-hover table-ranking table-responsive" id="recognitions-table" data-source="<%= recognitions_company_path(network: @company.domain, format: :json)%>">
+    <thead>
+        <tr>
+          <% if false %>
+            NOTE: if columns change, need to update RecognitionReportSerializer
+          <% end %>
+          <th><%=t("dict.link")%></th>
+          <th><%=t('dict.timestamp')%></th>
+          <th><%=t("forms.date")%></th>
+          <th><%=t("forms.sender_name")%></th>
+          <th><%=t("forms.sender_email")%></th>
+          <th><%=t("forms.recipient_name")%></th>
+          <th><%=t("forms.recipient_email")%></th>
+          <th><%=t("forms.teams")%></th>
+          <th><%=t("forms.badge")%></th>
+          <th><%=t("forms.points")%></th>
+          <th><%=t("forms.message")%></th>
+          <th><%=t("forms.recognized_team")%></th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>
+
+
+<%= javascript_tag do %>
+
+  (function(){
+    var $table = $('#recognitions-table');
+
+    var dateRange = new window.R.DateRange({
+      paramScope: "recognitions",
+      container: $("#recognitions"),
+      rangeSelected: function(label, values) {
+        redrawTableWithNewDates();
+      },
+      ajax: true,
+    });
+
+    $table.DataTable( {
+      ajax: {
+        dataSrc: "recognitions",
+        url: $('#recognitions-table').data('source'),
+        data: function(d) {
+          d.from = dateRange.from();
+          d.to = dateRange.to();
+        }
+      },
+      ordering: true,
+      order: [1, 'desc'],
+      paging: true,
+      searching: true,
+      responsive: true,
+      columns: [
+        { "data": "html_link", className: "slug"},
+        { "data": "timestamp", "visible": false},
+        { "data": "date", orderData: [1], className: "date" },
+        { "data": "sender_name", className: "senderName" },
+        { "data": "sender_email", className: "senderEmail" },
+        { "data": "reference_recipient_name", className: "recipientName"},
+        { "data": "reference_recipient_email", className: "recipientEmail"},
+        { "data": "reference_recipient_teams", className: "teams" },
+        { "data": "badge", className: "badge" },
+        { "data": "points", className: "points" },
+        { "data": "message", width: "40%", responsivePriority: 1, className: "message" },
+        { "data": "recognized_team", className: "part_of_team_recognition" },
+      ]
+    });
+
+    $table.on('preXhr.dt', function() {
+      var $recognitionsTableRangeControls = $("#recognitions-table-form-wrapper");
+      var $img = $("<img>");
+      $img[0].src = "/assets/icons/ajax-loader-company.gif"
+      $recognitionsTableRangeControls.find(".selected-heading").html($img);
+    })
+
+    $table.on('xhr.dt', function() {
+      var $recognitionsTableRangeControls = $("#recognitions-table-form-wrapper");
+      $recognitionsTableRangeControls.find(".selected-heading").html('');
+    })
+
+    function redrawTableWithNewDates() {
+      var dt = $table.DataTable();
+      dt.ajax.reload().draw();
+      window.recognize.patterns.formLoading.resetButton();    
+    }
+
+    $("#recognitions-table_filter input").prop('placeholder', $("#active-badges-wrapper .widget-box input").first().val());
+
+    $document.on("change", "#export-format", function(){
+      var format = "."+$(this).val();
+      var $form = $("#recognitions-export-form");
+      var oldUrl = $form.prop('action').replace(/\/$/, "").replace(/\.[^/.]+$/, "");
+      $form.prop('action', oldUrl+format);
+    });
+
+    $document.on('submit', '#recognitions-export-form', function(e){
+      e.preventDefault();
+      var from = dateRange.selectedRange()["recognitions[start_date]"];
+      var to = dateRange.selectedRange()["recognitions[end_date]"];
+      var formAction = $(this).prop('action');
+      var query = formAction.match(/\?(.*)$/);
+      
+      if(query) {
+        query = window.R.utils.paramStringToObject(query[1]);
+      } else {
+        query = {};
+      }
+      query['from'] = from;
+      query['to'] = to;
+
+      window.location = $(this).prop('action') + "?" + $.param(query);
+      //window.location = $(this).prop('action') + "?from="+from+"&to="+to;
+      window.recognize.patterns.formLoading.resetButton();
+    });    
+
+  })();
+
+<% end %>

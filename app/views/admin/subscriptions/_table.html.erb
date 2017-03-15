@@ -1,0 +1,56 @@
+ <table class="table table-striped table-bordered table-condensed table-hover table-responsive">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <% if params[:stripe] %>
+        <th>Stripe</th>
+      <% end %>
+      <th>Company</th>
+      <th>Amount</th>
+      <th>Interval</th>
+      <th>Current User Count</th>
+      <th>Department</th>
+      <th>Payment Method</th>
+      <th>Billing Start Date</th>
+      <th>Invoice Number</th>
+      <th>Status</th>
+      <th>Payment url</th>      
+      <th>Notes</th>
+      <th>Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% subscriptions_list.each do |s| %>
+    <tr id="subscription-<%= s.id%>">
+      <td><%= s.created_at.to_date%></td>
+      <% if params[:stripe] %>
+        <td><%= s.active_stripe_subscription? ? 'Active' : 'No Stripe subscription' %></td>
+      <% end %>
+
+      <td><%= link_to s.company.domain, admin_company_path(s.company)%></td>
+  
+      <td><%= number_to_currency(s.recurring_cost) %></td>
+      <td><%= s.charge_interval_adverb.humanize %></td>
+      <td><%= s.company.users.size %></td>
+
+      <td><%= s.department %></td>
+      <td><%= s.payment_method.try(:underscore).try(:humanize) %></td>
+      <td><%= s.billing_start_date.to_date unless s.billing_start_date.nil? %></td>
+      <td><%= s.invoice_number %></td>
+      <td><%= s.status_label %></td>
+      <td class="payment-url">
+        <%= link_to_if s.pending?, "Payment url", upgrade_path(network: s.company.domain) do %>
+          --
+        <% end %>
+      </td>
+      <td><%= s.notes %></td>
+      <td>
+          <%= link_to "Edit", edit_admin_company_subscription_path(s.company, s) %> | 
+          <%= link_to_unless s.cancelled?, "Cancel",cancel_admin_company_subscription_path(s.company, s), remote: true, method: :patch, data: {confirm: "Are you sure you want to cancel this subscription?"}%> | 
+
+      </td>
+
+    </tr>
+    <% end %>
+  </tbody>
+</table>  

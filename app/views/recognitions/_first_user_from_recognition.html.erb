@@ -1,0 +1,22 @@
+<%# NOTE: if you change code here, you probably want to update code in the first_user_from_signup partial as well%>
+    <div class="text-center welcome-badge-link-trigger">
+      <h3>Welcome <%= current_user.full_name %></h3>
+      
+      <div id="badge-wrapper" class="clearfix centered">
+        <div id="badge">
+          <%= link_to recognition_path(@recognitions.first), data: {event: "Recognition Leader badge link"} do %>
+              <%= image_tag @recognitions.first.badge.permalink, class: "badge-image-small", alt: @recognitions.first.badge.short_name %><br>
+              <h5 class="capitalize"><%= @recognitions.first.badge.short_name%></h5>
+          <% end %>
+        </div>
+        <div id="text-wrapper">
+          <h4>
+              You earned a <%= link_to "recognition from #{@recognitions.first.sender.full_name}", recognition_path(@recognitions.first) %>.
+          </h4>
+          <div class="hr marginBottom10"></div>
+          <%= link_to new_recognition_path, class: "button button-big", id: "new-recognition-primary-welcome", data: {event: "Send recognition primary welcome link"} do %>
+            Recognize a colleague or a coworker
+          <% end %>
+        </div>
+      </div>
+    </div>

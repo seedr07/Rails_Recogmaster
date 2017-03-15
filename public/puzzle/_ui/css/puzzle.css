@@ -1,0 +1,19 @@
+header {
+    background: black;
+    padding: 15px 0;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#000), to(#0F0F0F));
+    border-bottom: 1px solid #f4f4f4;
+    position: relative;
+}
+
+header > h1 {
+    width: 100%;
+    height: 56px;
+}
+
+.offscreen {
+    position: absolute;
+    left: -9999px;
+}
+
+

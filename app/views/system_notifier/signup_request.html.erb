@@ -1,0 +1,3 @@
+<h2>A new email has been submitted through the Recognize signup form on <%= @signup_request.created_at.to_formatted_s(:db)%></h2>
+<h3>From: </h3>
+<p><%= @signup_request.email%><%= " - #{@signup_request.pricing} tier" if @signup_request.pricing.present?%></p>

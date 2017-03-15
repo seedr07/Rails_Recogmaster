@@ -1,0 +1,12 @@
+<%= render "recognitions/nomination_toggle" %>
+
+<div id="recognition-send-form">
+  <% if @recognition.new_record? %>
+    <%= render partial: 'form_fullscreen' %>
+  <% else %>
+    <%= render partial: 'edit_form_fullscreen' %>
+  <% end %>
+
+  <%= render partial: 'badge_list', locals: {badge_set: sendable_recognition_badges } %>
+
+</div>

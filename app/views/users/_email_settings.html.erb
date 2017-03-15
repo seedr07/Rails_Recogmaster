@@ -1,0 +1,73 @@
+<% unless @user.personal_account? || !current_user.company.allow_teams? %>
+  <div id="teams" class="span4">
+    <%= link_to t("teams.teams_directory"), teams_path, class: "marginBottom30 button button-inactive" %>
+  </div>
+<% end %>
+
+<div class="form-vertical span4 email-settings">
+  <div class="well">
+    <h2><%= t("user_edit.email_settings") %></h2>
+    <% label_class = @user.email_setting.global_unsubscribe? ? "subtle-text" : ""%>
+    <%= form.fields_for :email_setting do |setting| %>
+      <div class="control-group">
+        <div class="controls clearfix">
+          <%= setting.check_box :new_recognition, disabled: (@user.email_setting.global_unsubscribe?)%>
+          <%= setting.label :new_recognition, t("user_edit.new_recognition_notification"), class: label_class %>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls clearfix">
+          <%= setting.check_box :new_comment, disabled: (@user.email_setting.global_unsubscribe?)%>
+          <%= setting.label :new_comment, t("user_edit.new_comment_notification"), class: label_class %>
+        </div>
+      </div>
+
+      <% if @user.company.allow_daily_emails? %>
+        <div class="control-group">
+          <div class="controls clearfix">
+            <%= setting.check_box :daily_updates, disabled: (@user.email_setting.global_unsubscribe?)%>
+            <%= setting.label :daily_updates, t("user_edit.daily_updates"), class: label_class %>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="control-group">
+        <div class="controls clearfix">
+          <%= setting.check_box :weekly_updates, disabled: (@user.email_setting.global_unsubscribe?)%>
+          <%= setting.label :weekly_updates, t("user_edit.weekly_updates"), class: label_class %>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls clearfix">
+          <%= setting.check_box :monthly_updates, disabled: (@user.email_setting.global_unsubscribe?)%>
+          <%= setting.label :monthly_updates, t("user_edit.monthly_updates"), class: label_class %>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls clearfix">
+          <%= setting.check_box :activity_reminders, disabled: (@user.email_setting.global_unsubscribe?)%>
+          <%= setting.label :activity_reminders, t("user_edit.activity_reminders"), class: label_class%>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls clearfix">
+          <%= setting.check_box :interval_winner_notifications, disabled: (@user.email_setting.global_unsubscribe?)%>
+          <%= setting.label :interval_winner_notifications, t("user_edit.interval_winner_notifications", interval: reset_interval_adverb(@user.reset_interval).humanize), class: label_class%>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls unsubscribe-wrapper clearfix">
+          <%= setting.check_box :allow_sms_notifications%>
+          <%= setting.label :allow_sms_notifications, t("user_edit.allow_sms_notifications") %>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls unsubscribe-wrapper clearfix">
+          <%= setting.check_box :global_unsubscribe%>
+          <%= setting.label :global_unsubscribe, t("user_edit.unsubscribe_from_all"), id: "unsubscribe"%>
+        </div>
+      </div>
+
+    <% end%>
+  </div>
+</div>

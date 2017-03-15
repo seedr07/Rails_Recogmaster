@@ -1,0 +1,142 @@
+<% content_for :meta_properties do %>
+  <meta property="og:title" content="<%= @user.full_name%>’s recognition profile" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Recognizeapp.com" />
+  <meta property="og:description" content="View <%=@user.full_name%>’s employee recognitions and colleague recognitions." />
+  <meta property="og:image" content="<%= @user.avatar.file.thumb.url %>" />
+<% end%>
+
+<% content_for :title, "#{@user.full_name}’s recognitions" %>
+
+<% content_for :description, "View #{@user.full_name}’s colleague and employee recognitions." %>
+
+<% content_for :page_class, (@user == current_user ? "current-user-profile" : "")%>
+<% content_for_stream_page %>
+
+<div class="user-profile-header">
+  <div class="small-screen-only">
+    <div>
+      <%= image_tag(@user.avatar.thumb, itemprop: "image", class: "avatar inlineBlock") if @user.avatar %>
+      <h1 class="inlineBlock"><%= @user.full_name %> <% if @user.job_title.present? %>- <%= @user.job_title %><% end %></h1>
+    </div>
+    <p class="company-name" itemprop="worksFor"><%= @user.company.name %></p>
+    <h5 title="score"><strong><%= interval_points(@user) %></strong></h5>
+    <p class="subtle-text"><%= t("dict.total_points") %>: <%= @user.total_points %></p>
+  </div>
+  <%= link_to t("users.edit_profile"), edit_user_path(current_user), id: "edit-profile-button", class: "button" if @user == current_user%>
+  <%= link_to t("links.recognize_other", name: @user.full_name), user_recognition_path(@user), id: "edit-profile-button", class: "button button-inactive" if @user != current_user%>
+</div>
+<div id="nametag-tab" class="tab tab-pane">
+  <%= render partial: "users/nametag", locals: {user: @user} %>
+</div>
+
+<div class="main-content">
+  <nav class="tab-nav">
+    <ul class="clearfix">
+
+      <li id="nametag-trigger"><a href="#nametag-tab" data-toggle="tab" data-event= "user-tab" eventtype="click" eventproperties='{"content": "nametag"}'><%= t("user_show.tag") %></a></li>
+
+      <% if @achievements.present? %>
+        <li id="achievements-trigger"><a href="#achievements-tag" data-toggle="tab" data-event= "user-tab" eventtype="click" eventproperties='{"content": "achievements"}'><%= t("user_show.achievements") %></a></li>
+      <% end %>
+      <li class="active"><a id="received-trigger" href="#received" data-toggle="tab" data-event= "user-tab" eventtype="click" eventproperties='{"content": "received"}'><%= t("dict.received") %></a></li>
+
+      <li><a id="sent-trigger" href="#sent" data-toggle="tab" data-event= "user-tab" eventtype="click" eventproperties='{"content": "sent"}'><%= t("dict.sent") %></a></li>
+
+      <% unless @user.personal_account? || !@user.company.allow_teams %>
+        <li><a id="teams-trigger" href="#teams" data-toggle="tab" data-event= "user-tab" eventtype="click" eventproperties='{"content": "teams"}'><%= t("dict.teams") %></a></li>
+      <% end %>
+
+      <li id="badges-tab"><a href="#badges" data-toggle="tab" data-event= "user-tab" eventtype="click" eventproperties='{"content": "badges"}'><%= t("dict.badges") %></a></li>
+
+      <% if @user.can_view_rewards? %>
+        <li id="rewards-user-tab"><a href="#rewards" data-toggle="tab" data-event= "user-tab" eventtype="click" eventproperties='{"content": "rewards"}'><%= t("rewards.rewards") %></a></li>
+      <% end %>
+
+    </ul>
+  </nav>
+  <% if @achievements.present? %>
+    <section id="achievements-tag" class="tab tab-pane">
+      <h3><%= t("user_show.num_achievements", num: @achievements.count)%></h3>
+      <hr class="hr hr-space">
+      <div id="recognitions-achievements">
+        <%= render :partial => "recognitions/recognition_inline", :collection => @achievements, :as => :recognition %>
+      </div>
+    </section>
+  <% end %>
+  
+  <section id="received" class="tab tab-pane active">
+  
+    <div id="profile-recognitions-received" class="recognitions pagelet" data-endpoint="<%= received_recognitions_user_path %>">
+      <div class="loading-wrapper">
+        <%= image_tag "icons/loading-bar-blue.gif" %>
+      </div>
+    </div>
+  </section>
+  
+  <section id="sent" class="tab tab-pane">
+  
+    <div id="profile-recognitions-sent" class="recognitions pagelet" data-endpoint="<%= sent_recognitions_user_path %>">
+      <%= image_tag "icons/loading-bar-blue.gif", class: "centered"%>
+    </div>
+  </section>
+
+  <% if current_user && current_user.company.allow_teams? %>
+    <section id="teams" class="tab tab-pane">
+
+      <%= link_to t("dict.teams"), teams_path(network: current_user.network), class: "button button-inactive marginBottom20" unless @user != current_user %>
+      <% unless @user.teams.blank? %>
+        <% @user.teams.each do |team| %>
+          <h2><%= link_to team.name, team_path(team) %></h2>
+        <% end %>
+      <% else%>
+
+        <% if @user != current_user%>
+            <p class="list-empty-warning"><%= t("user_show.is_not_on_any_teams", name: @user.full_name) %></p>
+        <% end%>
+
+      <% end %>
+    </section>
+  <% end %>
+
+  <section id="badges" class="tab tab-pane">
+    <ul>
+      <% @badge_counts.each do |badge, count|%>
+        <li class="marginBottom10">
+          <%= image_tag badge.permalink(50, request.protocol), class: "image-wrapper" %>
+          <h4><%= badge.short_name%></h4>
+          <p><%= count%></p>
+        </li>
+      <%end%>  
+    </ul>
+  </section>
+
+  <% if @user.can_view_rewards? %>
+    <section id="rewards" class="tab tab-pane">
+      <% if @redemptions.present? %>
+        <table class="table table-striped">
+          <th><%= t("dict.date") %></th>
+          <th><%= t("reward.reward") %></th>
+          <th><%= t("reward.reward_description") %></th>
+          <% @redemptions.each do |redemption| %>
+            <tr>
+              <td>
+                <p><%= localize_datetime(redemption.created_at, :friendly_with_time) %></p>
+              </td>
+              <td>
+                <p><%= redemption.reward.title %></p>
+              </td>
+              <td>
+                <p><%= redemption.reward.description %></p>
+              </td>
+            </tr>
+          <% end %>
+        </table>
+      <% else %>
+        <p><%= t("rewards.no_redemptions") %></p>
+      <% end %>
+    </section>
+  <% end %>
+
+</div>
+

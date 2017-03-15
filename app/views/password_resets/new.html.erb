@@ -1,0 +1,35 @@
+<% content_for :title, "Reset your password" %>
+<% 
+  #NOTE! if you change the button copy, you must check the PasswordResetsController!
+  #      as the button copy is sent through as a param which we check to determine
+  #      the proper copy for the flash message
+if request.path == "/resend_verification_email"
+  which_form = "resend_verification"
+  copy = {title: t("forgot_password.resend_verification_email"), button: t("forgot_password.send_email")}
+else
+  which_form = "password_reset"
+  copy = {title: t("forgot_password.title"), button: t("forgot_password.reset_my_password")}
+end
+%>
+<h1><%= copy[:title]%></h1>
+
+<%= render_flash%>
+
+<div class="form-vertical">
+  <%= form_tag password_resets_path, class:"form-vertical" do %>
+    <%= hidden_field_tag('which_form', which_form) %>
+    <div class="control-group">
+      <div class="controls">
+        <%= label_tag t("forgot_password.email_address")%>
+        <%= text_field_tag :email, params[:email], placeholder: t("forgot_password.nameatcompanycom") %>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+      <%= submit_tag copy[:button], class: "button button-primary" %>
+        </div>
+      </div>
+    </div>
+  <% end%>
+</div>
+

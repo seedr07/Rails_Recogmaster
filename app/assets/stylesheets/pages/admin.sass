@@ -1,0 +1,181 @@
+#admin_index-index,
+#admin_index-graph,
+#admin_index-analytics,
+#companies-show
+  .flipboard-wrapper
+    margin: 10px 5px
+    text-align: center
+  #filter
+    -webkit-appearance: button
+    margin: 0 0 20px 0
+
+  #legend
+    width: 90px
+    position: relative
+    table
+      position: absolute
+      bottom: 115px
+      left: 35px
+    tr
+      cursor: pointer
+    .disabled
+      opacity: 0.5
+
+  tr.verified
+    color: green
+  tr.unverified
+    color: #ccc
+  td.no-company-admin a
+    color: red
+
+  #admin_index-signup_requests
+    .row-fluid [class*="span"]
+      min-height: 15px
+    .row-fluid:hover
+      color: #333
+      font-weight: bold
+
+#admin_companies-show
+
+  .custom-badges h4, .admin-dashboard h4  
+    display: inline-block
+
+  .companies 
+    div, form
+      display: inline-block
+
+    ol
+      border: 1px solid #ccc
+      padding: 6px
+      overflow: visible
+    li
+      overflow: visible
+      margin-left: 20px
+
+  select
+    height: 350px
+    width: 350px
+    
+    span
+      color: #ccc
+      font-size: 10px
+#admin_subscriptions-index
+  text-align: left
+
+  td, th
+    border-right: 1px solid #dddddd
+    border-left: none
+
+#admin_index-analytics
+  #admin-flipboard
+  .row-fluid
+    margin: 10px 0 15px 0
+
+  .flipboard-subheading
+    margin-top: -8px
+    margin-bottom: 10px
+  
+.company-list
+  display: none
+  position: absolute
+  top: 25%
+  left: 13%
+  background: #ccc
+  border: 1px solid #ccc
+  text-align: left
+  z-index: 10
+  padding: 10px
+  border-radius: 5px
+  width: 856px
+  max-height: 424px
+  
+  .close-company-list
+    cursor: pointer
+    
+  table
+    width: 856px
+    float: left
+  thead
+    display: table-header-group
+    vertical-align: middle
+
+    tr
+      display: block
+      position: relative
+      th
+        width: 250px
+      th + th
+        width: 75px
+        
+  tbody
+    display: block
+    max-height: 350px
+    overflow: auto
+    width: 100%
+    vertical-align: middle
+
+    tr
+      display: table-row
+      
+      td
+        width: 250px
+
+      td + td
+        width: 75px
+  tfoot
+    border-top: 1px solid #000
+
+#admin_coupons-index
+  table
+    width: 95%
+    border: 1px solid pink
+  th,td
+    text-align: left
+    border: 1px solid #ccc
+    padding: 5px
+    vertical-align: middle
+
+  th.action
+    width: 30px
+  th.coupon-code
+    width: 105px
+  th.coupon-expiration
+    width: 157px 
+  th.percent-off
+    width: 100px
+  th.times-redeemed
+    width: 10px
+  th.max-redemptions
+    width: 60px
+  th.coupon-plans
+    width: 60px
+  th.coupon-css-class
+    width: 57px
+  
+  tr.valid
+    font-color: black
+  tr.invalid 
+    td
+      color: #ccc
+  tr.deleted
+    td
+      text-decoration: line-through
+  
+
+#admin_coupons-edit
+  textarea
+    width: 500px
+
+#admin_index-analytics
+  #admin-flipboard
+    margin-top: 20px
+  #legend
+    width: 300px
+
+.admin_recognitions,
+.admin_users
+  .pagination
+    display: block
+    bottom: inherit
+    position: inherit
+    margin-bottom: 10px

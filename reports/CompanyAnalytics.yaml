@@ -1,0 +1,955 @@
+---
+tmp/backups/recognize_production_20130412221007.sql.gz:
+  :new_companies_this_week: 10
+  :new_users_this_week: 14
+  :new_recognitions_this_week: 45
+  :new_approvals_this_week: 86
+  :num_activated_companies_this_week: 2
+  :num_engaged_companies_this_week_1: 12
+  :num_engaged_companies_this_week_5: 1
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20130418130127.sql:
+  :new_companies_this_week: 21
+  :new_users_this_week: 80
+  :new_recognitions_this_week: 177
+  :new_approvals_this_week: 276
+  :num_activated_companies_this_week: 9
+  :num_engaged_companies_this_week_1: 27
+  :num_engaged_companies_this_week_5: 2
+  :num_engaged_companies_this_week_10: 1
+tmp/backups/recognize_production_20130421150337.sql:
+  :new_companies_this_week: 20
+  :new_users_this_week: 96
+  :new_recognitions_this_week: 264
+  :new_approvals_this_week: 611
+  :num_activated_companies_this_week: 12
+  :num_engaged_companies_this_week_1: 27
+  :num_engaged_companies_this_week_5: 2
+  :num_engaged_companies_this_week_10: 1
+tmp/backups/recognize_production_20130422190758.sql.gz:
+  :new_companies_this_week: 19
+  :new_users_this_week: 93
+  :new_recognitions_this_week: 276
+  :new_approvals_this_week: 612
+  :num_activated_companies_this_week: 11
+  :num_engaged_companies_this_week_1: 26
+  :num_engaged_companies_this_week_5: 2
+  :num_engaged_companies_this_week_10: 1
+tmp/backups/recognize_production_20130506200841.sql:
+  :new_companies_this_week: 17
+  :new_users_this_week: 26
+  :new_recognitions_this_week: 61
+  :new_approvals_this_week: 79
+  :num_activated_companies_this_week: 3
+  :num_engaged_companies_this_week_1: 21
+  :num_engaged_companies_this_week_5: 2
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20130520080839.sql.gz:
+  :new_companies_this_week: 13
+  :new_users_this_week: 18
+  :new_recognitions_this_week: 29
+  :new_approvals_this_week: 34
+  :num_activated_companies_this_week: 2
+  :num_engaged_companies_this_week_1: 17
+  :num_engaged_companies_this_week_5: 0
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20130528150310.sql.gz:
+  :new_companies_this_week: 10
+  :new_users_this_week: 14
+  :new_recognitions_this_week: 42
+  :new_approvals_this_week: 77
+  :num_activated_companies_this_week: 1
+  :num_engaged_companies_this_week_1: 12
+  :num_engaged_companies_this_week_5: 1
+  :num_engaged_companies_this_week_10: 1
+tmp/backups/recognize_production_20130602221021.sql.gz:
+  :new_companies_this_week: 13
+  :new_users_this_week: 24
+  :new_recognitions_this_week: 36
+  :new_approvals_this_week: 82
+  :num_activated_companies_this_week: 6
+  :num_engaged_companies_this_week_1: 15
+  :num_engaged_companies_this_week_5: 1
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20130613010102.sql.gz:
+  :new_companies_this_week: 14
+  :new_users_this_week: 24
+  :new_recognitions_this_week: 38
+  :new_approvals_this_week: 41
+  :num_activated_companies_this_week: 6
+  :num_engaged_companies_this_week_1: 18
+  :num_engaged_companies_this_week_5: 0
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20130616200807.sql.gz:
+  :new_companies_this_week: 18
+  :new_users_this_week: 30
+  :new_recognitions_this_week: 48
+  :new_approvals_this_week: 40
+  :num_activated_companies_this_week: 0
+  :num_engaged_companies_this_week_1: 23
+  :num_engaged_companies_this_week_5: 0
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20130617190740.sql:
+  :new_companies_this_week: 22
+  :new_users_this_week: 33
+  :new_recognitions_this_week: 61
+  :new_approvals_this_week: 34
+  :num_activated_companies_this_week: 14
+  :num_engaged_companies_this_week_1: 22
+  :num_engaged_companies_this_week_5: 1
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20130624130116.sql.gz:
+  :new_companies_this_week: 11
+  :new_users_this_week: 26
+  :new_recognitions_this_week: 28
+  :new_approvals_this_week: 14
+  :num_activated_companies_this_week: 6
+  :num_engaged_companies_this_week_1: 9
+  :num_engaged_companies_this_week_5: 0
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20130801180602.sql:
+  :new_companies_this_week: 11
+  :new_users_this_week: 40
+  :new_recognitions_this_week: 37
+  :new_approvals_this_week: 13
+  :num_activated_companies_this_week: 5
+  :num_engaged_companies_this_week_1: 7
+  :num_engaged_companies_this_week_5: 0
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20130801200822.sql.gz:
+  :new_companies_this_week: 12
+  :new_users_this_week: 44
+  :new_recognitions_this_week: 41
+  :new_approvals_this_week: 13
+  :num_activated_companies_this_week: 0
+  :num_engaged_companies_this_week_1: 8
+  :num_engaged_companies_this_week_5: 0
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20130807160451.sql.gz:
+  :new_companies_this_week: 11
+  :new_users_this_week: 41
+  :new_recognitions_this_week: 25
+  :new_approvals_this_week: 1
+  :num_activated_companies_this_week: 5
+  :num_engaged_companies_this_week_1: 8
+  :num_engaged_companies_this_week_5: 0
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20130819140253.sql:
+  :new_companies_this_week: 95
+  :new_users_this_week: 197
+  :new_recognitions_this_week: 143
+  :new_approvals_this_week: 14
+  :num_activated_companies_this_week: 26
+  :num_engaged_companies_this_week_1: 28
+  :num_engaged_companies_this_week_5: 0
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20130905121247.sql:
+  :new_companies_this_week: 115
+  :new_users_this_week: 345
+  :new_recognitions_this_week: 245
+  :new_approvals_this_week: 37
+  :num_activated_companies_this_week: 39
+  :num_engaged_companies_this_week_1: 47
+  :num_engaged_companies_this_week_5: 0
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20130909160429.sql:
+  :new_companies_this_week: 122
+  :new_users_this_week: 383
+  :new_recognitions_this_week: 257
+  :new_approvals_this_week: 49
+  :num_activated_companies_this_week: 47
+  :num_engaged_companies_this_week_1: 55
+  :num_engaged_companies_this_week_5: 0
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20130910080811.sql.gz:
+  :new_companies_this_week: 128
+  :new_users_this_week: 401
+  :new_recognitions_this_week: 257
+  :new_approvals_this_week: 49
+  :num_activated_companies_this_week: 47
+  :num_engaged_companies_this_week_1: 55
+  :num_engaged_companies_this_week_5: 0
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20130910130158.sql.gz:
+  :new_companies_this_week: 130
+  :new_users_this_week: 404
+  :new_recognitions_this_week: 264
+  :new_approvals_this_week: 49
+  :num_activated_companies_this_week: 48
+  :num_engaged_companies_this_week_1: 58
+  :num_engaged_companies_this_week_5: 0
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20130912090932.sql.gz:
+  :new_companies_this_week: 114
+  :new_users_this_week: 332
+  :new_recognitions_this_week: 197
+  :new_approvals_this_week: 20
+  :num_activated_companies_this_week: 41
+  :num_engaged_companies_this_week_1: 54
+  :num_engaged_companies_this_week_5: 0
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20130912101043.sql.gz:
+  :new_companies_this_week: 115
+  :new_users_this_week: 334
+  :new_recognitions_this_week: 199
+  :new_approvals_this_week: 20
+  :num_activated_companies_this_week: 42
+  :num_engaged_companies_this_week_1: 55
+  :num_engaged_companies_this_week_5: 0
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20130913180623.sql.gz:
+  :new_companies_this_week: 136
+  :new_users_this_week: 395
+  :new_recognitions_this_week: 232
+  :new_approvals_this_week: 24
+  :num_activated_companies_this_week: 53
+  :num_engaged_companies_this_week_1: 64
+  :num_engaged_companies_this_week_5: 0
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20130916210921.sql.gz:
+  :new_companies_this_week: 137
+  :new_users_this_week: 492
+  :new_recognitions_this_week: 229
+  :new_approvals_this_week: 23
+  :num_activated_companies_this_week: 44
+  :num_engaged_companies_this_week_1: 60
+  :num_engaged_companies_this_week_5: 0
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20130918090927.sql.gz:
+  :new_companies_this_week: 138
+  :new_users_this_week: 571
+  :new_recognitions_this_week: 251
+  :new_approvals_this_week: 33
+  :num_activated_companies_this_week: 50
+  :num_engaged_companies_this_week_1: 62
+  :num_engaged_companies_this_week_5: 0
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20130919160420.sql.gz:
+  :new_companies_this_week: 135
+  :new_users_this_week: 561
+  :new_recognitions_this_week: 273
+  :new_approvals_this_week: 40
+  :num_activated_companies_this_week: 52
+  :num_engaged_companies_this_week_1: 69
+  :num_engaged_companies_this_week_5: 0
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20130920231132.sql.gz:
+  :new_companies_this_week: 131
+  :new_users_this_week: 513
+  :new_recognitions_this_week: 282
+  :new_approvals_this_week: 35
+  :num_activated_companies_this_week: 52
+  :num_engaged_companies_this_week_1: 73
+  :num_engaged_companies_this_week_5: 0
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20130921130153.sql.gz:
+  :new_companies_this_week: 132
+  :new_users_this_week: 524
+  :new_recognitions_this_week: 289
+  :new_approvals_this_week: 36
+  :num_activated_companies_this_week: 53
+  :num_engaged_companies_this_week_1: 72
+  :num_engaged_companies_this_week_5: 0
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20130924101041.sql.gz:
+  :new_companies_this_week: 146
+  :new_users_this_week: 491
+  :new_recognitions_this_week: 420
+  :new_approvals_this_week: 36
+  :num_activated_companies_this_week: 74
+  :num_engaged_companies_this_week_1: 93
+  :num_engaged_companies_this_week_5: 2
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20130926210922.sql.gz:
+  :new_companies_this_week: 132
+  :new_users_this_week: 465
+  :new_recognitions_this_week: 475
+  :new_approvals_this_week: 59
+  :num_activated_companies_this_week: 69
+  :num_engaged_companies_this_week_1: 89
+  :num_engaged_companies_this_week_5: 4
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20130930060602.sql.gz:
+  :new_companies_this_week: 119
+  :new_users_this_week: 435
+  :new_recognitions_this_week: 475
+  :new_approvals_this_week: 68
+  :num_activated_companies_this_week: 64
+  :num_engaged_companies_this_week_1: 88
+  :num_engaged_companies_this_week_5: 3
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20130930090952.sql.gz:
+  :new_companies_this_week: 121
+  :new_users_this_week: 445
+  :new_recognitions_this_week: 481
+  :new_approvals_this_week: 74
+  :num_activated_companies_this_week: 63
+  :num_engaged_companies_this_week_1: 92
+  :num_engaged_companies_this_week_5: 3
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20131007130107.sql.gz:
+  :new_companies_this_week: 107
+  :new_users_this_week: 368
+  :new_recognitions_this_week: 383
+  :new_approvals_this_week: 84
+  :num_activated_companies_this_week: 54
+  :num_engaged_companies_this_week_1: 81
+  :num_engaged_companies_this_week_5: 3
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20131011180658.sql.gz:
+  :new_companies_this_week: 86
+  :new_users_this_week: 380
+  :new_recognitions_this_week: 353
+  :new_approvals_this_week: 146
+  :num_activated_companies_this_week: 52
+  :num_engaged_companies_this_week_1: 87
+  :num_engaged_companies_this_week_5: 3
+  :num_engaged_companies_this_week_10: 1
+tmp/backups/recognize_production_20131011221056.sql.gz:
+  :new_companies_this_week: 88
+  :new_users_this_week: 375
+  :new_recognitions_this_week: 349
+  :new_approvals_this_week: 143
+  :num_activated_companies_this_week: 50
+  :num_engaged_companies_this_week_1: 85
+  :num_engaged_companies_this_week_5: 3
+  :num_engaged_companies_this_week_10: 1
+tmp/backups/recognize_production_20131012180649.sql.gz:
+  :new_companies_this_week: 89
+  :new_users_this_week: 396
+  :new_recognitions_this_week: 350
+  :new_approvals_this_week: 135
+  :num_activated_companies_this_week: 50
+  :num_engaged_companies_this_week_1: 86
+  :num_engaged_companies_this_week_5: 3
+  :num_engaged_companies_this_week_10: 1
+tmp/backups/recognize_production_20131013150353.sql.gz:
+  :new_companies_this_week: 89
+  :new_users_this_week: 414
+  :new_recognitions_this_week: 356
+  :new_approvals_this_week: 135
+  :num_activated_companies_this_week: 49
+  :num_engaged_companies_this_week_1: 85
+  :num_engaged_companies_this_week_5: 3
+  :num_engaged_companies_this_week_10: 1
+tmp/backups/recognize_production_20131014170515.sql.gz:
+  :new_companies_this_week: 85
+  :new_users_this_week: 364
+  :new_recognitions_this_week: 331
+  :new_approvals_this_week: 137
+  :num_activated_companies_this_week: 47
+  :num_engaged_companies_this_week_1: 78
+  :num_engaged_companies_this_week_5: 4
+  :num_engaged_companies_this_week_10: 1
+tmp/backups/recognize_production_20131022121213.sql.gz:
+  :new_companies_this_week: 109
+  :new_users_this_week: 490
+  :new_recognitions_this_week: 423
+  :new_approvals_this_week: 80
+  :num_activated_companies_this_week: 64
+  :num_engaged_companies_this_week_1: 106
+  :num_engaged_companies_this_week_5: 3
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20131026150343.sql.gz:
+  :new_companies_this_week: 98
+  :new_users_this_week: 479
+  :new_recognitions_this_week: 389
+  :new_approvals_this_week: 112
+  :num_activated_companies_this_week: 48
+  :num_engaged_companies_this_week_1: 92
+  :num_engaged_companies_this_week_5: 4
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20131031101025.sql.gz:
+  :new_companies_this_week: 98
+  :new_users_this_week: 367
+  :new_recognitions_this_week: 321
+  :new_approvals_this_week: 89
+  :num_activated_companies_this_week: 60
+  :num_engaged_companies_this_week_1: 98
+  :num_engaged_companies_this_week_5: 1
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20131103140201.sql.gz:
+  :new_companies_this_week: 87
+  :new_users_this_week: 353
+  :new_recognitions_this_week: 297
+  :new_approvals_this_week: 80
+  :num_activated_companies_this_week: 55
+  :num_engaged_companies_this_week_1: 97
+  :num_engaged_companies_this_week_5: 2
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20131104140243.sql.gz:
+  :new_companies_this_week: 79
+  :new_users_this_week: 397
+  :new_recognitions_this_week: 302
+  :new_approvals_this_week: 85
+  :num_activated_companies_this_week: 51
+  :num_engaged_companies_this_week_1: 96
+  :num_engaged_companies_this_week_5: 1
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20131106101039.sql.gz:
+  :new_companies_this_week: 61
+  :new_users_this_week: 342
+  :new_recognitions_this_week: 273
+  :new_approvals_this_week: 78
+  :num_activated_companies_this_week: 38
+  :num_engaged_companies_this_week_1: 82
+  :num_engaged_companies_this_week_5: 3
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20131112150349.sql.gz:
+  :new_companies_this_week: 72
+  :new_users_this_week: 401
+  :new_recognitions_this_week: 636
+  :new_approvals_this_week: 324
+  :num_activated_companies_this_week: 37
+  :num_engaged_companies_this_week_1: 71
+  :num_engaged_companies_this_week_5: 6
+  :num_engaged_companies_this_week_10: 3
+tmp/backups/recognize_production_20131113121228.sql.gz:
+  :new_companies_this_week: 65
+  :new_users_this_week: 366
+  :new_recognitions_this_week: 607
+  :new_approvals_this_week: 336
+  :num_activated_companies_this_week: 34
+  :num_engaged_companies_this_week_1: 65
+  :num_engaged_companies_this_week_5: 5
+  :num_engaged_companies_this_week_10: 3
+tmp/backups/recognize_production_20131114111102.sql.gz:
+  :new_companies_this_week: 43
+  :new_users_this_week: 307
+  :new_recognitions_this_week: 549
+  :new_approvals_this_week: 327
+  :num_activated_companies_this_week: 25
+  :num_engaged_companies_this_week_1: 60
+  :num_engaged_companies_this_week_5: 4
+  :num_engaged_companies_this_week_10: 3
+tmp/backups/recognize_production_20131122030303.sql.gz:
+  :new_companies_this_week: 33
+  :new_users_this_week: 141
+  :new_recognitions_this_week: 215
+  :new_approvals_this_week: 70
+  :num_activated_companies_this_week: 18
+  :num_engaged_companies_this_week_1: 46
+  :num_engaged_companies_this_week_5: 3
+  :num_engaged_companies_this_week_10: 1
+tmp/recognize_production_20130412221007.sql:
+  :new_companies_this_week: 10
+  :new_users_this_week: 14
+  :new_recognitions_this_week: 45
+  :new_approvals_this_week: 86
+  :num_activated_companies_this_week: 2
+  :num_engaged_companies_this_week_1: 12
+  :num_engaged_companies_this_week_5: 1
+  :num_engaged_companies_this_week_10: 0
+tmp/recognize_production_20130913180623.sql:
+  :new_companies_this_week: 136
+  :new_users_this_week: 395
+  :new_recognitions_this_week: 232
+  :new_approvals_this_week: 24
+  :num_activated_companies_this_week: 53
+  :num_engaged_companies_this_week_1: 64
+  :num_engaged_companies_this_week_5: 0
+  :num_engaged_companies_this_week_10: 0
+tmp/recognize_production_20130919160420.sql:
+  :new_companies_this_week: 135
+  :new_users_this_week: 561
+  :new_recognitions_this_week: 273
+  :new_approvals_this_week: 40
+  :num_activated_companies_this_week: 52
+  :num_engaged_companies_this_week_1: 69
+  :num_engaged_companies_this_week_5: 0
+  :num_engaged_companies_this_week_10: 0
+tmp/recognize_production_20130924101041.sql:
+  :new_companies_this_week: 146
+  :new_users_this_week: 491
+  :new_recognitions_this_week: 420
+  :new_approvals_this_week: 36
+  :num_activated_companies_this_week: 74
+  :num_engaged_companies_this_week_1: 93
+  :num_engaged_companies_this_week_5: 2
+  :num_engaged_companies_this_week_10: 0
+tmp/recognize_production_20130930090952.sql:
+  :new_companies_this_week: 121
+  :new_users_this_week: 445
+  :new_recognitions_this_week: 481
+  :new_approvals_this_week: 74
+  :num_activated_companies_this_week: 63
+  :num_engaged_companies_this_week_1: 92
+  :num_engaged_companies_this_week_5: 3
+  :num_engaged_companies_this_week_10: 0
+tmp/recognize_production_20131007130107.sql:
+  :new_companies_this_week: 107
+  :new_users_this_week: 368
+  :new_recognitions_this_week: 383
+  :new_approvals_this_week: 84
+  :num_activated_companies_this_week: 54
+  :num_engaged_companies_this_week_1: 81
+  :num_engaged_companies_this_week_5: 3
+  :num_engaged_companies_this_week_10: 0
+tmp/recognize_production_20131011180658.sql.gz:
+  :new_companies_this_week: 86
+  :new_users_this_week: 380
+  :new_recognitions_this_week: 353
+  :new_approvals_this_week: 146
+  :num_activated_companies_this_week: 52
+  :num_engaged_companies_this_week_1: 87
+  :num_engaged_companies_this_week_5: 3
+  :num_engaged_companies_this_week_10: 1
+tmp/recognize_production_20131022121213.sql:
+  :new_companies_this_week: 109
+  :new_users_this_week: 490
+  :new_recognitions_this_week: 423
+  :new_approvals_this_week: 80
+  :num_activated_companies_this_week: 64
+  :num_engaged_companies_this_week_1: 106
+  :num_engaged_companies_this_week_5: 3
+  :num_engaged_companies_this_week_10: 0
+tmp/recognize_production_20131103140201.sql:
+  :new_companies_this_week: 87
+  :new_users_this_week: 353
+  :new_recognitions_this_week: 297
+  :new_approvals_this_week: 80
+  :num_activated_companies_this_week: 55
+  :num_engaged_companies_this_week_1: 97
+  :num_engaged_companies_this_week_5: 2
+  :num_engaged_companies_this_week_10: 0
+tmp/recognize_production_20131106101039.sql:
+  :new_companies_this_week: 61
+  :new_users_this_week: 342
+  :new_recognitions_this_week: 273
+  :new_approvals_this_week: 78
+  :num_activated_companies_this_week: 38
+  :num_engaged_companies_this_week_1: 82
+  :num_engaged_companies_this_week_5: 3
+  :num_engaged_companies_this_week_10: 0
+tmp/recognize_production_20131113121228.sql:
+  :new_companies_this_week: 65
+  :new_users_this_week: 366
+  :new_recognitions_this_week: 607
+  :new_approvals_this_week: 336
+  :num_activated_companies_this_week: 34
+  :num_engaged_companies_this_week_1: 65
+  :num_engaged_companies_this_week_5: 5
+  :num_engaged_companies_this_week_10: 3
+tmp/recognize_production_20131117200833.sql:
+  :new_companies_this_week: 33
+  :new_users_this_week: 240
+  :new_recognitions_this_week: 459
+  :new_approvals_this_week: 253
+  :num_activated_companies_this_week: 19
+  :num_engaged_companies_this_week_1: 54
+  :num_engaged_companies_this_week_5: 3
+  :num_engaged_companies_this_week_10: 2
+tmp/recognize_production_20131203170532.sql:
+  :new_companies_this_week: 33
+  :new_users_this_week: 194
+  :new_recognitions_this_week: 152
+  :new_approvals_this_week: 55
+  :num_activated_companies_this_week: 22
+  :num_engaged_companies_this_week_1: 34
+  :num_engaged_companies_this_week_5: 1
+  :num_engaged_companies_this_week_10: 0
+tmp/recognize_production_20131210140201.sql:
+  :new_companies_this_week: 36
+  :new_users_this_week: 143
+  :new_recognitions_this_week: 125
+  :new_approvals_this_week: 32
+  :num_activated_companies_this_week: 22
+  :num_engaged_companies_this_week_1: 42
+  :num_engaged_companies_this_week_5: 0
+  :num_engaged_companies_this_week_10: 0
+tmp/recognize_production_20140224170504.sql:
+  :new_companies_this_week: 46
+  :new_users_this_week: 261
+  :new_recognitions_this_week: 180
+  :new_approvals_this_week: 46
+  :num_activated_companies_this_week: 27
+  :num_engaged_companies_this_week_1: 49
+  :num_engaged_companies_this_week_5: 2
+  :num_engaged_companies_this_week_10: 0
+tmp/recognize_production_20140318150310.sql:
+  :new_companies_this_week: 37
+  :new_users_this_week: 235
+  :new_recognitions_this_week: 251
+  :new_approvals_this_week: 86
+  :num_activated_companies_this_week: 23
+  :num_engaged_companies_this_week_1: 70
+  :num_engaged_companies_this_week_5: 3
+  :num_engaged_companies_this_week_10: 1
+tmp/recognize_production_20140325111116.sql:
+  :new_companies_this_week: 40
+  :new_users_this_week: 441
+  :new_recognitions_this_week: 344
+  :new_approvals_this_week: 179
+  :num_activated_companies_this_week: 23
+  :num_engaged_companies_this_week_1: 62
+  :num_engaged_companies_this_week_5: 4
+  :num_engaged_companies_this_week_10: 3
+tmp/recognize_production_20140401150304.sql:
+  :new_companies_this_week: 33
+  :new_users_this_week: 152
+  :new_recognitions_this_week: 226
+  :new_approvals_this_week: 153
+  :num_activated_companies_this_week: 16
+  :num_engaged_companies_this_week_1: 45
+  :num_engaged_companies_this_week_5: 3
+  :num_engaged_companies_this_week_10: 1
+tmp/recognize_production_20140401160411.sql:
+  :new_companies_this_week: 33
+  :new_users_this_week: 149
+  :new_recognitions_this_week: 224
+  :new_approvals_this_week: 155
+  :num_activated_companies_this_week: 16
+  :num_engaged_companies_this_week_1: 45
+  :num_engaged_companies_this_week_5: 3
+  :num_engaged_companies_this_week_10: 1
+tmp/recognize_production_20140415111102.sql:
+  :new_companies_this_week: 75
+  :new_users_this_week: 274
+  :new_recognitions_this_week: 375
+  :new_approvals_this_week: 236
+  :num_activated_companies_this_week: 26
+  :num_engaged_companies_this_week_1: 71
+  :num_engaged_companies_this_week_5: 5
+  :num_engaged_companies_this_week_10: 1
+tmp/recognize_production_20140429111104.sql:
+  :new_companies_this_week: 90
+  :new_users_this_week: 388
+  :new_recognitions_this_week: 363
+  :new_approvals_this_week: 101
+  :num_activated_companies_this_week: 36
+  :num_engaged_companies_this_week_1: 67
+  :num_engaged_companies_this_week_5: 6
+  :num_engaged_companies_this_week_10: 1
+tmp/recognize_production_20140513150305.sql:
+  :new_companies_this_week: 9
+  :new_users_this_week: 143
+  :new_recognitions_this_week: 153
+  :new_approvals_this_week: 128
+  :num_activated_companies_this_week: 6
+  :num_engaged_companies_this_week_1: 32
+  :num_engaged_companies_this_week_5: 2
+  :num_engaged_companies_this_week_10: 1
+tmp/recognize_production_20140521111105.sql:
+  :new_companies_this_week: 9
+  :new_users_this_week: 117
+  :new_recognitions_this_week: 220
+  :new_approvals_this_week: 176
+  :num_activated_companies_this_week: 9
+  :num_engaged_companies_this_week_1: 34
+  :num_engaged_companies_this_week_5: 3
+  :num_engaged_companies_this_week_10: 2
+tmp/recognize_production_20140603090925.sql:
+  :new_companies_this_week: 10
+  :new_users_this_week: 52
+  :new_recognitions_this_week: 981
+  :new_approvals_this_week: 643
+  :num_activated_companies_this_week: 4
+  :num_engaged_companies_this_week_1: 24
+  :num_engaged_companies_this_week_5: 3
+  :num_engaged_companies_this_week_10: 2
+tmp/recognize_production_20140603090927.sql:
+  :new_companies_this_week: 10
+  :new_users_this_week: 52
+  :new_recognitions_this_week: 977
+  :new_approvals_this_week: 643
+  :num_activated_companies_this_week: 4
+  :num_engaged_companies_this_week_1: 24
+  :num_engaged_companies_this_week_5: 3
+  :num_engaged_companies_this_week_10: 2
+tmp/backups/recognize_production_20131019020252.sql.gz:
+  :new_companies_this_week: 99
+  :new_users_this_week: 408
+  :new_recognitions_this_week: 333
+  :new_approvals_this_week: 70
+  :num_activated_companies_this_week: 59
+  :num_engaged_companies_this_week_1: 99
+  :num_engaged_companies_this_week_5: 1
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20131026020251.sql.gz:
+  :new_companies_this_week: 97
+  :new_users_this_week: 479
+  :new_recognitions_this_week: 390
+  :new_approvals_this_week: 116
+  :num_activated_companies_this_week: 48
+  :num_engaged_companies_this_week_1: 91
+  :num_engaged_companies_this_week_5: 4
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20131102020251.sql.gz:
+  :new_companies_this_week: 87
+  :new_users_this_week: 356
+  :new_recognitions_this_week: 307
+  :new_approvals_this_week: 80
+  :num_activated_companies_this_week: 54
+  :num_engaged_companies_this_week_1: 94
+  :num_engaged_companies_this_week_5: 2
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20131109020252.sql.gz:
+  :new_companies_this_week: 82
+  :new_users_this_week: 446
+  :new_recognitions_this_week: 421
+  :new_approvals_this_week: 173
+  :num_activated_companies_this_week: 46
+  :num_engaged_companies_this_week_1: 82
+  :num_engaged_companies_this_week_5: 5
+  :num_engaged_companies_this_week_10: 2
+tmp/backups/recognize_production_20131116020243.sql.gz:
+  :new_companies_this_week: 36
+  :new_users_this_week: 235
+  :new_recognitions_this_week: 437
+  :new_approvals_this_week: 260
+  :num_activated_companies_this_week: 20
+  :num_engaged_companies_this_week_1: 51
+  :num_engaged_companies_this_week_5: 3
+  :num_engaged_companies_this_week_10: 2
+tmp/backups/recognize_production_20131130020237.sql.gz:
+  :new_companies_this_week: 39
+  :new_users_this_week: 204
+  :new_recognitions_this_week: 176
+  :new_approvals_this_week: 41
+  :num_activated_companies_this_week: 24
+  :num_engaged_companies_this_week_1: 38
+  :num_engaged_companies_this_week_5: 1
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20131207020238.sql.gz:
+  :new_companies_this_week: 33
+  :new_users_this_week: 119
+  :new_recognitions_this_week: 117
+  :new_approvals_this_week: 42
+  :num_activated_companies_this_week: 18
+  :num_engaged_companies_this_week_1: 38
+  :num_engaged_companies_this_week_5: 0
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20131214020237.sql.gz:
+  :new_companies_this_week: 25
+  :new_users_this_week: 149
+  :new_recognitions_this_week: 121
+  :new_approvals_this_week: 31
+  :num_activated_companies_this_week: 15
+  :num_engaged_companies_this_week_1: 35
+  :num_engaged_companies_this_week_5: 1
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20131221020236.sql.gz:
+  :new_companies_this_week: 66
+  :new_users_this_week: 195
+  :new_recognitions_this_week: 219
+  :new_approvals_this_week: 64
+  :num_activated_companies_this_week: 28
+  :num_engaged_companies_this_week_1: 40
+  :num_engaged_companies_this_week_5: 1
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20131228020237.sql.gz:
+  :new_companies_this_week: 25
+  :new_users_this_week: 75
+  :new_recognitions_this_week: 66
+  :new_approvals_this_week: 21
+  :num_activated_companies_this_week: 8
+  :num_engaged_companies_this_week_1: 13
+  :num_engaged_companies_this_week_5: 1
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20140104020237.sql.gz:
+  :new_companies_this_week: 37
+  :new_users_this_week: 115
+  :new_recognitions_this_week: 68
+  :new_approvals_this_week: 31
+  :num_activated_companies_this_week: 12
+  :num_engaged_companies_this_week_1: 21
+  :num_engaged_companies_this_week_5: 0
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20140111020237.sql.gz:
+  :new_companies_this_week: 78
+  :new_users_this_week: 192
+  :new_recognitions_this_week: 176
+  :new_approvals_this_week: 23
+  :num_activated_companies_this_week: 37
+  :num_engaged_companies_this_week_1: 46
+  :num_engaged_companies_this_week_5: 0
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20140118020220.sql.gz:
+  :new_companies_this_week: 71
+  :new_users_this_week: 252
+  :new_recognitions_this_week: 154
+  :new_approvals_this_week: 23
+  :num_activated_companies_this_week: 36
+  :num_engaged_companies_this_week_1: 45
+  :num_engaged_companies_this_week_5: 0
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20140125020219.sql.gz:
+  :new_companies_this_week: 48
+  :new_users_this_week: 202
+  :new_recognitions_this_week: 146
+  :new_approvals_this_week: 49
+  :num_activated_companies_this_week: 26
+  :num_engaged_companies_this_week_1: 43
+  :num_engaged_companies_this_week_5: 0
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20140201020219.sql.gz:
+  :new_companies_this_week: 26
+  :new_users_this_week: 135
+  :new_recognitions_this_week: 101
+  :new_approvals_this_week: 11
+  :num_activated_companies_this_week: 11
+  :num_engaged_companies_this_week_1: 33
+  :num_engaged_companies_this_week_5: 0
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20140208020223.sql.gz:
+  :new_companies_this_week: 29
+  :new_users_this_week: 126
+  :new_recognitions_this_week: 99
+  :new_approvals_this_week: 27
+  :num_activated_companies_this_week: 16
+  :num_engaged_companies_this_week_1: 32
+  :num_engaged_companies_this_week_5: 0
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20140215020224.sql.gz:
+  :new_companies_this_week: 36
+  :new_users_this_week: 150
+  :new_recognitions_this_week: 145
+  :new_approvals_this_week: 30
+  :num_activated_companies_this_week: 17
+  :num_engaged_companies_this_week_1: 40
+  :num_engaged_companies_this_week_5: 0
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20140222020222.sql.gz:
+  :new_companies_this_week: 35
+  :new_users_this_week: 200
+  :new_recognitions_this_week: 143
+  :new_approvals_this_week: 34
+  :num_activated_companies_this_week: 21
+  :num_engaged_companies_this_week_1: 37
+  :num_engaged_companies_this_week_5: 1
+  :num_engaged_companies_this_week_10: 0
+tmp/backups/recognize_production_20140301020223.sql.gz:
+  :new_companies_this_week: 43
+  :new_users_this_week: 320
+  :new_recognitions_this_week: 222
+  :new_approvals_this_week: 110
+  :num_activated_companies_this_week: 29
+  :num_engaged_companies_this_week_1: 52
+  :num_engaged_companies_this_week_5: 2
+  :num_engaged_companies_this_week_10: 2
+tmp/backups/recognize_production_20140308020223.sql.gz:
+  :new_companies_this_week: 25
+  :new_users_this_week: 184
+  :new_recognitions_this_week: 228
+  :new_approvals_this_week: 79
+  :num_activated_companies_this_week: 18
+  :num_engaged_companies_this_week_1: 47
+  :num_engaged_companies_this_week_5: 2
+  :num_engaged_companies_this_week_10: 1
+tmp/backups/recognize_production_20140315020224.sql.gz:
+  :new_companies_this_week: 37
+  :new_users_this_week: 185
+  :new_recognitions_this_week: 229
+  :new_approvals_this_week: 66
+  :num_activated_companies_this_week: 19
+  :num_engaged_companies_this_week_1: 42
+  :num_engaged_companies_this_week_5: 2
+  :num_engaged_companies_this_week_10: 2
+tmp/backups/recognize_production_20140322020223.sql.gz:
+  :new_companies_this_week: 39
+  :new_users_this_week: 257
+  :new_recognitions_this_week: 300
+  :new_approvals_this_week: 164
+  :num_activated_companies_this_week: 25
+  :num_engaged_companies_this_week_1: 71
+  :num_engaged_companies_this_week_5: 3
+  :num_engaged_companies_this_week_10: 2
+tmp/backups/recognize_production_20140329020225.sql.gz:
+  :new_companies_this_week: 38
+  :new_users_this_week: 408
+  :new_recognitions_this_week: 282
+  :new_approvals_this_week: 100
+  :num_activated_companies_this_week: 21
+  :num_engaged_companies_this_week_1: 52
+  :num_engaged_companies_this_week_5: 3
+  :num_engaged_companies_this_week_10: 2
+tmp/backups/recognize_production_20140405020225.sql.gz:
+  :new_companies_this_week: 46
+  :new_users_this_week: 253
+  :new_recognitions_this_week: 343
+  :new_approvals_this_week: 178
+  :num_activated_companies_this_week: 15
+  :num_engaged_companies_this_week_1: 49
+  :num_engaged_companies_this_week_5: 6
+  :num_engaged_companies_this_week_10: 1
+tmp/backups/recognize_production_20140412020218.sql.gz:
+  :new_companies_this_week: 81
+  :new_users_this_week: 304
+  :new_recognitions_this_week: 423
+  :new_approvals_this_week: 212
+  :num_activated_companies_this_week: 28
+  :num_engaged_companies_this_week_1: 65
+  :num_engaged_companies_this_week_5: 4
+  :num_engaged_companies_this_week_10: 1
+tmp/backups/recognize_production_20140419020221.sql.gz:
+  :new_companies_this_week: 63
+  :new_users_this_week: 260
+  :new_recognitions_this_week: 316
+  :new_approvals_this_week: 164
+  :num_activated_companies_this_week: 24
+  :num_engaged_companies_this_week_1: 57
+  :num_engaged_companies_this_week_5: 3
+  :num_engaged_companies_this_week_10: 2
+tmp/backups/recognize_production_20140426020219.sql.gz:
+  :new_companies_this_week: 81
+  :new_users_this_week: 356
+  :new_recognitions_this_week: 313
+  :new_approvals_this_week: 106
+  :num_activated_companies_this_week: 38
+  :num_engaged_companies_this_week_1: 71
+  :num_engaged_companies_this_week_5: 5
+  :num_engaged_companies_this_week_10: 1
+tmp/backups/recognize_production_20140503020219.sql.gz:
+  :new_companies_this_week: 31
+  :new_users_this_week: 228
+  :new_recognitions_this_week: 250
+  :new_approvals_this_week: 111
+  :num_activated_companies_this_week: 11
+  :num_engaged_companies_this_week_1: 40
+  :num_engaged_companies_this_week_5: 3
+  :num_engaged_companies_this_week_10: 1
+tmp/backups/recognize_production_20140510020220.sql.gz:
+  :new_companies_this_week: 12
+  :new_users_this_week: 165
+  :new_recognitions_this_week: 157
+  :new_approvals_this_week: 121
+  :num_activated_companies_this_week: 8
+  :num_engaged_companies_this_week_1: 39
+  :num_engaged_companies_this_week_5: 2
+  :num_engaged_companies_this_week_10: 1
+tmp/backups/recognize_production_20140517020220.sql.gz:
+  :new_companies_this_week: 6
+  :new_users_this_week: 66
+  :new_recognitions_this_week: 125
+  :new_approvals_this_week: 63
+  :num_activated_companies_this_week: 6
+  :num_engaged_companies_this_week_1: 29
+  :num_engaged_companies_this_week_5: 2
+  :num_engaged_companies_this_week_10: 1
+tmp/backups/recognize_production_20140524020220.sql.gz:
+  :new_companies_this_week: 9
+  :new_users_this_week: 114
+  :new_recognitions_this_week: 518
+  :new_approvals_this_week: 852
+  :num_activated_companies_this_week: 6
+  :num_engaged_companies_this_week_1: 35
+  :num_engaged_companies_this_week_5: 5
+  :num_engaged_companies_this_week_10: 2
+tmp/backups/recognize_production_20140531020221.sql.gz:
+  :new_companies_this_week: 12
+  :new_users_this_week: 46
+  :new_recognitions_this_week: 444
+  :new_approvals_this_week: 309
+  :num_activated_companies_this_week: 4
+  :num_engaged_companies_this_week_1: 24
+  :num_engaged_companies_this_week_5: 3
+  :num_engaged_companies_this_week_10: 2
+tmp/backups/recognize_production_20140607020221.sql.gz:
+  :new_companies_this_week: 7
+  :new_users_this_week: 66
+  :new_recognitions_this_week: 1011
+  :new_approvals_this_week: 540
+  :num_activated_companies_this_week: 2
+  :num_engaged_companies_this_week_1: 20
+  :num_engaged_companies_this_week_5: 3
+  :num_engaged_companies_this_week_10: 2

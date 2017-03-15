@@ -1,0 +1,71 @@
+<%= content_for :title, t('dict.why')%>
+
+<section id="intro" class="animate-hidden animate-1 animate" data-no-turbolink="true">
+  <div class="inner">
+    <h1 class="balance-text"><%= t('home_why.title') %></h1>
+    <p class="tagline balance-text"><%= t('home_why.tag') %></p>
+  </div>
+  <%= render partial: "home/patterns/purple_dark.svg" %>
+</section>
+
+<div id="points"  class="animate-hidden animate-2 animate">
+
+  <section id="point1-wrapper" class="clearfix">
+    <div class="inner clearfix">
+      <div class="content">
+        <h2 class="balance-text"><%= t('home_why.values') %></h2>
+        <p class="balance-text"><%= t('home_why.promote_values') %></p>
+        <p><%= link_to "See Recognize customizations", customizations_path %></p>
+      </div>
+      <div class="image"><span class="offscreen"><%= t('home_why.badges_like_brilliant_and_innovative_inspire_employees') %></span></div>
+    </div>
+  </section>
+
+  <section id="point2-wrapper" class="clearfix">
+    <div class="inner clearfix">
+      <div class="image"><span class="offscreen"></span></div>
+      <div class="content">
+        <h2 class="balance-text"><%= t('home_why.warmth') %></h2>
+        <p class="balance-text"><%= t('home_why.its_no_secret_happy_employees_stick_around_lo') %></p>
+        <p><%= link_to "See the Yammer Integration", extension_path %></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="point3-wrapper"class="clearfix">
+    <div class="inner clearfix">
+      <div class="content">
+        <h2 class="balance-text"><%= t('home_why.increase_productivity') %></h2>
+        <p class="balance-text"><%= t('home_why.research_shows_that_people_who_receive_positiv') %></p>
+        <p><a target="_blank" href="/recognize-starter-kit.pdf">Review the Starter Kit</a> (PDF) for more information.</p>
+      </div>
+      <div class="image"><span class="offscreen"></span></div>
+      
+    </div>
+  </section>
+
+  <section id="point4-wrapper" class="clearfix">
+    <div class="inner clearfix">
+      <div class="image"><span class="offscreen"></span></div>
+      
+      <div class="content">
+        <h2 class="balance-text"><%= t('home_why.innovate_more') %></h2>
+        <p class="balance-text"><%= t('home_why.the_most_innovative_companies_in_the_world_are') %></p>
+        <p><%= link_to "See Recognize Analytics", analytics_path %></p>
+      </div>
+      
+    </div>
+  </section>
+
+</div>
+
+<section id="action">
+  <div class="inner clearfix">  
+    <div class="content">
+      <%= render partial: "/home/bottom" %>
+    </div>
+  </div>
+</section>
+
+
+<%= render :partial => 'footer' %>

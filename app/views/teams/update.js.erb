@@ -1,0 +1,6 @@
+(function(){
+  var $team_wrapper = $("#<%= dom_id(@team)%>");
+  var $control = $team_wrapper.find(".team-name");
+  $control.html('<%= @team.name%>');
+  $('#<%= dom_id(@team)+"_edit_btn"%>').show();
+})();

@@ -1,0 +1,35 @@
+<div id="account-chooser-wrapper" class="slideable current">
+  <div class="outer">
+    <div class="well well-shadow">
+      <h1>Select your organization</h1>
+      <ul>
+      <% @accounts.each do |account| %>
+        <li class="marginBottom10">
+          <%= link_to account.company.name, account_chooser_path(network: account.network, email: account.email), remote: true, method: :put, class: "button button-grande block slideable-trigger", data: {from: "#account-chooser-wrapper", to: "#please-wait-wrapper", allowLink: true} %>
+        </li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="please-wait-wrapper" class="slideable">
+  <div class="outer">
+    <div class="well well-shadow centered">
+      <%= image_tag "icons/ajax-loader-medium.gif", alt: "Loading icon" %> 
+      <h4>Hang tight...</h4>
+      <p>We are sending you to your organization's login page.</p>
+    </div>
+  </div>
+</div>
+
+<div id="password-wrapper" class="slideable">
+  <div class="outer">
+    <div class="well well-shadow">
+      <a href="javascript://" data-from="#password-wrapper" data-to="#account-chooser-wrapper" class="slideable-trigger marginBottom20 block" data-direction="reverse">Back</a>
+
+      <h3>Enter password</h3>
+      <%= render partial: "user_sessions/login", locals: {send_remote: true, show_network: true} %>
+    </div>
+  </div>
+</div>

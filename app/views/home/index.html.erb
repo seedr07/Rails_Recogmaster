@@ -1,0 +1,244 @@
+<%= content_for :title, Recognize::Application::SKIP_CONTENT_FOR %>
+
+<%= content_for :pagejs do %>
+  <script type="text/javascript">
+    if(window.location.hash.indexOf('access_token') >= 0) { window.location = '/auth/yammer';}
+  </script>
+<% end %>
+
+<div class="exp-wrapper-outer">
+  <div class="exp-wrapper">
+
+    <section class="exp-main clearfix home-padding data-no-turbolink="true">
+      <div class="inner">
+        <div class="exp-top">
+          <div class="content">
+            <h2>Engaged Companies Use Recognize</h2>
+            <p class="tagline balance-text">Social employee recognition and flexible staff rewards.</p>
+          </div>
+
+          <div class="centered marginBottom40" data-no-turbolink="true">
+            <%= link_to "Sign up", sign_up_path, id: "home-sign-up-top-action", class: "button marginBottom10 button-large button-highlight" %>
+            <%= link_to "Request a demo", contact_sales_path, id: "request-demo-top-action", class: "button marginBottom10 button-large button-border" %>
+          </div>
+
+          <div class="centered">
+            <div id="youtube-video" data-id="2eYHSBUSkcA"></div>
+            <%= render partial: "layouts/youtube_load" %>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="testimonial-wrapper home-padding">
+      <div class="centered">
+        <h2 class="balance-text">What people are solving with Recognize's employee recognition strategy</h2>
+      </div>
+      <ul class="testimonials clearfix">
+        <li>
+          <h3 class="balance-text">Run successful customer service campaigns</h3>
+          <%= testimonial_html(4) %>
+        </li>
+        <li>
+          <h3 class="balance-text">Automate employee recognition</h3>
+          <%= testimonial_html(1) %>
+        </li>
+        <li>
+          <h3 class="balance-text">Increasing Yammer usage through gamification</h3>
+          <%= testimonial_html(10) %>
+        </li>
+        <li>
+          <h3 class="balance-text">Focus staff behind company values</h3>
+          <%= testimonial_html(7) %>
+        </li>
+      </ul>
+    </section>
+
+    <section class="home-padding value-props-wrapper">
+      <div class="inner">
+        <div class="centered">
+          <h2>Why add social employee recognition &amp; awards to your company</h2>
+        </div>
+        <%= render partial: "welcome/value_props" %>
+      </div>
+    </section>
+
+
+    <section class="exp-buckets home-padding dark">
+      <div class="inner">
+        <div class="bucket-row clearfix">
+          <div class="bucket">
+            <div class="exp-feature-card">
+              <div class="exp-feature-title">
+                <span class="rewards-icon"></span>
+                <h3>Employee rewards</h3>
+              </div>
+              <p class="subtext">We offer many types of rewards. Staff can redeem with points at no additional cost. We recommend experiential employee rewards, such as a parking spot, a conference, a half day off, rental of a fancy car, or a pizza party with their team. When employee rewards really show the company cares, you will retain and engage staff.</p>
+              <p class="subtext"><%= link_to "Learn more", rewards_path %></p>
+            </div>
+          </div>
+          <div class="bucket" data-no-turbolink='true'>
+            <div class="exp-feature-card">
+              <div class="exp-feature-title">
+                <%= image_tag "pages/home-index/exp/ios7-people.png", class: "icon", alt: "People icon" %>
+                <h3>Manager &amp; peer-to-peer employee recognition</h3>
+              </div>
+              <p class="subtext">Recognize made it easy to send and receive official positive feedback for both managers and peers. Create recognition badges only certain people, such as managers or executives, can send to staff. Managers and peers can send employee recognition from the Recognize Chrome extension, Yammer, email, Sharepoint, mobile, Slack, and on any web browser.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bucket-row clearfix">
+          <div class="bucket">
+            <div class="exp-feature-card">
+              <div class="exp-feature-title">
+                <span class="o365-icon"></span>
+                <h3>Yammer + Sharepoint for staff recognition and awards</h3>
+              </div>
+              <p class="subtext">Recognize is the R&amp;R program for Office 365. You can use the entire Recognize platform inside Sharepoint or inside Yammer. Use Recognize's employee engagement strategy within your workflow.</p>
+              <p class="subtext"><%= link_to "Learn more", office365_path %></p>
+            </div>
+          </div>
+          <div class="bucket" data-no-turbolink='true'>
+            <div class="exp-feature-card">
+              <div class="exp-feature-title">
+                <%= image_tag "pages/home-index/exp/key.png", class: "icon", alt: "key icon" %>
+                <h3>Office 365 sign in to Recognize</h3>
+              </div>
+              <p class="subtext">If your company has Office 365 accounts for your staff, they can login to Recognize automatically. This is true for Office 365, Yammer, Google Apps, and Slack.</p>
+              <p class="subtext"><%= link_to "Sign in with Office 365", office365_path %></p>
+            </div>
+          </div>
+
+        </div>
+        <div class="bucket-row clearfix">
+          <div class="bucket" data-no-turbolink='true'>
+            <div class="exp-feature-card">
+              <div class="exp-feature-title">
+                <%= image_tag "pages/home-index/exp/slack.png", class: "icon", alt: "Slack icon" %>
+                <h3>Employee recognition for Slack</h3>
+              </div>
+              <p class="subtext">Staff can send and receive official employee recognition from Slack. Users do not need to login to start using it. Just have the admin install it as an bot for your company's Slack account. </p>
+            </div>
+          </div>
+          <div class="bucket" data-no-turbolink='true'>
+            <div class="exp-feature-card">
+              <div class="exp-feature-title">
+                <%= image_tag "pages/home-index/exp/navigate.png", class: "icon", alt: "navigate icon" %>
+                <h3>Employee engagement strategy</h3>
+              </div>
+              <p class="subtext">Build stronger, happier staff through monthly check-in meetings with Recognize team members. When you sign up for Recognize you not only get the social employee recognition platform, as well as world-class strategy on a monthly basis.</p>
+              <p class="subtext"><%= link_to "Best Practices Handbook", "/best-practices-handbook.pdf" %></p>
+            </div>
+          </div>
+        </div>
+        <div class="bucket-row clearfix">
+          <div class="bucket">
+            <div class="exp-feature-card">
+              <div class="exp-feature-title">
+                <span class="settings-icon"></span>
+                <h3>Customize employee recognition badges &amp; points</h3>
+              </div>
+              <p class="subtext">Create a personalized gamification strategy with <strong>badges, leaderboards, points</strong>, and more. You can use one of 30 well-designed badges and change the characteristics of those employee recognition badges. You can also <strong>upload your own badges</strong> in just a couple of clicks. You can change the points associated with a badge or choose who can send a badge.</p>
+              <p class="subtext"><%= link_to "Learn more", customizations_path %></p>
+            </div>
+          </div>
+          <div class="bucket" data-no-turbolink='true'>
+            <div class="exp-feature-card">
+              <div class="exp-feature-title">
+                <%= image_tag "pages/home-index/exp/ios7-contact.png", class: "icon", alt: "Person icon" %>
+                <h3>Employee recognition user management</h3>
+              </div>
+              <p class="subtext">Recognize supports the popular ActiveDirectory, or LDAP, single sign on for your staff. This is the way to manage users in your company. Recognize can import user spreadsheet, Yammer user data, Slack user data, and Office 365 user data.</p>
+            </div>
+          </div>
+        </div>
+        <div class="bucket-row clearfix">
+          <div class="bucket" data-no-turbolink='true'>
+            <div class="exp-feature-card">
+              <div class="exp-feature-title">
+                <%= image_tag "pages/home-index/exp/podium.png", class: "icon", alt: "Podium icon" %>
+                <h3>Staff leaderboards</h3>
+              </div>
+              <p class="subtext">Customize the leaderboards to focus on the user, teams, or overall throughout your company. The staff leaderboards include filtering by badge or by time.</p>
+              <p class="subtext"><%= link_to "View the Recognize engagement", engagement_path %></p>
+            </div>
+          </div>
+          <div class="bucket" data-no-turbolink='true'>
+            <div class="exp-feature-card">
+              <div class="exp-feature-title">
+                <%= image_tag "pages/home-index/exp/university.png", class: "icon", alt: "Graduating hat icon" %>
+                <h3>Employee award certificates</h3>
+              </div>
+              <p class="subtext">When a recognition is created, you can print off an employee award certificate that represents that recognition. Certificates can be customized.</p>
+              <p class="subtext"><%= link_to "Learn more about employee awards", awards_path %></p>
+            </div>
+          </div>
+        </div>
+        <div class="bucket-row clearfix">
+          <div class="bucket" data-no-turbolink='true'>
+            <div class="exp-feature-card">
+              <div class="exp-feature-title">
+                <%= image_tag "pages/home-index/exp/iphone.png", class: "icon", alt: "iPhone icon" %>
+                <h3>Employee recognition mobile apps</h3>
+              </div>
+              <p class="subtext">Recognize provides mobile-ready employee recognition. Staff and recognition admins can login to the mobile website or soon Android, Windows Phone, and iPhone employee recognition apps.</p>
+            </div>
+          </div>
+          <div class="bucket" data-no-turbolink='true'>
+            <div class="exp-feature-card">
+              <div class="exp-feature-title">
+                <%= image_tag "pages/home-index/exp/ios7-chatbubble.png", class: "icon", alt: "chat bubble icon" %>
+                <h3>Text message employee recognition</h3>
+              </div>
+              <p class="subtext">Staff can receive recognition through SMS text message. We help companies set up text message recognition for your entire staff. Your employees won't need to be an existing users.</p>
+            </div>
+          </div>
+        </div>
+        <div class="bucket-row clearfix">
+          <div class="bucket" data-no-turbolink='true'>
+            <div class="exp-feature-card">
+              <div class="exp-feature-title">
+                <%= image_tag "pages/home-index/exp/trophy.png", class: "icon", alt: "Trophy icon" %>
+                <h3>Hall of Fame</h3>
+              </div>
+              <p class="subtext">Only Recognize offers a visual representation of the top employees across badge or team. View top employees in any time dimension. Companies signed up for Recognize can enable this feature in their admin settings.</p>
+            </div>
+          </div>
+          <div class="bucket" data-no-turbolink='true'>
+            <div class="exp-feature-card">
+              <div class="exp-feature-title">
+                <%= image_tag "chrome/logo-mark-ios.png", class: "icon", alt: "Recognize icon" %>
+                <h3><strong>Request a demo or sign up for free</strong><p>Learn more about the Recognize's employee engagement.</p></h3>
+              </div>
+              <p class="subtext">
+                <%= link_to "Request a demo", contact_sales_path, class: "button button-highlight" %>
+                <%= link_to "Sign up", sign_up_path, class: "button" %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="movement">
+      <div class="centered">
+        <h2>Join the Recognition Movement</h2>
+      </div>
+
+      <div class="clearfix">
+        <%= image_tag "pages/home-index/exp/movement.png", alt: "people and badges" %>
+
+        <div class="content">
+          <p class="tagline">Join the 20,000 people who stand for positivity and company culture. People drive your company. Do what you believe is the right thing for them.</p>
+          <%= link_to "Join Now", sign_up_path, class: "button button-highlight" %>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+</div>
+
+<%= render :partial => 'footer' %>

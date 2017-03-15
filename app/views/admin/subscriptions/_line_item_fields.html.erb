@@ -1,0 +1,15 @@
+<fieldset>
+  <div class="row-fluid">
+    <div class="span2">
+      <%= form.label :amount, "Amount " %><br/>
+      <%= form.text_field :amount %><br/>
+    </div>
+    <div class="span7">
+      <%= form.label :description, "Description " %><br/>
+      <%= form.text_field :description %><br/>
+    </div>
+    <div class="span3">
+      <%= form.hidden_field :_destroy %>
+      <%= link_to "Remove", 'javascript://', class: "remove_fields", style: "position:relative;top: 49px" %>
+    </div>
+</fieldset>

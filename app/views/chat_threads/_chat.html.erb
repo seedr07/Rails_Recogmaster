@@ -1,0 +1,33 @@
+<div id="chat-chat" class="chat-chat chat-chat-none">
+  <span class="chat-chat-close">&times;</span>
+
+  <div class="chat-chat-thread"></div>
+
+  <%= form_for @chat_thread.new_message, html: {class: "chat-chat-form clearfix form-loading-ignore"}, data: {remote: "true"} do |f| %>
+    <%= f.fields_for :chat_thread do |chat_thread| %>
+      <%= chat_thread.hidden_field :first_message, id: "chat_thread_first_message_field" %>
+      <%= chat_thread.hidden_field :id, id: "chat_thread_id" %>
+    <% end %>
+
+    <%= f.text_area :body, placeholder: "Write a reply here" %>
+    <%= f.submit "Send", class: "chat-chat-submit" %>
+  <% end %>
+
+</div>
+
+<script id="chat-chat-thread-template" type="text/x-handlebars-template">
+  <div class="chat-chat-thread-item {{#if you}}chat-chat-thread-you{{/if}}">
+    {{#avatar}}
+      <img src="{{.}}" alt="{{name}}" class="chat-chat-avatar">
+    {{/avatar}}
+    {{#if you}}
+      <div class="chat-chat-avatar">YOU</div>
+    {{/if}}
+    <p>{{body}}</p>
+  </div>
+</script>
+
+<script type="text/javascript">
+  window.chatChat.loader.counter = 0;
+  window.chatChat.loader();
+</script>

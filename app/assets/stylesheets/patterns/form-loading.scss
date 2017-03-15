@@ -1,0 +1,11 @@
+html body .form-loading-button:not(.form-loading-ignore) {
+  position: relative;
+  color: white !important;
+  background: gray !important;
+  pointer-events: none;
+}
+
+html body a.form-loading-button:not(.form-loading-ignore) {
+  color: gray !important;
+  background: transparent !important;
+}

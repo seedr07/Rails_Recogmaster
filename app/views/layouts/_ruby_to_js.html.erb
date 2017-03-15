@@ -1,0 +1,16 @@
+<script type="text/javascript" charset="utf-8">
+  window.R = window.R || {};
+  window.R.domain = "<%= @current_user ? @current_user.company.domain : "" %>";
+  
+  <% if current_user %>
+  if (window.mixpanel) {
+    mixpanel.people.set({
+      "$email": $body.data("email"),
+      "$last_login": new Date(),
+      "points_total": <%= current_user.total_points %>,
+      "name": "<%= current_user.full_name %>",
+      "company": "<%= current_user.company.domain %>"
+    });
+  }
+  <% end %>
+</script>

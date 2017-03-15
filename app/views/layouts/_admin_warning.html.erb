@@ -1,0 +1,21 @@
+<% if current_user and ((current_user.admin? and (params[:network].present? and (params[:network] != "uploads" ))))%>
+  <% if Delayed::Job.count > 20000 %> 
+    <div style="background-color:#ccc;padding:10px;margin-bottom:10px;border:1px dotted #ccc">
+      <p>Delayed Queue has exceeded 20k.</p>
+      <p>Please visit <%= link_to "Admin Background Task page", admin_queue_path %></p>
+    </div>
+
+  <% end %>
+<% end %>
+
+<% if current_user and ((current_user.admin? and (params[:network].present? and (params[:network] != "uploads" )and params[:network] != current_user.network)) or current_user.acting_as_superuser)%>
+<div style="background-color:#ccc;padding:10px;margin-bottom:10px;border:1px dotted #ccc">
+  <h3>Hey admin! You are now viewing <%= params[:controller]+"#"+params[:action]%> for <%= Company.where(domain: params[:network]).first.try(:name)%></h3>
+<% if current_user.acting_as_superuser %>
+  <h4>With great power, comes great responsibility: Be careful! <%= link_to "Go Back to Safety!", admin_login_as_path(id: current_user.acting_as_superuser)%></h4>
+<% else %>
+  <h4>With great power, comes great responsibility: Be careful! <%= link_to "Go Back to Safety!", admin_path%></h4>
+<% end %>
+</div>
+<% end%>
+

@@ -1,0 +1,46 @@
+
+<% unless current_user.has_read_feature?("v5.0") %>
+  <div id="introducing-outer">
+    <div id="introducing-new-feature">    
+      <h3>#BestRecognition2014 Charity Contest</h3>
+      <p>Tag recognitions with #BestRecognition2014 and win up to $500 for a charity of your choice.</p>
+      <a href="/best-recognition-contest-2014" class="button button-highlight">Learn more about #BestRecognition2014</a>
+    </div>
+    <a id="close-introducing-message" href="#" class="close-icon">Close</a>
+  </div>
+
+
+  <script type="text/javascript" charset="utf-8">
+  (function() {
+    var isReady = false;
+    var timer = 0;
+  
+    function ready() {
+      if (typeof $ !== "undefined") {
+        isReady = true;
+        $body.on("click", "#close-introducing-message", function() {
+          $("#introducing-outer").fadeOut(function() {
+            $(this).remove();
+          });
+
+          $.ajax({
+            type: "put",
+            url: '<%= has_read_new_feature_user_path(current_user)%>',
+            data: {'feature' : 'v5.0'}
+          });
+        }); 
+      }
+    }
+  
+    timer = setTimeout(function() {
+      if (!isReady) {
+        ready();
+      } else {
+        clearTimeout(timer);
+      }
+    }, 500);
+  })();
+  
+  </script>
+
+<% end %>

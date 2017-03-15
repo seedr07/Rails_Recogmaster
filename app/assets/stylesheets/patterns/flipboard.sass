@@ -1,0 +1,72 @@
+@mixin no-select
+  -webkit-touch-callout: none
+  -webkit-user-select: none
+  -khtml-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+
+
+.flipboard
+  display: inline-block
+  text-align: center
+  margin-right: 7px
+
+  .flipboard-hr
+    position: relative
+    height: 0
+    border-top: 1px solid #3b3e43
+    border-bottom: 1px solid rgba(90, 96, 107, 0.8)
+    top: -25px
+    width: 100%
+
+  dl
+    display: block
+
+  dt
+    color: #000000
+    display: block
+
+  dd
+    font-size: 24px
+    margin: 0
+    @include latoFontFamily()
+    color: #dbdee9
+    border-radius: 5px
+    padding: 4px 4px 2px 4px
+    background: #fff
+    box-shadow: 0 1px 0 1px rgba(0,0,0,.3)
+    font-weight: 400
+    position: relative
+    margin-bottom: 5px
+    display: inline-block
+
+    .number
+      border: 1px solid #333333
+      border-radius: 3px
+      display: none
+
+      span
+        border-top: #5b6173
+        border-right: 2px solid #5a5f68
+        padding: 7px 8px 10px
+        display: inline-block
+        @include linear-gradient(top, #505660 0%, #484e58 50%, #535963 51%, #505661 100%)
+        @include no-select
+
+      span:last-child
+        border-right: 0
+
+    .number:first-child
+      display: block
+
+
+  dt, dd
+    text-shadow: 0 1px 0 #fff
+
+.pointer
+  .number
+    cursor: pointer
+  .show
+    cursor: pointer
+

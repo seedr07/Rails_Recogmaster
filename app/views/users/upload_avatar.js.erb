@@ -1,0 +1,15 @@
+(function(){
+  <% if @user.errors.count > 0 %>
+    $("#avatar-control .file-attach-progress .message").html(
+      "<%= j @user.errors.full_messages.join(', ').html_safe %>"
+    );
+
+  <% else %>
+    
+    $('#avatar-control .file-attach-progress .message').hide();
+    $("#avatar-wrapper").html( $("<img src="+'<%= @user.avatar.url%>'+">") );
+    /*$("#header-profile-wrapper img").prop('src', '<%= @user.avatar.small_thumb%>');*/
+  <% end %>
+
+
+})();

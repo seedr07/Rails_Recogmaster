@@ -1,0 +1,36 @@
+<div style="text-align: center;">
+  <h2 style="<%= mail_styles(:text, :h2) %>">Achievement Progress</h2>
+</div>
+
+<table id="recognize-achievement-table">
+  <tr>
+    <td style="width: 18%; padding-right: 2%; vertical-align: top; text-align: center;">
+      <h3 style="<%= mail_styles(:text, :h3) %> ">Your achievement count</h3>
+      <div style="<%= mail_styles(:text) %> padding: 10px; margin: 0 10px 10px 0; border: 1px solid #d9dadd; background: #fff; border-radius: 8px; display: inline-block;font-size: 65px;font-weight: 100;">
+        <%= @user_achievement_recognitions.size %>
+      </div>
+    </td>
+    <td style="width: 45%; vertical-align: top; padding-right: 3%;" id="recognize-your-achievements">
+      <h3 style="<%= mail_styles(:text, :h3) %>">Your achievements</h3>
+
+      <% @user_achievement_recognitions.each do |achievement| %>
+        <%= link_to achievement.permalink, style: "float: left; padding: 0 15px 0 0; text-align: center; #{mail_styles(:text, :a)}" do %>
+          <%= image_tag achievement.badge.permalink(size: 100), alt: achievement.badge.short_name, style: "margin-bottom: 7px; width: 50px;" %>
+          <p style="margin: 0 0 20px 0; <%= mail_styles(:text, :a) %>"><%= achievement.badge.short_name %></p>
+        <% end %>
+        </div>
+      <% end %>
+    </td>
+    <td style="width: 35%; vertical-align: top;" id="recognize-all-achievements">
+        <h3 style="<%= mail_styles(:text, :h3) %>">All achievements</h3>
+        <% @achievement_badges.each do |badge| %>
+          <%= link_to company_badges_path(network: @user.network, anchor: badge.short_name), style: "float: left; padding: 0 15px 0 0; text-align: center;  #{mail_styles(:text, :a)}" do %>
+            <%= image_tag badge.permalink(size: 50), alt: badge.short_name, style: "margin-bottom: 7px; width: 50px;" %>
+            <p style="margin: 0 0 20px 0; <%= mail_styles(:text, :a) %>"><%= badge.short_name %></p>
+          <% end %>
+        <% end %>
+
+        <%= mail_styles(:clear) %>
+      </td>
+  </tr>
+</table>

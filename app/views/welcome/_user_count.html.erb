@@ -1,0 +1,14 @@
+<div class="top flex-centered">
+  <div>
+    <h2>How many users do you have?</h2>
+    <p class="lead balance-text">Recognize is <strong>$2/user/month</strong>. <a href="javascript://" class="slideable-trigger" data-from="#user-count" data-to="#start" data-direction="reverse">Why Recognize</a></p>
+
+    <%= form_tag save_user_count_path, id: "user-count-form", method: :put, remote: true  do%>
+      <input name="user_count" type="number" id="user_count" class="form-control" placeholder="1000">
+      <button id="user_count_submit" class="form-control button button-primary button-large">Next</button>
+    <% end %>
+  </div>
+</div>
+<div class="testimonial">
+  <%= testimonial_html(3) %>
+</div>
